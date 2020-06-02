@@ -61,13 +61,28 @@ class FirstViewController: UIViewController {
             UserItemObject().then { $0.id = 2; $0.name = "bowl" },
         ])
 
-        let  userkey = userObject[keyPath: userObject.primaryKeyPath()]
+        let  userkey = userObject[keyPath: userObject.primaryKeyPath]
 
-      let users = [userObject]
+        let users = [userObject]
+       
+        do {
 
-       let aaa =  users.map { $0[keyPath: $0.primaryKeyPath() ] }
-       print("infolog:\(#line) \(type(of: self))  \(#function) : \(aaa) ")
-       print("infolog:\(#line) \(type(of: self))  \(#function) : -------------------------------- ")
+            let storeService = StoreService()
+            let predicate = NSPredicate(format: "%K IN %@", #keyPath(UserObject.id), [56])
+            let user = try storeService.fetch(UserObject.self, predicate: predicate)
+            print(user)
+            print("---------------")
+
+            
+        } catch {
+            
+        }
+        
+        
+        let aaa =  users.map { $0[keyPath: $0.primaryKeyPath ] }
+        print("infolog:\(#line) \(type(of: self))  \(#function) : \(aaa) ")
+        print("infolog:\(#line) \(type(of: self))  \(#function) : -------------------------------- ")
+        
         do {
             
             let storeService = StoreService()

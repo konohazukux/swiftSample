@@ -10,11 +10,11 @@ import Foundation
 import RealmSwift
 
 
-protocol Keypathable {
-    associatedtype ItemType
+protocol CascadeUpdatable {
+    associatedtype KeyType
     associatedtype ObjectType: Object
-    func primaryKeyPath() -> ReferenceWritableKeyPath<ObjectType, ItemType>
-    func primaryKeys() -> ItemType
+    var primaryKeyPath: ReferenceWritableKeyPath<ObjectType, KeyType> { get }
+    var primaryKey: KeyType { get }
 }
 
 
@@ -30,18 +30,20 @@ final class UserObject: Object {
     }
 }
 
-extension UserObject: Keypathable {
-    typealias ItemType = Int
+extension UserObject: CascadeUpdatable {
+    typealias KeyType = Int
     typealias ObjectType = UserObject
 
-    func primaryKeyPath() -> ReferenceWritableKeyPath<UserObject, Int> {
-        return \UserObject.id
+    var primaryKeyPath: ReferenceWritableKeyPath<UserObject, Int> {
+        get { return \UserObject.id }
     }
     
-    func primaryKeys() -> Int {
-        return  self[keyPath: self.primaryKeyPath()]
+    var primaryKey: Int {
+        get { return  self[keyPath: self.primaryKeyPath] }
     }
+    
 
+    
 }
 
 

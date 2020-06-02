@@ -9,6 +9,9 @@
 import RealmSwift
 import Realm
 
+// Gist  verebes1/RealmCascadeDeletion.swift
+// https://gist.github.com/verebes1/02950e46fff91456f2ad359b3f3ec3d9
+
 protocol CascadeDeleting {
     func delete<S: Sequence>(_ objects: S, cascading: Bool) where S.Iterator.Element: Object
     func delete<Entity: Object>(_ entity: Entity, cascading: Bool)
