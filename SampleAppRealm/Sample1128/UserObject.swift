@@ -10,14 +10,6 @@ import Foundation
 import RealmSwift
 
 
-protocol CascadeUpdatable {
-    associatedtype KeyType
-    associatedtype ObjectType: Object
-    var primaryKeyPath: ReferenceWritableKeyPath<ObjectType, KeyType> { get }
-    var primaryKey: KeyType { get }
-}
-
-
 final class UserObject: Object {
 
     @objc dynamic var id: Int = 0
@@ -28,22 +20,6 @@ final class UserObject: Object {
     override static func primaryKey() -> String? {
         return #keyPath(id)
     }
-}
-
-extension UserObject: CascadeUpdatable {
-    typealias KeyType = Int
-    typealias ObjectType = UserObject
-
-    var primaryKeyPath: ReferenceWritableKeyPath<UserObject, Int> {
-        get { return \UserObject.id }
-    }
-    
-    var primaryKey: Int {
-        get { return  self[keyPath: self.primaryKeyPath] }
-    }
-    
-
-    
 }
 
 
