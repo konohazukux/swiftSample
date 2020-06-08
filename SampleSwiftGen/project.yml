@@ -2,7 +2,7 @@ name: Sample1128
 options:
   bundleIdPrefix: jp.donovan.Sample1128
 targets:
-  SampleApp:
+  Sample1128:
     type: application
     platform: iOS
     deploymentTarget: "12.0"
