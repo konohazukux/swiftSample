@@ -1,4 +1,4 @@
-name: NSApp
+name: Sample1128
 options:
   bundleIdPrefix: jp.donovan.Sample1128
 targets:
@@ -7,7 +7,7 @@ targets:
     platform: iOS
     deploymentTarget: "12.0"
     sources: 
-      - path: NSApp
+      - path: Sample1128
     settings:
       configs:
         debug:
