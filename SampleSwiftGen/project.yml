@@ -1,6 +1,6 @@
 name: NSApp
 options:
-  bundleIdPrefix: jp.neurospace.leeJet.dev
+  bundleIdPrefix: jp.donovan.Sample1128
 targets:
   SampleApp:
     type: application
