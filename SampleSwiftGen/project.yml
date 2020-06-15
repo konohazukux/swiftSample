@@ -1,6 +1,6 @@
 name: Sample1128
 options:
-  bundleIdPrefix: jp.donovan.Sample1128
+  bundleIdPrefix: jp.donovan
 targets:
   Sample1128:
     type: application
@@ -9,11 +9,16 @@ targets:
     sources: 
       - path: Sample1128
     settings:
+      
       configs:
         debug:
+          IPHONEOS_DEPLOYMENT_TARGET: 10.
           CUSTOM_BUILD_SETTING: my_debug_value
         release:
-          CUSTOM_BUILD_SETTING: my_release_value
+          IPHONEOS_DEPLOYMENT_TARGET: 10.0
+          CUSTOM_BUILD_SETTING: my_release_value        
       SWIFT_VERSION: 5.0
     dependencies:
-      - carthage: RxSwift　
+      - carthage: RxSwift
+
+
