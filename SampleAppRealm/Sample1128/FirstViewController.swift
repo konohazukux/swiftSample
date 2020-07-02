@@ -20,7 +20,21 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.init(red: 0.9, green: 1, blue: 1, alpha: 1)
+        
+        test()
 
+    }
+    
+    
+    func test() {
+      
+        let request =
+            TestRequest.init(snakeCaseParameters: .init(test: ""))
+        
+        
+        request.test()
+
+        
     }
 
 

@@ -8,7 +8,9 @@
 
 import Foundation
 
-class Onigiri {
-    
+public protocol Request2 {
+    var path: String { get }
+    func test()
 }
+
 
