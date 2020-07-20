@@ -30,21 +30,10 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="TP6-tN-Udt"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Pu-f5-c6d">
-                                <rect key="frame" x="48" y="174" width="161" height="68"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="161" id="CTc-1I-MAo"/>
-                                    <constraint firstAttribute="height" constant="68" id="Zha-sf-lKN"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ug6-6e-9Rs" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="8fw-qb-3hy"/>
-                            <constraint firstItem="0Pu-f5-c6d" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="86" id="XC0-RA-rj1"/>
-                            <constraint firstItem="0Pu-f5-c6d" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="48" id="cQF-Ea-rNd"/>
                             <constraint firstItem="ug6-6e-9Rs" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="p5n-1k-ouV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
@@ -52,7 +41,6 @@
                     <navigationItem key="navigationItem" id="xVu-0A-NXI"/>
                     <connections>
                         <outlet property="label" destination="ug6-6e-9Rs" id="tZT-e5-fms"/>
-                        <outlet property="oneButton" destination="0Pu-f5-c6d" id="AZV-P3-ynw"/>
                         <outlet property="phoneTf" destination="JAM-rG-FsR" id="ozO-9q-WhX"/>
                     </connections>
                 </viewController>
