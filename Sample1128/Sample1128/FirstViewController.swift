@@ -28,6 +28,12 @@ class FirstViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        let vc = OneViewController()
+        vc.modalPresentationStyle = .pageSheet
+        vc.presentationController?.delegate = self
+        present(vc, animated: true, completion: nil)
+        
     }
     
     func setui() {
@@ -61,3 +67,21 @@ class FirstViewController: UIViewController {
 
 }
 
+
+extension FirstViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        // ChildViewControllerのDismissを検知
+        print("presentationControllerDidDismiss")
+    }
+    func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
+        print("presentationControllerShouldDismiss")
+        return true
+    }
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        print("presentationControllerWillDismiss")
+    }
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        print("presentationControllerDidAttemptToDismiss")
+    }
+
+}
