@@ -15,6 +15,14 @@
 		492528F724CEAA35005918B9 /* PointHistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492528F324CEAA35005918B9 /* PointHistoryView.xib */; };
 		492528F824CEAA35005918B9 /* PointHistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492528F424CEAA35005918B9 /* PointHistoryItemView.swift */; };
 		492528F924CEAA35005918B9 /* PointHistoryItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492528F524CEAA35005918B9 /* PointHistoryItemView.xib */; };
+		492528FD24CEB9A0005918B9 /* PointSelectPeriodView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492528FB24CEB9A0005918B9 /* PointSelectPeriodView.xib */; };
+		4925290024CEC26A005918B9 /* PointPagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492528FE24CEC26A005918B9 /* PointPagerView.xib */; };
+		4925290124CEC26A005918B9 /* PointPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492528FF24CEC26A005918B9 /* PointPagerView.swift */; };
+		4925290424CEC3E1005918B9 /* PointCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4925290224CEC3E0005918B9 /* PointCardView.xib */; };
+		4925290524CEC3E1005918B9 /* PointCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925290324CEC3E0005918B9 /* PointCardView.swift */; };
+		4925290824CEC55C005918B9 /* PointCardItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925290624CEC55C005918B9 /* PointCardItemView.swift */; };
+		4925290924CEC55C005918B9 /* PointCardItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4925290724CEC55C005918B9 /* PointCardItemView.xib */; };
+		4925290B24CED1B6005918B9 /* PointSelectPeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925290A24CED1B6005918B9 /* PointSelectPeriodView.swift */; };
 		49CDC33D24C67A6B00ED87D6 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDC33C24C67A6B00ED87D6 /* OneViewController.swift */; };
 		6265A2109981780B1B122F35 /* Pods_Sample1128.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C7A0E826D8277750720403 /* Pods_Sample1128.framework */; };
 		82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E773238F919A00EA0B6D /* AppDelegate.swift */; };
@@ -45,6 +53,14 @@
 		492528F324CEAA35005918B9 /* PointHistoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PointHistoryView.xib; sourceTree = "<group>"; };
 		492528F424CEAA35005918B9 /* PointHistoryItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointHistoryItemView.swift; sourceTree = "<group>"; };
 		492528F524CEAA35005918B9 /* PointHistoryItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PointHistoryItemView.xib; sourceTree = "<group>"; };
+		492528FB24CEB9A0005918B9 /* PointSelectPeriodView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PointSelectPeriodView.xib; sourceTree = "<group>"; };
+		492528FE24CEC26A005918B9 /* PointPagerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PointPagerView.xib; sourceTree = "<group>"; };
+		492528FF24CEC26A005918B9 /* PointPagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointPagerView.swift; sourceTree = "<group>"; };
+		4925290224CEC3E0005918B9 /* PointCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PointCardView.xib; sourceTree = "<group>"; };
+		4925290324CEC3E0005918B9 /* PointCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointCardView.swift; sourceTree = "<group>"; };
+		4925290624CEC55C005918B9 /* PointCardItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointCardItemView.swift; sourceTree = "<group>"; };
+		4925290724CEC55C005918B9 /* PointCardItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PointCardItemView.xib; sourceTree = "<group>"; };
+		4925290A24CED1B6005918B9 /* PointSelectPeriodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointSelectPeriodView.swift; sourceTree = "<group>"; };
 		49CDC33C24C67A6B00ED87D6 /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 		5E19E16B8E478AC913F9A91A /* Pods-Sample1128.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample1128.debug.xcconfig"; path = "Target Support Files/Pods-Sample1128/Pods-Sample1128.debug.xcconfig"; sourceTree = "<group>"; };
 		79C7A0E826D8277750720403 /* Pods_Sample1128.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample1128.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +106,14 @@
 				492528F524CEAA35005918B9 /* PointHistoryItemView.xib */,
 				492528F224CEAA34005918B9 /* PointHistoryView.swift */,
 				492528F324CEAA35005918B9 /* PointHistoryView.xib */,
+				4925290A24CED1B6005918B9 /* PointSelectPeriodView.swift */,
+				492528FB24CEB9A0005918B9 /* PointSelectPeriodView.xib */,
+				492528FF24CEC26A005918B9 /* PointPagerView.swift */,
+				492528FE24CEC26A005918B9 /* PointPagerView.xib */,
+				4925290324CEC3E0005918B9 /* PointCardView.swift */,
+				4925290224CEC3E0005918B9 /* PointCardView.xib */,
+				4925290624CEC55C005918B9 /* PointCardItemView.swift */,
+				4925290724CEC55C005918B9 /* PointCardItemView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -242,12 +266,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				492528F724CEAA35005918B9 /* PointHistoryView.xib in Resources */,
+				4925290424CEC3E1005918B9 /* PointCardView.xib in Resources */,
 				82C9E782238F919B00EA0B6D /* LaunchScreen.storyboard in Resources */,
 				492528F124CE7593005918B9 /* PointSummaryView.xib in Resources */,
 				82C9E77F238F919B00EA0B6D /* Assets.xcassets in Resources */,
+				492528FD24CEB9A0005918B9 /* PointSelectPeriodView.xib in Resources */,
 				492528E824CE70A2005918B9 /* PointInquiryVC.storyboard in Resources */,
+				4925290924CEC55C005918B9 /* PointCardItemView.xib in Resources */,
 				82C9E77D238F919A00EA0B6D /* Main.storyboard in Resources */,
 				492528F924CEAA35005918B9 /* PointHistoryItemView.xib in Resources */,
+				4925290024CEC26A005918B9 /* PointPagerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,9 +335,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4925290824CEC55C005918B9 /* PointCardItemView.swift in Sources */,
+				4925290B24CED1B6005918B9 /* PointSelectPeriodView.swift in Sources */,
 				492528EF24CE7588005918B9 /* PointSummaryView.swift in Sources */,
 				82C9E778238F919A00EA0B6D /* FirstViewController.swift in Sources */,
+				4925290124CEC26A005918B9 /* PointPagerView.swift in Sources */,
 				82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */,
+				4925290524CEC3E1005918B9 /* PointCardView.swift in Sources */,
 				492528F824CEAA35005918B9 /* PointHistoryItemView.swift in Sources */,
 				82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */,
 				492528EA24CE70E7005918B9 /* PointInquiryVC.swift in Sources */,
