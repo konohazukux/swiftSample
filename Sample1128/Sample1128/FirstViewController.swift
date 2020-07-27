@@ -72,6 +72,7 @@ extension FirstViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         // ChildViewControllerのDismissを検知
         print("presentationControllerDidDismiss")
+        
     }
     func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
         print("presentationControllerShouldDismiss")
