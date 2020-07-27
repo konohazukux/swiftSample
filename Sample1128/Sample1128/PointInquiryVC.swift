@@ -11,9 +11,9 @@ import RxSwift
 import UIKit
 
 final class PointInquiryVC:  UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
 }

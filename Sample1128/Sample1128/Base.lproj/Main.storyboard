@@ -39,10 +39,6 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <navigationItem key="navigationItem" id="xVu-0A-NXI"/>
-                    <connections>
-                        <outlet property="label" destination="ug6-6e-9Rs" id="tZT-e5-fms"/>
-                        <outlet property="phoneTf" destination="JAM-rG-FsR" id="ozO-9q-WhX"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>

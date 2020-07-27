@@ -1,5 +1,5 @@
 //
-//  PointSummaryView.swift
+//  PointHistoryView.swift
 //  Sample1128
 //
 //  Created by t shimada on 2020/07/27.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PointSummaryView: UIView {
+class PointHistoryView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
