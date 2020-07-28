@@ -25,7 +25,7 @@ class FirstViewController: UIViewController {
        
         let identifier = "PointInquiryVC"
         let storyboard = UIStoryboard(name: "PointInquiryVC", bundle: nil)
-        if let viewController = storyboard.instantiateInitialViewController() as? PointInquiryVC {
+        if let viewController = storyboard.instantiateInitialViewController() as? PointInfoVC {
             present(viewController, animated: true, completion: nil)
         }
         

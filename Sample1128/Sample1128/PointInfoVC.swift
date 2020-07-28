@@ -10,7 +10,7 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-final class PointInquiryVC:  UIViewController {
+final class PointInfoVC:  UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		492528E824CE70A2005918B9 /* PointInquiryVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492528E624CE70A2005918B9 /* PointInquiryVC.storyboard */; };
-		492528EA24CE70E7005918B9 /* PointInquiryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492528E924CE70E7005918B9 /* PointInquiryVC.swift */; };
+		492528EA24CE70E7005918B9 /* PointInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492528E924CE70E7005918B9 /* PointInfoVC.swift */; };
 		492528EF24CE7588005918B9 /* PointSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492528EE24CE7588005918B9 /* PointSummaryView.swift */; };
 		492528F124CE7593005918B9 /* PointSummaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492528F024CE7593005918B9 /* PointSummaryView.xib */; };
 		492528F624CEAA35005918B9 /* PointHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492528F224CEAA34005918B9 /* PointHistoryView.swift */; };
@@ -58,7 +58,7 @@
 
 /* Begin PBXFileReference section */
 		492528E724CE70A2005918B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PointInquiryVC.storyboard; sourceTree = "<group>"; };
-		492528E924CE70E7005918B9 /* PointInquiryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInquiryVC.swift; sourceTree = "<group>"; };
+		492528E924CE70E7005918B9 /* PointInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfoVC.swift; sourceTree = "<group>"; };
 		492528EE24CE7588005918B9 /* PointSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointSummaryView.swift; sourceTree = "<group>"; };
 		492528F024CE7593005918B9 /* PointSummaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointSummaryView.xib; sourceTree = "<group>"; };
 		492528F224CEAA34005918B9 /* PointHistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointHistoryView.swift; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 				82C9E773238F919A00EA0B6D /* AppDelegate.swift */,
 				82C9E775238F919A00EA0B6D /* SceneDelegate.swift */,
 				82C9E777238F919A00EA0B6D /* FirstViewController.swift */,
-				492528E924CE70E7005918B9 /* PointInquiryVC.swift */,
+				492528E924CE70E7005918B9 /* PointInfoVC.swift */,
 				492528E624CE70A2005918B9 /* PointInquiryVC.storyboard */,
 				49CDC33C24C67A6B00ED87D6 /* OneViewController.swift */,
 				82C9E77B238F919A00EA0B6D /* Main.storyboard */,
@@ -406,7 +406,7 @@
 				4978648424CFF17B0084BF7B /* PointMenuView.swift in Sources */,
 				82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */,
 				4978647D24CFC5B20084BF7B /* UIView+Extension.swift in Sources */,
-				492528EA24CE70E7005918B9 /* PointInquiryVC.swift in Sources */,
+				492528EA24CE70E7005918B9 /* PointInfoVC.swift in Sources */,
 				49CDC33D24C67A6B00ED87D6 /* OneViewController.swift in Sources */,
 				492528F624CEAA35005918B9 /* PointHistoryView.swift in Sources */,
 				4925291524CEE889005918B9 /* PointExchangeHistoryItemView.swift in Sources */,
