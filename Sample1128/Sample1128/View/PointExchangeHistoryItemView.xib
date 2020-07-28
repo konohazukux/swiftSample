@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,13 +21,13 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="お申し込み日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3j-Z5-FZM">
                                     <rect key="frame" x="16" y="16.5" width="86" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19/11/12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZF-QW-AIC">
                                     <rect key="frame" x="344" y="15.5" width="58" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -45,14 +46,14 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="交換商品名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUW-Fe-ZyJ">
                                     <rect key="frame" x="16" y="6" width="71.5" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" fixedFrame="YES" text="#Origamiクーポン 1000円分（LEXUSPay）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ql1-V9-Zw8">
                                     <rect key="frame" x="16" y="31" width="278" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -69,13 +70,13 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="数量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ae8-Nz-mY2">
                                     <rect key="frame" x="16" y="16.5" width="29" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHe-jz-JXr">
                                     <rect key="frame" x="394.5" y="15.5" width="7.5" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -94,13 +95,13 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="交換ポイント" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmc-gl-7sb">
                                     <rect key="frame" x="16" y="16.5" width="86" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qeg-Bh-9qt">
                                     <rect key="frame" x="394.5" y="15.5" width="7.5" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -119,13 +120,13 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="キャッシュバック金額/移行ポイント" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3t-LK-znX">
                                     <rect key="frame" x="16" y="16.5" width="233" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgF-G4-NsD">
                                     <rect key="frame" x="394.5" y="15.5" width="7.5" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -144,7 +145,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="お得意さま番号・お客さま番号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1G-9e-3xj">
                                     <rect key="frame" x="16" y="6" width="200" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -161,13 +162,13 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="ステータス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgu-8L-zyv">
                                     <rect key="frame" x="16" y="16.5" width="71.5" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7Y-xY-46Q">
                                     <rect key="frame" x="394.5" y="15.5" width="7.5" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -186,13 +187,13 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="交換日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPR-Ps-ROq">
                                     <rect key="frame" x="16" y="16.5" width="43" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDH-uA-8hP">
                                     <rect key="frame" x="394.5" y="15.5" width="7.5" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -220,4 +221,9 @@
             <point key="canvasLocation" x="140.57971014492756" y="320.75892857142856"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="Heading, Primary labels, Full width link texts, Button texts">
+            <color red="0.14117647058823529" green="0.14509803921568629" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

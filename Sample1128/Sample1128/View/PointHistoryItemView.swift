@@ -56,7 +56,7 @@ extension PointHistoryItemModel {
     }
     /// C-4    取引種類
     var signColor: UIColor {
-        isMinusPoint ? .lightGray : .black
+        isMinusPoint ? .lightGray : .black //TODO 色
     }
     /// C-5 ポイント
     var pointString: String? {
