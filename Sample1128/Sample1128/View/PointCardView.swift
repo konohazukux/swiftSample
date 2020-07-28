@@ -24,10 +24,16 @@ class PointCardView: UIView, NibLoaderProtocol  {
     }
     func _loadNib() {
         addNibWithLayout()
-        temp()
+        setupUI()
+        readData()
     }
 
-    func temp() {
+    func setupUI() {
+        self.corner(radius: 8.0)
+        self.border(width: 1.0, color: .lightGray)
+    }
+
+    func readData() {
        
          // カード紐付け AN01AU11_TSPay紐付照会
         let tspayLinks  = GetTspayLinks.init(

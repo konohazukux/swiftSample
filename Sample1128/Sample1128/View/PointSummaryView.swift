@@ -28,6 +28,8 @@ extension NibLoaderProtocol {
     }
 }
 
+typealias PointSummaryModel = GetMallPointRest
+
 class PointSummaryView: UIView, NibLoaderProtocol {
 
     @IBOutlet private weak var crdKaiinNo4fLabel: UILabel!
@@ -39,10 +41,9 @@ class PointSummaryView: UIView, NibLoaderProtocol {
     @IBOutlet private weak var tyokinSikkoYoteiBiLabel: UILabel!
     
     
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         _loadNib()
     }
 
@@ -53,27 +54,35 @@ class PointSummaryView: UIView, NibLoaderProtocol {
 
     func _loadNib() {
         addNibWithLayout()
-        temp()
+        setupUI()
+        let data = readData()
+        setData(model: data)
     }
-    
-    func temp() {
+    func setupUI() {
+        self.corner(radius: 8.0)
+        self.border(width: 1.0, color: .lightGray)
+    }
 
+    func setData(model: PointSummaryModel) {
+        crdKaiinNo4fLabel.text = model.crdKaiinNo4f
+        souHoyuPtLabel.text = model.souHoyuPt.map { String($0).currencyInputFormatting() }
+        zndkLabel.text = model.zndk.map { String($0).currencyInputFormatting() }
+        kikanPtKeiLabel.text = model.kikanPtKei.map { String($0).currencyInputFormatting() }
+        kikanPtButtonView.isHidden = model.kikanPtButtonViewHidden
+        tyokinSikkoYoteiAlertView.isHidden = model.tyokinSikkoYoteiAlertViewHidden
+        tyokinSikkoYoteiBiLabel.text = model.tyokinSikkoYoteiBiDateString
+    }
+
+    func readData() -> GetMallPointRest {
         let mallPointRest = GetMallPointRest.init(
             cbFlg: nil, cbKingaku1: nil, cbKingaku2: nil, cbKingaku3: nil, cbKingaku4: nil, cbKingaku5: nil, crdKaiinNo4f: "6373", crdKnrNo: nil, kaiinNo: nil, kikanPtKei: 6374, kikanZndkFree: nil, kikanZndkLtd: nil, kikanZndkLtdAll: nil, kmtKikanPtKei: nil, kmtSouHoyuPt: nil, koukanKanoPt: nil, message: nil, ptYukoKbn: nil, ptYukoKikan: nil, result: nil, seiflgKng: nil, seiflgSyk: nil, souHoyuPt: 5363, syohinId1: nil, syohinId2: nil, syohinId3: nil, syohinId4: nil, syohinId5: nil, tmcScrambleTopsKanriNo: nil, topsKanriNo: nil, tukaId: nil, tyokinSikkoYoteiBi: "2011/11/11", tyokinSikkoYoteiPt: nil, yoteiKikanZndk: nil, zndk: 4673, zndkZeroFlg: nil)
-        
-        crdKaiinNo4fLabel.text = mallPointRest.crdKaiinNo4f
-        souHoyuPtLabel.text = mallPointRest.souHoyuPt.map { String($0) }
-        zndkLabel.text = mallPointRest.zndk.map { String($0) }
-        kikanPtKeiLabel.text = mallPointRest.kikanPtKei.map { String($0) }
-        kikanPtButtonView.isHidden = mallPointRest.kikanPtButtonViewHidden
-        tyokinSikkoYoteiAlertView.isHidden = mallPointRest.tyokinSikkoYoteiAlertViewHidden
-        tyokinSikkoYoteiBiLabel.text = mallPointRest.tyokinSikkoYoteiBiDateString
-        
+
+        return mallPointRest
     }
     
 }
 
-extension GetMallPointRest {
+extension PointSummaryModel {
     var kikanPtButtonViewHidden: Bool {
         kikanPtKei.map { $0 == 0 } ?? true
     }
