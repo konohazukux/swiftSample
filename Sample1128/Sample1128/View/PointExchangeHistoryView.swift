@@ -1,5 +1,5 @@
 //
-//  PointCardItemView.swift
+//  PointInquiryHistoryView.swift
 //  Sample1128
 //
 //  Created by t shimada on 2020/07/27.
@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 
-class PointCardItemView: UIView {
-
-    @IBOutlet private weak var cardLabel: UILabel!
+class PointExchangeHistoryView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,11 +30,4 @@ class PointCardItemView: UIView {
             view.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         }
     }
-    
-    func setData(data: GetTspayLinks.B02) {
-        let crdBrndName = data.crdName ?? ""
-        let crdKainNo4f = data.crdKainNo4f ?? ""
-        cardLabel.text = crdBrndName + "\n" + "（カード番号下４桁: " + crdKainNo4f + ")"
-    }
-
 }
