@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import RxCocoa
+import RxSwift
 
 class PointPagerView: UIView, NibLoaderProtocol  {
 

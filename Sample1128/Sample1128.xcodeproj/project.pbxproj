@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		492528E824CE70A2005918B9 /* PointInquiryVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 492528E624CE70A2005918B9 /* PointInquiryVC.storyboard */; };
 		492528EA24CE70E7005918B9 /* PointInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492528E924CE70E7005918B9 /* PointInfoVC.swift */; };
 		492528EF24CE7588005918B9 /* PointSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492528EE24CE7588005918B9 /* PointSummaryView.swift */; };
 		492528F124CE7593005918B9 /* PointSummaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492528F024CE7593005918B9 /* PointSummaryView.xib */; };
@@ -36,6 +35,8 @@
 		4978648524CFF17B0084BF7B /* PointMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4978648324CFF17B0084BF7B /* PointMenuView.xib */; };
 		4978648724CFF5BB0084BF7B /* GetMallPointHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4978648624CFF5BB0084BF7B /* GetMallPointHistory.swift */; };
 		49CDC33D24C67A6B00ED87D6 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDC33C24C67A6B00ED87D6 /* OneViewController.swift */; };
+		49CEDB9C24D53DD000D46BF7 /* PointInquiryVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CEDB9B24D53DCF00D46BF7 /* PointInquiryVC.storyboard */; };
+		49CEDB9E24D540D400D46BF7 /* Date+Extended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CEDB9D24D540D400D46BF7 /* Date+Extended.swift */; };
 		6265A2109981780B1B122F35 /* Pods_Sample1128.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C7A0E826D8277750720403 /* Pods_Sample1128.framework */; };
 		82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E773238F919A00EA0B6D /* AppDelegate.swift */; };
 		82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E775238F919A00EA0B6D /* SceneDelegate.swift */; };
@@ -57,7 +58,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		492528E724CE70A2005918B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PointInquiryVC.storyboard; sourceTree = "<group>"; };
 		492528E924CE70E7005918B9 /* PointInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInfoVC.swift; sourceTree = "<group>"; };
 		492528EE24CE7588005918B9 /* PointSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointSummaryView.swift; sourceTree = "<group>"; };
 		492528F024CE7593005918B9 /* PointSummaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointSummaryView.xib; sourceTree = "<group>"; };
@@ -86,6 +86,8 @@
 		4978648324CFF17B0084BF7B /* PointMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PointMenuView.xib; sourceTree = "<group>"; };
 		4978648624CFF5BB0084BF7B /* GetMallPointHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMallPointHistory.swift; sourceTree = "<group>"; };
 		49CDC33C24C67A6B00ED87D6 /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
+		49CEDB9B24D53DCF00D46BF7 /* PointInquiryVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PointInquiryVC.storyboard; sourceTree = "<group>"; };
+		49CEDB9D24D540D400D46BF7 /* Date+Extended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extended.swift"; sourceTree = "<group>"; };
 		5E19E16B8E478AC913F9A91A /* Pods-Sample1128.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample1128.debug.xcconfig"; path = "Target Support Files/Pods-Sample1128/Pods-Sample1128.debug.xcconfig"; sourceTree = "<group>"; };
 		79C7A0E826D8277750720403 /* Pods_Sample1128.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample1128.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C9E770238F919A00EA0B6D /* Sample1128.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample1128.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +165,7 @@
 			children = (
 				4978647624CFC5B20084BF7B /* UIButton+Extension.swift */,
 				4978647724CFC5B20084BF7B /* UIView+Extension.swift */,
+				49CEDB9D24D540D400D46BF7 /* Date+Extended.swift */,
 				4978647924CFC5B20084BF7B /* String+Extension.swift */,
 			);
 			path = Utils;
@@ -205,7 +208,7 @@
 				82C9E775238F919A00EA0B6D /* SceneDelegate.swift */,
 				82C9E777238F919A00EA0B6D /* FirstViewController.swift */,
 				492528E924CE70E7005918B9 /* PointInfoVC.swift */,
-				492528E624CE70A2005918B9 /* PointInquiryVC.storyboard */,
+				49CEDB9B24D53DCF00D46BF7 /* PointInquiryVC.storyboard */,
 				49CDC33C24C67A6B00ED87D6 /* OneViewController.swift */,
 				82C9E77B238F919A00EA0B6D /* Main.storyboard */,
 				82C9E77E238F919B00EA0B6D /* Assets.xcassets */,
@@ -324,12 +327,12 @@
 				492528F124CE7593005918B9 /* PointSummaryView.xib in Resources */,
 				82C9E77F238F919B00EA0B6D /* Assets.xcassets in Resources */,
 				492528FD24CEB9A0005918B9 /* PointSelectPeriodView.xib in Resources */,
-				492528E824CE70A2005918B9 /* PointInquiryVC.storyboard in Resources */,
 				4925290924CEC55C005918B9 /* PointCardItemView.xib in Resources */,
 				4925291124CEE607005918B9 /* PointExchangeHistoryView.xib in Resources */,
 				82C9E77D238F919A00EA0B6D /* Main.storyboard in Resources */,
 				492528F924CEAA35005918B9 /* PointHistoryItemView.xib in Resources */,
 				4925290024CEC26A005918B9 /* PointPagerView.xib in Resources */,
+				49CEDB9C24D53DD000D46BF7 /* PointInquiryVC.storyboard in Resources */,
 				4925291424CEE889005918B9 /* PointExchangeHistoryItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,6 +395,7 @@
 			files = (
 				4925290824CEC55C005918B9 /* PointCardItemView.swift in Sources */,
 				4925290B24CED1B6005918B9 /* PointSelectPeriodView.swift in Sources */,
+				49CEDB9E24D540D400D46BF7 /* Date+Extended.swift in Sources */,
 				492528EF24CE7588005918B9 /* PointSummaryView.swift in Sources */,
 				4978647C24CFC5B20084BF7B /* UIButton+Extension.swift in Sources */,
 				4925291024CEE607005918B9 /* PointExchangeHistoryView.swift in Sources */,
@@ -433,14 +437,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		492528E624CE70A2005918B9 /* PointInquiryVC.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				492528E724CE70A2005918B9 /* Base */,
-			);
-			name = PointInquiryVC.storyboard;
-			sourceTree = "<group>";
-		};
 		82C9E77B238F919A00EA0B6D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

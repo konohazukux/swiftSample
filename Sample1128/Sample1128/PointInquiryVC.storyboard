@@ -21,8 +21,25 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZFg-jO-w1j">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1411"/>
                                         <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcu-eW-JG0">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="61"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zM-LV-4f0" customClass="PointSelectPeriodView" customModule="Sample1128" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="61"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" priority="250" constant="61" id="eCT-uI-26r"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="8zM-LV-4f0" secondAttribute="bottom" id="RxN-p4-DQZ"/>
+                                                    <constraint firstItem="8zM-LV-4f0" firstAttribute="leading" secondItem="Hcu-eW-JG0" secondAttribute="leading" id="go7-rG-7tm"/>
+                                                    <constraint firstItem="8zM-LV-4f0" firstAttribute="top" secondItem="Hcu-eW-JG0" secondAttribute="top" id="nyS-fk-8KO"/>
+                                                    <constraint firstAttribute="trailing" secondItem="8zM-LV-4f0" secondAttribute="trailing" id="uaA-Tu-Vop"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3K-G1-etj">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="136"/>
+                                                <rect key="frame" x="0.0" y="61" width="375" height="136"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0V-MC-BlD" customClass="PointMenuView" customModule="Sample1128" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="8" width="375" height="120"/>
@@ -39,7 +56,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogb-2L-fk1">
-                                                <rect key="frame" x="0.0" y="136" width="375" height="260"/>
+                                                <rect key="frame" x="0.0" y="197" width="375" height="260"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9je-gs-J52" customClass="PointSummaryView" customModule="Sample1128" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="8" width="343" height="244"/>
@@ -56,7 +73,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZl-DN-NAY">
-                                                <rect key="frame" x="0.0" y="396" width="375" height="144"/>
+                                                <rect key="frame" x="0.0" y="457" width="375" height="144"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bX4-Oy-fvy" customClass="PointCardView" customModule="Sample1128" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="8" width="343" height="128"/>
@@ -73,7 +90,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vS0-I7-U3t">
-                                                <rect key="frame" x="0.0" y="540" width="375" height="144"/>
+                                                <rect key="frame" x="0.0" y="601" width="375" height="144"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PVI-il-oCt" customClass="PointHistoryView" customModule="Sample1128" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="8" width="375" height="128"/>
@@ -90,7 +107,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyo-z3-GML">
-                                                <rect key="frame" x="0.0" y="684" width="375" height="61"/>
+                                                <rect key="frame" x="0.0" y="745" width="375" height="61"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ith-sL-QFu" customClass="PointPagerView" customModule="Sample1128" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="61"/>
@@ -104,23 +121,6 @@
                                                     <constraint firstItem="ith-sL-QFu" firstAttribute="top" secondItem="hyo-z3-GML" secondAttribute="top" id="JOb-uj-dXY"/>
                                                     <constraint firstAttribute="bottom" secondItem="ith-sL-QFu" secondAttribute="bottom" id="idM-CI-eMr"/>
                                                     <constraint firstAttribute="trailing" secondItem="ith-sL-QFu" secondAttribute="trailing" id="xrl-Gv-WgD"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcu-eW-JG0">
-                                                <rect key="frame" x="0.0" y="745" width="375" height="61"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zM-LV-4f0" customClass="PointSelectPeriodView" customModule="Sample1128" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="61"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" priority="250" constant="61" id="eCT-uI-26r"/>
-                                                        </constraints>
-                                                    </view>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="8zM-LV-4f0" secondAttribute="bottom" id="RxN-p4-DQZ"/>
-                                                    <constraint firstItem="8zM-LV-4f0" firstAttribute="leading" secondItem="Hcu-eW-JG0" secondAttribute="leading" id="go7-rG-7tm"/>
-                                                    <constraint firstItem="8zM-LV-4f0" firstAttribute="top" secondItem="Hcu-eW-JG0" secondAttribute="top" id="nyS-fk-8KO"/>
-                                                    <constraint firstAttribute="trailing" secondItem="8zM-LV-4f0" secondAttribute="trailing" id="uaA-Tu-Vop"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wid-R3-ird">

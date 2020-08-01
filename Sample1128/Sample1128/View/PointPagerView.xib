@@ -320,7 +320,7 @@
     </objects>
     <resources>
         <namedColor name="Heading, Primary labels, Full width link texts, Button texts">
-            <color red="0.14117647058823529" green="0.14509803921568629" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.14100000262260437" green="0.14499999582767487" blue="0.14900000393390656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PointSelectPeriodView" customModule="Sample1128" customModuleProvider="target">
             <connections>
+                <outlet property="birthdayTf" destination="LYc-mc-ALa" id="EPn-gy-dOg"/>
                 <outlet property="doneButton" destination="tEj-hz-UwT" id="A2z-Z8-ZpM"/>
                 <outlet property="periodView" destination="fog-Pc-j47" id="oK5-2Y-76d"/>
             </connections>
@@ -45,6 +46,11 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fog-Pc-j47">
                                             <rect key="frame" x="16" y="6" width="375" height="44"/>
                                             <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LYc-mc-ALa">
+                                                    <rect key="frame" x="0.0" y="0.0" width="344" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="期間を選択してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFl-lY-7ux">
                                                     <rect key="frame" x="10" y="12.5" width="180" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -61,8 +67,12 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
+                                                <constraint firstItem="Gim-Xq-VBv" firstAttribute="leading" secondItem="LYc-mc-ALa" secondAttribute="trailing" id="9ie-xB-bOk"/>
+                                                <constraint firstItem="LYc-mc-ALa" firstAttribute="top" secondItem="fog-Pc-j47" secondAttribute="top" id="GsI-We-bvF"/>
+                                                <constraint firstItem="LYc-mc-ALa" firstAttribute="leading" secondItem="fog-Pc-j47" secondAttribute="leading" id="Jtc-3T-8xw"/>
                                                 <constraint firstAttribute="height" constant="44" id="L8t-mO-oTu"/>
                                                 <constraint firstItem="Gim-Xq-VBv" firstAttribute="centerY" secondItem="fog-Pc-j47" secondAttribute="centerY" id="a1w-JT-KEV"/>
+                                                <constraint firstAttribute="bottom" secondItem="LYc-mc-ALa" secondAttribute="bottom" id="oM2-zP-sd6"/>
                                                 <constraint firstAttribute="trailing" secondItem="Gim-Xq-VBv" secondAttribute="trailing" constant="16" id="vKq-yN-Lf2"/>
                                                 <constraint firstItem="FFl-lY-7ux" firstAttribute="leading" secondItem="fog-Pc-j47" secondAttribute="leading" constant="10" id="wCg-jB-g9d"/>
                                                 <constraint firstItem="FFl-lY-7ux" firstAttribute="centerY" secondItem="fog-Pc-j47" secondAttribute="centerY" id="xKR-hj-zGV"/>
@@ -89,6 +99,9 @@
                                             <state key="normal" title="照会">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="showPickerDidTappedWithSender:" destination="-1" eventType="touchUpInside" id="Hyg-PH-bNq"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -117,7 +130,7 @@
     </objects>
     <resources>
         <namedColor name="Heading, Primary labels, Full width link texts, Button texts">
-            <color red="0.14117647058823529" green="0.14509803921568629" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.14100000262260437" green="0.14499999582767487" blue="0.14900000393390656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
