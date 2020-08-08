@@ -10,17 +10,12 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-final class PointInfoVC:  UIViewController {
+final class PointMenuVC:  UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        
     }
 
-    
     
 
 }

@@ -28,6 +28,8 @@
 		4925291524CEE889005918B9 /* PointExchangeHistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925291324CEE889005918B9 /* PointExchangeHistoryItemView.swift */; };
 		4925291824CEF5DB005918B9 /* GetTspayLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925291724CEF5DB005918B9 /* GetTspayLinks.swift */; };
 		4925291A24CEF7C6005918B9 /* GetMallPointRest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925291924CEF7C6005918B9 /* GetMallPointRest.swift */; };
+		494080CD24D6522B00FE0A11 /* PointMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494080CB24D6522A00FE0A11 /* PointMenuVC.swift */; };
+		494080CE24D6522B00FE0A11 /* PointMenuVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494080CC24D6522B00FE0A11 /* PointMenuVC.storyboard */; };
 		4978647C24CFC5B20084BF7B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4978647624CFC5B20084BF7B /* UIButton+Extension.swift */; };
 		4978647D24CFC5B20084BF7B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4978647724CFC5B20084BF7B /* UIView+Extension.swift */; };
 		4978647F24CFC5B20084BF7B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4978647924CFC5B20084BF7B /* String+Extension.swift */; };
@@ -79,6 +81,8 @@
 		4925291324CEE889005918B9 /* PointExchangeHistoryItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointExchangeHistoryItemView.swift; sourceTree = "<group>"; };
 		4925291724CEF5DB005918B9 /* GetTspayLinks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTspayLinks.swift; sourceTree = "<group>"; };
 		4925291924CEF7C6005918B9 /* GetMallPointRest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMallPointRest.swift; sourceTree = "<group>"; };
+		494080CB24D6522A00FE0A11 /* PointMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointMenuVC.swift; sourceTree = "<group>"; };
+		494080CC24D6522B00FE0A11 /* PointMenuVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PointMenuVC.storyboard; sourceTree = "<group>"; };
 		4978647624CFC5B20084BF7B /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		4978647724CFC5B20084BF7B /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		4978647924CFC5B20084BF7B /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 				82C9E777238F919A00EA0B6D /* FirstViewController.swift */,
 				492528E924CE70E7005918B9 /* PointInfoVC.swift */,
 				49CEDB9B24D53DCF00D46BF7 /* PointInquiryVC.storyboard */,
+				494080CB24D6522A00FE0A11 /* PointMenuVC.swift */,
+				494080CC24D6522B00FE0A11 /* PointMenuVC.storyboard */,
 				49CDC33C24C67A6B00ED87D6 /* OneViewController.swift */,
 				82C9E77B238F919A00EA0B6D /* Main.storyboard */,
 				82C9E77E238F919B00EA0B6D /* Assets.xcassets */,
@@ -328,6 +334,7 @@
 				82C9E77F238F919B00EA0B6D /* Assets.xcassets in Resources */,
 				492528FD24CEB9A0005918B9 /* PointSelectPeriodView.xib in Resources */,
 				4925290924CEC55C005918B9 /* PointCardItemView.xib in Resources */,
+				494080CE24D6522B00FE0A11 /* PointMenuVC.storyboard in Resources */,
 				4925291124CEE607005918B9 /* PointExchangeHistoryView.xib in Resources */,
 				82C9E77D238F919A00EA0B6D /* Main.storyboard in Resources */,
 				492528F924CEAA35005918B9 /* PointHistoryItemView.xib in Resources */,
@@ -405,6 +412,7 @@
 				4978648724CFF5BB0084BF7B /* GetMallPointHistory.swift in Sources */,
 				4978647F24CFC5B20084BF7B /* String+Extension.swift in Sources */,
 				82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */,
+				494080CD24D6522B00FE0A11 /* PointMenuVC.swift in Sources */,
 				4925290524CEC3E1005918B9 /* PointCardView.swift in Sources */,
 				492528F824CEAA35005918B9 /* PointHistoryItemView.swift in Sources */,
 				4978648424CFF17B0084BF7B /* PointMenuView.swift in Sources */,
