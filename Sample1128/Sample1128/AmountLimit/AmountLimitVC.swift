@@ -9,7 +9,7 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-final class UsageLimitedVC: UIViewController {
+final class AmountLimitVC: UIViewController {
 
     // 契約状況照会
     @IBOutlet weak var shopMaxLabel: UILabel!
