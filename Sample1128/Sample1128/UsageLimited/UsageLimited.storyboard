@@ -149,8 +149,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600,000円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ji0-Jo-b9T">
-                                                                                        <rect key="frame" x="267.5" y="10.5" width="91.5" height="21.5"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ji0-Jo-b9T">
+                                                                                        <rect key="frame" x="329" y="10.5" width="30" height="21.5"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -219,8 +219,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="440,000円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuC-ep-vRi">
-                                                                                        <rect key="frame" x="286" y="12.5" width="73" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuC-ep-vRi">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -306,8 +306,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qk8-qm-Mdy">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qk8-qm-Mdy">
+                                                                                        <rect key="frame" x="325" y="12.5" width="34" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -341,8 +341,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600,000円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ef0-PE-NOh">
-                                                                                        <rect key="frame" x="286.5" y="12.5" width="72.5" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ef0-PE-NOh">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -411,8 +411,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="440,000円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TL0-zi-WJG">
-                                                                                        <rect key="frame" x="286" y="12.5" width="73" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TL0-zi-WJG">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -446,8 +446,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600,000円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5K-BY-TNh">
-                                                                                        <rect key="frame" x="286.5" y="12.5" width="72.5" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5K-BY-TNh">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -481,8 +481,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="440,000円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Nw-ZB-Q1p">
-                                                                                        <rect key="frame" x="286" y="12.5" width="73" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Nw-ZB-Q1p">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -516,8 +516,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="440,000円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puc-tj-G5m">
-                                                                                        <rect key="frame" x="286" y="12.5" width="73" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puc-tj-G5m">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -603,8 +603,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zae-98-QZg">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zae-98-QZg">
+                                                                                        <rect key="frame" x="325" y="12.5" width="34" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -638,8 +638,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600,000円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gME-1n-gLj">
-                                                                                        <rect key="frame" x="286.5" y="12.5" width="72.5" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gME-1n-gLj">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -708,8 +708,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="440,000円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aqi-rs-hAL">
-                                                                                        <rect key="frame" x="286" y="12.5" width="73" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aqi-rs-hAL">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -795,8 +795,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0v-mY-KMk">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0v-mY-KMk">
+                                                                                        <rect key="frame" x="325" y="12.5" width="34" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -830,8 +830,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600,000円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39Q-kk-Sdn">
-                                                                                        <rect key="frame" x="286.5" y="12.5" width="72.5" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39Q-kk-Sdn">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -900,8 +900,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="440,000円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLm-GM-fc4">
-                                                                                        <rect key="frame" x="286" y="12.5" width="73" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLm-GM-fc4">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1029,8 +1029,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5an-Ep-f2U">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5an-Ep-f2U">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1064,8 +1064,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNS-xM-jtK">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNS-xM-jtK">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1099,8 +1099,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY7-pe-RtV">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY7-pe-RtV">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1186,8 +1186,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoX-NK-swg">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoX-NK-swg">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1285,14 +1285,14 @@
                                                                                             <constraint firstAttribute="height" constant="1" id="q2W-4Q-IMB"/>
                                                                                         </constraints>
                                                                                     </view>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="リボ　合計利用可能枠" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fj-Qi-Iaz">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分割　合計利用可能枠" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fj-Qi-Iaz">
                                                                                         <rect key="frame" x="16" y="12.5" width="143" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCc-dx-lYY">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCc-dx-lYY">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1448,8 +1448,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIw-GJ-0Wq">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIw-GJ-0Wq">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1605,8 +1605,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oB5-UJ-n1i">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oB5-UJ-n1i">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1797,8 +1797,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntf-g7-Ced">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntf-g7-Ced">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1832,8 +1832,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHm-8c-RT5">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHm-8c-RT5">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1867,8 +1867,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aR0-66-ixM">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aR0-66-ixM">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1954,8 +1954,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNO-qP-DKB">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNO-qP-DKB">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -2059,8 +2059,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zy9-yF-WvT">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zy9-yF-WvT">
+                                                                                        <rect key="frame" x="335.5" y="12.5" width="23.5" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -2216,8 +2216,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkH-mj-xy6">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkH-mj-xy6">
+                                                                                        <rect key="frame" x="325" y="12.5" width="34" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -2251,8 +2251,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KH4-Cf-U1U">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KH4-Cf-U1U">
+                                                                                        <rect key="frame" x="325" y="12.5" width="34" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -2408,8 +2408,8 @@
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.200%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oj-u0-DWm">
-                                                                                        <rect key="frame" x="300" y="12.5" width="59" height="17"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oj-u0-DWm">
+                                                                                        <rect key="frame" x="325" y="12.5" width="34" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                                         <color key="textColor" name="Heading, Primary labels, Full width link texts, Button texts"/>
                                                                                         <nil key="highlightedColor"/>
@@ -2942,6 +2942,41 @@
                         <viewLayoutGuide key="safeArea" id="I49-Bw-Rry"/>
                     </view>
                     <size key="freeformSize" width="375" height="2212"/>
+                    <connections>
+                        <outlet property="clIntrtLabel" destination="U0v-mY-KMk" id="ZWZ-Ja-elm"/>
+                        <outlet property="clMaxLabel" destination="39Q-kk-Sdn" id="tec-Ed-55V"/>
+                        <outlet property="clRiyoKanoGakuLabel" destination="aLm-GM-fc4" id="cFP-Cq-jEU"/>
+                        <outlet property="clZndkLabel" destination="fjJ-UI-qCC" id="Hlz-ma-pW5"/>
+                        <outlet property="csIntrtLabel" destination="zae-98-QZg" id="o05-7b-yhl"/>
+                        <outlet property="csMaxLabel" destination="gME-1n-gLj" id="4uX-v5-rwj"/>
+                        <outlet property="csRiyoKanoGakuLabel" destination="Aqi-rs-hAL" id="7wk-Lb-0BQ"/>
+                        <outlet property="csZndkLabel" destination="beO-s9-pyy" id="gb5-W3-fnm"/>
+                        <outlet property="cusClRiyoKanoGakuLabel" destination="lDC-eI-Ykk" id="gSe-s9-8zb"/>
+                        <outlet property="cusClRiyoLmtLabel" destination="oB5-UJ-n1i" id="pnT-CV-jvD"/>
+                        <outlet property="cusClRiyoZndkLabel" destination="W32-fM-dHu" id="hPd-KP-NXs"/>
+                        <outlet property="cusCsRiyoKanoGakuLabel" destination="Ttu-WX-YiS" id="b6Q-xM-RS0"/>
+                        <outlet property="cusCsRiyoLmtLabel" destination="XIw-GJ-0Wq" id="Y5X-DI-g9z"/>
+                        <outlet property="cusCsRiyoZndkLabel" destination="yFG-19-NFH" id="dVk-hh-TD7"/>
+                        <outlet property="cusInstllmtpayRiyoKanoGakuLabel" destination="bGW-4e-J0w" id="tZC-3Q-oz2"/>
+                        <outlet property="cusInstllmtpayRiyoLmtLabel" destination="aCc-dx-lYY" id="Ax9-8D-i6L"/>
+                        <outlet property="cusInstllmtpayRiyoZndkLabel" destination="tFG-ev-FYB" id="gZf-lK-NgA"/>
+                        <outlet property="cusRiboRiyoKanoGakuLabel" destination="0K4-eU-01h" id="J1B-Wg-Jet"/>
+                        <outlet property="cusRiboRiyoLmtLabel" destination="KoX-NK-swg" id="P5H-i1-wGX"/>
+                        <outlet property="cusRiboRiyoZndkLabel" destination="wTZ-57-Rbt" id="XQQ-dW-eTd"/>
+                        <outlet property="cusShopRiyoKanoGakuLabel" destination="iY7-pe-RtV" id="v6H-F8-pPY"/>
+                        <outlet property="cusShopRiyoLmtLabel" destination="5an-Ep-f2U" id="hnY-Vk-aZ0"/>
+                        <outlet property="cusShopRiyoZndkLabel" destination="TNS-xM-jtK" id="s9u-U0-v0X"/>
+                        <outlet property="instllmtpayMaxLabel" destination="Y5K-BY-TNh" id="XYL-GU-kyV"/>
+                        <outlet property="instllmtpayRiyoKanoGakuLabel" destination="Puc-tj-G5m" id="kuw-cm-m0A"/>
+                        <outlet property="instllmtpayZndkLabel" destination="8Nw-ZB-Q1p" id="xeA-Pk-BtX"/>
+                        <outlet property="riboIntrtLabel" destination="Qk8-qm-Mdy" id="8Yv-kb-kkf"/>
+                        <outlet property="riboMaxLabel" destination="ef0-PE-NOh" id="xNf-Rr-D84"/>
+                        <outlet property="riboRiyoKanoGakuLabel" destination="TL0-zi-WJG" id="u1K-f8-TDw"/>
+                        <outlet property="riboZndkLabel" destination="MZK-o3-r03" id="b3c-Eg-zI9"/>
+                        <outlet property="shopMaxLabel" destination="ji0-Jo-b9T" id="mDK-Pd-KG9"/>
+                        <outlet property="shopRiyoKanoGakuLabel" destination="GuC-ep-vRi" id="KJE-vc-aua"/>
+                        <outlet property="shopZndkLabel" destination="66J-RO-o5N" id="PO8-xB-VYo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LsK-P1-uZA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
