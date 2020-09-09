@@ -1,4 +1,5 @@
 PODS:
+  - lottie-ios (3.1.8)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -8,12 +9,14 @@ PODS:
   - SwiftDate (4.4.2)
 
 DEPENDENCIES:
+  - lottie-ios
   - RxCocoa (from `https://github.com/ReactiveX/RxSwift.git`, branch `master`)
   - RxSwift (from `https://github.com/ReactiveX/RxSwift.git`, branch `master`)
   - SwiftDate (~> 4.4.2)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - lottie-ios
     - RxRelay
     - SwiftDate
 
@@ -34,11 +37,12 @@ CHECKOUT OPTIONS:
     :git: https://github.com/ReactiveX/RxSwift.git
 
 SPEC CHECKSUMS:
+  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SwiftDate: 131cf2f09b390f0a07f0099e36005ffe2fbf4c7e
 
-PODFILE CHECKSUM: e0b0f1639695a76a658db3d6cef7c72a836ce1ef
+PODFILE CHECKSUM: 934d200559ba6a2d3d516fc60c01a772e3d97349
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
