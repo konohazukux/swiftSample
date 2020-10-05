@@ -14,42 +14,10 @@
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JAM-rG-FsR">
-                                <rect key="frame" x="102" y="280" width="255" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="9pv-A4-QxB" id="TP6-tN-Udt"/>
-                                </connections>
-                            </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W5h-m9-x33" customClass="LottieAnimationView" customModule="Sample1128" customModuleProvider="target">
-                                <rect key="frame" x="87" y="384" width="218" height="100"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="218" id="HJE-76-GHa"/>
-                                    <constraint firstAttribute="height" constant="100" id="aDU-A4-Ax7"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="charging"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="W5h-m9-x33" firstAttribute="top" secondItem="JAM-rG-FsR" secondAttribute="bottom" constant="70" id="Ftf-Ry-Bba"/>
-                            <constraint firstItem="JAM-rG-FsR" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="102" id="UkL-zb-jUH"/>
-                            <constraint firstItem="JAM-rG-FsR" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="192" id="VbP-Pa-diA"/>
-                            <constraint firstItem="W5h-m9-x33" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="87" id="gIM-Eo-gxF"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="JAM-rG-FsR" secondAttribute="trailing" constant="57" id="jxa-d0-AjH"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <navigationItem key="navigationItem" id="xVu-0A-NXI"/>
-                    <connections>
-                        <outlet property="lottieLoading" destination="W5h-m9-x33" id="2f2-JC-UWT"/>
-                        <outlet property="textField" destination="JAM-rG-FsR" id="zDr-9O-a0t"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
