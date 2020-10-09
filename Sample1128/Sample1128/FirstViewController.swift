@@ -27,9 +27,11 @@ class FirstViewController: UIViewController {
     
     func show() {
        
-//        let storyboard = UIStoryboard.init(name: "AmountLimit", bundle: nil)
-        let storyboard = UIStoryboard.init(name: "AmountLimitCardInfo", bundle: nil)
-        guard let viewController = storyboard.instantiateInitialViewController() as? AmountLimitCardInfoVC else { return }
+        let storyboard = UIStoryboard.init(name: "AmountLimit", bundle: nil)
+        guard let viewController = storyboard.instantiateInitialViewController() as? AmountLimitVC else { return }
+        
+//        let storyboard = UIStoryboard.init(name: "AmountLimitCardInfo", bundle: nil)
+//        guard let viewController = storyboard.instantiateInitialViewController() as? AmountLimitCardInfoVC else { return }
        
         
         present(viewController, animated: true, completion: nil)
