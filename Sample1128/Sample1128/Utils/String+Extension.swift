@@ -167,7 +167,7 @@ extension String {
 }
 
 extension String {
-    func currencyInputFormatting() -> String {
+    func currencyInputFormatting(isShowZero: Bool = false) -> String {
         var number: NSNumber!
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -181,14 +181,15 @@ extension String {
 
         let double = (amountWithPrefix as NSString).doubleValue
         number = NSNumber(value: double)
-        guard number != 0 as NSNumber else {
+        
+        if !isShowZero && number == 0 as NSNumber {
             return ""
         }
         return formatter.string(from: number)!
     }
 
     func removeCurrencySymbol() -> String {
-        let regex = try! NSRegularExpression(pattern: "[^0-9-]", options: .caseInsensitive)
+        let regex = try! NSRegularExpression(pattern: "[^-+0-9]", options: .caseInsensitive)
         return regex.stringByReplacingMatches(in: self, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSRange(location: 0, length: count), withTemplate: "")
     }
 }
