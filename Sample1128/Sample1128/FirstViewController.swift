@@ -36,54 +36,9 @@ class FirstViewController: UIViewController {
         UITabBar.appearance().backgroundImage = UIImage.colorForNavBar(color: UIColor.white)
 
 
-        let user1 = User.init(name: "taro")
-        let user2 = User.init(name: "taro2")
-        let users = [ user1, user2]
-
-        let someKey = Key<[User]>("someKey")
-        Defaults.shared.set(users, for: someKey)
 
         
-        if let temp = Defaults.shared.get(for: someKey) {
-            print(temp)
-            print(temp)
-
-        }
-    
-        inputPaymentcodeAlert()
-        
     }
-    
-    private func inputPaymentcodeAlert() {
-        let alert = UIAlertController(title: "お支払いコード", message: "6桁のお支払いコードを入力してください。", preferredStyle: .alert)
-        if #available(iOS 13, *) {
-            alert.overrideUserInterfaceStyle = .light
-        }
-        alert.view.tintColor = UIColor.red
-        // textfiledの追加
-        alert.addTextField { [weak self] textField in
-            // PlaceFolderなどあればここで実装
-            textField.placeholder = "6桁のお支払いコード"
-            textField.keyboardType = .numberPad
-//            textField.delegate = self
-        }
-
-        // ①OK ボタン
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in
-            // 入力された番号を取得
-            let textField = alert.textFields?.first
-//            self.createOrder(order: textField?.text ?? "", cardReference: nil)
-        })
-        alert.addAction(okAction)
-        alert.preferredAction = okAction
-        // ➁キャンセル　ボタン
-        // ・キャンセルボタンを押すと、QR決済読取画面に戻る
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
-        alert.addAction(cancelAction)
-
-        present(alert, animated: true, completion: nil)
-    }
-    
 
 }
 
