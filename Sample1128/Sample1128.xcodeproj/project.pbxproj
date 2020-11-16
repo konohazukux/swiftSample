@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142517A125626DFE00186C95 /* error2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 142517A025626DFE00186C95 /* error2.csv */; };
 		14E0379B253D241600E4A802 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0379A253D241600E4A802 /* Defaults.swift */; };
 		5A9415F524E6146600B715B1 /* NibLoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9415F424E6146500B715B1 /* NibLoaderProtocol.swift */; };
 		5A9415F724E61CA700B715B1 /* GetMallCardsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9415F624E61CA700B715B1 /* GetMallCardsContract.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		142517A025626DFE00186C95 /* error2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = error2.csv; sourceTree = "<group>"; };
 		14E0379A253D241600E4A802 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		5A9415F424E6146500B715B1 /* NibLoaderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoaderProtocol.swift; sourceTree = "<group>"; };
 		5A9415F624E61CA700B715B1 /* GetMallCardsContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMallCardsContract.swift; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1425179F25626DAD00186C95 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				142517A025626DFE00186C95 /* error2.csv */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		5A9415F824E63D0000B715B1 /* etc */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +121,7 @@
 		82C9E772238F919A00EA0B6D /* Sample1128 */ = {
 			isa = PBXGroup;
 			children = (
+				1425179F25626DAD00186C95 /* Resources */,
 				5A9415F824E63D0000B715B1 /* etc */,
 				82C9E773238F919A00EA0B6D /* AppDelegate.swift */,
 				82C9E775238F919A00EA0B6D /* SceneDelegate.swift */,
@@ -226,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				142517A125626DFE00186C95 /* error2.csv in Resources */,
 				82C9E782238F919B00EA0B6D /* LaunchScreen.storyboard in Resources */,
 				82C9E77F238F919B00EA0B6D /* Assets.xcassets in Resources */,
 				82C9E77D238F919A00EA0B6D /* Main.storyboard in Resources */,

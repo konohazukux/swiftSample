@@ -31,15 +31,30 @@ class FirstViewController: UIViewController {
         UITabBar.appearance().layer.borderColor = UIColor.clear.cgColor
         UITabBar.appearance().clipsToBounds = true
 
-
+        phoneTf.delegate = self
+        
         UITabBar.appearance().shadowImage = UIImage.colorForNavBar(color: UIColor.white)
         UITabBar.appearance().backgroundImage = UIImage.colorForNavBar(color: UIColor.white)
 
-
-
+        label.setColorToAttributedText(.red)
+       
+//        let temp = "abc―"
+        let temp = "abc ー － — -"
+        let temp2 = temp
+            .replacingOccurrences(of: "ー", with: "-")
+            .replacingOccurrences(of: "－", with: "-")
+            .replacingOccurrences(of: "—", with: "-")
+        print(temp2)
+        print("--------")
+        print("abc-")
+        print("--------")
         
     }
 
+}
+
+extension FirstViewController: UITextFieldDelegate {
+    
 }
 
 extension UIImage {

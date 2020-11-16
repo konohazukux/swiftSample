@@ -238,3 +238,19 @@ extension String {
         return ymdDateStr
     }
 }
+
+extension UILabel {
+    func setColorToAttributedText(_ color: UIColor) {
+        if let attributedText = self.attributedText?.mutableCopy() as? NSMutableAttributedString {
+            let text = attributedText.string
+            attributedText.addAttribute(
+                .foregroundColor,
+                value: UIColor.red,
+                range: NSMakeRange(0, text.count)
+            )
+            self.attributedText = attributedText
+            self.textColor = color
+        }
+    }
+}
+
