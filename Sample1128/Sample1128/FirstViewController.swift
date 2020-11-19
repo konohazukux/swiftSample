@@ -48,9 +48,38 @@ class FirstViewController: UIViewController {
         print("--------")
         print("abc-")
         print("--------")
+      
+//        loadCodeMessageMap()
         
+        readcsv()
     }
 
+    func readcsv() {
+        // ----- jsonファイル読み込み
+        guard let path = Bundle.main.path(forResource: "apigee_error", ofType: "json") else { return }
+        do {
+            let jsonString: String = try String(contentsOfFile: path, encoding: .utf8)
+//            let apigeeErrors = ApigeeError.generate(jsonString: jsonString)
+
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
+    
+    private func loadCodeMessageMap() -> String? {
+        guard let path = Bundle.main.path(forResource: "error2", ofType: "csv") else {
+            return nil
+        }
+        do {
+            let csvString = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
+            let csvLines = csvString.components(separatedBy: .newlines)
+            print(csvLines)
+            return ""
+        } catch {
+            return nil
+        }
+     }
 }
 
 extension FirstViewController: UITextFieldDelegate {
@@ -72,5 +101,26 @@ extension UIImage {
     }
 }
 
+//sdf
+//struct ApigeeErrorMessage {
+//
+//    //    static func generate(jsonString: String) -> [ApigeeError] {
+//    //        guard let dic = jsonString.toJSONDict() else { return [] }
+//    //        var apigeeErrors = [ApigeeError]()
+//    //        for (key, value) in dic {
+//    //            let errorCode = key
+//    //            if let v = value as? [String: Any],
+//    //                let code = v["code"] as? Int,
+//    //                let message = v["message"] as? String,
+//    //                let type = v["type"] as? Int {
+//    //                let apigeeError = ApigeeError.init(errorCode: errorCode, code: code, message: message, type: type)
+//    //                apigeeErrors.append(apigeeError)
+//    //            }
+//    //        }
+//    //        return apigeeErrors
+//    //    }
+//
+//
+//}
 
 

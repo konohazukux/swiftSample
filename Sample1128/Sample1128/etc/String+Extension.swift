@@ -254,3 +254,29 @@ extension UILabel {
     }
 }
 
+/// extension String
+extension String {
+    /// JSON形式の文字列をDictionary型に変換
+    /// UTF8に限定しているので、他に対応する必要がある場合は改良が必要
+    ///
+    /// - Returns: 変換後のDictionary
+    func toJSONDict() -> [String: Any]? {
+        guard let jsonData = data(using: .utf8) else {
+            // String→Data変換失敗
+            return nil
+        }
+        do {
+            // QRコードから取得した値をJSONに直して使用する
+            let json = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.allowFragments)
+            let dict = json as? [String: Any]
+            return dict
+        } catch {
+            // Data→JSON失敗
+            return nil
+        }
+    }
+
+    var isNotEmpty: Bool {
+        !isEmpty
+    }
+}

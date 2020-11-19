@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		142517A125626DFE00186C95 /* error2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 142517A025626DFE00186C95 /* error2.csv */; };
+		1424334625661FF200E9EFD1 /* apigee_error.json in Resources */ = {isa = PBXBuildFile; fileRef = 1424334525661FF200E9EFD1 /* apigee_error.json */; };
+		1424334825662E0A00E9EFD1 /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424334725662E0A00E9EFD1 /* ErrorCode.swift */; };
+		1424334A25662E3100E9EFD1 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424334925662E3100E9EFD1 /* APIResult.swift */; };
+		1424334C2566304000E9EFD1 /* ApigeeErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424334B2566304000E9EFD1 /* ApigeeErrorMessages.swift */; };
+		1424334E2566311200E9EFD1 /* ApigeeErrroMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424334D2566311200E9EFD1 /* ApigeeErrroMessage.swift */; };
 		14E0379B253D241600E4A802 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0379A253D241600E4A802 /* Defaults.swift */; };
 		5A9415F524E6146600B715B1 /* NibLoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9415F424E6146500B715B1 /* NibLoaderProtocol.swift */; };
 		5A9415F724E61CA700B715B1 /* GetMallCardsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9415F624E61CA700B715B1 /* GetMallCardsContract.swift */; };
@@ -33,7 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		142517A025626DFE00186C95 /* error2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = error2.csv; sourceTree = "<group>"; };
+		1424334525661FF200E9EFD1 /* apigee_error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apigee_error.json; sourceTree = "<group>"; };
+		1424334725662E0A00E9EFD1 /* ErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCode.swift; sourceTree = "<group>"; };
+		1424334925662E3100E9EFD1 /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
+		1424334B2566304000E9EFD1 /* ApigeeErrorMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApigeeErrorMessages.swift; sourceTree = "<group>"; };
+		1424334D2566311200E9EFD1 /* ApigeeErrroMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApigeeErrroMessage.swift; sourceTree = "<group>"; };
 		14E0379A253D241600E4A802 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		5A9415F424E6146500B715B1 /* NibLoaderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoaderProtocol.swift; sourceTree = "<group>"; };
 		5A9415F624E61CA700B715B1 /* GetMallCardsContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMallCardsContract.swift; sourceTree = "<group>"; };
@@ -76,7 +84,7 @@
 		1425179F25626DAD00186C95 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				142517A025626DFE00186C95 /* error2.csv */,
+				1424334525661FF200E9EFD1 /* apigee_error.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -86,6 +94,10 @@
 			children = (
 				5A9415F924E63D1000B715B1 /* String+Extension.swift */,
 				14E0379A253D241600E4A802 /* Defaults.swift */,
+				1424334725662E0A00E9EFD1 /* ErrorCode.swift */,
+				1424334925662E3100E9EFD1 /* APIResult.swift */,
+				1424334B2566304000E9EFD1 /* ApigeeErrorMessages.swift */,
+				1424334D2566311200E9EFD1 /* ApigeeErrroMessage.swift */,
 			);
 			path = etc;
 			sourceTree = "<group>";
@@ -237,8 +249,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				142517A125626DFE00186C95 /* error2.csv in Resources */,
 				82C9E782238F919B00EA0B6D /* LaunchScreen.storyboard in Resources */,
+				1424334625661FF200E9EFD1 /* apigee_error.json in Resources */,
 				82C9E77F238F919B00EA0B6D /* Assets.xcassets in Resources */,
 				82C9E77D238F919A00EA0B6D /* Main.storyboard in Resources */,
 			);
@@ -300,13 +312,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1424334A25662E3100E9EFD1 /* APIResult.swift in Sources */,
 				82C9E778238F919A00EA0B6D /* FirstViewController.swift in Sources */,
 				14E0379B253D241600E4A802 /* Defaults.swift in Sources */,
 				5A9415FA24E63D1000B715B1 /* String+Extension.swift in Sources */,
+				1424334E2566311200E9EFD1 /* ApigeeErrroMessage.swift in Sources */,
 				82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */,
 				82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */,
 				5A9415F724E61CA700B715B1 /* GetMallCardsContract.swift in Sources */,
 				5A9415F524E6146600B715B1 /* NibLoaderProtocol.swift in Sources */,
+				1424334825662E0A00E9EFD1 /* ErrorCode.swift in Sources */,
+				1424334C2566304000E9EFD1 /* ApigeeErrorMessages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
