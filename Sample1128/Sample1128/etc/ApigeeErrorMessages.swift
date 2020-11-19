@@ -32,26 +32,28 @@ struct ApigeeErrorMessages {
     }
     
     private func getMessage(errorListResult: ErrorListResult) -> String {
-        guard let message = Self.codeMessageMap[errorListResult.code] else {
+        
+        guard let apigeeError = (Self.codeMessageMap.filter { $0.apigeeErrorCode == errorListResult.code }).first else {
             return Self.defaultMessage
         }
         if errorListResult.field.isNotEmpty {
-            return message.replacingOccurrences(of: "{0}", with: errorListResult.field)
+            return apigeeError.errorDetail.message.replacingOccurrences(of: "{0}", with: errorListResult.field)
         } else {
-            return message
+            return apigeeError.errorDetail.message
         }
     }
     
-    private static func loadCodeMessageMap() -> [String: String] {
-        guard let path = Bundle.main.path(forResource: "ApigeeError", ofType: "plist") else { return [:] }
-        let url = URL(fileURLWithPath: path)
-        do {
-            let data = try Data(contentsOf: url)
-            if let map = try PropertyListSerialization.propertyList(from: data, options: .mutableContainers, format: nil) as? [String: String] {
-                return map
-            }
-        } catch {}
-        return [:]
+    private static func loadCodeMessageMap() -> [ApigeeErrorMessage] {
+//        guard let path = Bundle.main.path(forResource: "ApigeeError", ofType: "plist") else { return [:] }
+//        let url = URL(fileURLWithPath: path)
+//        do {
+//            let data = try Data(contentsOf: url)
+//            if let map = try PropertyListSerialization.propertyList(from: data, options: .mutableContainers, format: nil) as? [String: String] {
+//                return map
+//            }
+//        } catch {}
+//        return [:]
+        return []
     }
    
     
