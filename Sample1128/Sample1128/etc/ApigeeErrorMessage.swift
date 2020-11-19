@@ -8,14 +8,16 @@
 
 import Foundation
 
-struct ApigeeErrorMessages {
+struct ApigeeErrorMessage {
     private static let defaultMessage = "お客さまの情報が正しく取得できませんでした。詳しくはトヨタファイナンスまでお問合せください。"
     private static var codeMessageMap = loadCodeMessageMap()
     
     private let serverError: ErrorFromServer
+    private let apigeeErrors: [ApigeeError]
     
     init(serverError: ErrorFromServer) {
         self.serverError = serverError
+        self.apigeeErrors = ApigeeError.getApigeeErrors(errorFromServer: serverError)
     }
     
     var single: String? {
@@ -32,42 +34,29 @@ struct ApigeeErrorMessages {
     }
     
     private func getMessage(errorListResult: ErrorListResult) -> String {
-        guard let message = Self.codeMessageMap[errorListResult.code] else {
+      
+        guard let apigeeError = (Self.codeMessageMap.filter { $0.apigeeErrorCode == errorListResult.code }).first else {
             return Self.defaultMessage
         }
         if errorListResult.field.isNotEmpty {
-            return message.replacingOccurrences(of: "{0}", with: errorListResult.field)
+            return apigeeError.errorDetail.message.replacingOccurrences(of: "{0}", with: errorListResult.field)
         } else {
-            return message
+            return apigeeError.errorDetail.message
         }
     }
     
-    private static func loadCodeMessageMap() -> [String: String] {
-        guard let path = Bundle.main.path(forResource: "ApigeeError", ofType: "plist") else { return [:] }
-        let url = URL(fileURLWithPath: path)
-        do {
-            let data = try Data(contentsOf: url)
-            if let map = try PropertyListSerialization.propertyList(from: data, options: .mutableContainers, format: nil) as? [String: String] {
-                return map
-            }
-        } catch {}
-        return [:]
+    private static func loadCodeMessageMap() -> [ApigeeError] {
+//        guard let path = Bundle.main.path(forResource: "ApigeeError", ofType: "plist") else { return [:] }
+//        let url = URL(fileURLWithPath: path)
+//        do {
+//            let data = try Data(contentsOf: url)
+//            if let map = try PropertyListSerialization.propertyList(from: data, options: .mutableContainers, format: nil) as? [String: String] {
+//                return map
+//            }
+//        } catch {}
+//        return [:]
+        return []
     }
    
-    
-    struct ErrorDetail {
-        let code: Int
-        let message: String
-        let type: HandleType
-    }
-    
-    enum  HandleType {
-        case CLOSE
-        case GOTO_HOME
-        case GOTO_LOGIN
-        case SHOW_HIGHLIGHT
-        case SHOW_UPPER
-        case UNKNOWN
-    }
     
 }
