@@ -24,64 +24,9 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        
-
-//        unsafeBitCast(<#T##x: T##T#>, to: <#T##U.Type#>)
-        
-//        let temp:TextFieldType = .nenshMn
-
-        let temp = TextFieldType.allCases.first(where: { $0.rawValue == "mtnpLKZngk" })
-        print(temp)
-        
 
         
-        
-        let string = "HELLO_WORLD_HE_JLKJ"
-//        let str = string.lowercased()
-        let characters = Array(string)
-        var shouldUpper = false
-        var out = [String]()
-        for char in characters {
-            var c = shouldUpper ? String(char) : char.lowercased()
-            shouldUpper = (char == "_")
-            if char != "_" {
-                out.append(c)
-            }
-        }
-        var output = out.joined()
-//        print(output)
-//        print("---------------------------")
-//        print("---------------------------")
-       
-//        characters.reduce(<#T##initialResult: Result##Result#>, <#T##nextPartialResult: (Result, Character) throws -> Result##(Result, Character) throws -> Result#>)
-        let camel = convertLargeSnakeToCamel(str: string)
-        print(camel)
 
-        
-        
-      
-//        let string = "Google, Amazon, Facebook, Apple"
-//        let pattern = "[A-Z]+"
-////        let pattern = "[B-Z][a-z]+"
-//        let template = "[a-z]+"
-
-//        replaceMatches(string: string, pattern: pattern, template: template, options: [.useUnicodeWordBoundaries])
-        
-
-//        let new = "ー−–—"
-//            .replacingOccurrences(of: "–", with: "ー") //全角enダッシュ  「Option」＋「-(ハイフン)」
-//            .replacingOccurrences(of: "—", with: "ー")  //全角emダッシュ 「Shift」＋「Option」＋「-(ハイフン)」
-//            .replacingOccurrences(of: "−", with: "ー") //全角ハイフン
-//
-//        print(new)
-//        print("--------")
-        
-//        ー : 全角のハイフン(E383BC)
-//        − : 全角のマイナス(E28892)
-//        – : ENダッシュ(E28093)
-//        — : EMダッシュ(E28094)
-
-        
         
     }
 
