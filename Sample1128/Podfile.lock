@@ -7,18 +7,21 @@ PODS:
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
   - SwiftDate (4.4.2)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - lottie-ios
   - RxCocoa (from `https://github.com/ReactiveX/RxSwift.git`, branch `master`)
   - RxSwift (from `https://github.com/ReactiveX/RxSwift.git`, branch `master`)
   - SwiftDate (~> 4.4.2)
+  - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - lottie-ios
     - RxRelay
     - SwiftDate
+    - SwiftyJSON
 
 EXTERNAL SOURCES:
   RxCocoa:
@@ -42,6 +45,7 @@ SPEC CHECKSUMS:
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SwiftDate: 131cf2f09b390f0a07f0099e36005ffe2fbf4c7e
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
 PODFILE CHECKSUM: 934d200559ba6a2d3d516fc60c01a772e3d97349
 

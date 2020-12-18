@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4978647C24CFC5B20084BF7B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4978647624CFC5B20084BF7B /* UIButton+Extension.swift */; };
-		4978647D24CFC5B20084BF7B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4978647724CFC5B20084BF7B /* UIView+Extension.swift */; };
-		4978647F24CFC5B20084BF7B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4978647924CFC5B20084BF7B /* String+Extension.swift */; };
-		49AD39A325085D4A00DE6E72 /* charging.json in Resources */ = {isa = PBXBuildFile; fileRef = 49AD39A225085D4A00DE6E72 /* charging.json */; };
-		49AD39A925085FE000DE6E72 /* charging_dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 49AD39A825085FE000DE6E72 /* charging_dark.json */; };
-		49AD39AB250862B800DE6E72 /* LottieAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AD39AA250862B800DE6E72 /* LottieAnimationView.swift */; };
-		49CDC33D24C67A6B00ED87D6 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDC33C24C67A6B00ED87D6 /* OneViewController.swift */; };
-		49CEDB9E24D540D400D46BF7 /* Date+Extended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CEDB9D24D540D400D46BF7 /* Date+Extended.swift */; };
+		1424334625661FF200E9EFD1 /* apigee_error.json in Resources */ = {isa = PBXBuildFile; fileRef = 1424334525661FF200E9EFD1 /* apigee_error.json */; };
+		1424334825662E0A00E9EFD1 /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424334725662E0A00E9EFD1 /* ErrorCode.swift */; };
+		1424334A25662E3100E9EFD1 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424334925662E3100E9EFD1 /* APIResult.swift */; };
+		1424334C2566304000E9EFD1 /* ApigeeErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424334B2566304000E9EFD1 /* ApigeeErrorMessage.swift */; };
+		1424334E2566311200E9EFD1 /* ApigeeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424334D2566311200E9EFD1 /* ApigeeError.swift */; };
+		144BCF5B2567A8E700F06BB0 /* TSCardAlertMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144BCF5A2567A8E700F06BB0 /* TSCardAlertMessageView.xib */; };
+		14E0379B253D241600E4A802 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0379A253D241600E4A802 /* Defaults.swift */; };
+		5A9415F524E6146600B715B1 /* NibLoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9415F424E6146500B715B1 /* NibLoaderProtocol.swift */; };
+		5A9415F724E61CA700B715B1 /* GetMallCardsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9415F624E61CA700B715B1 /* GetMallCardsContract.swift */; };
+		5A9415FA24E63D1000B715B1 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9415F924E63D1000B715B1 /* String+Extension.swift */; };
 		6265A2109981780B1B122F35 /* Pods_Sample1128.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C7A0E826D8277750720403 /* Pods_Sample1128.framework */; };
 		82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E773238F919A00EA0B6D /* AppDelegate.swift */; };
 		82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E775238F919A00EA0B6D /* SceneDelegate.swift */; };
@@ -36,14 +38,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4978647624CFC5B20084BF7B /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
-		4978647724CFC5B20084BF7B /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		4978647924CFC5B20084BF7B /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		49AD39A225085D4A00DE6E72 /* charging.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = charging.json; sourceTree = "<group>"; };
-		49AD39A825085FE000DE6E72 /* charging_dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = charging_dark.json; sourceTree = "<group>"; };
-		49AD39AA250862B800DE6E72 /* LottieAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationView.swift; sourceTree = "<group>"; };
-		49CDC33C24C67A6B00ED87D6 /* OneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
-		49CEDB9D24D540D400D46BF7 /* Date+Extended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extended.swift"; sourceTree = "<group>"; };
+		1424334525661FF200E9EFD1 /* apigee_error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apigee_error.json; sourceTree = "<group>"; };
+		1424334725662E0A00E9EFD1 /* ErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCode.swift; sourceTree = "<group>"; };
+		1424334925662E3100E9EFD1 /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
+		1424334B2566304000E9EFD1 /* ApigeeErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApigeeErrorMessage.swift; sourceTree = "<group>"; };
+		1424334D2566311200E9EFD1 /* ApigeeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApigeeError.swift; sourceTree = "<group>"; };
+		144BCF5A2567A8E700F06BB0 /* TSCardAlertMessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TSCardAlertMessageView.xib; sourceTree = "<group>"; };
+		14E0379A253D241600E4A802 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		5A9415F424E6146500B715B1 /* NibLoaderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoaderProtocol.swift; sourceTree = "<group>"; };
+		5A9415F624E61CA700B715B1 /* GetMallCardsContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMallCardsContract.swift; sourceTree = "<group>"; };
+		5A9415F924E63D1000B715B1 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5E19E16B8E478AC913F9A91A /* Pods-Sample1128.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample1128.debug.xcconfig"; path = "Target Support Files/Pods-Sample1128/Pods-Sample1128.debug.xcconfig"; sourceTree = "<group>"; };
 		79C7A0E826D8277750720403 /* Pods_Sample1128.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample1128.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C9E770238F919A00EA0B6D /* Sample1128.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample1128.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,25 +83,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4978647524CFC5B20084BF7B /* Utils */ = {
+		1425179F25626DAD00186C95 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4978647624CFC5B20084BF7B /* UIButton+Extension.swift */,
-				4978647724CFC5B20084BF7B /* UIView+Extension.swift */,
-				49CEDB9D24D540D400D46BF7 /* Date+Extended.swift */,
-				4978647924CFC5B20084BF7B /* String+Extension.swift */,
-				49AD39AA250862B800DE6E72 /* LottieAnimationView.swift */,
+				1424334525661FF200E9EFD1 /* apigee_error.json */,
 			);
-			path = Utils;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		49AD39A125085D4A00DE6E72 /* Resource */ = {
+		5A9415F824E63D0000B715B1 /* etc */ = {
 			isa = PBXGroup;
 			children = (
-				49AD39A225085D4A00DE6E72 /* charging.json */,
-				49AD39A825085FE000DE6E72 /* charging_dark.json */,
+				5A9415F924E63D1000B715B1 /* String+Extension.swift */,
+				14E0379A253D241600E4A802 /* Defaults.swift */,
+				1424334725662E0A00E9EFD1 /* ErrorCode.swift */,
+				1424334925662E3100E9EFD1 /* APIResult.swift */,
+				1424334B2566304000E9EFD1 /* ApigeeErrorMessage.swift */,
+				1424334D2566311200E9EFD1 /* ApigeeError.swift */,
 			);
-			path = Resource;
+			path = etc;
 			sourceTree = "<group>";
 		};
 		5B0BD0F36AFCBE4B13949282 /* Frameworks */ = {
@@ -131,12 +135,14 @@
 		82C9E772238F919A00EA0B6D /* Sample1128 */ = {
 			isa = PBXGroup;
 			children = (
-				49AD39A125085D4A00DE6E72 /* Resource */,
-				4978647524CFC5B20084BF7B /* Utils */,
+				1425179F25626DAD00186C95 /* Resources */,
+				5A9415F824E63D0000B715B1 /* etc */,
 				82C9E773238F919A00EA0B6D /* AppDelegate.swift */,
 				82C9E775238F919A00EA0B6D /* SceneDelegate.swift */,
 				82C9E777238F919A00EA0B6D /* FirstViewController.swift */,
-				49CDC33C24C67A6B00ED87D6 /* OneViewController.swift */,
+				5A9415F424E6146500B715B1 /* NibLoaderProtocol.swift */,
+				144BCF5A2567A8E700F06BB0 /* TSCardAlertMessageView.xib */,
+				5A9415F624E61CA700B715B1 /* GetMallCardsContract.swift */,
 				82C9E77B238F919A00EA0B6D /* Main.storyboard */,
 				82C9E77E238F919B00EA0B6D /* Assets.xcassets */,
 				82C9E780238F919B00EA0B6D /* LaunchScreen.storyboard */,
@@ -246,11 +252,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49AD39A325085D4A00DE6E72 /* charging.json in Resources */,
 				82C9E782238F919B00EA0B6D /* LaunchScreen.storyboard in Resources */,
+				144BCF5B2567A8E700F06BB0 /* TSCardAlertMessageView.xib in Resources */,
+				1424334625661FF200E9EFD1 /* apigee_error.json in Resources */,
 				82C9E77F238F919B00EA0B6D /* Assets.xcassets in Resources */,
 				82C9E77D238F919A00EA0B6D /* Main.storyboard in Resources */,
-				49AD39A925085FE000DE6E72 /* charging_dark.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,15 +316,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49CEDB9E24D540D400D46BF7 /* Date+Extended.swift in Sources */,
-				49AD39AB250862B800DE6E72 /* LottieAnimationView.swift in Sources */,
-				4978647C24CFC5B20084BF7B /* UIButton+Extension.swift in Sources */,
+				1424334A25662E3100E9EFD1 /* APIResult.swift in Sources */,
 				82C9E778238F919A00EA0B6D /* FirstViewController.swift in Sources */,
-				4978647F24CFC5B20084BF7B /* String+Extension.swift in Sources */,
+				14E0379B253D241600E4A802 /* Defaults.swift in Sources */,
+				5A9415FA24E63D1000B715B1 /* String+Extension.swift in Sources */,
+				1424334E2566311200E9EFD1 /* ApigeeError.swift in Sources */,
 				82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */,
 				82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */,
-				4978647D24CFC5B20084BF7B /* UIView+Extension.swift in Sources */,
-				49CDC33D24C67A6B00ED87D6 /* OneViewController.swift in Sources */,
+				5A9415F724E61CA700B715B1 /* GetMallCardsContract.swift in Sources */,
+				5A9415F524E6146600B715B1 /* NibLoaderProtocol.swift in Sources */,
+				1424334825662E0A00E9EFD1 /* ErrorCode.swift in Sources */,
+				1424334C2566304000E9EFD1 /* ApigeeErrorMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

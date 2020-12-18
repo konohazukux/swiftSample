@@ -6,6 +6,8 @@ target 'Sample1128' do
   pod 'SwiftDate', '~> 4.4.2'
   pod 'RxCocoa', :git => 'https://github.com/ReactiveX/RxSwift.git', :branch => 'master'
   pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git', :branch => 'master'
+  pod 'SwiftyJSON'
+
 #  pod 'ReactorKit'
 #  pod 'SnapKit', '~> 4.0.0'
 #  pod 'R.swift', '~> 5.1.0'
