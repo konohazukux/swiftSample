@@ -30,7 +30,7 @@
 </string>
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <font key="NSFont" metaFont="controlContent" size="11"/>
+                                            <font key="NSFont" metaFont="label" size="11"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" headIndent="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -55,6 +55,14 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDe-tV-vz6">
+                                <rect key="frame" x="74" y="571" width="207" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" hint="label1hint_test" identifier="label1id__test" label="label1label_test"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -68,6 +76,7 @@
                     <navigationItem key="navigationItem" id="xVu-0A-NXI"/>
                     <connections>
                         <outlet property="label" destination="ug6-6e-9Rs" id="tZT-e5-fms"/>
+                        <outlet property="label1" destination="jDe-tV-vz6" id="th9-2l-0Ro"/>
                         <outlet property="oneButton" destination="0Pu-f5-c6d" id="AZV-P3-ynw"/>
                         <outlet property="phoneTf" destination="JAM-rG-FsR" id="ozO-9q-WhX"/>
                     </connections>

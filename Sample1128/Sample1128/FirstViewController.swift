@@ -16,13 +16,19 @@ struct User: Codable {
     var name: String
 }
 
+var testCount = 0
+
 class FirstViewController: UIViewController {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var phoneTf: UITextField!
     @IBOutlet weak var oneButton: UIButton!
+    @IBOutlet weak var label1: UILabel!
+    
     private var myButton: UIButton!
     let disposeBag = DisposeBag()
+
+    let testRelay = PublishRelay<Int>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,26 +38,136 @@ class FirstViewController: UIViewController {
         UITabBar.appearance().clipsToBounds = true
 
         phoneTf.delegate = self
-        
-        UITabBar.appearance().shadowImage = UIImage.colorForNavBar(color: UIColor.white)
-        UITabBar.appearance().backgroundImage = UIImage.colorForNavBar(color: UIColor.white)
 
-        label.setColorToAttributedText(.red)
-       
-//        let temp = "abc―"
-        let temp = "abc ー － — -"
-        let temp2 = temp
-            .replacingOccurrences(of: "ー", with: "-")
-            .replacingOccurrences(of: "－", with: "-")
-            .replacingOccurrences(of: "—", with: "-")
-        print(temp2)
-        print("--------")
-        print("abc-")
-        print("--------")
-      
-//        loadCodeMessageMap()
+        print(label1.accessibilityIdentifier ?? "")
+        print(label1.accessibilityHint ?? "")
+        print(label1.accessibilityLabel  ?? "")
         
-        readcsv()
+        
+//        Single<Int>.create { singleEvent in
+//            self.testRelay.subscribe(onNext: { val in
+//                singleEvent(.success(val))
+//            })
+//            .disposed(by: self.disposeBag)
+//            return Disposables.create()
+//            }
+//            .subscribe(onSuccess: { val in
+//                print("1:   \(val)")
+//            })
+//            .disposed(by: disposeBag)
+//
+//        testRelay.accept(3)
+
+//        let testRelay = PublishRelay<Int>()
+//        testRelay
+//            .debug("infolog1:\(#line): \(type(of: self))", trimOutput: false)
+//            .asObservable()
+//            .debug("infolog2:\(#line): \(type(of: self))", trimOutput: false)
+//            .subscribe(onNext: { val in
+//                print("value:   \(val)")
+//            })
+//            .disposed(by: disposeBag)
+//        testRelay.accept(3)
+//
+        
+        
+//        let testRelay = PublishRelay<Int>()
+//        Single<Int>.just(2)
+//            .flatMap { _ -> Single<Int> in
+//                return testRelay.asSingle()
+//            }
+//            .subscribe(onSuccess: {
+//                print("value:   \($0)")
+//            })
+//            .disposed(by: disposeBag)
+//        testRelay.accept(3)
+
+
+        
+        
+        let testRelay = PublishSubject<Int>()
+        testRelay
+            .asSingle()
+            .subscribe(onSuccess: {
+                print("value:   \($0)")
+            })
+            .disposed(by: disposeBag)
+        
+        let _ = Observable.just(3)
+            .bind(to: testRelay)
+//            .disposed(by: disposeBag)
+        
+        
+//        Observable<Int>.just(2)
+//            .asObservable()
+//            .debug("infolog:\(#line): \(type(of: self))", trimOutput: true)
+//            .flatMap { _ -> Observable<Int> in
+//                return testRelay.asObservable()
+//            }
+//            .debug("infolog:\(#line): \(type(of: self))", trimOutput: true)
+//        .asSingle()
+//            .debug("infolog:\(#line): \(type(of: self))", trimOutput: true)
+//        .subscribe(onSuccess: {
+//            print("value:   \($0)")
+//        })
+//            .disposed(by: disposeBag)
+//        testRelay.accept(3)
+
+        
+    }
+    
+//    func call() {
+//        testCount = testCount + 1
+//        testRelay.accept(testCount)
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            if testCount < 8 {
+//                self.call()
+//            }
+//        }
+//    }
+//
+//
+    func refresh() -> Single<Int> {
+        return Single.create { singleEvent in
+            singleEvent(.success(3))
+            return Disposables.create()
+        }
+            
+    }
+
+    
+    func test() -> Single<String> {
+        print("infolog:\(#line) \(type(of: self))  \(#function) : \(self) ")
+        return Single<String>.create { singleEvent in
+            singleEvent(.success("test \(testCount)"))
+            return Disposables.create()
+        }
+        .debug("infolog:\(#line): \(type(of: self))", trimOutput: true)
+        .flatMap { val in
+            testCount = testCount + 1
+            print("test count \(testCount)")
+            if testCount < 3 {
+                return self.test()
+                    .debug("infolog:\(#line): \(type(of: self))", trimOutput: true)
+            }
+            return Single.just(val)
+        }
+    }
+    
+    private func convertPercentString(_ val: Double?) -> String? {
+        convertPercentString(val.map { String($0) })
+    }
+
+    private func convertPercentString(_ str: String?) -> String? {
+        str.map {
+            let currency = String($0).currencyInputFormatting(
+                isShowZero: true,
+                maximumFractionDigits: 3,
+                minimumFractionDigits: 3
+            )
+            return "\(currency)%"
+        }
     }
 
     func readcsv() {

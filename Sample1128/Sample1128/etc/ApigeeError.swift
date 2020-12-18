@@ -9,7 +9,7 @@
 import Foundation
 
 //sdf
-struct ApigeeError: Error {
+struct ApigeeError {
     
     let apigeeErrorCode: String
     let errorDetail: ErrorDetail

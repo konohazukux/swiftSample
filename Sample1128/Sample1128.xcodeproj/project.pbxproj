@@ -12,6 +12,7 @@
 		1424334A25662E3100E9EFD1 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424334925662E3100E9EFD1 /* APIResult.swift */; };
 		1424334C2566304000E9EFD1 /* ApigeeErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424334B2566304000E9EFD1 /* ApigeeErrorMessage.swift */; };
 		1424334E2566311200E9EFD1 /* ApigeeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424334D2566311200E9EFD1 /* ApigeeError.swift */; };
+		144BCF5B2567A8E700F06BB0 /* TSCardAlertMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144BCF5A2567A8E700F06BB0 /* TSCardAlertMessageView.xib */; };
 		14E0379B253D241600E4A802 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0379A253D241600E4A802 /* Defaults.swift */; };
 		5A9415F524E6146600B715B1 /* NibLoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9415F424E6146500B715B1 /* NibLoaderProtocol.swift */; };
 		5A9415F724E61CA700B715B1 /* GetMallCardsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9415F624E61CA700B715B1 /* GetMallCardsContract.swift */; };
@@ -42,6 +43,7 @@
 		1424334925662E3100E9EFD1 /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
 		1424334B2566304000E9EFD1 /* ApigeeErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApigeeErrorMessage.swift; sourceTree = "<group>"; };
 		1424334D2566311200E9EFD1 /* ApigeeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApigeeError.swift; sourceTree = "<group>"; };
+		144BCF5A2567A8E700F06BB0 /* TSCardAlertMessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TSCardAlertMessageView.xib; sourceTree = "<group>"; };
 		14E0379A253D241600E4A802 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		5A9415F424E6146500B715B1 /* NibLoaderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoaderProtocol.swift; sourceTree = "<group>"; };
 		5A9415F624E61CA700B715B1 /* GetMallCardsContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetMallCardsContract.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				82C9E775238F919A00EA0B6D /* SceneDelegate.swift */,
 				82C9E777238F919A00EA0B6D /* FirstViewController.swift */,
 				5A9415F424E6146500B715B1 /* NibLoaderProtocol.swift */,
+				144BCF5A2567A8E700F06BB0 /* TSCardAlertMessageView.xib */,
 				5A9415F624E61CA700B715B1 /* GetMallCardsContract.swift */,
 				82C9E77B238F919A00EA0B6D /* Main.storyboard */,
 				82C9E77E238F919B00EA0B6D /* Assets.xcassets */,
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82C9E782238F919B00EA0B6D /* LaunchScreen.storyboard in Resources */,
+				144BCF5B2567A8E700F06BB0 /* TSCardAlertMessageView.xib in Resources */,
 				1424334625661FF200E9EFD1 /* apigee_error.json in Resources */,
 				82C9E77F238F919B00EA0B6D /* Assets.xcassets in Resources */,
 				82C9E77D238F919A00EA0B6D /* Main.storyboard in Resources */,
