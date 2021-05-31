@@ -32,211 +32,67 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        UITabBar.appearance().layer.borderWidth = 0.5
-        UITabBar.appearance().layer.borderColor = UIColor.clear.cgColor
-        UITabBar.appearance().clipsToBounds = true
 
-        phoneTf.delegate = self
-
-        print(label1.accessibilityIdentifier ?? "")
-        print(label1.accessibilityHint ?? "")
-        print(label1.accessibilityLabel  ?? "")
-        
-        
-//        Single<Int>.create { singleEvent in
-//            self.testRelay.subscribe(onNext: { val in
-//                singleEvent(.success(val))
-//            })
-//            .disposed(by: self.disposeBag)
-//            return Disposables.create()
-//            }
-//            .subscribe(onSuccess: { val in
-//                print("1:   \(val)")
-//            })
-//            .disposed(by: disposeBag)
-//
-//        testRelay.accept(3)
-
-//        let testRelay = PublishRelay<Int>()
-//        testRelay
-//            .debug("infolog1:\(#line): \(type(of: self))", trimOutput: false)
-//            .asObservable()
-//            .debug("infolog2:\(#line): \(type(of: self))", trimOutput: false)
-//            .subscribe(onNext: { val in
-//                print("value:   \(val)")
-//            })
-//            .disposed(by: disposeBag)
-//        testRelay.accept(3)
-//
-        
-        
-//        let testRelay = PublishRelay<Int>()
-//        Single<Int>.just(2)
-//            .flatMap { _ -> Single<Int> in
-//                return testRelay.asSingle()
-//            }
-//            .subscribe(onSuccess: {
-//                print("value:   \($0)")
-//            })
-//            .disposed(by: disposeBag)
-//        testRelay.accept(3)
-
-
-        
-        
-        let testRelay = PublishSubject<Int>()
-        testRelay
-            .asSingle()
-            .subscribe(onSuccess: {
-                print("value:   \($0)")
-            })
-            .disposed(by: disposeBag)
-        
-        let _ = Observable.just(3)
-            .bind(to: testRelay)
-//            .disposed(by: disposeBag)
-        
-        
-//        Observable<Int>.just(2)
-//            .asObservable()
-//            .debug("infolog:\(#line): \(type(of: self))", trimOutput: true)
-//            .flatMap { _ -> Observable<Int> in
-//                return testRelay.asObservable()
-//            }
-//            .debug("infolog:\(#line): \(type(of: self))", trimOutput: true)
-//        .asSingle()
-//            .debug("infolog:\(#line): \(type(of: self))", trimOutput: true)
-//        .subscribe(onSuccess: {
-//            print("value:   \($0)")
-//        })
-//            .disposed(by: disposeBag)
-//        testRelay.accept(3)
-
-        
+        let string = "BankPay【MPM】決済要求に失敗しました。処理を中断します。error：jdebit_api_failed, error_description：E540001;7ad12115-bdbd-4fbf-b3d4-a5c4620a6697;2021-04-27 16:00:48, error_parameter：, error_detail_message：口座情報が無効化されています"
+        let dic = parseCAFISError(string: string)
+        print(dic)
     }
-    
-//    func call() {
-//        testCount = testCount + 1
-//        testRelay.accept(testCount)
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            if testCount < 8 {
-//                self.call()
-//            }
-//        }
-//    }
-//
-//
-    func refresh() -> Single<Int> {
-        return Single.create { singleEvent in
-            singleEvent(.success(3))
-            return Disposables.create()
+
+    // 下記のような string型のerror messageを dictionaryに変換します
+    //  変換前: "BankPay【MPM】決済要求に失敗しました。処理を中断します。error：jdebit_api_failed, error_description：E540001;7ad12115-bdbd-4fbf-b3d4-a5c4620a6697;2021-04-27 16:00:48, error_parameter：, error_detail_message：口座情報が無効化されています"
+    // 変換後: ["error": "jdebit_api_failed", "error_description": "E540001;7ad12115-bdbd-4fbf-b3d4-a5c4620a6697;2021-04-27 16:00:48", "error_detail_message": "口座情報が無効化されています", "error_parameter": ""]
+
+    func parseCAFISError(string: String) -> [String: String] {
+        let pattern = "(error.+?)(,|$)"
+        let regex = try! NSRegularExpression(pattern: pattern, options: [])
+        let results = regex.matches(in: string, options: [], range: NSRange(0..<string.count))
+        var errorStrings = [String]()
+        for result in results {
+            let start = string.index(string.startIndex, offsetBy: result.range(at: 1).location)
+            let end = string.index(start, offsetBy: result.range(at: 1).length)
+            let text = String(string[start..<end])
+            errorStrings.append(text)
         }
+        return parseCAFISEachItem(errorStrings: errorStrings)
+    }
+
+    // 変換前: ["error：jdebit_api_failed", "error_description：E540001;7ad12115-bdbd-4fbf-b3d4-a5c4620a6697;2021-04-27 16:00:48", "error_parameter：", "error_detail_message：口座情報が無効化されています"]
+    // 変換後: ["error": "jdebit_api_failed", "error_description": "E540001;7ad12115-bdbd-4fbf-b3d4-a5c4620a6697;2021-04-27 16:00:48", "error_detail_message": "口座情報が無効化されています", "error_parameter": ""]
+    func parseCAFISEachItem(errorStrings: [String]) -> [String: String] {
+        let pattern = "(error.*?)[:：](.*)"
+        let regex = try! NSRegularExpression(pattern: pattern, options: [])
+        var outputDic = [String: String]()
+        
+        for string in errorStrings {
+            let results = regex.matches(in: string, options: [], range: NSRange(0..<string.count))
             
-    }
-
-    
-    func test() -> Single<String> {
-        print("infolog:\(#line) \(type(of: self))  \(#function) : \(self) ")
-        return Single<String>.create { singleEvent in
-            singleEvent(.success("test \(testCount)"))
-            return Disposables.create()
-        }
-        .debug("infolog:\(#line): \(type(of: self))", trimOutput: true)
-        .flatMap { val in
-            testCount = testCount + 1
-            print("test count \(testCount)")
-            if testCount < 3 {
-                return self.test()
-                    .debug("infolog:\(#line): \(type(of: self))", trimOutput: true)
+            for result in results {
+                var key: String?
+                var value: String = ""
+                for i in 0..<result.numberOfRanges {
+                    let start = string.index(string.startIndex, offsetBy: result.range(at: i).location)
+                    let end = string.index(start, offsetBy: result.range(at: i).length)
+                    let text = String(string[start..<end])
+                    if i == 1 {
+                        key = text
+                    } else if i == 2 {
+                        value = text
+                    }
+                }
+                if let key = key {
+                    outputDic[key] = value
+                }
             }
-            return Single.just(val)
         }
-    }
-    
-    private func convertPercentString(_ val: Double?) -> String? {
-        convertPercentString(val.map { String($0) })
+        return outputDic
     }
 
-    private func convertPercentString(_ str: String?) -> String? {
-        str.map {
-            let currency = String($0).currencyInputFormatting(
-                isShowZero: true,
-                maximumFractionDigits: 3,
-                minimumFractionDigits: 3
-            )
-            return "\(currency)%"
-        }
-    }
-
-    func readcsv() {
-        // ----- jsonファイル読み込み
-        guard let path = Bundle.main.path(forResource: "apigee_error", ofType: "json") else { return }
-        do {
-            let jsonString: String = try String(contentsOfFile: path, encoding: .utf8)
-//            let apigeeErrors = ApigeeError.generate(jsonString: jsonString)
-
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-    }
-    
-    
-    private func loadCodeMessageMap() -> String? {
-        guard let path = Bundle.main.path(forResource: "error2", ofType: "csv") else {
-            return nil
-        }
-        do {
-            let csvString = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
-            let csvLines = csvString.components(separatedBy: .newlines)
-            print(csvLines)
-            return ""
-        } catch {
-            return nil
-        }
-     }
-}
-
-extension FirstViewController: UITextFieldDelegate {
     
 }
 
-extension UIImage {
-    class func colorForNavBar(color: UIColor) -> UIImage {
-        let rect = CGRect.init(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
-        UIGraphicsBeginImageContext(rect.size)
-        if let context = UIGraphicsGetCurrentContext() {
-            context.setFillColor(color.cgColor)
-            context.fill(rect)
-            guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return UIImage() }
-            UIGraphicsEndImageContext()
-            return image
-        }
-        return UIImage()
+extension Array {
+    /// 存在しない index を参照した場合 nil を戻す safe 配列参照
+    func at(_ index: Index) -> Element? {
+        indices.contains(index) ? self[index] : nil
     }
 }
-
-//sdf
-//struct ApigeeErrorMessage {
-//
-//    //    static func generate(jsonString: String) -> [ApigeeError] {
-//    //        guard let dic = jsonString.toJSONDict() else { return [] }
-//    //        var apigeeErrors = [ApigeeError]()
-//    //        for (key, value) in dic {
-//    //            let errorCode = key
-//    //            if let v = value as? [String: Any],
-//    //                let code = v["code"] as? Int,
-//    //                let message = v["message"] as? String,
-//    //                let type = v["type"] as? Int {
-//    //                let apigeeError = ApigeeError.init(errorCode: errorCode, code: code, message: message, type: type)
-//    //                apigeeErrors.append(apigeeError)
-//    //            }
-//    //        }
-//    //        return apigeeErrors
-//    //    }
-//
-//
-//}
-
-
