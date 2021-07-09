@@ -9,14 +9,43 @@
 import UIKit
 
 enum SettingType: Int, CaseIterable {
-    case IDPass = 0
-    case ICCard
-    case segaId
-    case myData
+    /// ID・パスワード管理
+    case Account = 0
+    /// ICカード登録管理
+    case Nfc
+    /// SEGA ID 紐付け管理
+    case SegaId
+    /// マイデータ
+    case MyData
+    /// ランキング
+    case Ranking
+    /// ゲーム大会
+    case Game
+    
+    /// 初めてガイド
+    case FirstGuide
+    /// 利用ガイド
+    case UsageGuide
+    /// 利用店舗一覧
+    case MenuArcades
+  
+    /// お問い合わせ
+    case QA
+    /// 利用規約
+    case Terms
+    /// プライバシーポリシー
+    case Policy
+    /// 特定商取引法
+    case Shoho
+    /// サービス退会
+    case Delete
+    
+    /// ログアウト
+    case Logout
 
     var cellType: CellType {
         switch self {
-        case .IDPass, .ICCard, .segaId:
+        case .Account, .Nfc, .SegaId:
             return .SettingLargeCell
         default:
             return .SettingNomalCell
@@ -24,14 +53,38 @@ enum SettingType: Int, CaseIterable {
     }
     var title: String {
         switch self {
-        case .IDPass:
-            return "ID/pass 管理"
-        case .ICCard:
+        case .Account:
+            return "ID・パスワード管理"
+        case .Nfc:
             return "ICカード登録管理"
-        case .segaId:
-            return "sega id"
-        case .myData:
+        case .SegaId:
+            return "SEGA ID 紐付け管理"
+        case .MyData:
             return "マイデータ"
+        case .Ranking:
+            return "ランキング"
+        case .Game:
+            return "ゲーム大会"
+            
+        case .FirstGuide:
+            return "初めてガイド"
+        case .UsageGuide:
+            return "利用ガイド"
+        case .MenuArcades:
+            return "利用店舗一覧会"
+        case .QA:
+            return "お問い合わせ"
+        case .Terms:
+            return "利用規約"
+        case .Policy:
+            return "プライバシーポリシー"
+        case .Shoho:
+            return "特定商取引法"
+        case .Delete:
+            return "サービス退会"
+        case .Logout:
+            return "ログアウト"
+
         default:
             return "etc"
         }
@@ -68,7 +121,12 @@ class SettingViewController: UIViewController {
         
         view.backgroundColor = UIColor.red
         tableView.rowHeight =  UITableView.automaticDimension
-        
+
+        let settingTypes:[[SettingType]] = [
+            [.Account, .Nfc, .SegaId, .MyData, .Ranking, .Game],
+            [.FirstGuide, .UsageGuide, .MenuArcades],
+            [.QA, .Terms, .Policy, .Shoho, .Delete],
+        ]
 
     }
     
@@ -81,6 +139,12 @@ class SettingViewController: UIViewController {
 }
 
 extension SettingViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return " "
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SettingType.allCases.count
     }
