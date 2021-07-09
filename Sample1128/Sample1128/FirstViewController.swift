@@ -34,5 +34,19 @@ class FirstViewController: UIViewController {
         UITabBar.appearance().layer.borderWidth = 0.5
         UITabBar.appearance().layer.borderColor = UIColor.clear.cgColor
         UITabBar.appearance().clipsToBounds = true
+
+
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+
+            let sb = UIStoryboard.init(name: "SettingViewController", bundle: nil)
+            if let vc = sb.instantiateInitialViewController() as? SettingViewController {
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
+
+        }
+    }
+    
 }
