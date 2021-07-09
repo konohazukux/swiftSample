@@ -31,18 +31,8 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         UITabBar.appearance().layer.borderWidth = 0.5
         UITabBar.appearance().layer.borderColor = UIColor.clear.cgColor
         UITabBar.appearance().clipsToBounds = true
-
-        copyClipBoard()
     }
-    
-    func copyClipBoard() {
-        
-        UIPasteboard.general.string = "コピーしたい文字列2345678"
-        
-    }
-    
 }
