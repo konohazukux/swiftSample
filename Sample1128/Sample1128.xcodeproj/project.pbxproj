@@ -20,6 +20,7 @@
 		6265A2109981780B1B122F35 /* Pods_Sample1128.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C7A0E826D8277750720403 /* Pods_Sample1128.framework */; };
 		8295F9BA2609709000844E7A /* ObservableType+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8295F9B92609709000844E7A /* ObservableType+.swift */; };
 		8295F9BE26097A1500844E7A /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8295F9BD26097A1500844E7A /* ActivityIndicator.swift */; };
+		82B3FF012664DA0D00F2E61D /* NFXHTTPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B3FF002664DA0D00F2E61D /* NFXHTTPModel.swift */; };
 		82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E773238F919A00EA0B6D /* AppDelegate.swift */; };
 		82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E775238F919A00EA0B6D /* SceneDelegate.swift */; };
 		82C9E778238F919A00EA0B6D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E777238F919A00EA0B6D /* FirstViewController.swift */; };
@@ -54,6 +55,7 @@
 		79C7A0E826D8277750720403 /* Pods_Sample1128.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample1128.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8295F9B92609709000844E7A /* ObservableType+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+.swift"; sourceTree = "<group>"; };
 		8295F9BD26097A1500844E7A /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		82B3FF002664DA0D00F2E61D /* NFXHTTPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFXHTTPModel.swift; sourceTree = "<group>"; };
 		82C9E770238F919A00EA0B6D /* Sample1128.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample1128.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C9E773238F919A00EA0B6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82C9E775238F919A00EA0B6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				82C9E773238F919A00EA0B6D /* AppDelegate.swift */,
 				82C9E775238F919A00EA0B6D /* SceneDelegate.swift */,
 				82C9E777238F919A00EA0B6D /* FirstViewController.swift */,
+				82B3FF002664DA0D00F2E61D /* NFXHTTPModel.swift */,
 				5A9415F424E6146500B715B1 /* NibLoaderProtocol.swift */,
 				144BCF5A2567A8E700F06BB0 /* TSCardAlertMessageView.xib */,
 				5A9415F624E61CA700B715B1 /* GetMallCardsContract.swift */,
@@ -328,6 +331,7 @@
 				5A9415FA24E63D1000B715B1 /* String+Extension.swift in Sources */,
 				8295F9BE26097A1500844E7A /* ActivityIndicator.swift in Sources */,
 				1424334E2566311200E9EFD1 /* ApigeeError.swift in Sources */,
+				82B3FF012664DA0D00F2E61D /* NFXHTTPModel.swift in Sources */,
 				82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */,
 				8295F9BA2609709000844E7A /* ObservableType+.swift in Sources */,
 				82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */,
