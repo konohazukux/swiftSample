@@ -22,6 +22,7 @@
 		8213C6E42698304200EE201B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8213C6E32698304200EE201B /* SettingViewController.swift */; };
 		8213C6F42698370700EE201B /* SettingLargeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8213C6F32698370700EE201B /* SettingLargeCell.swift */; };
 		8213C6F8269845CC00EE201B /* SettingNomalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8213C6F7269845CC00EE201B /* SettingNomalCell.swift */; };
+		8256DBE8269938F1003A766A /* SettingLogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256DBE7269938F1003A766A /* SettingLogoutCell.swift */; };
 		82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E773238F919A00EA0B6D /* AppDelegate.swift */; };
 		82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E775238F919A00EA0B6D /* SceneDelegate.swift */; };
 		82C9E778238F919A00EA0B6D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E777238F919A00EA0B6D /* FirstViewController.swift */; };
@@ -58,6 +59,7 @@
 		8213C6E32698304200EE201B /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		8213C6F32698370700EE201B /* SettingLargeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingLargeCell.swift; sourceTree = "<group>"; };
 		8213C6F7269845CC00EE201B /* SettingNomalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNomalCell.swift; sourceTree = "<group>"; };
+		8256DBE7269938F1003A766A /* SettingLogoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingLogoutCell.swift; sourceTree = "<group>"; };
 		82C9E770238F919A00EA0B6D /* Sample1128.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample1128.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C9E773238F919A00EA0B6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82C9E775238F919A00EA0B6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				8213C6DE2698301600EE201B /* SettingViewController.storyboard */,
 				8213C6E32698304200EE201B /* SettingViewController.swift */,
 				8213C6F32698370700EE201B /* SettingLargeCell.swift */,
+				8256DBE7269938F1003A766A /* SettingLogoutCell.swift */,
 				8213C6F7269845CC00EE201B /* SettingNomalCell.swift */,
 			);
 			path = Setting;
@@ -337,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8256DBE8269938F1003A766A /* SettingLogoutCell.swift in Sources */,
 				1424334A25662E3100E9EFD1 /* APIResult.swift in Sources */,
 				82C9E778238F919A00EA0B6D /* FirstViewController.swift in Sources */,
 				14E0379B253D241600E4A802 /* Defaults.swift in Sources */,

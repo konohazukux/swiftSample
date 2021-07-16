@@ -47,6 +47,8 @@ enum SettingType: Int, CaseIterable {
         switch self {
         case .Account, .Nfc, .SegaId:
             return .SettingLargeCell
+        case .Logout:
+            return .SettingLogoutCell
         default:
             return .SettingNomalCell
         }
@@ -93,18 +95,10 @@ enum SettingType: Int, CaseIterable {
     enum CellType: String {
         case SettingLargeCell
         case SettingNomalCell
+        case SettingLogoutCell
    
         var cellIdentifier: String {
             self.rawValue
-        }
-
-        var cellHeight: CGFloat {
-            switch self {
-            case .SettingLargeCell:
-                return 60.0
-            case .SettingNomalCell:
-                return 48.0
-            }
         }
     }
 }
@@ -112,6 +106,19 @@ enum SettingType: Int, CaseIterable {
 class SettingViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+
+    let settingTypes:[[SettingType]] = [
+        [.Account, .Nfc, .SegaId, .MyData, .Ranking, .Game],
+        [.FirstGuide, .UsageGuide, .MenuArcades],
+        [.QA, .Terms, .Policy, .Shoho, .Delete, .Logout],
+    ]
+
+    private func settingTypeFrom(indexPath: IndexPath) -> SettingType {
+        let section = indexPath.section
+        let row = indexPath.row
+        let settingType = settingTypes[section][row]
+        return settingType
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,11 +129,6 @@ class SettingViewController: UIViewController {
         view.backgroundColor = UIColor.red
         tableView.rowHeight =  UITableView.automaticDimension
 
-        let settingTypes:[[SettingType]] = [
-            [.Account, .Nfc, .SegaId, .MyData, .Ranking, .Game],
-            [.FirstGuide, .UsageGuide, .MenuArcades],
-            [.QA, .Terms, .Policy, .Shoho, .Delete],
-        ]
 
     }
     
@@ -140,27 +142,27 @@ class SettingViewController: UIViewController {
 
 extension SettingViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return settingTypes.count
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return " "
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SettingType.allCases.count
+        return settingTypes[section].count // todo safe array
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if let settingType = SettingType(rawValue: indexPath.row) {
-            let cellIdentifier = settingType.cellType.cellIdentifier
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-            if let cell = cell as? SettingLargeCell {
-                cell.titleLabel.text = SettingType(rawValue: indexPath.row)?.title
-                return cell
-            } else if let cell = cell as? SettingNomalCell {
-                cell.titleLabel.text = SettingType(rawValue: indexPath.row)?.title
-                return cell
-            }
+        let settingType = settingTypeFrom(indexPath: indexPath)
+        let cellIdentifier = settingType.cellType.cellIdentifier
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        if let cell = cell as? SettingLargeCell {
+            cell.titleLabel.text = settingType.title
+            return cell
+        } else if let cell = cell as? SettingNomalCell {
+            cell.titleLabel.text = settingType.title
+            return cell
+        } else if let cell = cell as? SettingLogoutCell {
+            return cell
         }
         print("111 sdfinfolog-\(#line)   \(#function) : \(indexPath.row) ")
         return UITableViewCell()
@@ -173,8 +175,8 @@ extension SettingViewController: UITableViewDelegate {
         print("111 sdfinfolog-\(#line) \(type(of: self))  \(#function) : \(self) ")
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return SettingType(rawValue: indexPath.row)?.cellType.cellHeight ?? 0
-//        return UITableView.automaticDimension
+        return UITableView.automaticDimension
+        //return settingTypeFrom(indexPath: indexPath).cellType.cellHeight
     }
 }
 
