@@ -23,6 +23,7 @@
 		8213C6F42698370700EE201B /* SettingLargeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8213C6F32698370700EE201B /* SettingLargeCell.swift */; };
 		8213C6F8269845CC00EE201B /* SettingNomalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8213C6F7269845CC00EE201B /* SettingNomalCell.swift */; };
 		8256DBE8269938F1003A766A /* SettingLogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256DBE7269938F1003A766A /* SettingLogoutCell.swift */; };
+		829070C726A10AE10009EE99 /* FirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829070C626A10AE10009EE99 /* FirstViewModel.swift */; };
 		82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E773238F919A00EA0B6D /* AppDelegate.swift */; };
 		82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E775238F919A00EA0B6D /* SceneDelegate.swift */; };
 		82C9E778238F919A00EA0B6D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E777238F919A00EA0B6D /* FirstViewController.swift */; };
@@ -60,6 +61,7 @@
 		8213C6F32698370700EE201B /* SettingLargeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingLargeCell.swift; sourceTree = "<group>"; };
 		8213C6F7269845CC00EE201B /* SettingNomalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNomalCell.swift; sourceTree = "<group>"; };
 		8256DBE7269938F1003A766A /* SettingLogoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingLogoutCell.swift; sourceTree = "<group>"; };
+		829070C626A10AE10009EE99 /* FirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewModel.swift; sourceTree = "<group>"; };
 		82C9E770238F919A00EA0B6D /* Sample1128.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample1128.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C9E773238F919A00EA0B6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82C9E775238F919A00EA0B6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				82C9E773238F919A00EA0B6D /* AppDelegate.swift */,
 				82C9E775238F919A00EA0B6D /* SceneDelegate.swift */,
 				82C9E777238F919A00EA0B6D /* FirstViewController.swift */,
+				829070C626A10AE10009EE99 /* FirstViewModel.swift */,
 				8213C6E22698301E00EE201B /* Setting */,
 				5A9415F424E6146500B715B1 /* NibLoaderProtocol.swift */,
 				144BCF5A2567A8E700F06BB0 /* TSCardAlertMessageView.xib */,
@@ -343,6 +346,7 @@
 				8256DBE8269938F1003A766A /* SettingLogoutCell.swift in Sources */,
 				1424334A25662E3100E9EFD1 /* APIResult.swift in Sources */,
 				82C9E778238F919A00EA0B6D /* FirstViewController.swift in Sources */,
+				829070C726A10AE10009EE99 /* FirstViewModel.swift in Sources */,
 				14E0379B253D241600E4A802 /* Defaults.swift in Sources */,
 				5A9415FA24E63D1000B715B1 /* String+Extension.swift in Sources */,
 				1424334E2566311200E9EFD1 /* ApigeeError.swift in Sources */,
