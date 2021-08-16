@@ -12,18 +12,7 @@ import RxSwift
 import RxCocoa
 import SwiftDate
 
-protocol Unbindable {
-    func bind()
-}
-
-extension Unbindable {
-    func bind() {
-        print("111 sdfinfolog-\(#line) \(type(of: self))  \(#function) : bind2 ")
-    }
-}
-
-
-class FirstViewController: BaseViewController, Unbindable {
+class FirstViewController: BaseViewController {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var phoneTf: UITextField!
@@ -38,7 +27,6 @@ class FirstViewController: BaseViewController, Unbindable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bind()
     }
     
     
