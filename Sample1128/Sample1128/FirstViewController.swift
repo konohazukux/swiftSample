@@ -17,7 +17,7 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var oneButton: UIButton!
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
-    
+
     @IBOutlet weak var pageBaseView: UIView!
 
 
@@ -59,5 +59,4 @@ class FirstViewController: UIViewController {
         pageVC.didMove(toParent: self)
 
     }
-
 }
