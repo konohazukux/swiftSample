@@ -91,6 +91,7 @@
                         <outlet property="label" destination="ug6-6e-9Rs" id="tZT-e5-fms"/>
                         <outlet property="label1" destination="jDe-tV-vz6" id="th9-2l-0Ro"/>
                         <outlet property="oneButton" destination="0Pu-f5-c6d" id="AZV-P3-ynw"/>
+                        <outlet property="pageBaseView" destination="Nox-gM-eEG" id="XZ6-Yg-xQY"/>
                         <outlet property="phoneTf" destination="JAM-rG-FsR" id="ozO-9q-WhX"/>
                     </connections>
                 </viewController>
