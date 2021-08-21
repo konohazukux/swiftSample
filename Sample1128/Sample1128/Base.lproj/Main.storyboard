@@ -16,8 +16,26 @@
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dI4-oW-HL1">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CyY-zc-dM1">
+                                <rect key="frame" x="42" y="225" width="335" height="467"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="nxE-vJ-W7l"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="6mt-Cg-ENx"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="CyY-zc-dM1" secondAttribute="trailing" constant="37" id="M7t-eg-4lF"/>
+                            <constraint firstItem="CyY-zc-dM1" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="137" id="Nd3-6A-WXD"/>
+                            <constraint firstItem="CyY-zc-dM1" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="42" id="eYb-tP-9tz"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="CyY-zc-dM1" secondAttribute="bottom" constant="121" id="iVb-qu-fVf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xVu-0A-NXI"/>
                 </viewController>
