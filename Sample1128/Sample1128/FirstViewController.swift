@@ -16,11 +16,5 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        let sb = UIStoryboard.init(name: "PageViewController", bundle: nil)
-        if let vc = sb.instantiateInitialViewController() {
-            navigationController?.pushViewController(vc, animated: true)
-        }
-
     }
 }
