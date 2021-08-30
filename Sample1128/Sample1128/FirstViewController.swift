@@ -7,14 +7,18 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 class FirstViewController: UIViewController {
-
-    let disposeBag = DisposeBag()
-
+    @IBOutlet var label: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        label.delegate = self
+    }
+}
+
+extension FirstViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print(string)
+        return true
     }
 }
