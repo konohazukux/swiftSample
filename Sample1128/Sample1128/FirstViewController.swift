@@ -23,7 +23,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let controller = Top2ViewController()
+        let controller = HomeViewController()
         navigationController?.pushViewController(controller, animated: true)
 
     }

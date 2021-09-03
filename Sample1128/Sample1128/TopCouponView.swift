@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 protocol ViewUsable {}
 extension ViewUsable where Self: UIView {
@@ -18,6 +19,7 @@ extension ViewUsable where Self: UIView {
         self.addSubview(rootView)
     }
 }
+
 
 class TopCouponView: UIView, ViewUsable {
     required init?(coder aDecoder: NSCoder) {

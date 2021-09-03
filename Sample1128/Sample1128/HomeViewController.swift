@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Top2ViewController: UIViewController {
+class HomeViewController: UIViewController {
    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -20,7 +20,6 @@ class Top2ViewController: UIViewController {
 //        fatalError("init(coder:) has not been implemented")
     }
    
-    
     
     
 

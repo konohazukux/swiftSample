@@ -84,6 +84,7 @@ extension UIView {
         }
         set {
             self.layer.shadowOffset = newValue
+            self.layer.shadowOpacity = 1
         }
         
     }
@@ -100,6 +101,7 @@ extension UIView {
         }
         set {
             self.layer.shadowColor = newValue.cgColor
+            
         }
         
     }
