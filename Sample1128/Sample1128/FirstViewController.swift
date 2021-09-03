@@ -23,11 +23,8 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
-        let sb = UIStoryboard.init(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(identifier: "SecondViewController")
-        present(vc, animated: true, completion: nil)
-        
+        let controller = Top2ViewController()
+        navigationController?.pushViewController(controller, animated: true)
 
     }
     
