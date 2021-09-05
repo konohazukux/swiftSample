@@ -14,7 +14,7 @@ import RxGesture
 
 class HomeViewController: UIViewController {
   
-    @IBOutlet var topCouponView: TopCouponView!
+    @IBOutlet var topHeaderView: UIView!
     @IBOutlet var couponStackView: UIStackView!
     @IBOutlet var noticeStackView: UIStackView!
     
@@ -32,12 +32,18 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0) { [weak self] in
+            self?.setTopHeaderView()
             self?.setCouponView()
             self?.setNoticeView()
         }
     }
- 
+
+    private func setTopHeaderView() {
+        let view = TopHeaderView()
+        view.addToView(parant: topHeaderView)
+    }
+
     private func setCouponView() {
         couponStackView.arrangedSubviews.forEach {
             couponStackView.removeArrangedSubview($0)
@@ -53,15 +59,30 @@ class HomeViewController: UIViewController {
             noticeStackView.removeArrangedSubview($0)
         }
        
-        let view = TopNoticeView(
+        let view1 = TopNoticeView(
             model: .init(
+                id: 1,
                 dateStr: "456789",
                 notice: "notice12345"
-            )
+            ),
+            delegate: self
         )
-        noticeStackView.addArrangedSubview(view)
+        let view2 = TopNoticeView(
+            model: .init(
+                id: 2,
+                dateStr: "456789",
+                notice: "notice2"
+            ),
+            delegate: self
+        )
+        noticeStackView.addArrangedSubview(view1)
+        noticeStackView.addArrangedSubview(view2)
     }
 
-    
+}
 
+extension HomeViewController: TopNoticeViewDelegate {
+    func didTap(id: Int) {
+        print("111 sdfinfolog-\(#line) \(type(of: self))  \(#function) :  notice did tap \(id)")
+    }
 }

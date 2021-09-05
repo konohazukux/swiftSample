@@ -57,6 +57,14 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fic-14-9g7">
+                                <rect key="frame" x="48" y="280" width="200" height="200"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="aFy-cu-an9"/>
+                                    <constraint firstAttribute="width" constant="200" id="rdf-Vv-6dG"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDe-tV-vz6">
                                 <rect key="frame" x="74" y="571" width="207" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -69,7 +77,9 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fic-14-9g7" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="48" id="3cN-DG-JDn"/>
                             <constraint firstItem="ug6-6e-9Rs" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="8fw-qb-3hy"/>
+                            <constraint firstItem="fic-14-9g7" firstAttribute="top" secondItem="0Pu-f5-c6d" secondAttribute="bottom" constant="38" id="DUb-BV-pK4"/>
                             <constraint firstItem="0Pu-f5-c6d" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="86" id="XC0-RA-rj1"/>
                             <constraint firstItem="0Pu-f5-c6d" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="48" id="cQF-Ea-rNd"/>
                             <constraint firstItem="ug6-6e-9Rs" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="p5n-1k-ouV"/>
@@ -77,6 +87,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="xVu-0A-NXI"/>
                     <connections>
+                        <outlet property="circleView" destination="fic-14-9g7" id="hxo-2q-Pi2"/>
                         <outlet property="heightConstraint" destination="Zha-sf-lKN" id="wsa-r0-Msj"/>
                         <outlet property="label" destination="ug6-6e-9Rs" id="tZT-e5-fms"/>
                         <outlet property="label1" destination="jDe-tV-vz6" id="th9-2l-0Ro"/>
@@ -166,6 +177,9 @@
         <image name="second" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -9,9 +9,14 @@
 import UIKit
 import RxSwift
 
+protocol TopNoticeViewDelegate: AnyObject {
+    func didTap(id: Int)
+}
+
 class TopNoticeView: UIView, ViewUsable {
 
     struct TopNoticeModel: BaseModel {
+        var id: Int
         var dateStr: String
         var notice: String
     }
@@ -21,10 +26,12 @@ class TopNoticeView: UIView, ViewUsable {
     @IBOutlet private var noticeStrLabel: UILabel!
     @IBOutlet private var inpotantImageView: UIImageView!
     private var model: TopNoticeModel!
+    private weak var delegate: TopNoticeViewDelegate?
 
-    convenience init(model: TopNoticeModel) {
+    convenience init(model: TopNoticeModel, delegate: TopNoticeViewDelegate) {
         self.init(frame: .zero)
         self.model = model
+        self.delegate = delegate
         instantiateView()
     }
 
@@ -38,8 +45,8 @@ class TopNoticeView: UIView, ViewUsable {
         rx.tapGesture()
             .when(.recognized)
             .asDriver(onErrorDriveWith: .never())
-            .drive(onNext: {
-                print("111 sdfinfolog-\(#line) \(type(of: self))  \(#function) : \($0) ")
+            .drive(onNext: { [unowned self] _ in
+                self.delegate?.didTap(id: self.model.id)
             })
             .disposed(by: disposeBag)
     }

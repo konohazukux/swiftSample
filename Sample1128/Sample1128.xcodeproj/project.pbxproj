@@ -22,6 +22,8 @@
 		826C3E0B26E1FC74004BE0B8 /* TopCouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826C3E0A26E1FC74004BE0B8 /* TopCouponView.swift */; };
 		826C3E1126E213D8004BE0B8 /* TopNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826C3E1026E213D8004BE0B8 /* TopNoticeView.swift */; };
 		826C3E1526E213EE004BE0B8 /* TopNoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 826C3E1426E213EE004BE0B8 /* TopNoticeView.xib */; };
+		826C3E4826E485A5004BE0B8 /* TopHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826C3E4626E485A5004BE0B8 /* TopHeaderView.swift */; };
+		826C3E4926E485A5004BE0B8 /* TopHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 826C3E4726E485A5004BE0B8 /* TopHeaderView.xib */; };
 		82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E773238F919A00EA0B6D /* AppDelegate.swift */; };
 		82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E775238F919A00EA0B6D /* SceneDelegate.swift */; };
 		82C9E778238F919A00EA0B6D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E777238F919A00EA0B6D /* FirstViewController.swift */; };
@@ -58,6 +60,8 @@
 		826C3E0A26E1FC74004BE0B8 /* TopCouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCouponView.swift; sourceTree = "<group>"; };
 		826C3E1026E213D8004BE0B8 /* TopNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNoticeView.swift; sourceTree = "<group>"; };
 		826C3E1426E213EE004BE0B8 /* TopNoticeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopNoticeView.xib; sourceTree = "<group>"; };
+		826C3E4626E485A5004BE0B8 /* TopHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopHeaderView.swift; sourceTree = "<group>"; };
+		826C3E4726E485A5004BE0B8 /* TopHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopHeaderView.xib; sourceTree = "<group>"; };
 		82C9E770238F919A00EA0B6D /* Sample1128.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample1128.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C9E773238F919A00EA0B6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82C9E775238F919A00EA0B6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,12 +152,14 @@
 				82C9E773238F919A00EA0B6D /* AppDelegate.swift */,
 				82C9E775238F919A00EA0B6D /* SceneDelegate.swift */,
 				82C9E777238F919A00EA0B6D /* FirstViewController.swift */,
-				826C3DFE26E1F20F004BE0B8 /* HomeViewController.swift */,
 				826C3DFA26E1F201004BE0B8 /* HomeViewController.xib */,
+				826C3DFE26E1F20F004BE0B8 /* HomeViewController.swift */,
 				826C3E0626E1FC46004BE0B8 /* TopCouponView.xib */,
 				826C3E0A26E1FC74004BE0B8 /* TopCouponView.swift */,
 				826C3E1426E213EE004BE0B8 /* TopNoticeView.xib */,
 				826C3E1026E213D8004BE0B8 /* TopNoticeView.swift */,
+				826C3E4726E485A5004BE0B8 /* TopHeaderView.xib */,
+				826C3E4626E485A5004BE0B8 /* TopHeaderView.swift */,
 				826C3E0226E1FAE1004BE0B8 /* UIView+Extensions.swift */,
 				82C9E77B238F919A00EA0B6D /* Main.storyboard */,
 				82C9E77E238F919B00EA0B6D /* Assets.xcassets */,
@@ -265,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				826C3DFB26E1F201004BE0B8 /* HomeViewController.xib in Resources */,
+				826C3E4926E485A5004BE0B8 /* TopHeaderView.xib in Resources */,
 				82C9E782238F919B00EA0B6D /* LaunchScreen.storyboard in Resources */,
 				826C3E0726E1FC46004BE0B8 /* TopCouponView.xib in Resources */,
 				1424334625661FF200E9EFD1 /* apigee_error.json in Resources */,
@@ -341,6 +348,7 @@
 				82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */,
 				1424334825662E0A00E9EFD1 /* ErrorCode.swift in Sources */,
 				1424334C2566304000E9EFD1 /* ApigeeErrorMessage.swift in Sources */,
+				826C3E4826E485A5004BE0B8 /* TopHeaderView.swift in Sources */,
 				826C3E0326E1FAE1004BE0B8 /* UIView+Extensions.swift in Sources */,
 				826C3E1126E213D8004BE0B8 /* TopNoticeView.swift in Sources */,
 			);
