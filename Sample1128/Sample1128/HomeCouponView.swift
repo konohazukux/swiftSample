@@ -28,7 +28,7 @@ extension ViewUsable where Self: UIView {
     }
 }
 
-class TopCouponView: UIView, ViewUsable {
+class HomeCouponView: UIView, ViewUsable {
     private let disposeBag = DisposeBag()
 
     struct TopCouponModel: BaseModel {

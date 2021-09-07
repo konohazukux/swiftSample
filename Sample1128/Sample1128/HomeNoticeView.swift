@@ -13,7 +13,7 @@ protocol TopNoticeViewDelegate: AnyObject {
     func didTap(id: Int)
 }
 
-class TopNoticeView: UIView, ViewUsable {
+class HomeNoticeView: UIView, ViewUsable {
 
     struct TopNoticeModel: BaseModel {
         var id: Int

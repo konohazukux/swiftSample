@@ -87,7 +87,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="xVu-0A-NXI"/>
                     <connections>
-                        <outlet property="circleView" destination="fic-14-9g7" id="hxo-2q-Pi2"/>
                         <outlet property="heightConstraint" destination="Zha-sf-lKN" id="wsa-r0-Msj"/>
                         <outlet property="label" destination="ug6-6e-9Rs" id="tZT-e5-fms"/>
                         <outlet property="label1" destination="jDe-tV-vz6" id="th9-2l-0Ro"/>

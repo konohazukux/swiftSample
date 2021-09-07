@@ -40,7 +40,7 @@ class HomeViewController: UIViewController {
     }
 
     private func setTopHeaderView() {
-        let view = TopHeaderView()
+        let view = HomeHeaderView()
         view.addToView(parant: topHeaderView)
     }
 
@@ -49,7 +49,7 @@ class HomeViewController: UIViewController {
             couponStackView.removeArrangedSubview($0)
         }
        
-        let view = TopCouponView(model: .init(couponNum: 4))
+        let view = HomeCouponView(model: .init(couponNum: 4))
         couponStackView.addArrangedSubview(view)
     }
 
@@ -59,7 +59,7 @@ class HomeViewController: UIViewController {
             noticeStackView.removeArrangedSubview($0)
         }
        
-        let view1 = TopNoticeView(
+        let view1 = HomeNoticeView(
             model: .init(
                 id: 1,
                 dateStr: "456789",
@@ -67,7 +67,7 @@ class HomeViewController: UIViewController {
             ),
             delegate: self
         )
-        let view2 = TopNoticeView(
+        let view2 = HomeNoticeView(
             model: .init(
                 id: 2,
                 dateStr: "456789",

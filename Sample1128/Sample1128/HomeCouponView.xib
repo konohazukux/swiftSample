@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopCouponView" customModule="Sample1128" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeCouponView" customModule="Sample1128" customModuleProvider="target">
             <connections>
                 <outlet property="couponNumLabel" destination="ZMJ-jZ-Hik" id="oWf-Is-PSC"/>
                 <outlet property="helpImageView" destination="u4P-eT-ZPQ" id="NdD-UI-nuM"/>

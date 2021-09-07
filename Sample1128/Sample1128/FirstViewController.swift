@@ -25,7 +25,8 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let controller = HomeViewController()
+        navigationController?.pushViewController(controller, animated: true)
     }
-    
-
 }

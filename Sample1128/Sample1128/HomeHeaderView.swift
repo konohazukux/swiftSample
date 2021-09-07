@@ -12,9 +12,9 @@ import RxSwift
 import RxRelay
 
 
-class TopHeaderView: UIView, ViewUsable {
+class HomeHeaderView: UIView, ViewUsable {
 
-    @IBOutlet weak var circleView: UIView!
+    @IBOutlet weak var pieChartView: UIView!
     
     private let disposeBag = DisposeBag()
     private var tempDisposable: Disposable?
@@ -27,9 +27,9 @@ class TopHeaderView: UIView, ViewUsable {
     func setupView() {
         bind()
         
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-//            self?.count()
-//        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            self?.count()
+        }
 
 
     }
@@ -65,7 +65,7 @@ class TopHeaderView: UIView, ViewUsable {
                 if progressPer > toPer {
                     self.tempDisposable?.dispose()
                 } else {
-                    self.updateCircleLayer(view: self.circleView, from: 0, to: progressPer)
+                    self.updateCircleLayer(view: self.pieChartView, from: 0, to: progressPer)
                 }
             })
        
@@ -73,8 +73,6 @@ class TopHeaderView: UIView, ViewUsable {
         self.tempDisposable = disposable
     }
 
-
-    
     private func updateCircleLayer(
         view: UIView,
         lineWith: CGFloat = 10.0,

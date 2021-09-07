@@ -155,21 +155,21 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xuh-Cq-YWw">
                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="228"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LMo-Et-KTJ" customClass="TopCouponView" customModule="Sample1128" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LMo-Et-KTJ" customClass="HomeCouponView" customModule="Sample1128" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="76"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="76" id="ciC-Xy-wyY"/>
                                                             </constraints>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w49-HB-emm" customClass="TopCouponView" customModule="Sample1128" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w49-HB-emm" customClass="HomeCouponView" customModule="Sample1128" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="76" width="382" height="76"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="76" id="zsB-kh-vDD"/>
                                                             </constraints>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcb-wc-8Zg" customClass="TopCouponView" customModule="Sample1128" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcb-wc-8Zg" customClass="HomeCouponView" customModule="Sample1128" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="152" width="382" height="76"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
@@ -252,21 +252,21 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xd7-SE-JyW">
                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="300"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQv-hH-39h" customClass="TopNoticeView" customModule="Sample1128" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQv-hH-39h" customClass="HomeNoticeView" customModule="Sample1128" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="100"/>
                                                             <color key="backgroundColor" systemColor="systemTealColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="100" id="lLn-Uh-LO9"/>
                                                             </constraints>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXJ-rt-FFj" customClass="TopNoticeView" customModule="Sample1128" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXJ-rt-FFj" customClass="HomeNoticeView" customModule="Sample1128" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="100" width="382" height="100"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="100" id="niN-5Q-uKf"/>
                                                             </constraints>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0b-6j-E6x" customClass="TopNoticeView" customModule="Sample1128" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0b-6j-E6x" customClass="HomeNoticeView" customModule="Sample1128" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="200" width="382" height="100"/>
                                                             <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                             <constraints>
@@ -330,7 +330,7 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="1n1-9Z-clS"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="mgX-gX-Xhp"/>
                 </scrollView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Q4-AH-q4Z" customClass="TopHeaderView" customModule="Sample1128" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Q4-AH-q4Z" customClass="HomeHeaderView" customModule="Sample1128" customModuleProvider="target">
                     <rect key="frame" x="16" y="54" width="382" height="56"/>
                     <color key="backgroundColor" systemColor="systemOrangeColor"/>
                     <constraints>
