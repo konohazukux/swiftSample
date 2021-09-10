@@ -1,0 +1,4755 @@
+openapi: 3.0.0
+info:
+  description: |
+    プラトンアプリAPI仕様書。
+
+    - 日付、時刻についてはJST準拠とする
+    - リクエストの際にボディーにjsonを指定するものについて
+      - 必須の属性は説明内の属性名の横に*をつける
+      - 必須でないものを指定しないでリクエストする場合は属性自体をなくす
+  version: ドキュメントバージョン 1.50.1
+  title: Plato Api
+servers:
+  - url: 'http://dev-chu.battlearena.jp/api/v1.50'
+    description: develop url
+  - url: 'https://stg-chu.battlearena.jp/api/v1.50'
+    description: staging url
+  - url: 'https://prd-chu.battlearena.jp/api/v1.50'
+    description: production url
+tags:
+  - name: login
+    description: ログイン画面用API
+  - name: top
+    description: トップ画面表示情報
+  - name: element
+    description: エレメント(アイコン、背景、エンブレム)情報
+  - name: game
+    description: ゲーム情報
+  - name: character
+    description: キャラクター情報
+  - name: arcade
+    description: ゲームセンター情報
+  - name: notice
+    description: お知らせ情報
+  - name: ticket
+    description: チケット関連
+  - name: convention
+    description: ゲーム大会関連
+  - name: campaign
+    description: キャンペーン関連
+  - name: ranking
+    description: ランキング情報
+  - name: medal_bank
+    description: メダルバンク情報
+  - name: user
+    description: ユーザ情報
+  - name: card
+    description: 登録カード管理
+  - name: read
+    description: 既読管理
+  - name: sega_id
+    description: セガID認証管理
+  - name: purchase
+    description: 購入関連機能管理
+  - name: monitoring
+    description: 監視関連機能
+  - name: popup
+    description: ポップアップ
+components:
+  securitySchemes:
+    bearerAuthApi:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    Limit:
+      name: limit
+      description: 取得件数を指定。デフォルト20。
+      in: query
+      required: false
+      schema:
+        type: integer
+        format: int64
+    Offset:
+      name: offset
+      description: 複数取得データのオフセットを指定。デフォルト0。
+      in: query
+      required: false
+      schema:
+        type: integer
+        format: int64
+    OnlyMedalBank:
+      name: only_medal_bank
+      description: |
+        メダルバンクを保持している店舗のみを取得することを指定するフラグ。指定しない場合は値が0のときと同じ挙動とする。
+        * 0 - 全店舗を取得
+        * 1 - メダルバンクを保持している店舗のみを取得
+      in: query
+      required: false
+      schema:
+        type: integer
+    FromId:
+      name: from_id
+      description: どのID値のあとのオブジェクトから取得するかを指定。
+      in: query
+      required: false
+      schema:
+        type: integer
+        format: int64
+    RegionId:
+      name: region_id
+      description: 地方IDを指定。指定した場合、指定した地方に属する都道府県のみ返却する。
+      in: query
+      required: false
+      schema:
+        type: integer
+        format: int64
+    Keyword:
+      name: keyword
+      description: |
+        検索キーワードを指定。半角、全角スペースで区切ることで複数のキーワードを指定可能。
+
+        ※文字数制限 20文字
+        * 検索ロジック:
+          
+          * 店舗名(arcades.name)、略称(arcades.short_name)、検索キーワード(arcades.search_keyword)カラムで部分一致
+          
+          * 2つ以上のキーワードが指定された場合はOR検索をかける
+      in: query
+      required: false
+      schema:
+        type: string
+    KeywordConvention:
+      name: keyword
+      description: |
+        検索キーワードを指定。半角、全角スペースで区切ることで複数のキーワードを指定可能。
+
+        ※文字数制限 50文字
+        * 検索ロジック:
+          
+          * 大会名(conventions.title)で部分一致
+          
+          * 2つ以上のキーワードが指定された場合はOR検索をかける
+      in: query
+      required: false
+      schema:
+        type: string
+    KeywordGame:
+      name: keyword
+      description: |
+        検索キーワードを指定。半角、全角スペースで区切ることで複数のキーワードを指定可能。
+
+        ※文字数制限 50文字
+        * 検索ロジック:
+          
+          * ゲーム名(games.name), 略称(games.short_name), ゲーム名かな(games.kana), 検索用キーワードで部分一致
+          
+          * 2つ以上のキーワードが指定された場合はOR検索をかける
+      in: query
+      required: false
+      schema:
+        type: string
+    KeywordCharacter:
+      name: keyword
+      description: |
+        検索キーワードを指定。半角、全角スペースで区切ることで複数のキーワードを指定可能。
+
+        ※文字数制限 50文字
+        * 検索ロジック:
+          
+          * キャラクター名(characters.name), シリーズ名(characters.series_name), キャラクター名かな(characters.kana)で部分一致
+          
+          * 2つ以上のキーワードが指定された場合はOR検索をかける
+      in: query
+      required: false
+      schema:
+        type: string
+    PrefectureId:
+      name: prefecture_id
+      description: 都道府県idを指定
+      in: query
+      required: false
+      schema:
+        type: integer
+        format: int64
+    Year:
+      name: year
+      description: 年を指定
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+        example: 2018
+    Month:
+      name: month
+      description: 月を指定
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+        example: 6
+    PlatoId:
+      name: plato_id
+      description: 取得したいユーザのプラトンIDを指定
+      in: path
+      required: true
+      schema:
+        type: string
+        example: xxxxxxxxxxx
+    NoticeId:
+      name: notice_id
+      description: お知らせIDを指定
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+        example: 1
+    ExchangeTicketId:
+      name: exchange_ticket_id
+      description: 引換券のIDを指定
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+        example: 1
+    MedalBankSurrogateId:
+      name: medal_bank_surrogate_id
+      description: サロゲートメダルバンクIDを指定
+      in: path
+      required: true
+      schema:
+        type: integer
+        example: 1
+    ArcadeId:
+      name: arcade_id
+      description: ゲーセンのIDを指定
+      in: query
+      required: false
+      schema:
+        type: integer
+        example: 1
+    ConventionId:
+      name: convention_id
+      description: ゲーム大会のIDを指定
+      in: path
+      required: true
+      schema:
+        type: integer
+        example: 1
+    CampaignId:
+      name: campaign_id
+      description: キャンペーンのIDを指定
+      in: path
+      required: true
+      schema:
+        type: integer
+        example: 1
+    CardId:
+      name: card_id
+      description: カードのIDを指定(FelicaIDmではなくシステムで発行したID)
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+        example: 1
+    PrivilegeStatusId:
+      name: privilege_status_id
+      description: 登録特典ステータスのIDを指定
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+        example: 1
+    FromYear:
+      name: from_year
+      description: 取得開始年を指定。デフォルトはユーザ登録年
+      in: query
+      required: false
+      schema:
+        type: integer
+        format: int64
+        example: 2019
+    ToYear:
+      name: to_year
+      description: 取得終了年を指定。デフォルトは現在
+      in: query
+      required: false
+      schema:
+        type: integer
+        format: int64
+        example: 2022
+    FromDate:
+      name: from_date
+      description: |
+        取得開始年月日を指定。デフォルトはユーザ登録年月日
+
+        ※フォーマット yyyy-MM-dd
+      in: query
+      required: false
+      schema:
+        type: string
+        format: date
+        example: '2017-07-06'
+    OrderPlayHistory:
+      name: order
+      description: |
+        ソート順を指定。デフォルトは時間の降順
+        * date_asc - 日時で昇順
+        * date_desc - 日時で降順
+        * arcade_name_asc - ゲーセン名で昇順
+        * arcade_name_desc - ゲーセン名で降順
+        * game_name_asc - ゲーム名(games.name)で昇順
+        * game_name_desc - ゲーム名(games.name)で降順
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - date_asc
+          - date_desc
+          - arcade_name_asc
+          - arcade_name_desc
+          - game_name_asc
+          - game_name_desc
+    OrderCheckinHistory:
+      name: order
+      description: |
+        ソート順を指定。デフォルトは時間の降順
+        * date_asc - 日時で昇順
+        * date_desc - 日時で降順
+        * arcade_name_asc - ゲーセン名で昇順
+        * arcade_name_desc - ゲーセン名で降順
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - date_asc
+          - date_desc
+          - arcade_name_asc
+          - arcade_name_desc
+    OrderAngyaHistory:
+      name: order
+      description: |
+        ソート順を指定。デフォルトは時間の降順
+        * date_asc - 日時で昇順
+        * date_desc - 日時で降順
+        * arcade_name_asc - ゲーセン名で昇順
+        * arcade_name_desc - ゲーセン名で降順
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - date_asc
+          - date_desc
+          - arcade_name_asc
+          - arcade_name_desc
+    RankingCategory:
+      name: ranking_category
+      description: |
+        ランキングのカテゴリを指定。(指定しない場合は全国ランキングを取得)
+        * 0 - セイソクチランキングを取得
+        * 1 - マイゲーセンランキングを取得
+      in: query
+      required: false
+      schema:
+        type: integer
+        enum:
+          - 0
+          - 1
+        example: 0
+    GameCategoryId:
+      name: game_category_id
+      description: 取得するゲームのカテゴリを指定する
+      in: query
+      required: false
+      schema:
+        type: integer
+        example: 1
+    CharacterCategoryId:
+      name: character_category_id
+      description: 取得するキャラクターのカテゴリを指定する
+      in: query
+      required: false
+      schema:
+        type: integer
+        example: 1
+    ContentType:
+      name: content_type
+      description: |
+        購入する商品の種類を整数で指定
+
+        * 0 - 回数券
+      in: query
+      required: true
+      schema:
+        type: integer
+        example: 0
+    ContentId:
+      name: content_id
+      description: |
+        購入する商品のid値を指定
+      in: query
+      required: true
+      schema:
+        type: integer
+        example: 1
+    AnnouncementId:
+      name: announcement_id
+      description: |
+        取得する重要なお知らせのidを指定
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+        example: 1
+    PopupId:
+      name: popup_id
+      description: |
+        取得するポップアップのidを指定
+      in: path
+      required: true
+      schema:
+        type: integer
+        format: int64
+        example: 1
+  requestBodies:
+    Account:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+                description: プラトンID
+                example: 0123456789
+              password:
+                type: string
+                description: プラトンアカウントのパスワード
+                example: '01234'
+            required:
+              - id
+              - password
+    Password:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              current_password:
+                type: string
+                description: 現在のパスワードを指定
+                example: '1234'
+              new_password:
+                type: string
+                description: 新しいパスワードを指定
+                example: '4321'
+            required:
+              - current_password
+              - new_password
+    RefreshToken:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              refresh_token:
+                type: string
+                description: リフレッシュトークンを指定
+                example: example_refresh_token
+            required:
+              - refresh_token
+    ReadNoticeIds:
+      required: true
+      description: |
+        属性の説明
+        * reqd_notice_ids*: 既読にするお知らせのIDの配列を指定
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              read_notice_ids:
+                $ref: '#/components/schemas/Ids'
+            required:
+              - read_notice_ids
+    ReadCouponIds:
+      required: true
+      description: |
+        属性の説明
+        * reqd_coupon_ids*: 既読にする販売回数券のIDの配列を指定
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              read_coupon_ids:
+                $ref: '#/components/schemas/Ids'
+            required:
+              - read_coupon_ids
+    ReadServiceTicketIds:
+      required: true
+      description: |
+        属性の説明
+        * reqd_service_ticket_ids*: 既読にするサービス券のIDの配列を指定
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              read_service_ticket_ids:
+                $ref: '#/components/schemas/Ids'
+            required:
+              - read_service_ticket_ids
+    ReadExchangeTicketIds:
+      required: true
+      description: |
+        属性の説明
+        * reqd_exchange_ticket_ids*: 既読にする引換券のIDの配列を指定
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              read_exchange_ticket_ids:
+                $ref: '#/components/schemas/Ids'
+            required:
+              - read_exchange_ticket_ids
+    MedalBankRegist:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+                description: メダルバンクID
+                example: '123456'
+              password:
+                type: string
+                description: メダルバンクのパスワード
+                example: '1234'
+              arcade_id:
+                type: integer
+                description: 登録するメダルバンクを保持しているゲーセンのID(メダルバンクはarcade_idとメダルバンクIDで一意となる)
+                format: int64
+                example: 1
+            required:
+              - id
+              - password
+              - arcade_id
+    CardName:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                description: 変更するカードの名前
+                example: カード2
+            required:
+              - name
+    Convention:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              convention_id:
+                type: integer
+                description: 申し込みを行うゲーム大会のIDを指定
+                example: 1
+              entry_name:
+                type: string
+                description: エントリー名を指定
+                example: ALOHA
+              character_name:
+                type: string
+                description: キャラクター名を指定(指定しない場合は属性自体をなくす)
+                example: ソニック
+            required:
+              - convention_id
+              - entry_name
+    PrivilegeStatus:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              privilege_status:
+                type: object
+                description: 特典ステータスを表すオブジェクト
+                properties:
+                  is_checked:
+                    type: boolean
+                    description: チェックしたかどうかを表す真偽値
+                    example: true
+                required:
+                  - is_checked
+            required:
+              - privilege_status
+    CampaignEntries:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              campaign_entries:
+                type: array
+                description: 応募/交換履歴の配列
+                items:
+                  type: object
+                  properties:
+                    present_id:
+                      type: integer
+                      description: 応募/交換をするプレゼントのID
+                      example: 1
+                    count:
+                      type: integer
+                      description: 何口応募/交換するかを表す整数値
+                      example: 1
+                  required:
+                    - present_id
+                    - count
+            required:
+              - campaign_entries
+    CampaignEntriesTicket:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              campaign_entries:
+                type: array
+                description: 応募/交換履歴の配列
+                items:
+                  type: object
+                  properties:
+                    present_id:
+                      type: integer
+                      description: 応募/交換をするプレゼントのID
+                      example: 1
+                    count:
+                      type: integer
+                      description: 何口応募/交換するかを表す整数値
+                      example: 1
+                  required:
+                    - present_id
+                    - count
+            required:
+              - campaign_entries
+    Me:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              profile:
+                type: object
+                description: 更新するプロフィールのオブジェクト
+                properties:
+                  icon_id:
+                    type: integer
+                    description: 設定するアイコンのid
+                    example: 1
+                  back_img_id:
+                    type: integer
+                    description: 設定する背景のid
+                    example: 1
+                  emblem_id:
+                    type: integer
+                    description: 設定するエンブレムのid
+                    example: 1
+                  nickname:
+                    type: string
+                    description: 設定するニックネーム
+                    example: はると
+                  birth_date:
+                    type: string
+                    description: |
+                      誕生日(未設定から設定後は編集不可)
+
+                      ※フォーマット yyyy-mm-dd
+                    example: '2019-03-13'
+                  prefecture_id:
+                    type: integer
+                    description: セイソクチに設定する都道府県のid
+                    example: 1
+                  sex:
+                    type: integer
+                    description: |
+                      設定する性別のenum値
+
+                      * 0 - 男性
+                      * 1 - 女性
+                      * 2 - その他
+                    enum:
+                      - 0
+                      - 1
+                      - 2
+                  arcade_id:
+                    type: integer
+                    description: マイゲーセンに設定するゲーセンのid
+                    example: 1
+                  my_game_ids:
+                    type: array
+                    description: マイゲーに登録するゲームのidを指定
+                    items:
+                      type: integer
+                    example:
+                      - 1
+                      - 2
+                      - 3
+                  my_character_ids:
+                    type: array
+                    description: マイキャラに登録するキャラクターのidを指定
+                    items:
+                      type: integer
+                    example:
+                      - 1
+                      - 2
+                      - 3
+                required:
+                  - icon_id
+                  - back_img_id
+                  - nickname
+                  - sex
+                  - arcade_id
+                  - my_game_ids
+                  - my_character_ids
+              notice_receive_status:
+                $ref: '#/components/schemas/NoticeReceiveStatus'
+              push_receive_status:
+                type: boolean
+                description: プッシュ通知を受け取るかどうかを表す真偽値
+                example: true
+            required:
+              - profile
+              - notice_receive_status
+              - push_receive_status
+    PostMe:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              profile:
+                type: object
+                description: プロフィールのオブジェクト
+                properties:
+                  nickname:
+                    type: string
+                    description: 設定するニックネーム
+                    example: はると
+                  birth_date:
+                    type: string
+                    format: date
+                    description: 設定する生年月日
+                    example: '2018-07-11'
+                  password:
+                    type: string
+                    description: 設定するパスワード
+                    example: '1234'
+                  prefecture_id:
+                    type: integer
+                    description: セイソクチに設定する都道府県のid
+                    example: 1
+                  sex:
+                    type: integer
+                    description: |
+                      設定する性別のenum値
+
+                      * 0 - 男性
+                      * 1 - 女性
+                      * 2 - その他
+                    enum:
+                      - 0
+                      - 1
+                      - 2
+                  arcade_id:
+                    type: integer
+                    description: マイゲーセンに設定するゲーセンのid
+                    example: 1
+                required:
+                  - nickname
+                  - password
+                  - sex
+                  - arcade_id
+              notice_receive_status:
+                $ref: '#/components/schemas/NoticeReceiveStatus'
+              push_receive_status:
+                type: boolean
+                description: プッシュ通知を受け取るかどうかを表す真偽値
+                example: true
+            required:
+              - profile
+              - notice_receive_status
+              - push_receive_status
+    TempCard:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              temp_card:
+                type: object
+                description: 登録するカードを表すオブジェクト
+                properties:
+                  name:
+                    type: string
+                    description: 登録するカード名
+                    example: カード1
+                required:
+                  - name
+            required:
+              - temp_card
+    SegaId:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              sega_id:
+                type: object
+                description: セガIDの認証情報を表すオブジェクト
+                properties:
+                  id:
+                    type: string
+                    description: セガIDの認証用IDを表す文字列
+                    example: abcdefghijklmnopqrstuvwxyz1234
+                  password:
+                    type: string
+                    description: セガIDの認証用パスワードをあらわす文字列
+                    example: abcdefghijklmno
+                  captcha_image:
+                    type: string
+                    description: 画像認証用画像の入力文字列
+                    example: もさかたと
+                  ses_rec_id:
+                    type: string
+                    description: 画像認証用セッションID(認証用画像取得APIにて返却する値)
+                    example: example_session
+                required:
+                  - id
+                  - password
+                  - captcha_image
+                  - ses_rec_id
+            required:
+              - sega_id
+    PasswordDelete:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              password:
+                type: string
+                description: ユーザのパスワードを指定
+                example: '1234'
+            required:
+              - password
+    Popup:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              is_read:
+                type: boolean
+                description: 既読（今後表示しない）ならTrue
+                example: true
+            required:
+              - is_read
+  responses:
+    400BadRequestError:
+      description: リクエスト不正の際のエラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: |
+                      エラーコードをあらわす数値
+
+                      * 400001 - リクエストの形式が違う(必須項目がない、リクエストパラメータが定義されていないものである等)
+                    example: 401001
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: リクエスト形式が間違っています。
+    401UnauthorizedError:
+      description: 認証系エラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            description: エラーをあらわすオブジェクト
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: >
+                      エラーコードをあらわす数値
+
+
+                      * 401001 - authorizationヘッダが無い/空である
+
+                      * 401002 - authorizationヘッダで指定しているトークンが無効なものである
+
+                      * 401003 - authorizationヘッダで指定しているトークンの有効期限が切れている
+
+                      * 401004 -
+                      authorizationヘッダで指定しているトークンの発行日時がパスワード最終更新日時よりも前である
+                    example: 401001
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: アクセストークンが必要です。
+    401LoginError:
+      description: 認証エラー(IDもしくはパスワードが間違っている)
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: |
+                      エラーコードをあらわす数値
+
+                      * 401005 - ログインIDもしくはパスワードが間違っている
+                      * 401006 - アカウントがロックされている(連続6回id, パスワード入力を間違えた)
+                    example: 401005
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: 認証に失敗しました。IDとパスワードを確認してください。
+    401TokenRefreshError:
+      description: 認証系エラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            description: エラーをあらわすオブジェクト
+            properties:
+              error:
+                type: object
+                properties:
+                  error_code:
+                    type: number
+                    description: |
+                      エラーコードをあらわす数値
+
+                      * 401008 - ボディーで指定しているリフレッシュトークンが無効なものである
+                      * 401009 - ボディーで指定しているリフレッシュトークンの有効期限が切れている
+                      * 401010 - ボディーで指定しているリフレッシュ
+                    example: 401008
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: 無効なリフレッシュトークンです。
+    401DeleteUserError:
+      description: 認証系エラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: >
+                      エラーコードをあらわす数値
+
+
+                      * 401001 - authorizationヘッダが無い/空である
+
+                      * 401002 - authorizationヘッダで指定しているトークンが無効なものである
+
+                      * 401003 - authorizationヘッダで指定しているトークンの有効期限が切れている
+
+                      * 401004 -
+                      authorizationヘッダで指定しているトークンの発行日時がパスワード最終更新日時よりも前である
+
+                      * 401007 - 退会時に指定したパスワードが間違っている
+                    example: 401007
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: パスワードが誤っています。再度確認してください。
+    401MedalBankError:
+      description: 認証系エラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: >
+                      エラーコードをあらわす数値
+
+
+                      * 401001 - authorizationヘッダが無い/空である
+
+                      * 401002 - authorizationヘッダで指定しているトークンが無効なものである
+
+                      * 401003 - authorizationヘッダで指定しているトークンの有効期限が切れている
+
+                      * 401004 -
+                      authorizationヘッダで指定しているトークンの発行日時がパスワード最終更新日時よりも前である
+
+                      * 401011 - メダルバンク紐付け時に指定したメダルバンクIDもしくはパスワードが間違っている
+                    example: 401011
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: 認証に失敗しました。メダルバンク会員IDもしくはメダルバンクパスワードを確認してください。
+    401PutPasswordError:
+      description: 認証系エラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: >
+                      エラーコードをあらわす数値
+
+
+                      * 401001 - authorizationヘッダが無い/空である
+
+                      * 401002 - authorizationヘッダで指定しているトークンが無効なものである
+
+                      * 401003 - authorizationヘッダで指定しているトークンの有効期限が切れている
+
+                      * 401004 -
+                      authorizationヘッダで指定しているトークンの発行日時がパスワード最終更新日時よりも前である
+
+                      * 401012 -
+                      パスワード変更時の現在のパスワード(リクエストボディー内のcurrent_password)が間違っている
+                    example: 401012
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: パスワードが誤っています。再度確認してください。
+    403ConventionEntryError:
+      description: アクセス禁止エラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: |
+                      エラーコードをあらわす数値
+
+                      * 403001 - 参加リクエストしたゲーム大会参加要件を満たしていない
+                      * 403002 - アカウントが停止されている
+                      * 403012 - 生年月日が登録されていないため申し込みができない
+                    example: 403001
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: 参加要件を満たしておりません。再度確認ください。
+    403SegaIdPlatoIdError:
+      description: アクセス禁止エラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: |
+                      エラーコードをあらわす数値
+
+                      * 403002 - アカウントが停止されている
+                      * 403003 - 未紐付けのSEGA IDで認証を行った
+                    example: 403003
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: 紐付けられていないSEGA IDです。
+    403MedalBankPostError:
+      description: アクセス禁止エラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: |
+                      エラーコードをあらわす数値
+
+                      * 403002 - アカウントが停止されている
+                      * 403005 - 1つのメダルバンクに2つのプラトンIDを紐付けようとした
+                    example: 403005
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: すでに紐付けられているメダルバンクです。
+    403LoginError:
+      description: アクセス禁止エラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: |
+                      エラーコードをあらわす数値
+
+                      * 403002 - アカウントが停止されている
+                      * 403006 - ログインしようとしたアカウントが退会している
+                    example: 403006
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: 退会したユーザです。
+    403DelteEntryConventionError:
+      description: アクセス禁止エラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: |
+                      エラーコードをあらわす数値
+
+                      * 403002 - アカウントが停止されている
+                      * 403007 - ゲーム大会参加期間当日にキャンセルしようとした
+                    example: 403007
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: キャンセルは参加受付期間１日前までとなります。
+    403CampaignTicketPresentError:
+      description: アクセス禁止エラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: >
+                      エラーコードをあらわす数値
+
+
+                      * 403002 - アカウントが停止されている
+
+                      * 403008 - 抽選              
+                      /交換受付期限を過ぎたポイント、チケットプレゼントに応募し              ようとした
+
+                      * 403009 - 応募に必要な数のチケットを保持していない
+                    example: 403008
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: 有効期間が過ぎています。
+    403CampaignPointPresentError:
+      description: アクセス禁止エラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: >
+                      エラーコードをあらわす数値
+
+
+                      * 403002 - アカウントが停止されている
+
+                      * 403008 - 抽選             
+                      /交換受付期限を過ぎたポイント、チケットプレゼントに応募し              ようとした
+
+                      * 403010 - 応募に必要な数ポイントを保持していない
+                    example: 403008
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: 有効期間が過ぎています。
+    403BirthDayAlreadySettedError:
+      description: アクセス禁止エラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: |
+                      エラーコードをあらわす数値
+
+                      * 403002 - アカウントが停止されている
+                      * 403011 - 誕生日を変更しようとした
+                    example: 403011
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: 誕生日はすでに設定済みです。
+    403AcountBanError:
+      description: アクセス禁止エラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: |
+                      エラーコードをあらわす数値
+
+                      * 403002 - アカウントが停止されている
+                    example: 403002
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: アカウントが停止されています。
+    404PublicNotFoundError:
+      description: 未検出のエラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: |
+                      エラーコードをあらわす数値
+
+                      * 404003 - 公開状態が非公開もしくは存在しないデータを参照しようとした
+                    example: 404003
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: 該当データがありません。
+    404PrefectureRankingNotFoundError:
+      description: 未検出のエラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: |
+                      エラーコードをあらわす数値
+
+                      * 404002 - セイソクチが設定されていない期間のセイソクチランキングを取得しようとした
+                    example: 404002
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: セイソクチが設定されていないため該当データがありません。
+    404CouponInvalidError:
+      description: 未検出のエラーレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: エラーコードをあらわす数値
+                    example: 404001
+                  message:
+                    type: string
+                    example: 購入期限が切れています。画面を再読込してください。
+    500ALJError:
+      description: |
+        顧客管理サーバのAPIからエラーがレスポンスされた場合に返却。メッセージは顧客管理サーバから返却されたメッセージをそのまま返す仕様とする
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                description: エラーをあらわすオブジェクト
+                properties:
+                  error_code:
+                    type: number
+                    description: エラーコードをあらわす数値
+                    example: 500001
+                  message:
+                    type: string
+                    description: エラーメッセージをあらわす文字列
+                    example: ただいま、お取扱いできません\nしばらくしてから再度お試しください
+    monitoringStatusOkResponse:
+      description: 成功時のレスポンス
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: リクエストの処理結果を表す文字列(現バージョンではokのみ)
+                example: ok
+  schemas:
+    Token:
+      type: object
+      description: トークン情報を表すオブジェクト
+      properties:
+        access_token:
+          type: string
+          description: >
+            アクセス用のトークン。認証のかかっているAPIに対してはこのトークンをAuthorizationヘッダに設定する(Bearerで指定する)。有効期限1週間
+          example: example_access_token
+        refresh_token:
+          type: string
+          description: |
+            リフレッシュトークン。トークンをリフレッシュする場合に用いる(用い方はトークンリフレッシュAPIに記述)。有効期限10年。
+          example: example_refresh_token
+    Top:
+      type: object
+      properties:
+        me:
+          $ref: '#/components/schemas/Me'
+        announcements:
+          type: array
+          description: 重要なお知らせを表す配列。最大3件
+          items:
+            $ref: '#/components/schemas/Announcement'
+        notices:
+          $ref: '#/components/schemas/Notices'
+        cards:
+          type: array
+          description: キオスクで登録したカード情報オブジェクトの配列
+          items:
+            $ref: '#/components/schemas/Card'
+    Announcement:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: 重要なお知らせid
+          example: 1
+        title:
+          type: string
+          example: お知らせのタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
+          description: 重要なお知らせのタイトル
+        disp_from:
+          type: string
+          format: datetime
+          example: '2019-06-01T10:00:00+09:00'
+          description: 重要なお知らせの公開開始日時
+        main_text:
+          type: string
+          example: テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+          description: 重要なお知らせの本文
+        detail_link_url:
+          type: string
+          example: 'https://example.com'
+          description: |
+            重要なお知らせの外部リンクurl、もしくはカスタムurlスキーマ
+
+            設定されていない場合はnull。設定されている場合はアプリ側で詳細はこちらボタンを表示。
+
+            タップでurlを外部ブラウザで表示(外部リンクurlの場合)、もしくはアプリ内画面遷移(カスタムurlスキーマの場合)
+    Ids:
+      type: array
+      items:
+        type: integer
+      example:
+        - 1
+        - 2
+        - 3
+    Element:
+      type: object
+      nullable: true
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ID値
+          example: 1
+        url:
+          type: string
+          nullable: true
+          description: 画像のurlを表す文字列
+          example: 'https://placehold.jp/3d4070/ffffff/900x900.png?text=900x900'
+        width:
+          type: integer
+          nullable: true
+          description: 画像の横幅(単位px)をあらわす整数
+          example: 900
+        height:
+          type: integer
+          nullable: true
+          description: 画像の縦幅(単位px)をあらわす整数
+          example: 900
+    Icon:
+      $ref: '#/components/schemas/Element'
+    BackImage:
+      $ref: '#/components/schemas/Element'
+    Emblem:
+      $ref: '#/components/schemas/Element'
+    Region:
+      type: object
+      description: 地方をあらわすオブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: 地方ID
+        name:
+          type: string
+          description: '地方名(北海道・東北, 甲信越・北陸, 関東, 東海, 関西, 中国・四国, 九州・沖縄のいづれか)'
+      example:
+        id: 1
+        name: 北海道・東北
+    Prefecture:
+      type: object
+      nullable: true
+      description: 都道府県をあらわすオブジェクト
+      properties:
+        id:
+          type: integer
+          description: 都道府県ID
+          format: int64
+        name:
+          type: string
+          description: 都道府県名
+      example:
+        id: 14
+        name: 神奈川県
+    Arcade:
+      type: object
+      nullable: true
+      description: ゲーセンオブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ゲーセンのid
+          example: 1
+        name:
+          type: string
+          description: ゲーセンの名前
+          example: セガ 横浜中華街
+        detail_link_url:
+          type: string
+          description: 詳細ページのurl
+          example: 'https://tempo.sega.jp/am/yokohama-chukagai/'
+        prefecture:
+          $ref: '#/components/schemas/Prefecture'
+        address:
+          type: string
+          description: ゲーセンの住所をあらわす文字列
+          example: 神奈川県横浜市中区山下町８０−１
+        tel:
+          type: string
+          nullable: true
+          description: ゲーセンの電話番号をあらわす文字列
+          example: 045-681-5067
+    Notice:
+      type: object
+      description: お知らせをあらわすオブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: お知らせのid
+          example: 1
+        title:
+          type: string
+          description: お知らせのタイトルをあらわす文字列
+          example: 新規店舗がオープンしました!
+        category:
+          type: string
+          description: |
+            お知らせのカテゴリをあらわす文字列
+
+            * 新着・キャンペーン
+            * ゲーム大会
+            * 運営
+          example: カテゴリ
+        disp_from:
+          type: string
+          format: datetime
+          description: 公開開始日時をあらわす文字列
+          example: '2018-06-20T14:58:00+09:00'
+        is_read:
+          type: boolean
+          description: 既読かどうかをあらわす文字列
+          example: true
+        main_text:
+          type: string
+          description: お知らせの本文をあらわす文字列
+          example: >-
+            株式会社セガ
+            エンタテインメントは、セガの対象店舗におきまして、大阪、沼津、ちょうきょうで開催する『スクフェス感謝祭2018』を記念して、大人気スマートフォン向けアプリ『ラブライブ！スクールアイドルフェスティバル』（以下、『スクフェス』）とコラボレーションした『スクフェス感謝祭2018
+            もっとエンジョイ♪キャンペーン』を実施いたします。
+        detail_link_url:
+          type: string
+          description: 詳細リンクurlをあらわす文字列
+          example: 'https://gw.sega.jp/gw/'
+        url_schema:
+          type: string
+          description: 画面遷移の際に用いるurlスキーマを指定する文字列
+          example: 'plato://convention_detail?id=123'
+        s_icon_url:
+          type: string
+          description: sサイズのアイコン画像のurl
+          example: 'https://placehold.jp/3d4070/ffffff/20x20.png?text=20x20'
+        l_icon_url:
+          type: string
+          description: lサイズのアイコン画像のurl
+          example: 'https://placehold.jp/3d4070/ffffff/50x50.png?text=50x50'
+        is_required_sega_id:
+          type: boolean
+          description: お知らせについているリンクを表示するのにsega_idとの紐付けが必要かを表すフラグ
+          example: true
+    Notices:
+      type: array
+      description: お知らせオブジェクトの配列
+      items:
+        $ref: '#/components/schemas/Notice'
+      example:
+        - id: 1
+          title: 新規店舗がオープンしました!
+          category: カテゴリ
+          disp_from: '2018-06-20T14:58:00+09:00'
+          is_read: true
+          main_text: >-
+            株式会社セガ
+            エンタテインメントは、セガの対象店舗におきまして、大阪、沼津、ちょうきょうで開催する『スクフェス感謝祭2018』を記念して、大人気スマートフォン向けアプリ『ラブライブ！スクールアイドルフェスティバル』（以下、『スクフェス』）とコラボレーションした『スクフェス感謝祭2018
+            もっとエンジョイ♪キャンペーン』を実施いたします。
+          detail_link_url: 'https://gw.sega.jp/gw/'
+          url_schema: null
+          s_icon_url: 'https://placehold.jp/3d4070/ffffff/20x20.png?text=20x20'
+          l_icon_url: 'https://placehold.jp/3d4070/ffffff/50x50.png?text=50x50'
+          is_required_sega_id: false
+        - id: 2
+          title: メダルvip会員が100万人をとっぱしました。ホントダヨ
+          category: カテゴリ
+          disp_from: '2018-06-20T15:33:00+09:00'
+          is_read: true
+          main_text: >-
+            株式会社セガ
+            エンタテインメントは、セガの対象店舗におきまして、大阪、沼津、ちょうきょうで開催する『スクフェス感謝祭2018』を記念して、大人気スマートフォン向けアプリ『ラブライブ！スクールアイドルフェスティバル』（以下、『スクフェス』）とコラボレーションした『スクフェス感謝祭2018
+            もっとエンジョイ♪キャンペーン』を実施いたします。
+          detail_link_url: 'https://gw.sega.jp/gw/'
+          url_schema: null
+          s_icon_url: 'https://placehold.jp/3d4070/ffffff/20x20.png?text=20x20'
+          l_icon_url: 'https://placehold.jp/3d4070/ffffff/50x50.png?text=50x50'
+          is_required_sega_id: false
+    Ranking:
+      type: object
+      description: ランキングをあらわすオブジェクト
+      properties:
+        plato_id:
+          type: string
+          format: string
+          description: ユーザのプラトンIDを表す文字列
+          example: xxxxxxxx
+        nickname:
+          type: string
+          format: string
+          description: ユーザのニックネームを表す文字列
+          example: ALOHA
+        rank:
+          type: integer
+          format: int64
+          description: 順位をあらわす文字列
+          example: 1
+        exp:
+          type: integer
+          format: int64
+          description: ケイケンチの集計値
+          example: 126580
+    Rankings:
+      type: array
+      description: ランキングオブジェクトの配列
+      items:
+        $ref: '#/components/schemas/Ranking'
+      example:
+        - plato_id: '1234567890'
+          nickname: ALOHA
+          rank: 1
+          exp: 126580
+        - plato_id: '2345678901'
+          nickname: ピーポー
+          rank: 2
+          exp: 100240
+        - plato_id: '3456789012'
+          nickname: 俺俺!
+          rank: 3
+          exp: 99730
+        - plato_id: '4567890123'
+          nickname: ウルトラの父
+          rank: 4
+          exp: 97710
+        - plato_id: '5678901234'
+          nickname: うまい棒
+          rank: 5
+          exp: 97220
+        - plato_id: '6789012345'
+          nickname: YOU
+          rank: 6
+          exp: 96210
+        - plato_id: '7890123456'
+          nickname: ビジンダー
+          rank: 7
+          exp: 95990
+    RankingDuration:
+      type: object
+      description: ランキングの集計期間をあらわすオブジェクト
+      properties:
+        from:
+          type: string
+          format: date
+          description: 集計開始日をあらわすオブジェクト
+          example: '2018-01-01'
+        to:
+          type: string
+          format: date
+          description: 集計終了日をあらわすオブジェクト
+          example: '2018-01-24'
+    UserRankingRow:
+      type: object
+      description: ユーザランキングオブジェクト
+      properties:
+        category:
+          type: string
+          format: string
+          description: ランキングのカテゴリを表す文字列(初回リリースではケイケンチのみ)
+          example: ケイケンチ
+        point:
+          type: integer
+          format: int64
+          description: ランキング対象の獲得ポイントを表す数値
+          example: 2530
+        rank:
+          type: integer
+          format: int64
+          description: 対象カテゴリでの順位
+          example: 100
+    UserRanking:
+      type: array
+      description: ユーザランキングオブジェクトの配列
+      items:
+        $ref: '#/components/schemas/UserRankingRow'
+    RankingHistories:
+      type: array
+      description: ランキング履歴オブジェクトの配列
+      items:
+        type: object
+        description: ランキング履歴オブジェクト
+        properties:
+          year:
+            type: integer
+            format: int64
+            description: ランキング履歴の対象年
+            example: 2018
+          user_ranking:
+            $ref: '#/components/schemas/UserRankingRow'
+          monthly_ranking_histories:
+            type: array
+            description: 月間ランキング履歴をあらわす配列
+            items:
+              type: object
+              properties:
+                month:
+                  type: integer
+                  format: int64
+                  description: ランキング履歴の対象月
+                  example: 6
+                user_ranking:
+                  $ref: '#/components/schemas/UserRankingRow'
+    Convention:
+      type: object
+      description: ゲーム大会オブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ゲーム大会のid
+          example: 1
+        title:
+          type: string
+          example: 第3回ロード オブ ヴァーミリオン Ⅳ トーナメント
+        arcade:
+          $ref: '#/components/schemas/Arcade'
+        category:
+          type: string
+          nullable: true
+          description: 大会形式をあらわす文字列
+          example: 大会
+        proceeding_type:
+          type: string
+          description: 大会の進行形式をあらわす文字列(大会形式が大会以外の場合はnull)
+          example: トーナメント
+        age_constraint:
+          type: object
+          description: 年齢制限をあらわすオブジェクト(年齢制限なしの場合はnull)
+          properties:
+            from:
+              type: integer
+              nullable: true
+              description: 何歳から参加可能かをあらわす整数
+              example: 1
+            to:
+              type: integer
+              nullable: true
+              description: 何歳まで参加可能かをあらわす整数
+              example: 10
+        sex_type:
+          type: string
+          description: 性別制限をあらわす文字列
+          example: フリー
+        date:
+          type: string
+          format: datetime
+          description: 開催日時をあらわす文字列
+          example: '2018-01-10T10:00:00+09:00'
+        entry_date:
+          type: string
+          nullable: true
+          format: datetime
+          description: 申し込み日をあらわす文字列
+          example: '2018-01-01T10:00:00+09:00'
+        application_duration:
+          type: object
+          description: 参加受付(申し込み)期間をあらわすオブジェクト
+          properties:
+            from:
+              type: string
+              format: datetime
+              description: 参加受付(申し込み)開始日時を表す文字列
+              example: '2018-01-01T00:00:00+09:00'
+            to:
+              type: string
+              format: datetime
+              description: 参加受付(申し込み)終了日時を表す文字列
+              example: '2018-01-10T00:00:00+09:00'
+        max_number:
+          type: integer
+          description: 参加定員数を表す整数
+          example: 30
+        amount:
+          type: integer
+          description: 参加費を表す整数
+          example: 1000
+        payment_type:
+          type: string
+          description: 支払い方法を表す文字列
+          example: 機械に投入
+        sub_text:
+          type: string
+          nullable: true
+          description: 捕捉用の文字列
+          example: フリーテキスト
+        status:
+          type: string
+          description: |
+            ゲーム大会の状態を表す文字列
+
+            * normal - 申し込み前
+            * waiting - 抽選結果待ち
+            * selected - 当選
+            * unselected - 落選
+            * attended - 参加済み
+          enum:
+            - normal
+            - waiting
+            - selected
+            - unselected
+            - attended
+          example: normal
+        img_table_url:
+          type: string
+          nullable: true
+          description: 対戦表の画像URL
+          example: 'https://placehold.jp/3d4070/ffffff/900x900.png?text=900x900'
+        require_character_name:
+          type: boolean
+          description: 抽選にキャラクターネームが必要かどうかの真偽値
+          example: true
+        is_enterable:
+          type: boolean
+          description: 大会参加制限を満たしているかどうかをあらわす真偽値
+          example: true
+        accepting_allowed:
+          type: boolean
+          description: '大会参加可能かどうかを表す真偽値(開催日時の0:00からtrueになる)'
+          example: true
+    UserOfEntryConvention:
+      type: object
+      nullable: true
+      description: 抽選応募時に登録したユーザの情報を表すオブジェクト(抽選応募前はnull)
+      properties:
+        character_name:
+          type: string
+          description: 応募に使用したキャラクター名
+          example: ソニック
+        entry_name:
+          type: string
+          description: 応募に使用したエントリー名
+          example: ALOHA
+    Campaign:
+      type: object
+      description: キャンペーンをあらわすオブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: キャンペーンのid
+        title:
+          type: string
+          description: キャンペーンタイトル
+          example: ラブライブ!サンシャイン!\nウィンターキャンペーン
+        img_main:
+          type: object
+          description: キャンペーン一覧に表示する画像を表すオブジェクト
+          properties:
+            url:
+              type: string
+              description: 画像のurl
+              example: 'https://placehold.jp/3d4070/ffffff/900x900.png?text=900x900'
+            width:
+              type: integer
+              description: 画像の横幅をあらわす数値
+              example: 900
+            height:
+              type: integer
+              description: 画像の縦幅を表す整数
+              example: 900
+        img_banner:
+          type: object
+          description: キャンペーン詳細ページ上部のバナー画像を表すオブジェクト
+          properties:
+            url:
+              type: string
+              description: 画像のurl
+              example: 'https://placehold.jp/3d4070/ffffff/900x900.png?text=900x900'
+            width:
+              type: integer
+              description: 画像の横幅をあらわす数値
+              example: 900
+            height:
+              type: integer
+              description: 画像の縦幅を表す整数
+              example: 900
+        duration:
+          type: object
+          description: 配布期間をあらわすオブジェクト
+          properties:
+            from:
+              type: string
+              format: datetime
+              description: 配布開始日時
+              example: '2018-01-01T00:00:00+09:00'
+            to:
+              type: string
+              format: datetime
+              description: 配布終了日時
+              example: '2018-01-10T00:00:00+09:00'
+        arcade_text:
+          type: string
+          description: 実施対象店舗を表す文字列
+          example: セガ及び、AGスクエアのアミューズメント施設
+        main_text:
+          type: string
+          description: キャンペーン内容テキスト
+          example: キャンペーン内容テキスト表示
+        link_url:
+          type: string
+          description: 詳しくはこちらボタンを押した際に移動するウェブページのURL(ない場合はnullを返却)
+          example: 'https://example.com'
+        campaign_type:
+          type: integer
+          description: |
+            キャンペーンのタイプを表すenum値
+
+            * 0: ipキャンペーン
+            * 1: キャンペーン告知
+      discriminator:
+        propertyName: campaign_type
+    AdCampaign:
+      allOf:
+        - $ref: '#/components/schemas/Campaign'
+        - type: object
+          properties:
+            arcade_url:
+              type: string
+              example: 'https://example.com'
+              description: >
+                アプリの外部ブラウザで表示するurl。設定されていない場合はnull。設定されている場合はアプリ側で実施対象店舗をタップ可能とする。(タップ時の遷移先)
+    TicketPresent:
+      type: object
+      nullable: true
+      description: チケットで交換できるプレゼントを表すオブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: プレゼントのID
+          example: 1
+        name:
+          type: string
+          description: プレゼント名
+          example: オリジナルクリアファイル
+        duration:
+          type: object
+          description: 配布期間をあらわすオブジェクト
+          properties:
+            from:
+              type: string
+              format: date
+              description: 配布開始日をあらわすオブジェクト
+              example: '2018-01-01'
+            to:
+              type: string
+              format: date
+              description: 配布終了日をあらわすオブジェクト
+              example: '2018-04-24'
+        required_ticket_count:
+          type: integer
+          description: 消費チケット枚数
+          example: 1
+        img_present:
+          type: object
+          description: プレゼントの画像をあらわすオブジェクト
+          properties:
+            url:
+              type: string
+              description: 画像のurl
+              example: 'https://placehold.jp/3d4070/ffffff/900x900.png?text=900x900'
+            width:
+              type: integer
+              description: 画像の横幅をあらわす数値
+              example: 900
+            height:
+              type: integer
+              description: 画像の縦幅を表す整数
+              example: 900
+    PointPresent:
+      type: object
+      description: ポイントプレゼントをあらわすオブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ポイントプレゼントのID
+          example: 1
+        name:
+          type: string
+          description: プレゼント名
+          example: ハイパージャンボマルチクロス(抽選)
+        duration:
+          type: object
+          description: 抽選期間をあらわすオブジェクト
+          properties:
+            from:
+              type: string
+              format: date
+              description: 抽選開始日をあらわすオブジェクト
+              example: '2018-01-01'
+            to:
+              type: string
+              format: date
+              description: 抽選終了日をあらわすオブジェクト
+              example: '2018-04-24'
+        required_point:
+          type: integer
+          description: 必要ポイントをあらわす数値
+          example: 2
+        type:
+          type: integer
+          description: |
+            抽選か交換かをあらわす
+
+            * 0 - 交換
+            * 1 - 抽選
+          enum:
+            - 0
+            - 1
+        img_present:
+          type: object
+          description: プレゼントの画像をあらわすオブジェクト
+          properties:
+            url:
+              type: string
+              description: 画像のurl
+              example: 'https://placehold.jp/3d4070/ffffff/900x900.png?text=900x900'
+            width:
+              type: integer
+              description: 画像の横幅をあらわす数値
+              example: 900
+            height:
+              type: integer
+              description: 画像の縦幅を表す整数
+              example: 900
+    UserPresentTicketCount:
+      type: object
+      description: リクエストしたユーザ情報を格納するオブジェクト
+      properties:
+        present_ticket_count:
+          type: integer
+          description: 保有チケット枚数
+          example: 23
+    UserPresentPoint:
+      type: object
+      description: リクエストしたユーザ情報を格納するオブジェクト
+      properties:
+        present_point:
+          type: integer
+          description: 保有携帯ポイント
+          example: 23
+    MedalBank:
+      type: object
+      description: メダルバンクをあらわすオブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: >-
+            ユーザの保持しているメダルバンクを一意に識別するためのID。システム的に割り当てたものでメダルバンクIDとは異なる(※便宜上サロゲートメダルバンクIDと呼称する)
+          example: 1
+        medal_bank_id:
+          type: string
+          description: メダルバンクに振られているID(※ゲーセン内で一意となる)
+          example: '123456'
+        arcade:
+          $ref: '#/components/schemas/Arcade'
+        grade:
+          type: string
+          description: |
+            メダルバンクのグレードを表す文字列
+
+            * グレードの種類
+              * メダルVIPブラック
+              * メダルVIPゴールドプラス: 1年で100万円以上利用
+              * メダルVIPゴールド: 1ヶ月で10万円以上利用
+              * メダルVIPシルバー: 1ヶ月で5万円以上利用
+              * メダルVIP
+          example: メダルVIPシルバー
+        grade_expire_date:
+          type: string
+          format: datetime
+          description: |
+            グレードの有効期限を表す文字列
+
+            * グレード毎の有効期限
+              * メダルVIPブラック
+              * メダルVIPゴールドプラス: グレード付与から1年間
+              * メダルVIPゴールド: グレード付与から2ヶ月
+              * メダルVIPシルバー: グレード付与から1ヶ月
+              * メダルVIP: なし
+          example: '2018-12-31T23:59:59+09:00'
+    Coupon:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: 回数券のid
+          example: 1
+        title:
+          type: string
+          description: 回数券名
+          example: GW限定 とってもお得な回数券 2000円
+        disp_to:
+          type: string
+          format: datetime
+          description: 販売期間開始をあらわす文字列
+          example: '2018-05-05T00:00:00+09:00'
+        expire_month:
+          type: integer
+          description: 有効期限（単位 月)をあらわす数値
+          example: 6
+        target_game:
+          type: string
+          description: 対象ゲームをあらわす文字列
+          example: Maimai
+        price:
+          type: integer
+          description: 販売額をあらわす数値
+          example: 2000
+        limit_count:
+          type: integer
+          description: プレイ可能回数をあらわす数値
+          example: 22
+        is_read:
+          type: boolean
+          description: 既読かどうかをあらわす文字列
+          example: true
+    UserCoupon:
+      type: object
+      description: ユーザの保持している回数券をあらわすオブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ユーザの保持回数券を一意に表すためのID
+          example: 1
+        expire_date:
+          type: string
+          format: date
+          description: 回数券の有効期限
+          example: '2018-06-31'
+        count:
+          type: integer
+          description: 残り使用可能回数
+          example: 12
+        coupon:
+          $ref: '#/components/schemas/Coupon'
+    ServiceTicket:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: サービス券id
+          example: 1
+        title:
+          type: string
+          description: サービス券名
+          example: バースデー特典 無料プレイ1回
+        main_text:
+          type: string
+          description: サービス券本文をあらわす文字列
+          example: |
+            お誕生日おめでとうございます。あなたへの特別なお誕生日プレゼントをご用意しています。ぜひお使いください。
+        expire_date:
+          type: string
+          format: date
+          description: サービス券の有効期限をあらわす文字列
+          example: '2018-06-30'
+        target_game:
+          type: string
+          description: 対象ゲームをあらわす文字列
+          example: プライズゲーム
+        icon_url:
+          type: string
+          description: アイコンのurlをあらわす文字列
+          example: 'https://placehold.jp/3d4070/ffffff/900x900.png?text=900x900'
+        is_read:
+          type: boolean
+          description: 既読かどうかをあらわす真偽値
+          example: true
+    ExchangeTicket:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: 引換券のid
+          example: 1
+        title:
+          type: string
+          description: 引換券名
+          example: バースデー特典 無料プレイ1回
+        main_text:
+          type: string
+          description: 引換券の本文をあらわす文字列
+          example: |
+            お誕生日おめでとうございます。あなたへの特別なお誕生日プレゼントをご用意しています。ぜひお使いください。
+        expire_date:
+          type: string
+          format: date
+          description: 有効期限をあらわす文字列
+          example: '2018-06-30'
+        gift:
+          type: string
+          description: 引き換えるものをあらわす文字列
+          example: 缶バッジ
+        icon_url:
+          type: string
+          description: アイコンのurl
+          example: 'https://placehold.jp/3d4070/ffffff/900x900.png?text=900x900'
+        is_read:
+          type: boolean
+          description: 既読かどうかをあらわす真偽値
+          example: true
+    Card:
+      type: object
+      description: カードをあらわすオブジェクト
+      properties:
+        id:
+          type: integer
+          description: 登録したカードのID
+          example: 1
+        nfc_udid:
+          type: string
+          description: elica Idmもしくはmaifare idを表す文字列(下4桁のみ表示。他の桁は*を表示)
+          example: '********1234'
+        name:
+          type: string
+          description: ユーザがつけたカード名
+          example: suica_LOV用
+        created_at:
+          type: string
+          format: datetime
+          description: カード登録日付
+          example: '2018-02-02T10:00:00+09:00'
+    TempCard:
+      type: object
+      properties:
+        name:
+          type: string
+          example: カード1
+        onetime_password:
+          type: string
+          example: xxxxxxxxxxxxxxxxxxxxx
+    CampaignEntry:
+      type: object
+      description: プレゼント応募履歴をあらわすオブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: プレゼント応募履歴のID
+          example: 1
+        campaign_name:
+          type: string
+          description: 応募したプレゼントのキャンペーン名
+          example: ラブライブサンシャイン!ウィンターキャンペーン
+        present_name:
+          type: string
+          description: 応募したプレゼント名
+          example: ハイパージャンボマルチクロス冬物小物
+        count:
+          type: integer
+          description: 何口応募したか
+          example: 2
+        date:
+          type: string
+          format: date
+          description: 応募した日付
+          example: '2018-02-12'
+        present_type:
+          type: integer
+          description: |
+            プレゼント応募方法のタイプ
+
+            * 0 - チケット
+            * 1 - ポイント
+          enum:
+            - 0
+            - 1
+          example: 1
+        type:
+          type: integer
+          description: |
+            応募種別
+
+            * 0 - 交換
+            * 1 - 抽選
+          enum:
+            - 0
+            - 1
+        winning_count:
+          type: integer
+          description: 応募したうちの何口が当選したかを表す数値(交換の場合はnull)
+          example: 1
+    Game:
+      type: object
+      description: ゲームを表すオブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ゲームのId
+          example: 1
+        name:
+          type: string
+          description: ゲームの名前
+          example: ラブライブ
+    Character:
+      type: object
+      description: キャラクター(アニメ等のコンテンツ自体を示す場合もある)を表すオブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: キャラクターのId
+          example: 1
+        name:
+          type: string
+          description: キャラクターの名前
+          example: 黒子のバスケ
+    Profile:
+      type: object
+      properties:
+        icon:
+          $ref: '#/components/schemas/Icon'
+        back_img:
+          $ref: '#/components/schemas/BackImage'
+        emblem:
+          $ref: '#/components/schemas/Emblem'
+        nickname:
+          type: string
+          description: ニックネームをあらわす文字列
+          example: ソニック・ザ・ヘッジホッグ
+        birth_date:
+          type: string
+          nullable: true
+          description: 誕生日を表す文字列
+          example: '2019-03-13'
+        sex:
+          type: integer
+          description: |
+            設定する性別のenum値
+
+            * 0 - 男性
+            * 1 - 女性
+            * 2 - その他
+          enum:
+            - 0
+            - 1
+            - 2
+        prefecture:
+          $ref: '#/components/schemas/Prefecture'
+        arcade:
+          $ref: '#/components/schemas/Arcade'
+        exp:
+          type: integer
+          description: 総合ケイケンチを表す数字
+          example: 15300
+        grade:
+          type: string
+          nullable: true
+          description: グレードを表す文字列
+          example: プラチナ
+        my_games:
+          type: array
+          description: マイゲーを表す配列
+          items:
+            type: object
+            properties:
+              game:
+                $ref: '#/components/schemas/Game'
+              exp:
+                type: integer
+                description: 対象のマイゲーで獲得したケイケンチを表す数値
+                example: 4000
+        my_characters:
+          type: array
+          description: マイキャラを表すキャラクターオブジェクトの配列
+          items:
+            $ref: '#/components/schemas/Character'
+    Ticket:
+      type: object
+      description: ユーザのチケット情報を表すオブジェクト
+      properties:
+        coupon_info:
+          type: object
+          description: 販売回数券情報をあらわすオブジェクト
+          properties:
+            count:
+              type: integer
+              description: 販売回数券数をあらわす文字列
+              example: 20
+            unread_count:
+              type: integer
+              description: 未読の販売回数券数をあらわす数値
+              example: 3
+        user_coupon_info:
+          type: object
+          description: 所持回数券情報をあらわすオブジェクト
+          properties:
+            count:
+              type: integer
+              example: 23
+        exchange_ticket_info:
+          type: object
+          description: 引換券情報をあらわすオブジェクト
+          properties:
+            count:
+              type: integer
+              description: 引換券数をあらわす文字列
+              example: 20
+            unread_count:
+              type: integer
+              description: 未読の引換券数をあらわす数値
+              example: 3
+        service_ticket_info:
+          type: object
+          description: サービス券情報をあらわすオブジェクト
+          properties:
+            count:
+              type: integer
+              description: サービス券数をあらわす文字列
+              example: 20
+            unread_count:
+              type: integer
+              description: 未読のサービス券数をあらわす数値
+              example: 3
+    User:
+      type: object
+      description: ユーザ情報をあらわすオブジェクト
+      properties:
+        profile:
+          $ref: '#/components/schemas/Profile'
+    Me:
+      type: object
+      description: マイデータをあらわすオブジェクト
+      properties:
+        profile:
+          $ref: '#/components/schemas/Profile'
+        play_exp:
+          type: integer
+          description: ゲームプレイで獲得したケイケンチを表す数値
+          example: 7000
+        checkin_count:
+          type: integer
+          description: チェックイン回数を表す数値
+          example: 25
+        angya_count:
+          type: integer
+          description: アンギャ回数をあらわす数値
+          example: 5
+        attended_convention_count:
+          type: integer
+          description: 大会参加回数を表す数値
+          example: 2
+        ticket_info:
+          $ref: '#/components/schemas/Ticket'
+        notice_receive_status:
+          $ref: '#/components/schemas/NoticeReceiveStatus'
+        push_receive_status:
+          type: boolean
+          description: プッシュを取得するかどうかを表す真偽値
+          example: true
+    NoticeReceiveStatus:
+      type: object
+      description: お知らせの情報受信設定をあらわすオブジェクト
+      properties:
+        campaign:
+          type: boolean
+          description: 新着・キャンペーンカテゴリのお知らせを取得するかどうかを表す真偽値
+          example: true
+        convention:
+          type: boolean
+          description: ゲーム大会カテゴリのお知らせを取得するかどうかを表す真偽値
+          example: true
+      required:
+        - campaign
+        - convention
+    PlayHistory:
+      type: object
+      description: プレイ履歴オブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: プレイ履歴のID
+          example: 1
+        arcade:
+          $ref: '#/components/schemas/Arcade'
+        game:
+          $ref: '#/components/schemas/Game'
+        exp:
+          type: integer
+          description: 獲得ケイケンチを表す数値
+          example: 120
+        date:
+          type: string
+          format: datetime
+          description: ゲームプレイをした日時を表す文字列
+          example: '2018-03-03T21:00:00+09:00'
+    CheckinHistory:
+      type: object
+      description: チェックイン履歴オブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: チェックイン履歴のID
+          example: 1
+        arcade:
+          $ref: '#/components/schemas/Arcade'
+        exp:
+          type: integer
+          description: 獲得ケイケンチを表す数値
+          example: 1000
+        date:
+          type: string
+          format: datetime
+          description: チェックインをした日時を表す文字列
+          example: '2018-03-03T21:00:00+09:00'
+    AngyaHistory:
+      type: object
+      description: アンギャ履歴をあらわすオブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: アンギャ履歴のID
+          example: 1
+        arcade:
+          $ref: '#/components/schemas/Arcade'
+        exp:
+          type: integer
+          description: 獲得ケイケンチを表す数値
+          example: 10000
+        date:
+          type: string
+          format: datetime
+          description: アンギャをした日時を表す文字列
+          example: '2018-03-03T21:00:00+09:00'
+    GameCategory:
+      type: object
+      description: ゲームカテゴリを表すオブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ゲームカテゴリのID
+          example: 1
+        name:
+          type: string
+          description: ゲームカテゴリ名
+          example: ビデオゲーム
+        game_id:
+          type: integer
+          nullable: true
+          format: int64
+          description: |
+            ゲームカテゴリをマイゲーとして登録する際に指定するゲームID(ゲームカテゴリがマイゲーとして登録不可の場合はnull)
+          example: 1
+    GameCategories:
+      type: array
+      description: ゲームカテゴリオブジェクトの配列
+      items:
+        $ref: '#/components/schemas/GameCategory'
+      example:
+        - id: 1
+          name: ビデオゲーム
+          game_id: null
+        - id: 2
+          name: メダルゲーム
+          game_id: null
+        - id: 3
+          name: UFOキャッチャー
+          game_id: 1
+        - id: 4
+          name: プリクラ
+          game_id: null
+        - id: 5
+          name: その他
+          game_id: null
+    CharacterCategory:
+      type: object
+      description: キャラクターカテゴリを表すオブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: キャラクターカテゴリのId
+          example: 1
+        name:
+          type: string
+          description: キャラクターカテゴリ名
+          example: あ行
+    CaptchaImage:
+      type: object
+      description: 画像認証用画像を表すオブジェクト
+      properties:
+        url:
+          type: string
+          description: 画像のurlをあらわす文字列
+          example: 'https://gw.sega.jp/gw/login/capt/JF3Ame6Di2q81VOS2t'
+        ses_rec_id:
+          type: string
+          description: セッションID(セガID紐づけAPIリクエスト時に使用)
+          example: example_session
+    SegaIdStatus:
+      type: object
+      description: セガIDとの紐付け状態をあらわすオブジェクト
+      properties:
+        is_linked:
+          type: boolean
+          description: 紐づけされているかどうかを表す真偽値
+          example: true
+    Account:
+      type: object
+      description: アカウント情報をあらわすオブジェクト
+      properties:
+        plato_id:
+          type: string
+          description: プラトンidをあらわす文字列
+          example: 0123456789
+        password:
+          type: string
+          description: パスワードをあらわす文字列
+          example: '0123'
+    PrivilegeStatus:
+      type: object
+      description: 特典ステータスを表すオブジェクト
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: 特典ステータスID
+          example: 1
+        type:
+          type: string
+          description: |
+            特典の種類を表す文字列
+
+            * service_ticket - サービスチケット
+            * exchange_ticket - 引換券
+          enum:
+            - service_ticket
+            - exchange_ticket
+          example: service_ticket
+        is_checked:
+          type: boolean
+          description: ユーザがチェックしたかどうかを表す真偽
+          example: true
+    PurchaseInformation:
+      type: object
+      description: 購入用urlをあらわすオブジェクト
+      properties:
+        url:
+          type: string
+          description: 連続購入用のURL(購入処理はこのURLのページにて行う)
+          example: 'https://example.com/'
+    Popup:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ポップアップID
+          example: 1
+        type:
+          type: string
+          example: 'account_transfer'
+          description: ポップアップのタイプ（campaign、notice、service_ticket、coupon、noaction、account_transfer）
+        link_url:
+          type: string
+          nullable: true
+          example: 'https://example.com'
+          description: ポップアップの外部リンクurl（タイプが「account_transfer」の場合、クエリパラメータに「?plato_id=」を付与してください）
+        img_main_url:
+          type: string
+          nullable: true
+          example: 'https://localhost:32767/storage/upload-files/example.png'
+          description: ポップアップに表示する画像url
+        btn_word:
+          type: string
+          example: 'OK'
+          description: ポップアップのボタン文言
+        remarks:
+          type: string
+          nullable: true
+          example: アカウント移行のお願い
+          description: 備考（アカウント移行ポップアップの場合、ここにテキストが入ります。）
+security:
+  - bearerAuthApi: []
+paths:
+  /login:
+    post:
+      security: []
+      summary: プラトンアカウントログイン実行
+      description: |
+        プラトンアカウントでログインを実行する
+      tags:
+        - login
+      requestBody:
+        $ref: '#/components/requestBodies/Account'
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    $ref: '#/components/schemas/Token'
+                  profile:
+                    $ref: '#/components/schemas/Profile'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401LoginError'
+        '403':
+          $ref: '#/components/responses/403LoginError'
+  /refresh-token:
+    post:
+      security: []
+      summary: トークンのリフレッシュ
+      description: |
+        リフレッシュトークンを受け取って、新しいアクセストークンとリフレッシュトークンを払い出す
+      tags:
+        - login
+      requestBody:
+        $ref: '#/components/requestBodies/RefreshToken'
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401TokenRefreshError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /top:
+    get:
+      summary: トップ画面情報取得
+      description: |
+        トップ画面表示用の情報を取得
+
+        ※ お知らせは最大4件
+
+        ※ 重要なお知らせは最大3件
+      tags:
+        - top
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Top'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /announcements:
+    get:
+      summary: 重要なお知らせ一覧取得
+      description: |
+        重要なお知らせを一覧取得。公開開始日で降順>idで降順
+
+        ※公開可能なものが3件以上存在する場合は上のソートをした上で上位3件を返却するものとする
+      tags:
+        - top
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  announcements:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Announcement'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  '/announcements/{announcement_id}':
+    get:
+      summary: 重要なお知らせ詳細取得
+      description: |
+        重要なお知らせをid指定で取得する
+      parameters:
+        - $ref: '#/components/parameters/AnnouncementId'
+      tags:
+        - top
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  announcement:
+                    $ref: '#/components/schemas/Announcement'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+        '404':
+          $ref: '#/components/responses/404PublicNotFoundError'
+  /users/me/privilege-statuses:
+    get:
+      summary: 登録特典等のステータス確認
+      description: |
+        登録特典サービス券等のステータスを取得する
+      tags:
+        - top
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  privilege_statuses:
+                    type: array
+                    description: 特典ステータスオブジェクトの配列
+                    items:
+                      $ref: '#/components/schemas/PrivilegeStatus'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  '/users/me/privilege-statuses/{privilege_status_id}':
+    put:
+      summary: 登録特典ステータスの更新
+      description: |
+        登録特典ステータスの更新を行う
+      tags:
+        - top
+      parameters:
+        - $ref: '#/components/parameters/PrivilegeStatusId'
+      requestBody:
+        $ref: '#/components/requestBodies/PrivilegeStatus'
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /game-categories:
+    get:
+      summary: ゲームカテゴリ取得
+      description: |
+        マイゲー登録用のゲームカテゴリを取得する。
+
+        ※ソート順:マスターファイルのソート順カラムで昇順
+      tags:
+        - game
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  game_categories:
+                    $ref: '#/components/schemas/GameCategories'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /games:
+    get:
+      summary: ゲーム取得
+      description: |
+        マイゲー登録用のゲームを一覧取得する
+
+        ※ソート順:マスターファイルのソート順カラムで昇順
+      tags:
+        - game
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+        - $ref: '#/components/parameters/GameCategoryId'
+        - $ref: '#/components/parameters/KeywordGame'
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  games:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Game'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /character-categories:
+    get:
+      summary: キャラクターカテゴリの取得
+      description: |
+        マイキャラ登録用のキャラクターのカテゴリを取得する
+
+        ※ソート順:マスターファイルのソート順カラムで昇順
+      tags:
+        - character
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  character_categories:
+                    type: array
+                    description: キャラクターカテゴリオブジェクトの配列
+                    items:
+                      $ref: '#/components/schemas/CharacterCategory'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /characters:
+    get:
+      summary: キャラクター取得
+      description: |
+        マイキャラ登録用のキャラクターを一覧取得する
+
+        ※ソート順:マスターファイルのソート順カラムで昇順
+      tags:
+        - character
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+        - $ref: '#/components/parameters/CharacterCategoryId'
+        - $ref: '#/components/parameters/KeywordCharacter'
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                description: キャラクターオブジェクトの配列
+                properties:
+                  characters:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Character'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/elements/icons:
+    get:
+      summary: 設定可能アイコン取得
+      description: |
+        ユーザが設定可能なアイコンを取得する。
+
+        ※ソート順:配布日時で降順
+      tags:
+        - element
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  icons:
+                    type: array
+                    description: アイコンオブジェクトの配列
+                    items:
+                      $ref: '#/components/schemas/Icon'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/elements/back-imgs:
+    get:
+      summary: 設定可能背景取得
+      description: |
+        ユーザが設定可能な背景画像を取得する。
+
+        ※ソート順:配布日時で降順
+      tags:
+        - element
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  back_imgs:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/BackImage'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/elements/emblems:
+    get:
+      summary: 設定可能エンブレム取得
+      description: |
+        ユーザが設定可能なエンブレム画像を取得する。
+
+        ※ソート順:配布日時で降順
+      tags:
+        - element
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  emblems:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Emblem'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /regions:
+    get:
+      security: []
+      summary: 地方一覧取得
+      description: |
+        地方を一覧で取得
+
+        ※ソート順:北海道・東北 > 甲信越・北陸 > 関東 > 東海 > 関西 > 中国・四国 > 九州・沖縄
+      tags:
+        - arcade
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  regions:
+                    type: array
+                    description: 地方オブジェクトの配列
+                    items:
+                      $ref: '#/components/schemas/Region'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /prefectures:
+    get:
+      security: []
+      summary: 都道府県一覧取得
+      description: |
+        都道府県を一覧で取得
+
+        ※ソート順:行政順
+      parameters:
+        - $ref: '#/components/parameters/RegionId'
+      tags:
+        - arcade
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  prefectures:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Prefecture'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /arcades:
+    get:
+      security: []
+      summary: ゲーセン一覧を取得
+      description: |
+        ゲーセン一覧を取得する
+
+        ※ソート順:prefecture_idで昇順 > idで昇順
+      parameters:
+        - $ref: '#/components/parameters/PrefectureId'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - $ref: '#/components/parameters/Keyword'
+        - $ref: '#/components/parameters/OnlyMedalBank'
+      tags:
+        - arcade
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  arcades:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Arcade'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /notices:
+    get:
+      summary: お知らせ一覧取得
+      description: |
+        お知らせ一覧を取得する
+
+        ※ソート順:公開開始日時で降順
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+      tags:
+        - notice
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  notices:
+                    $ref: '#/components/schemas/Notices'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  '/notices/{notice_id}':
+    get:
+      summary: お知らせ詳細取得
+      description: お知らせ詳細を取得する
+      parameters:
+        - $ref: '#/components/parameters/NoticeId'
+      tags:
+        - notice
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  notice:
+                    $ref: '#/components/schemas/Notice'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /tickets:
+    get:
+      summary: 所持回数券、引換券、サービス券、販売回数券情報一覧を取得
+      description: |
+        販売回数券、引換券、サービス券の枚数と未読数、所持している回数券の枚数を取得する
+      tags:
+        - ticket
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ticket'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /tickets/coupons:
+    get:
+      summary: 販売回数券一覧を取得する
+      description: |
+        販売されている回数券の一覧を取得する
+
+        ※ソート順: 1入会 > 一般 → 2販売開始の降順 →3販売額の昇順
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+      tags:
+        - ticket
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  all_unread_count:
+                    type: integer
+                    description: リクエストしたユーザが全販売回数券のうち何件が未読かをあらわす数値
+                    example: 3
+                  coupons:
+                    type: array
+                    description: 回数券オブジェクトの配列
+                    items:
+                      $ref: '#/components/schemas/Coupon'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /conventions:
+    get:
+      summary: ゲーム大会一覧取得
+      description: |
+        ゲーム大会の一覧を取得する
+
+        ※参加受付申し込み期間内のゲーム大会のみを返却する
+
+        ※ソート順: 申し込み締切日時で昇順
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+        - $ref: '#/components/parameters/KeywordConvention'
+        - $ref: '#/components/parameters/PrefectureId'
+      tags:
+        - convention
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  conventions:
+                    type: array
+                    description: ゲーム大会オブジェクトの配列
+                    items:
+                      $ref: '#/components/schemas/Convention'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  '/conventions/{convention_id}':
+    get:
+      summary: ゲーム大会詳細取得
+      description: |
+        ゲーム大会の詳細を取得する
+      parameters:
+        - $ref: '#/components/parameters/ConventionId'
+      tags:
+        - convention
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  convention:
+                    $ref: '#/components/schemas/Convention'
+                  me:
+                    $ref: '#/components/schemas/UserOfEntryConvention'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /campaigns:
+    get:
+      summary: キャンペーン一覧取得
+      description: |
+        キャンペーン情報を一覧で取得する
+
+        ※ソート順: キャンペーン告知は公開開始日時,IPキャンペーンは開催開始日時で降順 > idで降順
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+      tags:
+        - campaign
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  campaigns:
+                    type: array
+                    description: キャンペーンオブジェクトの配列
+                    items:
+                      oneOf:
+                        - $ref: '#/components/schemas/Campaign'
+                        - $ref: '#/components/schemas/AdCampaign'
+                      discriminator:
+                        propertyName: campaign_type
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  '/campaigns/{campaign_id}':
+    get:
+      summary: キャンペーン詳細取得
+      description: キャンペーンの詳細を取得する
+      parameters:
+        - $ref: '#/components/parameters/CampaignId'
+      tags:
+        - campaign
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  campaign:
+                    oneOf:
+                      - $ref: '#/components/schemas/Campaign'
+                      - $ref: '#/components/schemas/AdCampaign'
+                    discriminator:
+                      propertyName: campaign_type
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+        '404':
+          $ref: '#/components/responses/404PublicNotFoundError'
+  '/campaigns/{campaign_id}/ticket-presents':
+    get:
+      summary: キャンペーン_チケットプレゼント取得
+      description: |
+        対象キャンペーン内で今現在有効となっているチケットプレゼントを取得
+
+        ※管理画面上から単一期間中に登録できるチケットプレゼントは一件のみ
+      parameters:
+        - $ref: '#/components/parameters/CampaignId'
+      tags:
+        - campaign
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  me:
+                    $ref: '#/components/schemas/UserPresentTicketCount'
+                  ticket_present:
+                    $ref: '#/components/schemas/TicketPresent'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  '/campaigns/{campaign_id}/point-presents':
+    get:
+      summary: キャンペーン_ポイントプレゼント取得
+      description: |
+        キャンペーンのポイントプレゼントを取得する
+
+        ※ソート順: 抽選開始日で降順 > 抽選終了日で降順 > ポイントプレゼントIDで昇順
+      parameters:
+        - $ref: '#/components/parameters/CampaignId'
+      tags:
+        - campaign
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  me:
+                    $ref: '#/components/schemas/UserPresentPoint'
+                  point_presents:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PointPresent'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  '/rankings/{year}':
+    get:
+      summary: 年間ランキング
+      description: |
+        年間ランキング情報(全国,セイソクチ,マイゲーセン)を取得
+
+        ※指定した年に獲得したケイケンチをランキングしたものが年間ランキング
+
+        ※順位の付け方は((対象ユーザより獲得ケイケンチが多いユーザの人数)+1)
+
+        ※ランキング表示対象は1000位以内とする
+
+        ※セイソクチランキングは対象年にセイソクチ設定をしていなければ空配列を返却する
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - $ref: '#/components/parameters/Year'
+        - $ref: '#/components/parameters/RankingCategory'
+      tags:
+        - ranking
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  duration:
+                    $ref: '#/components/schemas/RankingDuration'
+                  rankings:
+                    $ref: '#/components/schemas/Rankings'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  '/rankings/{year}/{month}':
+    get:
+      summary: 月間ランキング
+      description: |
+        月間ランキング情報(全国,セイソクチ,マイゲーセン)を取得
+
+        ※指定月に獲得したケイケンチをランキングしたものが月間ランキング
+
+        ※順位の付け方は((対象ユーザより獲得ケイケンチが多いユーザの人数)+1)
+
+        ※ランキング表示対象は1000位以内とする
+
+        ※セイソクチランキングは対象年にセイソクチ設定をしていなければ空配列を返却する
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Offset'
+        - $ref: '#/components/parameters/Year'
+        - $ref: '#/components/parameters/Month'
+        - $ref: '#/components/parameters/RankingCategory'
+      tags:
+        - ranking
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  duration:
+                    $ref: '#/components/schemas/RankingDuration'
+                  rankings:
+                    $ref: '#/components/schemas/Rankings'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users:
+    post:
+      security: []
+      summary: プラトン会員登録
+      description: プラトン会員の登録を行う
+      tags:
+        - user
+      requestBody:
+        $ref: '#/components/requestBodies/PostMe'
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account:
+                    $ref: '#/components/schemas/Account'
+                  me:
+                    $ref: '#/components/schemas/Me'
+                  token:
+                    $ref: '#/components/schemas/Token'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+  /users/me:
+    get:
+      summary: マイデータの取得
+      description: マイデータを取得する
+      tags:
+        - user
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  me:
+                    $ref: '#/components/schemas/Me'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+    put:
+      summary: マイデータ編集
+      description: マイデータの編集を行う
+      tags:
+        - user
+      requestBody:
+        $ref: '#/components/requestBodies/Me'
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  me:
+                    $ref: '#/components/schemas/Me'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403BirthDayAlreadySettedError'
+  /users/me/delete:
+    post:
+      summary: サービス退会
+      description: サービス退会処理を行う
+      tags:
+        - user
+      requestBody:
+        $ref: '#/components/requestBodies/PasswordDelete'
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401DeleteUserError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/accounts:
+    get:
+      summary: plato IDとpasswordの取得
+      description: |
+        plato IDとpasswordを取得する
+      tags:
+        - user
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account:
+                    $ref: '#/components/schemas/Account'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/accounts/password:
+    put:
+      summary: パスワードの変更
+      description: |
+        パスワードの変更をおこなう
+      tags:
+        - user
+      requestBody:
+        $ref: '#/components/requestBodies/Password'
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account:
+                    $ref: '#/components/schemas/Account'
+                  token:
+                    $ref: '#/components/schemas/Token'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401PutPasswordError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /captcha-images:
+    get:
+      security: []
+      summary: 画像認証用画像URLの取得
+      description: |
+        SEGA IDの画像認証用画像のURLを取得する
+      tags:
+        - sega_id
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  captcha_image:
+                    $ref: '#/components/schemas/CaptchaImage'
+        '500':
+          $ref: '#/components/responses/500ALJError'
+  /users/me/sega-id/status:
+    get:
+      summary: セガIDの紐づけ状態取得
+      description: |
+        セガIDの紐づけ状態を取得する
+      tags:
+        - sega_id
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    $ref: '#/components/schemas/SegaIdStatus'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/sega-id:
+    post:
+      summary: セガIDの紐づけ
+      description: |
+        セガIDとプラトン会員サービスのアカウントの紐づけを行う
+      tags:
+        - sega_id
+      requestBody:
+        $ref: '#/components/requestBodies/SegaId'
+      responses:
+        '204':
+          description: |
+            成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+        '500':
+          $ref: '#/components/responses/500ALJError'
+    delete:
+      summary: セガIDの紐づけ解除
+      description: |
+        セガIDとプラトン会員サービスのアカウント紐づけを解除する
+      tags:
+        - sega_id
+      responses:
+        '204':
+          description: |
+            成功時のレスポンス
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+        '500':
+          $ref: '#/components/responses/500ALJError'
+  /sega-id/plato-id:
+    post:
+      security: []
+      summary: 'プラトンアカウントのID,パスワード取得(SEGA IDの認証経由)'
+      description: |
+        セガIDの認証情報を用いてプラトンアカウントのIDとパスワードを取得する
+      tags:
+        - login
+      requestBody:
+        $ref: '#/components/requestBodies/SegaId'
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account:
+                    $ref: '#/components/schemas/Account'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '403':
+          $ref: '#/components/responses/403SegaIdPlatoIdError'
+        '500':
+          $ref: '#/components/responses/500ALJError'
+  '/users/{plato_id}':
+    get:
+      summary: 他人のマイデータの取得
+      description: 他人のマイデータを取得する。(プロフィールのみ取得する)
+      parameters:
+        - $ref: '#/components/parameters/PlatoId'
+      tags:
+        - user
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    $ref: '#/components/schemas/User'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+      deprecated: true
+  '/users/me/rankings/{year}':
+    get:
+      summary: ユーザ個人種別ランキング(年間)
+      description: |
+        ユーザの年間個人種別ランキング(全国, セイソクチ, マイゲーセン)を取得
+
+        ※全国ランキング: 全プラトンアプリユーザ内でのランキング
+
+        ※セイソクチランキング: リクエストしたユーザのセイソクチ内でのランキング
+
+        ※マイゲーセンランキング: リクエストしたユーザがマイゲーセンに登録しているゲーセンをマイゲーセンに登録しているユーザ内でのランキング
+      parameters:
+        - $ref: '#/components/parameters/Year'
+        - $ref: '#/components/parameters/RankingCategory'
+      tags:
+        - user
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user_ranking:
+                    $ref: '#/components/schemas/UserRanking'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+        '404':
+          $ref: '#/components/responses/404PrefectureRankingNotFoundError'
+  '/users/me/rankings/{year}/{month}':
+    get:
+      summary: ユーザ個人種別ランキング(月間)
+      description: |
+        ユーザの年間個人種別ランキング(全国, セイソクチ, マイゲーセン)を取得
+
+        ※全国ランキング: 全プラトンアプリユーザ内でのランキング
+
+        ※セイソクチランキング: リクエストしたユーザのセイソクチ内でのランキング
+
+        ※マイゲーセンランキング: リクエストしたユーザがマイゲーセンに登録しているゲーセンをマイゲーセンに登録しているユーザ内でのランキング
+      parameters:
+        - $ref: '#/components/parameters/Year'
+        - $ref: '#/components/parameters/Month'
+        - $ref: '#/components/parameters/RankingCategory'
+      tags:
+        - user
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user_ranking:
+                    $ref: '#/components/schemas/UserRanking'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+        '404':
+          $ref: '#/components/responses/404PrefectureRankingNotFoundError'
+  /users/me/ranking-histories:
+    get:
+      summary: ユーザのランキング履歴を取得
+      description: ユーザのランキング履歴を取得
+      parameters:
+        - $ref: '#/components/parameters/FromYear'
+        - $ref: '#/components/parameters/ToYear'
+      tags:
+        - user
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ranking_histories:
+                    $ref: '#/components/schemas/RankingHistories'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/read-notices:
+    post:
+      summary: お知らせ既読の送信
+      description: お知らせ既読であることを送信する。
+      requestBody:
+        $ref: '#/components/requestBodies/ReadNoticeIds'
+      tags:
+        - read
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/coupons:
+    get:
+      summary: 購入済み回数券の一覧取得
+      description: |
+        ユーザが購入済みの回数券を一覧で取得する
+
+        ※ソート順:有効期限の日時で昇順
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+      tags:
+        - user
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  all_remaining_count:
+                    type: integer
+                    description: リクエストしたユーザが保持している回数券の全使用可能回数(user_coupons  > countの和)を表す整数
+                    example: 23
+                  user_coupons:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/UserCoupon'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/read-coupons:
+    post:
+      summary: 販売回数券既読の送信
+      description: 販売回数券が既読であることを送信する。
+      requestBody:
+        $ref: '#/components/requestBodies/ReadCouponIds'
+      tags:
+        - read
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/read-all-coupons:
+    post:
+      summary: 販売回数券の全件既読送信
+      description: ユーザの閲覧できる全回数券が既読であることを送信する。
+      tags:
+        - read
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/service-tickets:
+    get:
+      summary: サービス券一覧取得
+      description: |
+        ユーザが保持しているサービス券の一覧を取得する
+
+        ※ソート順:有効期限の昇順 > 発行日の降順
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+      tags:
+        - user
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  all_unread_count:
+                    type: integer
+                    description: サービス券未読数をあらわす数値
+                    example: 3
+                  service_tickets:
+                    type: array
+                    description: サービス券オブジェクトの配列
+                    items:
+                      $ref: '#/components/schemas/ServiceTicket'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/read-service-tickets:
+    post:
+      summary: サービス券既読の送信
+      description: サービス券が既読であることを送信する。
+      requestBody:
+        $ref: '#/components/requestBodies/ReadServiceTicketIds'
+      tags:
+        - read
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/read-all-service-tickets:
+    post:
+      summary: サービス券の全件既読の送信
+      description: サービス券が全件既読であることを送信する。
+      tags:
+        - read
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/exchange-tickets:
+    get:
+      summary: 引換券一覧取得
+      description: |
+        ユーザが保持している引換券の一覧を取得する
+
+        ※ソート順:有効期限で昇順 > 発行日の降順
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+      tags:
+        - user
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  all_unread_count:
+                    type: integer
+                    description: 引換券未読数をあらわす整数
+                    example: 3
+                  exchange_tickets:
+                    type: array
+                    description: 引換券オブジェクトの配列
+                    items:
+                      $ref: '#/components/schemas/ExchangeTicket'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  '/users/me/exchange-tickets/{exchange_ticket_id}':
+    delete:
+      summary: 引換券の消込
+      description: 景品との交換が済んだ引換券の消込を行う
+      parameters:
+        - $ref: '#/components/parameters/ExchangeTicketId'
+      tags:
+        - user
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/read-exchange-tickets:
+    post:
+      summary: 引換券既読の送信
+      description: 引換券が既読であることを送信する。
+      requestBody:
+        $ref: '#/components/requestBodies/ReadExchangeTicketIds'
+      tags:
+        - read
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/read-all-exchange-tickets:
+    post:
+      summary: 引換券の全件既読の送信
+      description: 引換券が全件既読であることを送信する。
+      tags:
+        - read
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/medal-banks:
+    get:
+      summary: メダルバンク情報の取得
+      description: |
+        ユーザが登録したメダルバンク情報の取得
+
+        ※ソート順:登録日時で降順
+      tags:
+        - medal_bank
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  medal_banks:
+                    type: array
+                    description: メダルバンクオブジェクトの配列
+                    items:
+                      $ref: '#/components/schemas/MedalBank'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+    post:
+      summary: メダルバンク情報の登録
+      description: メダルバンクを登録する
+      tags:
+        - medal_bank
+      requestBody:
+        $ref: '#/components/requestBodies/MedalBankRegist'
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401MedalBankError'
+        '403':
+          $ref: '#/components/responses/403MedalBankPostError'
+  '/users/me/medal-banks/{medal_bank_surrogate_id}':
+    delete:
+      summary: メダルバンク情報の削除
+      description: 登録したメダルバンク情報の削除
+      parameters:
+        - $ref: '#/components/parameters/MedalBankSurrogateId'
+      tags:
+        - medal_bank
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/entry-conventions:
+    get:
+      summary: ゲーム大会の申し込み履歴一覧取得
+      description: |
+        ゲーム大会の申し込み履歴一覧を取得する
+
+        ※ソート順: 開催日時で昇順
+      tags:
+        - convention
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+        - $ref: '#/components/parameters/PrefectureId'
+        - $ref: '#/components/parameters/KeywordConvention'
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  conventions:
+                    type: array
+                    description: リクエストしたユーザが申し込んだゲーム大会オブジェクトの配列
+                    items:
+                      $ref: '#/components/schemas/Convention'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+    post:
+      summary: ゲーム大会に申し込む
+      description: ゲーム大会へ申し込みを行う
+      requestBody:
+        $ref: '#/components/requestBodies/Convention'
+      tags:
+        - convention
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403ConventionEntryError'
+  '/users/me/entry-conventions/{convention_id}':
+    delete:
+      summary: ゲーム大会参加申し込みキャンセル
+      description: |
+        ゲーム大会参加申し込みをキャンセルする
+      parameters:
+        - $ref: '#/components/parameters/ConventionId'
+      tags:
+        - convention
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403DelteEntryConventionError'
+  /users/me/attend-conventions:
+    get:
+      summary: ゲーム大会の参加履歴一覧を取得する
+      description: |
+        ゲーム大会の参加履歴一覧を取得する
+
+        ※ソート順: 開催日時で降順
+      tags:
+        - convention
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+        - $ref: '#/components/parameters/PrefectureId'
+        - $ref: '#/components/parameters/KeywordConvention'
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  conventions:
+                    type: array
+                    description: リクエストしたユーザが参加したゲーム大会オブジェクトの配列
+                    items:
+                      $ref: '#/components/schemas/Convention'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  '/users/me/attend-conventions/{convention_id}':
+    put:
+      summary: ゲーム大会に参加する
+      description: |
+        ゲーム大会に参加する
+      parameters:
+        - $ref: '#/components/parameters/ConventionId'
+      tags:
+        - convention
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/campaign-entries:
+    get:
+      summary: キャンペーンのプレゼント応募履歴取得
+      description: |
+        キャンペーンのプレゼント応募履歴を取得する
+
+        ※ソート順:応募日付で降順
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+      tags:
+        - campaign
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  campaign_entries:
+                    type: array
+                    description: キャンペーン応募履歴の配列
+                    items:
+                      $ref: '#/components/schemas/CampaignEntry'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+    post:
+      summary: キャンペーンのプレゼント応募/交換
+      description: |
+        キャンペーンのプレゼント応募/交換をする
+      tags:
+        - campaign
+      requestBody:
+        $ref: '#/components/requestBodies/CampaignEntries'
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+      deprecated: true
+  /users/me/campaign-entries/tickets:
+    post:
+      summary: キャンペーンのプレゼント応募(チケット)
+      description: |
+        キャンペーンのプレゼント応募(チケット)
+      tags:
+        - campaign
+      requestBody:
+        $ref: '#/components/requestBodies/CampaignEntriesTicket'
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403CampaignTicketPresentError'
+  /users/me/campaign-entries/points:
+    post:
+      summary: キャンペーンのプレゼント応募(ポイント)
+      description: |
+        キャンペーンのプレゼント応募/交換をする
+      tags:
+        - campaign
+      requestBody:
+        $ref: '#/components/requestBodies/CampaignEntries'
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403CampaignPointPresentError'
+  /users/me/play-histories:
+    get:
+      summary: プレイ履歴取得
+      description: プレイ履歴を取得する
+      tags:
+        - user
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+        - $ref: '#/components/parameters/FromDate'
+        - $ref: '#/components/parameters/OrderPlayHistory'
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  play_histories:
+                    type: array
+                    description: プレイ履歴の配列
+                    items:
+                      $ref: '#/components/schemas/PlayHistory'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/checkin-histories:
+    get:
+      summary: チェックイン履歴取得
+      description: チェックイン履歴を取得する
+      tags:
+        - user
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+        - $ref: '#/components/parameters/FromDate'
+        - $ref: '#/components/parameters/OrderCheckinHistory'
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  checkin_histories:
+                    type: array
+                    description: チェックイン履歴の配列
+                    items:
+                      $ref: '#/components/schemas/CheckinHistory'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/angya-histories:
+    get:
+      summary: アンギャ履歴取得
+      description: アンギャ履歴を取得する
+      tags:
+        - user
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/FromId'
+        - $ref: '#/components/parameters/FromDate'
+        - $ref: '#/components/parameters/OrderCheckinHistory'
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  angya_histories:
+                    type: array
+                    description: アンギャ履歴の配列
+                    items:
+                      $ref: '#/components/schemas/AngyaHistory'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/cards:
+    get:
+      summary: 登録カード情報取得
+      description: |
+        登録したカード情報の取得
+
+        ※ソート順:登録日時で降順
+      tags:
+        - card
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  cards:
+                    type: array
+                    description: 登録したカードオブジェクトの配列
+                    items:
+                      $ref: '#/components/schemas/Card'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /users/me/temp-cards:
+    get:
+      summary: 一時登録カードの状態取得
+      description: |
+        一時登録したカードが登録完了しているかどうかを取得する
+      tags:
+        - card
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: object
+                    description: 一時登録カードの状態を表すオブジェクト
+                    properties:
+                      is_finished:
+                        type: boolean
+                        description: 登録が完了しているかどうかを表す真偽値
+                        example: true
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+    post:
+      summary: 'カードの一時登録,ワンタイムパスの取得'
+      description: |
+        カードを一時的に登録して、本登録(キオスクで行う)に用いるワンタイムパスを発行する
+
+        ※同一ユーザが登録できる一時登録カードは一枚とする(二回目を送ると、上書きしてワンタイムパスワードを再発行する)
+      tags:
+        - card
+      requestBody:
+        $ref: '#/components/requestBodies/TempCard'
+      responses:
+        '200':
+          description: |
+            成功時のレスポンス
+
+            属性の説明
+            * temp_card: 一時的に登録されているカード情報を表すオブジェクト
+              * name: 一時登録カード名
+              * onetime_password: 本登録に用いるワンタイムパスワード
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  temp_card:
+                    $ref: '#/components/schemas/TempCard'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+        '500':
+          $ref: '#/components/responses/500ALJError'
+  '/users/me/cards/{card_id}':
+    parameters:
+      - $ref: '#/components/parameters/CardId'
+    patch:
+      summary: 登録したカードの名前変更
+      description: 登録カードの名前変更を行う
+      requestBody:
+        $ref: '#/components/requestBodies/CardName'
+      tags:
+        - card
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+    delete:
+      summary: 登録カードの削除
+      description: 登録したカードの削除を行う
+      tags:
+        - card
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  /purchase-urls:
+    get:
+      summary: 購入用URLの取得
+      description: |
+        連続購入用のURLを取得する
+
+        ※ISAOシステムへ対して連続購入用セッション払い出しAPIにてリクエストする
+      tags:
+        - purchase
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
+        - $ref: '#/components/parameters/ContentId'
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  purchase_url:
+                    $ref: '#/components/schemas/PurchaseInformation'
+        '400':
+          $ref: '#/components/responses/400BadRequestError'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+        '404':
+          $ref: '#/components/responses/404CouponInvalidError'
+        '500':
+          $ref: '#/components/responses/500ALJError'
+  /monitorings/performances/users/me/play-histories:
+    get:
+      summary: プレイ履歴性能監視用エンドポイント
+      security: []
+      description: |
+        プレイ履歴データにデータが入っている、アカバン/退会していないユーザのプレイ履歴取得クエリを発行後にレスポンスする
+
+        (プレイ履歴データが1件もない場合はプレイ履歴テーブルにアクセスできるか確認後レスポンス)
+      tags:
+        - monitoring
+      responses:
+        '200':
+          $ref: '#/components/responses/monitoringStatusOkResponse'
+  /monitorings/performances/rankings:
+    get:
+      summary: ランキング取得性能監視用エンドポイント
+      security: []
+      description: |
+        プレイ履歴データにデータが入っている、アカバン/退会していないユーザの今月のランキング取得クエリを発行後にレスポンスする
+
+        (プレイ履歴データが1件もない場合はランキングテーブルにアクセスできるか確認後レスポンス)
+      tags:
+        - monitoring
+      responses:
+        '200':
+          $ref: '#/components/responses/monitoringStatusOkResponse'
+  /popups:
+    get:
+      summary: ポップアップ一覧取得
+      description: |
+        ポップアップ一覧取得。ポップアップの登録日の降順（新しいもの順）で取得。
+        
+        既読フラグが更新されない限り、ポップアップの期間内であればアプリ起動のたびに取得させる。
+        
+        ※ポップアップデータの中に「type=account_transfer」が含まれる場合、対象のデータは常に配列の先頭になります。
+
+        ※「type=account_transfer」のデータの場合、「今後表示しない」のチェックボックスは非表示にしてください。
+
+        ※「type=account_transfer」のデータの場合、クエリパラメータに「?plato_id=」を付与してください。
+      tags:
+        - popup
+      responses:
+        '200':
+          description: 成功時のレスポンス
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  popups:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Popup'
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'
+  '/popups/{popup_id}/status':
+    parameters:
+      - $ref: '#/components/parameters/PopupId'
+    patch:
+      summary: ポップアップ既読ステータス更新
+      description: |
+        対象のポップアップの既読ステータスを更新する。
+      tags:
+        - popup
+      requestBody:
+        $ref: '#/components/requestBodies/Popup'
+      responses:
+        '204':
+          description: 成功時のレスポンス
+        '401':
+          $ref: '#/components/responses/401UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/403AcountBanError'

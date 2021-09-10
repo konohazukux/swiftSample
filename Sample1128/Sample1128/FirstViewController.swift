@@ -26,7 +26,18 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let controller = HomeViewController()
-        navigationController?.pushViewController(controller, animated: true)
+//        let controller = HomeViewController()
+//        navigationController?.pushViewController(controller, animated: true)
+
     }
+}
+
+extension FirstViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+      
+        print(string)
+        
+        return true
+    }
+    
 }
