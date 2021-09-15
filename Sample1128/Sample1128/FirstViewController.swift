@@ -13,31 +13,27 @@ import RxRelay
 
 class FirstViewController: UIViewController {
 
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var phoneTf: UITextField!
-    @IBOutlet weak var oneButton: UIButton!
-    @IBOutlet weak var label1: UILabel!
-    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
-
-    var per = Double(0.0)
-    
-    private let disposeBag = DisposeBag()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        let controller = HomeViewController()
-//        navigationController?.pushViewController(controller, animated: true)
-
-    }
-}
-
-extension FirstViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-      
-        print(string)
-        
-        return true
     }
     
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        let vc = SampleViewController()
+        vc.modalPresentationStyle = .popover
+        vc.popoverPresentationController?.sourceView = sender.superview
+        vc.popoverPresentationController?.sourceRect = sender.frame
+        vc.popoverPresentationController?.permittedArrowDirections = .up // 矢印の向きを制限する場合
+        vc.popoverPresentationController?.delegate = self // Phone で Popover を表示するために必要
+        present(vc, animated: true)
+    }
+    
+}
+
+extension FirstViewController: UIPopoverPresentationControllerDelegate {
+    // Phone で Popover を表示するために必要
+    func adaptivePresentationStyle(
+        for controller: UIPresentationController,
+        traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
+    }
 }
