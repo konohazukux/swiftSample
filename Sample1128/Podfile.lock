@@ -3,6 +3,9 @@ PODS:
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
+  - RxGesture (3.0.2):
+    - RxCocoa (~> 5.1)
+    - RxSwift (~> 5.1)
   - RxRelay (5.0.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
@@ -12,6 +15,7 @@ PODS:
 DEPENDENCIES:
   - lottie-ios
   - RxCocoa (from `https://github.com/ReactiveX/RxSwift.git`, branch `master`)
+  - RxGesture
   - RxSwift (from `https://github.com/ReactiveX/RxSwift.git`, branch `master`)
   - SwiftDate (~> 4.4.2)
   - SwiftyJSON
@@ -19,6 +23,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - lottie-ios
+    - RxGesture
     - RxRelay
     - SwiftDate
     - SwiftyJSON
@@ -42,11 +47,12 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxGesture: d6bd7447ca3a596c7a9702a6a2b6a2bb5d8bae54
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SwiftDate: 131cf2f09b390f0a07f0099e36005ffe2fbf4c7e
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: bb325caa4276db0019a1f6c62d4329df17371ae3
+PODFILE CHECKSUM: b2c01e834038332921503d5d2b565f194cda9089
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1
