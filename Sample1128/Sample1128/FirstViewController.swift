@@ -7,15 +7,15 @@
 //
 
 import UIKit
-import RxCocoa
-import RxSwift
-import RxRelay
 
 class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+     
+        let controller = SampleViewController()
+        present(controller, animated: true, completion: nil)
+        
     }
 
 }
