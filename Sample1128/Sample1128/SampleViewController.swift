@@ -2,10 +2,9 @@
 //  SampleViewController.swift
 //  Sample1128
 //
-
-
 import UIKit
 import WebKit
+import RxSwift
 
 class SampleViewController: UIViewController {
     @IBOutlet private weak var webView: WKWebView!
@@ -13,10 +12,11 @@ class SampleViewController: UIViewController {
         super.viewDidLoad()
         webView.uiDelegate = self
         webView.navigationDelegate = self
-//        let myURL = URL(string:"https://www.apple.com")
-//        let myRequest = URLRequest(url: myURL!)
-//        webView.load(myRequest)
+        //let myURL = URL(string:"https://www.apple.com")
+        //let myRequest = URLRequest(url: myURL!)
+        //webView.load(myRequest)
         loadLocalHTML()
+        
     }
     
     func loadLocalHTML() {
@@ -26,16 +26,22 @@ class SampleViewController: UIViewController {
     }
 }
 
-extension SampleViewController: WKUIDelegate {
-    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
-        if navigationAction.targetFrame?.isMainFrame != true {
-            webView.load(navigationAction.request)
+extension SampleViewController: WKUIDelegate, WKNavigationDelegate {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        guard let url = navigationAction.request.url else {
+            decisionHandler(.cancel)
+            return
         }
-        return nil
+
+        if url.absoluteString == navigationAction.request.mainDocumentURL?.absoluteString {
+            if navigationAction.targetFrame == nil {
+                webView.load(URLRequest(url: url))
+                decisionHandler(.cancel)
+            } else {
+                decisionHandler(.allow)
+            }
+        } else {
+            decisionHandler(.cancel)
+        }
     }
 }
-
-extension SampleViewController: WKNavigationDelegate {
-    // delegate
-}
-
