@@ -12,9 +12,12 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-        let controller = SampleViewController()
+
+        let controller = CouponSaleListViewController()
+        controller.modalPresentationStyle = .fullScreen
         present(controller, animated: true, completion: nil)
+        
+
         
     }
 
