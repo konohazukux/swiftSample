@@ -13,7 +13,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let controller = CouponSaleListViewController()
+        let controller = CouponList2ViewController()
         controller.modalPresentationStyle = .fullScreen
         present(controller, animated: true, completion: nil)
         

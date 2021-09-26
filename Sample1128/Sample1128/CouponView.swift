@@ -7,7 +7,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class CouponSaleView: UIView {
+class CouponView: UIView {
 
     @IBOutlet private weak var button: UIButton!
     @IBOutlet private weak var purchaseButton: UIButton!
@@ -32,27 +32,24 @@ class CouponSaleView: UIView {
         let rootView = nib.instantiate(withOwner: self).first as! UIView
         rootView.translatesAutoresizingMaskIntoConstraints = false
         rootView.addToView(parant: self)
-
-        self.discriptionView.isHidden = true
-
-        bind()
+//        bind()
     }
     
-    private func bind() {
-        button.rx.tap
-            .asDriver()
-            .drive(onNext: { [unowned self] in
-                let bln = self.discriptionView.isHidden
-                self.discriptionView.isHidden = !bln
-            })
-            .disposed(by: disposeBag)
-        purchaseButton.rx.tap
-            .asDriver()
-            .drive(onNext: { [unowned self] in
-                self.purchaseAction?()
-            })
-            .disposed(by: disposeBag)
-        
-    }
+//    private func bind() {
+//        button.rx.tap
+//            .asDriver()
+//            .drive(onNext: { [unowned self] in
+//                let bln = self.discriptionView.isHidden
+//                self.discriptionView.isHidden = !bln
+//            })
+//            .disposed(by: disposeBag)
+//        purchaseButton.rx.tap
+//            .asDriver()
+//            .drive(onNext: { [unowned self] in
+//                self.purchaseAction?()
+//            })
+//            .disposed(by: disposeBag)
+//
+//    }
 
 }
