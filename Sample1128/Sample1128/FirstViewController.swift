@@ -13,9 +13,11 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let controller = CouponList2ViewController()
-        controller.modalPresentationStyle = .fullScreen
-        present(controller, animated: true, completion: nil)
+        let navi = UINavigationController()
+        let controller = MailAddressViewController()
+        navi.modalPresentationStyle = .fullScreen
+        navi.viewControllers = [controller]
+        present(navi, animated: true, completion: nil)
         
 
         
