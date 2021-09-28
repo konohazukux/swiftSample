@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class FirstViewController: UIViewController {
 
@@ -18,10 +19,24 @@ class FirstViewController: UIViewController {
         navi.modalPresentationStyle = .fullScreen
         navi.viewControllers = [controller]
         present(navi, animated: true, completion: nil)
+      
+//        let hud = PKHUD()
+//        hud.show()
         
+//        HUD.show(.progress)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+//            HUD.hide()
+//        }
 
-        
+//        let hud = HUDService()
+//        hud.startIndicator(viewController: self)
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+//            hud.dismissIndicator()
+//        }
+
     }
 
 }
+
 
