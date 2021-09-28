@@ -2,13 +2,35 @@
 //  HUDservice.swift
 //  Sample1128
 //
-//  Created by TAKESHI SHIMADA on 2021/09/28.
-//  Copyright © 2021 TAKESHI SHIMADA. All rights reserved.
-//
 
-import Foundation
 import PKHUD
+import RxSwift
+import RxCocoa
 
 final class HUDService {
+   
+    public static let shared = HUDService()
+
+    let hud = PKHUD()
+
+    func show() {
+        hud.contentView = PKHUDProgressView()
+        hud.show()
+    }
     
+    func hide(animated: Bool, completion: ((Bool) -> Void)? = nil) {
+        hud.hide(animated, completion: completion)
+    }
+    
+    var isLoadActive: Binder<Bool> {
+      return Binder(self) {
+        $1 ? $0.show() : $0.hide(animated: false, completion: nil)
+      }
+    }
+    
+    func getIndicator() {
+        
+    }
+
 }
+    
