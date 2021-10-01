@@ -28,8 +28,12 @@ final class HUDService {
       }
     }
     
-    func getIndicator() {
-        
+    func bindHUD(disposeBag: DisposeBag) -> ActivityIndicator {
+        let indicator = ActivityIndicator()
+        indicator.asObservable()
+            .bind(to: HUDService.shared.isLoadActive)
+            .disposed(by: disposeBag)
+        return indicator
     }
 
 }

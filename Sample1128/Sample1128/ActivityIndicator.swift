@@ -4,7 +4,7 @@
 //
 //  Created by Krunoslav Zaher on 10/18/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
-//
+//  https://github.com/ReactiveX/RxSwift/blob/main/RxExample/RxExample/Services/ActivityIndicator.swift
 
 import RxSwift
 import RxCocoa
