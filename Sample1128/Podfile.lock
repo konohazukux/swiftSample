@@ -1,62 +1,30 @@
 PODS:
-  - lottie-ios (3.1.8)
-  - PKHUD (5.3.0)
-  - RxCocoa (5.1.1):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxGesture (3.0.2):
-    - RxCocoa (~> 5.1)
-    - RxSwift (~> 5.1)
-  - RxRelay (5.0.1):
-    - RxSwift (~> 5)
-  - RxSwift (5.1.1)
-  - SwiftDate (4.4.2)
-  - SwiftyJSON (5.0.0)
+  - PAYJP (1.6.1)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
 
 DEPENDENCIES:
-  - lottie-ios
-  - PKHUD
-  - RxCocoa (from `https://github.com/ReactiveX/RxSwift.git`, branch `master`)
-  - RxGesture
-  - RxSwift (from `https://github.com/ReactiveX/RxSwift.git`, branch `master`)
-  - SwiftDate (~> 4.4.2)
-  - SwiftyJSON
+  - PAYJP
+  - RxCocoa
+  - RxSwift
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - lottie-ios
-    - PKHUD
-    - RxGesture
+    - PAYJP
+    - RxCocoa
     - RxRelay
-    - SwiftDate
-    - SwiftyJSON
-
-EXTERNAL SOURCES:
-  RxCocoa:
-    :branch: master
-    :git: https://github.com/ReactiveX/RxSwift.git
-  RxSwift:
-    :branch: master
-    :git: https://github.com/ReactiveX/RxSwift.git
-
-CHECKOUT OPTIONS:
-  RxCocoa:
-    :commit: 002d325b0bdee94e7882e1114af5ff4fe1e96afa
-    :git: https://github.com/ReactiveX/RxSwift.git
-  RxSwift:
-    :commit: 002d325b0bdee94e7882e1114af5ff4fe1e96afa
-    :git: https://github.com/ReactiveX/RxSwift.git
+    - RxSwift
 
 SPEC CHECKSUMS:
-  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
-  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
-  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
-  RxGesture: d6bd7447ca3a596c7a9702a6a2b6a2bb5d8bae54
-  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
-  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
-  SwiftDate: 131cf2f09b390f0a07f0099e36005ffe2fbf4c7e
-  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  PAYJP: edf800309adc65b71f57edff23c159b97573588f
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
 
-PODFILE CHECKSUM: e892f2d562558c7b96fc700b3df9a956de2fecc0
+PODFILE CHECKSUM: 1e917ec5c9f8fad23661be5bf77c68da2f0bf536
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.0

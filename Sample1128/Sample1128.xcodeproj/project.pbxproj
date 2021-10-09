@@ -8,11 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1424334625661FF200E9EFD1 /* apigee_error.json in Resources */ = {isa = PBXBuildFile; fileRef = 1424334525661FF200E9EFD1 /* apigee_error.json */; };
-		1424334825662E0A00E9EFD1 /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424334725662E0A00E9EFD1 /* ErrorCode.swift */; };
-		1424334A25662E3100E9EFD1 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424334925662E3100E9EFD1 /* APIResult.swift */; };
-		1424334C2566304000E9EFD1 /* ApigeeErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424334B2566304000E9EFD1 /* ApigeeErrorMessage.swift */; };
-		1424334E2566311200E9EFD1 /* ApigeeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424334D2566311200E9EFD1 /* ApigeeError.swift */; };
-		14E0379B253D241600E4A802 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0379A253D241600E4A802 /* Defaults.swift */; };
 		5A9415FA24E63D1000B715B1 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9415F924E63D1000B715B1 /* String+Extension.swift */; };
 		6265A2109981780B1B122F35 /* Pods_Sample1128.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C7A0E826D8277750720403 /* Pods_Sample1128.framework */; };
 		826C3E0326E1FAE1004BE0B8 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826C3E0226E1FAE1004BE0B8 /* UIView+Extensions.swift */; };
@@ -38,11 +33,6 @@
 
 /* Begin PBXFileReference section */
 		1424334525661FF200E9EFD1 /* apigee_error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apigee_error.json; sourceTree = "<group>"; };
-		1424334725662E0A00E9EFD1 /* ErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCode.swift; sourceTree = "<group>"; };
-		1424334925662E3100E9EFD1 /* APIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
-		1424334B2566304000E9EFD1 /* ApigeeErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApigeeErrorMessage.swift; sourceTree = "<group>"; };
-		1424334D2566311200E9EFD1 /* ApigeeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApigeeError.swift; sourceTree = "<group>"; };
-		14E0379A253D241600E4A802 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		5A9415F924E63D1000B715B1 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5E19E16B8E478AC913F9A91A /* Pods-Sample1128.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample1128.debug.xcconfig"; path = "Target Support Files/Pods-Sample1128/Pods-Sample1128.debug.xcconfig"; sourceTree = "<group>"; };
 		79C7A0E826D8277750720403 /* Pods_Sample1128.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample1128.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,11 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				5A9415F924E63D1000B715B1 /* String+Extension.swift */,
-				14E0379A253D241600E4A802 /* Defaults.swift */,
-				1424334725662E0A00E9EFD1 /* ErrorCode.swift */,
-				1424334925662E3100E9EFD1 /* APIResult.swift */,
-				1424334B2566304000E9EFD1 /* ApigeeErrorMessage.swift */,
-				1424334D2566311200E9EFD1 /* ApigeeError.swift */,
 			);
 			path = etc;
 			sourceTree = "<group>";
@@ -313,15 +298,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1424334A25662E3100E9EFD1 /* APIResult.swift in Sources */,
 				82C9E778238F919A00EA0B6D /* FirstViewController.swift in Sources */,
-				14E0379B253D241600E4A802 /* Defaults.swift in Sources */,
 				5A9415FA24E63D1000B715B1 /* String+Extension.swift in Sources */,
-				1424334E2566311200E9EFD1 /* ApigeeError.swift in Sources */,
 				82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */,
 				82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */,
-				1424334825662E0A00E9EFD1 /* ErrorCode.swift in Sources */,
-				1424334C2566304000E9EFD1 /* ApigeeErrorMessage.swift in Sources */,
 				826C3E0326E1FAE1004BE0B8 /* UIView+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
