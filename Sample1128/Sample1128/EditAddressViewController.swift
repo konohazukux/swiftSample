@@ -1,23 +1,22 @@
 //
-//  SettingViewController.swift
+//  EditAddressViewController.swift
 //  Sample1128
 //
 
 import UIKit
 import RxSwift
-import Reusable
 
-class SettingViewController: UIViewController, StoryboardBased {
+class EditAddressViewController: UIViewController, StoryboardBased {
 
     @IBOutlet weak var tableView: UITableView!
 
-    private var viewModel: SettingViewModel!
+//    private var viewModel: EditAddressViewModel!
     private let disposeBag = DisposeBag()
-    private var settingTypes = [[SettingType]]()
+    private var settingTypes = [[EditAddressType]]()
 
-    func inject(viewModel: SettingViewModel) {
-        self.viewModel = viewModel
-    }
+//    func inject(viewModel: EditAddressViewModel) {
+//        self.viewModel = viewModel
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +25,8 @@ class SettingViewController: UIViewController, StoryboardBased {
         UITabBar.appearance().clipsToBounds = true
      
         // section header
-        let nib = UINib(nibName: "SettingSectionHeaderView", bundle: nil)
-        tableView.register(nib, forHeaderFooterViewReuseIdentifier: "SettingSectionHeaderView")
+        let nib = UINib(nibName: "EditAddressSectionHeaderView", bundle: nil)
+        tableView.register(nib, forHeaderFooterViewReuseIdentifier: "EditAddressSectionHeaderView")
         title = "その他"
         
         tableView.rowHeight =  UITableView.automaticDimension
@@ -35,23 +34,23 @@ class SettingViewController: UIViewController, StoryboardBased {
         bind()
     }
     private func bind() {
-        rx.viewDidAppear
-            .subscribe(onNext: { [unowned self] _ in
-                self.viewModel.viewDidAppear()
-            })
-            .disposed(by: disposeBag)
-
-        viewModel.output.settingTypesRelay
-            .asDriver()
-            .drive(onNext: { [unowned self] in
-                self.settingTypes = $0
-                self.tableView.reloadData()
-            })
-            .disposed(by: disposeBag)
+//        rx.viewDidAppear
+//            .subscribe(onNext: { [unowned self] _ in
+//                self.viewModel.viewDidAppear()
+//            })
+//            .disposed(by: disposeBag)
+//
+//        viewModel.output.settingTypesRelay
+//            .asDriver()
+//            .drive(onNext: { [unowned self] in
+//                self.settingTypes = $0
+//                self.tableView.reloadData()
+//            })
+//            .disposed(by: disposeBag)
     }
-    private func settingTypeFrom(indexPath: IndexPath) -> SettingType {
-        settingTypes[indexPath.section][indexPath.row]
-    }
+//    private func settingTypeFrom(indexPath: IndexPath) -> EditAddressType {
+//        settingTypes[indexPath.section][indexPath.row]
+//    }
   
     private func logout() {
         LoginStatusUtility.deleteLoginUserInfo()
@@ -59,7 +58,7 @@ class SettingViewController: UIViewController, StoryboardBased {
     }
 }
 
-extension SettingViewController: UITableViewDataSource {
+extension EditAddressViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return settingTypes.count
     }
@@ -72,12 +71,12 @@ extension SettingViewController: UITableViewDataSource {
         let settingType = settingTypeFrom(indexPath: indexPath)
         let cellIdentifier = settingType.cellType.cellIdentifier
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        if let cell = cell as? SettingLargeCell {
+        if let cell = cell as? EditAddressLargeCell {
             cell.titleLabel.text = settingType.title
             cell.iconImageView.image = settingType.iconImage
-        } else if let cell = cell as? SettingNomalCell {
+        } else if let cell = cell as? EditAddressNomalCell {
             cell.titleLabel.text = settingType.title
-        } else if let cell = cell as? SettingLogoutCell {
+        } else if let cell = cell as? EditAddressLogoutCell {
             cell.versionLabel.text = settingType.versionString
         }
         return cell
@@ -85,7 +84,7 @@ extension SettingViewController: UITableViewDataSource {
 }
 
 
-extension SettingViewController: UITableViewDelegate {
+extension EditAddressViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return SectionType(rawValue: section)?.sectionHeight ?? 0
     }
@@ -95,8 +94,8 @@ extension SettingViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SettingSectionHeaderView")
-        if let headerView = view as? SettingSectionHeaderView {
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "EditAddressSectionHeaderView")
+        if let headerView = view as? EditAddressSectionHeaderView {
             let type = SectionType(rawValue: section)
             headerView.setup(title: type?.title ?? "")
         }
@@ -128,16 +127,16 @@ extension SettingViewController: UITableViewDelegate {
     }
 }
 
-extension SettingViewController {
-    static func configure() -> UINavigationController {
-        let navigationController = UINavigationController().then {
-            let viewController = SettingViewController.instantiate()
-            viewController.inject(viewModel: SettingViewModel())
-            $0.viewControllers = [viewController]
-            $0.tabBarItem.title = "その他"
-            $0.tabBarItem.image = Asset.Icon.iconTabSetting.image
-            $0.tabBarItem.imageInsets =  UIEdgeInsets(top: 23, left: 0, bottom: 23, right: 0)
-        }
-        return navigationController
-    }
+extension EditAddressViewController {
+//    static func configure() -> UINavigationController {
+//        let navigationController = UINavigationController().then {
+//            let viewController = EditAddressViewController.instantiate()
+//            viewController.inject(viewModel: EditAddressViewModel())
+//            $0.viewControllers = [viewController]
+//            $0.tabBarItem.title = "その他"
+//            $0.tabBarItem.image = Asset.Icon.iconTabEditAddress.image
+//            $0.tabBarItem.imageInsets =  UIEdgeInsets(top: 23, left: 0, bottom: 23, right: 0)
+//        }
+//        return navigationController
+//    }
 }
