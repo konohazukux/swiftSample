@@ -17,7 +17,10 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         
         let vc = EditAddressViewController()
-        present(vc, animated: true, completion: nil)
+        let nv = UINavigationController()
+        nv.viewControllers = [vc]
+        nv.modalPresentationStyle = .fullScreen
+        present(nv, animated: true, completion: nil)
     }
     
 

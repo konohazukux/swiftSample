@@ -12,9 +12,9 @@ import RxCocoa
 
 class EditAddressViewController: UIViewController {
   
-    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var stackView: UIStackView!
 
-    //private var viewModel: EditAddressViewModel!
+    private var viewModel = EditAddressViewModel()
     private let disposeBag = DisposeBag()
     
 
@@ -30,21 +30,30 @@ class EditAddressViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "EditAddress"
-        bind()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        bind()
     }
     
     func bind() {
-//        subBannerButton.rx.tap
-//            .asDriver()
-//            .drive(onNext: { [unowned self] in
-//                if let url = self.subBannerUrlString {
-//                    self.viewModel.routeToSafari(urlString: url)
-//                }
-//            })
-//            .disposed(by: disposeBag)
+        viewModel.addressInfoTypesRelay
+            .asDriver()
+            .drive(onNext: {
+                [unowned self]
+                val in
+                
+                val.forEach {
+                    if $0.isSpace {
+                        let view = EditAddressSpaceView()
+                        self.stackView.addArrangedSubview(view)
+                    } else {
+                        let view = EditAddressView(addressInfoType: $0)
+                        self.stackView.addArrangedSubview(view)
+                    }
+                }
+            })
+            .disposed(by: disposeBag)
     }
 
 
