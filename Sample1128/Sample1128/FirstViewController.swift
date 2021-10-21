@@ -16,7 +16,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let vc = EditAddressViewController()
+        let vc = CardSelectViewController()
         let nv = UINavigationController()
         nv.viewControllers = [vc]
         nv.modalPresentationStyle = .fullScreen
