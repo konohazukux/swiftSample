@@ -6,7 +6,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import PAYJP
 
 class FirstViewController: UIViewController {
 

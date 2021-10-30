@@ -1,5 +1,4 @@
 PODS:
-  - PAYJP (1.6.1)
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
@@ -8,23 +7,20 @@ PODS:
   - RxSwift (6.2.0)
 
 DEPENDENCIES:
-  - PAYJP
   - RxCocoa
   - RxSwift
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - PAYJP
     - RxCocoa
     - RxRelay
     - RxSwift
 
 SPEC CHECKSUMS:
-  PAYJP: edf800309adc65b71f57edff23c159b97573588f
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
 
-PODFILE CHECKSUM: 1e917ec5c9f8fad23661be5bf77c68da2f0bf536
+PODFILE CHECKSUM: d713d8e252957cc3574807af67ac4ab818b5427f
 
 COCOAPODS: 1.11.0

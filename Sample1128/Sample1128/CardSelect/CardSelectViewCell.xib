@@ -89,6 +89,11 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cardImageView" destination="TZ0-Fs-nS7" id="8kX-WD-vZm"/>
+                <outlet property="cardNumLabel" destination="hFH-AC-LFq" id="dDd-Rr-n8g"/>
+                <outlet property="cardTermLabel" destination="Daw-li-NNj" id="D45-lP-OK1"/>
+            </connections>
             <point key="canvasLocation" x="-62.318840579710148" y="-50.558035714285715"/>
         </view>
     </objects>

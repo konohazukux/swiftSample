@@ -25,6 +25,8 @@ class CardSelectViewController: UIViewController {
         tableView.register(UINib(nibName: CardAddViewCellIdentifire, bundle: nil), forCellReuseIdentifier: CardAddViewCellIdentifire)
         tableView.register(UINib(nibName: CardSelectHelpCellIdentifire, bundle: nil), forCellReuseIdentifier: CardSelectHelpCellIdentifire)
 
+        tableView.isEditing = true
+        
         bind()
         viewModel.getCardInfo()
     }
@@ -46,30 +48,43 @@ class CardSelectViewController: UIViewController {
 }
 extension CardSelectViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("111 sdf\(#line) \(type(of: self))  \(#function) : \(self) ")
         return cards.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("111 sdf\(#line) \(type(of: self))  \(#function) : \(self) ")
         let cellType = cards[indexPath.row] //todo safe
-        var cell: UITableViewCell?
-        switch cellType {
-        case .card(let model):
-            cell = tableView.dequeueReusableCell(withIdentifier: CardSelectViewCellIdentifire, for: indexPath) as? CardSelectViewCell
-            cell?.accessoryType = .checkmark
-        case .add:
-            cell = tableView.dequeueReusableCell(withIdentifier: CardAddViewCellIdentifire, for: indexPath) as? CardAddViewCell
-        case .help:
-            cell = tableView.dequeueReusableCell(withIdentifier: CardSelectHelpCellIdentifire, for: indexPath) as? CardSelectHelpCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellType.cellIdentifire, for: indexPath)
+        if let cell = cell as? CardSelectViewCell, let model = cellType.model {
+            cell.update(model: model)
         }
-        if let cell = cell {
-            return cell
-        }
-        return UITableViewCell()
+        return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        cards.remove(at: indexPath.row)
+        
+//        let height = tableViewHeight.constant
+//        UIView.animate(withDuration: 2.0, animations: { [weak self] in
+//            self?.tableViewHeight.constant = height
+//        }, completion: { [weak self] _ in
+//            self?.tableViewHeight.constant = height - 55
+//        })
+        tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.left)
+        
+    }
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        let cellType = cards[indexPath.row] //todo safe
+        return cellType.isCard ? .delete : .none
+    }
+    // 編集モード 並べ替え抑制
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
 }
 
 extension CardSelectViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cellType = cards[indexPath.row] //todo safe
+        return cellType.cellHeight
+    }
 }
