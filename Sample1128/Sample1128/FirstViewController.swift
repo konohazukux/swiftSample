@@ -14,14 +14,17 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let vc = CardSelectViewController()
-        let nv = UINavigationController()
-        nv.viewControllers = [vc]
-        nv.modalPresentationStyle = .fullScreen
-        present(nv, animated: true, completion: nil)
+
+        transition(urlSchema: "plato://temp-temp/test")
+
     }
-    
+   
+    func transition(urlSchema: String) {
+        let url = URL(string: urlSchema)
+        if let url = url, let host = url.host {
+            print(host)
+        }
+    }
 
 }
 
