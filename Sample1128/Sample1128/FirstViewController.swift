@@ -6,6 +6,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Lottie
 
 class FirstViewController: UIViewController {
 
@@ -14,16 +15,22 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        transition(urlSchema: "plato://temp-temp/test")
-
+        transition()
     }
    
-    func transition(urlSchema: String) {
-        let url = URL(string: urlSchema)
-        if let url = url, let host = url.host {
-            print(host)
-        }
+    func transition() {
+
+        let animationView = AnimationView(name: "GtoP")
+        animationView.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        animationView.center = self.view.center
+        animationView.loopMode = .playOnce
+        animationView.contentMode = .scaleAspectFit
+        animationView.animationSpeed = 1
+
+        view.addSubview(animationView)
+
+        animationView.play()
+        
     }
 
 }
