@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,8 @@
 		82C9E77F238F919B00EA0B6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82C9E77E238F919B00EA0B6D /* Assets.xcassets */; };
 		82C9E782238F919B00EA0B6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82C9E780238F919B00EA0B6D /* LaunchScreen.storyboard */; };
 		82C9E78D238F919B00EA0B6D /* Sample1128Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E78C238F919B00EA0B6D /* Sample1128Tests.swift */; };
+		82E30FCD27903DFE00D1C138 /* SampleFM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E30FCC27903DFE00D1C138 /* SampleFM.framework */; platformFilter = ios; };
+		82E30FCE27903DFE00D1C138 /* SampleFM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82E30FCC27903DFE00D1C138 /* SampleFM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +33,20 @@
 			remoteInfo = Sample1128;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		82E30FCF27903DFE00D1C138 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				82E30FCE27903DFE00D1C138 /* SampleFM.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1424334525661FF200E9EFD1 /* apigee_error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apigee_error.json; sourceTree = "<group>"; };
@@ -51,6 +67,7 @@
 		82C9E788238F919B00EA0B6D /* Sample1128Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Sample1128Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C9E78C238F919B00EA0B6D /* Sample1128Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample1128Tests.swift; sourceTree = "<group>"; };
 		82C9E78E238F919B00EA0B6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82E30FCC27903DFE00D1C138 /* SampleFM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SampleFM.framework; path = Sample1128/Framework/SampleFM.framework; sourceTree = "<group>"; };
 		BB4E332A33217BD640112B67 /* Pods-Sample1128.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample1128.release.xcconfig"; path = "Target Support Files/Pods-Sample1128/Pods-Sample1128.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +77,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6265A2109981780B1B122F35 /* Pods_Sample1128.framework in Frameworks */,
+				82E30FCD27903DFE00D1C138 /* SampleFM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +112,7 @@
 		5B0BD0F36AFCBE4B13949282 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				82E30FCC27903DFE00D1C138 /* SampleFM.framework */,
 				79C7A0E826D8277750720403 /* Pods_Sample1128.framework */,
 			);
 			name = Frameworks;
@@ -166,6 +185,7 @@
 				82C9E76D238F919A00EA0B6D /* Frameworks */,
 				82C9E76E238F919A00EA0B6D /* Resources */,
 				7A7F37DA1598A288CB261CFC /* [CP] Embed Pods Frameworks */,
+				82E30FCF27903DFE00D1C138 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -469,6 +489,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CZ785DAQVX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Sample1128/Framework",
+				);
 				INFOPLIST_FILE = Sample1128/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -488,6 +512,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CZ785DAQVX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Sample1128/Framework",
+				);
 				INFOPLIST_FILE = Sample1128/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

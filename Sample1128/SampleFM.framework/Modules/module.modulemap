@@ -1,0 +1,11 @@
+framework module SampleFM {
+  umbrella header "SampleFM.h"
+
+  export *
+  module * { export * }
+}
+
+module SampleFM.Swift {
+    header "SampleFM-Swift.h"
+    requires objc
+}
