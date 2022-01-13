@@ -3,9 +3,9 @@ platform :ios, '11.0'
 
 target 'Sample1128' do
   use_frameworks!
-  pod 'RxCocoa'
-  pod 'RxSwift'
-  pod 'lottie-ios'
+  # pod 'RxCocoa'
+  # pod 'RxSwift'
+  # pod 'lottie-ios'
 
 #  pod 'PAYJP'
 #  pod 'ReactorKit'
