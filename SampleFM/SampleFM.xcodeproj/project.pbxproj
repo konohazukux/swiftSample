@@ -11,6 +11,7 @@
 		8259F0F4279032C300EEC5E8 /* SampleFMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8259F0F3279032C300EEC5E8 /* SampleFMTests.swift */; };
 		8259F0F6279032C300EEC5E8 /* SampleFM.h in Headers */ = {isa = PBXBuildFile; fileRef = 8259F0E8279032C300EEC5E8 /* SampleFM.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8259F1022790333300EEC5E8 /* Sally.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8259F1012790333300EEC5E8 /* Sally.swift */; };
+		D9B1216299E310CED8320E9B /* Pods_SampleFM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 978A698382810488F59B2EA7 /* Pods_SampleFM.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +25,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		051549618699B8B6E80888B5 /* Pods-SampleFM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleFM.debug.xcconfig"; path = "Target Support Files/Pods-SampleFM/Pods-SampleFM.debug.xcconfig"; sourceTree = "<group>"; };
 		8259F0E5279032C300EEC5E8 /* SampleFM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SampleFM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8259F0E8279032C300EEC5E8 /* SampleFM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleFM.h; sourceTree = "<group>"; };
 		8259F0E9279032C300EEC5E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,6 +33,8 @@
 		8259F0F3279032C300EEC5E8 /* SampleFMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleFMTests.swift; sourceTree = "<group>"; };
 		8259F0F5279032C300EEC5E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8259F1012790333300EEC5E8 /* Sally.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sally.swift; sourceTree = "<group>"; };
+		978A698382810488F59B2EA7 /* Pods_SampleFM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleFM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B34F2EAC2115A94BEA3ADFA0 /* Pods-SampleFM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleFM.release.xcconfig"; path = "Target Support Files/Pods-SampleFM/Pods-SampleFM.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B1216299E310CED8320E9B /* Pods_SampleFM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,12 +57,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3143221CBBCC586757F4ED89 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				051549618699B8B6E80888B5 /* Pods-SampleFM.debug.xcconfig */,
+				B34F2EAC2115A94BEA3ADFA0 /* Pods-SampleFM.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8259F0DB279032C300EEC5E8 = {
 			isa = PBXGroup;
 			children = (
 				8259F0E7279032C300EEC5E8 /* SampleFM */,
 				8259F0F2279032C300EEC5E8 /* SampleFMTests */,
 				8259F0E6279032C300EEC5E8 /* Products */,
+				3143221CBBCC586757F4ED89 /* Pods */,
+				D164D32FC91DC018D39FA82C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +106,14 @@
 			path = SampleFMTests;
 			sourceTree = "<group>";
 		};
+		D164D32FC91DC018D39FA82C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				978A698382810488F59B2EA7 /* Pods_SampleFM.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -107,6 +132,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8259F0F9279032C300EEC5E8 /* Build configuration list for PBXNativeTarget "SampleFM" */;
 			buildPhases = (
+				6A5BFEA98929A8668948992F /* [CP] Check Pods Manifest.lock */,
 				8259F0E0279032C300EEC5E8 /* Headers */,
 				8259F0E1279032C300EEC5E8 /* Sources */,
 				8259F0E2279032C300EEC5E8 /* Frameworks */,
@@ -192,6 +218,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6A5BFEA98929A8668948992F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SampleFM-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8259F0E1279032C300EEC5E8 /* Sources */ = {
@@ -345,6 +396,7 @@
 		};
 		8259F0FA279032C300EEC5E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 051549618699B8B6E80888B5 /* Pods-SampleFM.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -371,6 +423,7 @@
 		};
 		8259F0FB279032C300EEC5E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B34F2EAC2115A94BEA3ADFA0 /* Pods-SampleFM.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
