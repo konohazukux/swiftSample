@@ -18,11 +18,11 @@
 		</data>
 		<key>Modules/SampleFM.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		6HKx/OUJ7Ms92mFLUqUb19u61oA=
+		CJTQcouhbUN7B7kJi3Ifj2D3d6g=
 		</data>
 		<key>Modules/SampleFM.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		6HKx/OUJ7Ms92mFLUqUb19u61oA=
+		CJTQcouhbUN7B7kJi3Ifj2D3d6g=
 		</data>
 		<key>Modules/SampleFM.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/SampleFM.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		uS/+AA0uiuqtDHOZ/mUtDlq/89I=
+		7Pq+OHUg88S5tB0dVvKYRbDuKUY=
 		</data>
 		<key>Modules/SampleFM.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/SampleFM.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		uS/+AA0uiuqtDHOZ/mUtDlq/89I=
+		7Pq+OHUg88S5tB0dVvKYRbDuKUY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -65,14 +65,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			N2NjTZ5MkVQvpDb8FKIEiRBFbkYYWb7F36aADTlB5u8=
+			AKpCwLno2TgHJkh5eG8+gzK6ULN+zGiyNBbebQapTVw=
 			</data>
 		</dict>
 		<key>Modules/SampleFM.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			N2NjTZ5MkVQvpDb8FKIEiRBFbkYYWb7F36aADTlB5u8=
+			AKpCwLno2TgHJkh5eG8+gzK6ULN+zGiyNBbebQapTVw=
 			</data>
 		</dict>
 		<key>Modules/SampleFM.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -86,7 +86,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7dDMa9t9Tev9PAs8m8btMrdOFAZcEIHReoGAtWyyVjA=
+			56NJZ3E3bq/JkKes3ghM3oo+YuEDQW1LPEyo08KhATg=
 			</data>
 		</dict>
 		<key>Modules/SampleFM.swiftmodule/x86_64.swiftdoc</key>
@@ -100,7 +100,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7dDMa9t9Tev9PAs8m8btMrdOFAZcEIHReoGAtWyyVjA=
+			56NJZ3E3bq/JkKes3ghM3oo+YuEDQW1LPEyo08KhATg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
