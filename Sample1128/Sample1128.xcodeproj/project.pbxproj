@@ -15,6 +15,8 @@
 		14E0379B253D241600E4A802 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0379A253D241600E4A802 /* Defaults.swift */; };
 		5A9415FA24E63D1000B715B1 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9415F924E63D1000B715B1 /* String+Extension.swift */; };
 		6265A2109981780B1B122F35 /* Pods_Sample1128.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C7A0E826D8277750720403 /* Pods_Sample1128.framework */; };
+		820305A12791114E0091EB18 /* SampleFM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820305A02791114E0091EB18 /* SampleFM.framework */; };
+		820305A22791114E0091EB18 /* SampleFM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 820305A02791114E0091EB18 /* SampleFM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E773238F919A00EA0B6D /* AppDelegate.swift */; };
 		82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E775238F919A00EA0B6D /* SceneDelegate.swift */; };
 		82C9E778238F919A00EA0B6D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E777238F919A00EA0B6D /* FirstViewController.swift */; };
@@ -41,6 +43,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				820305A22791114E0091EB18 /* SampleFM.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,6 +60,7 @@
 		5A9415F924E63D1000B715B1 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5E19E16B8E478AC913F9A91A /* Pods-Sample1128.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample1128.debug.xcconfig"; path = "Target Support Files/Pods-Sample1128/Pods-Sample1128.debug.xcconfig"; sourceTree = "<group>"; };
 		79C7A0E826D8277750720403 /* Pods_Sample1128.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample1128.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		820305A02791114E0091EB18 /* SampleFM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SampleFM.framework; path = "../../../../../../Users/takeshishimada/Library/Developer/Xcode/DerivedData/SampleFM-cbgfdlqzdfhqrygydpzjrbwymnyj/Build/Products/Debug-iphonesimulator/SampleFM.framework"; sourceTree = "<group>"; };
 		827155AC2779705E00DF94E4 /* MyFM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MyFM.framework; path = Sample1128/Framework/MyFM.framework; sourceTree = "<group>"; };
 		82C9E770238F919A00EA0B6D /* Sample1128.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample1128.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C9E773238F919A00EA0B6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6265A2109981780B1B122F35 /* Pods_Sample1128.framework in Frameworks */,
+				820305A12791114E0091EB18 /* SampleFM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +120,7 @@
 		5B0BD0F36AFCBE4B13949282 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				820305A02791114E0091EB18 /* SampleFM.framework */,
 				79C7A0E826D8277750720403 /* Pods_Sample1128.framework */,
 			);
 			name = Frameworks;
