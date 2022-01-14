@@ -1,0 +1,11 @@
+framework module MyFM {
+  umbrella header "MyFM.h"
+
+  export *
+  module * { export * }
+}
+
+module MyFM.Swift {
+    header "MyFM-Swift.h"
+    requires objc
+}
