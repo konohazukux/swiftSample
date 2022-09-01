@@ -3,15 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1424334625661FF200E9EFD1 /* apigee_error.json in Resources */ = {isa = PBXBuildFile; fileRef = 1424334525661FF200E9EFD1 /* apigee_error.json */; };
 		5A9415FA24E63D1000B715B1 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9415F924E63D1000B715B1 /* String+Extension.swift */; };
 		6265A2109981780B1B122F35 /* Pods_Sample1128.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C7A0E826D8277750720403 /* Pods_Sample1128.framework */; };
-		8259F14F2790408B00EEC5E8 /* SampleFM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8259F14E2790408B00EEC5E8 /* SampleFM.framework */; };
-		8259F1502790408B00EEC5E8 /* SampleFM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8259F14E2790408B00EEC5E8 /* SampleFM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8286103A2785AB3E00D764DF /* GtoP.json in Resources */ = {isa = PBXBuildFile; fileRef = 828610392785AB3E00D764DF /* GtoP.json */; };
 		82A59CC126F31A3B007E7CFB /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 82A59CC026F31A3B007E7CFB /* index.html */; };
 		82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E773238F919A00EA0B6D /* AppDelegate.swift */; };
@@ -21,6 +19,9 @@
 		82C9E77F238F919B00EA0B6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82C9E77E238F919B00EA0B6D /* Assets.xcassets */; };
 		82C9E782238F919B00EA0B6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82C9E780238F919B00EA0B6D /* LaunchScreen.storyboard */; };
 		82C9E78D238F919B00EA0B6D /* Sample1128Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E78C238F919B00EA0B6D /* Sample1128Tests.swift */; };
+		82D5972D28C0514600829073 /* NotificationToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5972B28C0514600829073 /* NotificationToastView.swift */; };
+		82D5972E28C0514600829073 /* NotificationToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82D5972C28C0514600829073 /* NotificationToastView.xib */; };
+		82D5973028C0517600829073 /* UIViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5972F28C0517600829073 /* UIViewType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +41,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8259F1502790408B00EEC5E8 /* SampleFM.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,7 +52,6 @@
 		5A9415F924E63D1000B715B1 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5E19E16B8E478AC913F9A91A /* Pods-Sample1128.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample1128.debug.xcconfig"; path = "Target Support Files/Pods-Sample1128/Pods-Sample1128.debug.xcconfig"; sourceTree = "<group>"; };
 		79C7A0E826D8277750720403 /* Pods_Sample1128.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample1128.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8259F14E2790408B00EEC5E8 /* SampleFM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SampleFM.framework; path = Sample1128/Framework/SampleFM.framework; sourceTree = "<group>"; };
 		828610392785AB3E00D764DF /* GtoP.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GtoP.json; sourceTree = "<group>"; };
 		82A59CC026F31A3B007E7CFB /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		82C9E770238F919A00EA0B6D /* Sample1128.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample1128.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +65,9 @@
 		82C9E788238F919B00EA0B6D /* Sample1128Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Sample1128Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C9E78C238F919B00EA0B6D /* Sample1128Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample1128Tests.swift; sourceTree = "<group>"; };
 		82C9E78E238F919B00EA0B6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82D5972B28C0514600829073 /* NotificationToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationToastView.swift; sourceTree = "<group>"; };
+		82D5972C28C0514600829073 /* NotificationToastView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationToastView.xib; sourceTree = "<group>"; };
+		82D5972F28C0517600829073 /* UIViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewType.swift; sourceTree = "<group>"; };
 		BB4E332A33217BD640112B67 /* Pods-Sample1128.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample1128.release.xcconfig"; path = "Target Support Files/Pods-Sample1128/Pods-Sample1128.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,7 +77,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6265A2109981780B1B122F35 /* Pods_Sample1128.framework in Frameworks */,
-				8259F14F2790408B00EEC5E8 /* SampleFM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				5A9415F924E63D1000B715B1 /* String+Extension.swift */,
+				82D5972A28C0514600829073 /* NotificationToastView */,
 			);
 			path = etc;
 			sourceTree = "<group>";
@@ -110,7 +112,6 @@
 		5B0BD0F36AFCBE4B13949282 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8259F14E2790408B00EEC5E8 /* SampleFM.framework */,
 				79C7A0E826D8277750720403 /* Pods_Sample1128.framework */,
 			);
 			name = Frameworks;
@@ -159,6 +160,16 @@
 				82C9E78E238F919B00EA0B6D /* Info.plist */,
 			);
 			path = Sample1128Tests;
+			sourceTree = "<group>";
+		};
+		82D5972A28C0514600829073 /* NotificationToastView */ = {
+			isa = PBXGroup;
+			children = (
+				82D5972F28C0517600829073 /* UIViewType.swift */,
+				82D5972B28C0514600829073 /* NotificationToastView.swift */,
+				82D5972C28C0514600829073 /* NotificationToastView.xib */,
+			);
+			path = NotificationToastView;
 			sourceTree = "<group>";
 		};
 		D051A12A9A509217FD8D36A9 /* Pods */ = {
@@ -257,6 +268,7 @@
 				82C9E782238F919B00EA0B6D /* LaunchScreen.storyboard in Resources */,
 				8286103A2785AB3E00D764DF /* GtoP.json in Resources */,
 				1424334625661FF200E9EFD1 /* apigee_error.json in Resources */,
+				82D5972E28C0514600829073 /* NotificationToastView.xib in Resources */,
 				82C9E77F238F919B00EA0B6D /* Assets.xcassets in Resources */,
 				82A59CC126F31A3B007E7CFB /* index.html in Resources */,
 				82C9E77D238F919A00EA0B6D /* Main.storyboard in Resources */,
@@ -321,6 +333,8 @@
 			files = (
 				82C9E778238F919A00EA0B6D /* FirstViewController.swift in Sources */,
 				5A9415FA24E63D1000B715B1 /* String+Extension.swift in Sources */,
+				82D5973028C0517600829073 /* UIViewType.swift in Sources */,
+				82D5972D28C0514600829073 /* NotificationToastView.swift in Sources */,
 				82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */,
 				82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */,
 			);
