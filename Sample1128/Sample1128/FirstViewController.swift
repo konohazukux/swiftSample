@@ -9,7 +9,6 @@ class FirstViewController: UIViewController {
 
     @IBOutlet var button: UIButton!
 
-    let notificationToastView = NotificationToastView()
     var bottomConstraint: NSLayoutConstraint? = nil
 
     override func viewDidLoad() {
@@ -21,8 +20,12 @@ class FirstViewController: UIViewController {
     }
    
     func setupView() {
+        let notificationToastView = NotificationToastView()
         guard let tabBarController = tabBarController else { return }
-        self.notificationToastView.show(tabBarController: tabBarController)
+        notificationToastView.inject(tabBarController: tabBarController) {
+           print("tapped")
+        }
+        notificationToastView.show()
     }
 
 }
