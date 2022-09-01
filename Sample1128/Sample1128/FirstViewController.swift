@@ -14,48 +14,17 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-            self?.setupView()
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
-            self?.animate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+            guard let self = self else { return }
+            self.setupView()
         }
     }
    
     func setupView() {
-        notificationToastView.frame = CGRect.init(x: 100, y: 100, width: 100, height: 100)
-        self.tabBarController?.view.addSubview(notificationToastView)
-        
-        let parant = self.tabBarController!.view!
-        notificationToastView.translatesAutoresizingMaskIntoConstraints = false
-        notificationToastView.leadingAnchor.constraint(equalTo: parant.leadingAnchor, constant: 16).isActive = true
-        notificationToastView.trailingAnchor.constraint(equalTo: parant.trailingAnchor, constant: -16).isActive = true
-        notificationToastView.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        self.bottomConstraint = notificationToastView.topAnchor.constraint(equalTo: parant.bottomAnchor, constant: -10)
-        
-        self.bottomConstraint?.isActive = true
-        parant.layoutIfNeeded()
-        
+        guard let tabBarController = tabBarController else { return }
+        self.notificationToastView.show(tabBarController: tabBarController)
     }
-    
-    private func animate() {
-        let parant = self.tabBarController!.view!
-        let tabBar = tabBarController?.tabBar
 
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseInOut, animations: { [weak self] in
-          
-            guard let temp = tabBar?.topAnchor
-            else { return }
-
-            self?.bottomConstraint?.isActive = false
-            self?.notificationToastView.bottomAnchor.constraint(equalTo: temp, constant: -10).isActive = true
-            //notificationToastView.center.y += 100.0
-            parant.layoutIfNeeded()
-        }, completion: nil)
-    }
-    
 }
 
 extension UIView {

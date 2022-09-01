@@ -8,13 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotificationToastView" customModule="SegaPlato_Develop" customModuleProvider="target">
-            <connections>
-                <outlet property="backgroundView" destination="YUy-vj-Hc7" id="yUA-6L-zvh"/>
-                <outlet property="controlView" destination="u3t-tw-oqY" id="ya0-8C-E6B"/>
-                <outlet property="nextDateLabel" destination="EjL-f4-FY1" id="VUY-vF-pcE"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotificationToastView" customModule="Sample1128" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vwt-Wz-NzG">
             <rect key="frame" x="0.0" y="0.0" width="566" height="56"/>
