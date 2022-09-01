@@ -20,9 +20,8 @@ class FirstViewController: UIViewController {
     }
    
     func setupView() {
-        let notificationToastView = NotificationToastView()
         guard let tabBarController = tabBarController else { return }
-        notificationToastView.inject(tabBarController: tabBarController) {
+        let notificationToastView = NotificationToastView(tabBarController: tabBarController) {
            print("tapped")
         }
         notificationToastView.show()
