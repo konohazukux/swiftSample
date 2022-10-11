@@ -19,6 +19,8 @@
 		82C9E77F238F919B00EA0B6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82C9E77E238F919B00EA0B6D /* Assets.xcassets */; };
 		82C9E782238F919B00EA0B6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82C9E780238F919B00EA0B6D /* LaunchScreen.storyboard */; };
 		82C9E78D238F919B00EA0B6D /* Sample1128Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E78C238F919B00EA0B6D /* Sample1128Tests.swift */; };
+		82D1691828F5226C001DC8A5 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D1691728F5226C001DC8A5 /* MissionViewController.swift */; };
+		82D1691A28F5227E001DC8A5 /* MissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82D1691928F5227E001DC8A5 /* MissionViewController.xib */; };
 		82D5972D28C0514600829073 /* NotificationToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5972B28C0514600829073 /* NotificationToastView.swift */; };
 		82D5972E28C0514600829073 /* NotificationToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82D5972C28C0514600829073 /* NotificationToastView.xib */; };
 		82D5973028C0517600829073 /* UIViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D5972F28C0517600829073 /* UIViewType.swift */; };
@@ -65,6 +67,8 @@
 		82C9E788238F919B00EA0B6D /* Sample1128Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Sample1128Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C9E78C238F919B00EA0B6D /* Sample1128Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample1128Tests.swift; sourceTree = "<group>"; };
 		82C9E78E238F919B00EA0B6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82D1691728F5226C001DC8A5 /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
+		82D1691928F5227E001DC8A5 /* MissionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MissionViewController.xib; sourceTree = "<group>"; };
 		82D5972B28C0514600829073 /* NotificationToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationToastView.swift; sourceTree = "<group>"; };
 		82D5972C28C0514600829073 /* NotificationToastView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationToastView.xib; sourceTree = "<group>"; };
 		82D5972F28C0517600829073 /* UIViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewType.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 				82C9E773238F919A00EA0B6D /* AppDelegate.swift */,
 				82C9E775238F919A00EA0B6D /* SceneDelegate.swift */,
 				82C9E777238F919A00EA0B6D /* FirstViewController.swift */,
+				82D1691728F5226C001DC8A5 /* MissionViewController.swift */,
+				82D1691928F5227E001DC8A5 /* MissionViewController.xib */,
 				82C9E77B238F919A00EA0B6D /* Main.storyboard */,
 				82C9E77E238F919B00EA0B6D /* Assets.xcassets */,
 				82C9E780238F919B00EA0B6D /* LaunchScreen.storyboard */,
@@ -268,6 +274,7 @@
 				82C9E782238F919B00EA0B6D /* LaunchScreen.storyboard in Resources */,
 				8286103A2785AB3E00D764DF /* GtoP.json in Resources */,
 				1424334625661FF200E9EFD1 /* apigee_error.json in Resources */,
+				82D1691A28F5227E001DC8A5 /* MissionViewController.xib in Resources */,
 				82D5972E28C0514600829073 /* NotificationToastView.xib in Resources */,
 				82C9E77F238F919B00EA0B6D /* Assets.xcassets in Resources */,
 				82A59CC126F31A3B007E7CFB /* index.html in Resources */,
@@ -335,6 +342,7 @@
 				5A9415FA24E63D1000B715B1 /* String+Extension.swift in Sources */,
 				82D5973028C0517600829073 /* UIViewType.swift in Sources */,
 				82D5972D28C0514600829073 /* NotificationToastView.swift in Sources */,
+				82D1691828F5226C001DC8A5 /* MissionViewController.swift in Sources */,
 				82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */,
 				82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */,
 			);
@@ -499,6 +507,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CZ785DAQVX;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Sample1128/Framework",
@@ -522,6 +531,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CZ785DAQVX;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Sample1128/Framework",

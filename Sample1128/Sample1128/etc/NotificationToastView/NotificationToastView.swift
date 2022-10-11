@@ -29,7 +29,7 @@ class NotificationToastView: UIView, UIViewType {
         instantiateView()
     }
     
-    convenience init(tabBarController: UITabBarController, tapAction: @escaping (() -> Void)) {
+    convenience init(tabBarController: UITabBarController?, tapAction: @escaping (() -> Void)) {
         self.init(frame: .zero)
         self.tabBarController = tabBarController
         self.tapAction = tapAction
@@ -63,14 +63,12 @@ class NotificationToastView: UIView, UIViewType {
         self.leadingAnchor.constraint(equalTo: tabBarController.view.leadingAnchor, constant: 16).isActive = true
         self.trailingAnchor.constraint(equalTo: tabBarController.view.trailingAnchor, constant: -16).isActive = true
         self.topConstraint = self.topAnchor.constraint(equalTo: tabBarController.view.bottomAnchor, constant: 0)
-
         self.topConstraint?.isActive = true
         tabBarController.view.layoutIfNeeded()
 
-        let tabBarViewHeight = tabBarController.tabBar.frame.height + self.frame.height
         UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseInOut, animations: { [weak self] in
             guard let self = self else { return }
-            self.topConstraint?.constant = -1 * tabBarViewHeight - 16
+            self.topConstraint?.constant = -1 * (tabBarController.tabBar.frame.height + self.frame.height) - 16
             tabBarController.view.layoutIfNeeded()
         }, completion: nil)
 
