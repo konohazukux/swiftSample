@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MissionSelectView" customModule="Sample1128" customModuleProvider="target">
+            <connections>
+                <outlet property="caption" destination="sXS-xi-Ux7" id="7Es-kK-Kix"/>
+                <outlet property="title" destination="MW4-ji-Rom" id="sTg-Uh-xKx"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyz-Bf-Rmd">
+            <rect key="frame" x="0.0" y="0.0" width="456" height="81"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8BK-Cj-i7b">
+                    <rect key="frame" x="24" y="80" width="408" height="1"/>
+                    <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="JLu-sF-ZeE"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電子マネーでプレイする場合はこちら" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MW4-ji-Rom">
+                    <rect key="frame" x="24" y="24" width="238" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="7td-R0-SoZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HiraginoSans-W7" family="Hiragino Sans" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Youtubeへ移動する" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXS-xi-Ux7">
+                    <rect key="frame" x="24" y="44" width="97" height="13"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="13" id="2rb-WU-8Ol"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HiraginoSans-W7" family="Hiragino Sans" pointSize="10"/>
+                    <color key="textColor" name="MidDarkGray"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70I-aT-N9V">
+                    <rect key="frame" x="0.0" y="0.0" width="456" height="81"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <connections>
+                        <action selector="viewDidTapped:" destination="-1" eventType="touchUpInside" id="4sv-XO-JYx"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="70I-aT-N9V" secondAttribute="trailing" id="1Ez-93-gqY"/>
+                <constraint firstItem="sXS-xi-Ux7" firstAttribute="leading" secondItem="Hyz-Bf-Rmd" secondAttribute="leading" constant="24" id="1fg-GP-PIX"/>
+                <constraint firstAttribute="bottom" secondItem="70I-aT-N9V" secondAttribute="bottom" id="5Ww-LR-Mt3"/>
+                <constraint firstItem="8BK-Cj-i7b" firstAttribute="leading" secondItem="Hyz-Bf-Rmd" secondAttribute="leading" constant="24" id="Ay0-WY-sGd"/>
+                <constraint firstItem="MW4-ji-Rom" firstAttribute="top" secondItem="Hyz-Bf-Rmd" secondAttribute="top" constant="24" id="EDc-lE-mw5"/>
+                <constraint firstItem="MW4-ji-Rom" firstAttribute="leading" secondItem="Hyz-Bf-Rmd" secondAttribute="leading" constant="24" id="FfU-5h-2F9"/>
+                <constraint firstAttribute="trailing" secondItem="8BK-Cj-i7b" secondAttribute="trailing" constant="24" id="JsB-ae-NxE"/>
+                <constraint firstItem="70I-aT-N9V" firstAttribute="top" secondItem="Hyz-Bf-Rmd" secondAttribute="top" id="NG7-q4-PNX"/>
+                <constraint firstItem="sXS-xi-Ux7" firstAttribute="top" secondItem="MW4-ji-Rom" secondAttribute="bottom" id="TWL-Zd-8P5"/>
+                <constraint firstAttribute="bottom" secondItem="8BK-Cj-i7b" secondAttribute="bottom" id="b5d-xz-UpF"/>
+                <constraint firstItem="70I-aT-N9V" firstAttribute="leading" secondItem="Hyz-Bf-Rmd" secondAttribute="leading" id="dtq-2J-zz2"/>
+                <constraint firstAttribute="bottom" secondItem="sXS-xi-Ux7" secondAttribute="bottom" constant="24" id="iOd-BZ-U3c"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-302.89855072463769" y="452.34375"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="MidDarkGray">
+            <color red="0.55699998140335083" green="0.55699998140335083" blue="0.55699998140335083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

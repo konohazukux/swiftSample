@@ -11,4 +11,5 @@ target 'Sample1128' do
   use_frameworks!
   pod 'RxCocoa'
   pod 'RxSwift'
+  pod 'FloatingPanel'
 end

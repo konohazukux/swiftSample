@@ -17,6 +17,14 @@ extension UIViewType where Self: UIView {
         let rootView = nib.instantiate(withOwner: self).first as! UIView
         rootView.frame = self.bounds
         self.addSubview(rootView)
+       
+        self.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.topAnchor.constraint(equalTo: rootView.topAnchor, constant: 0.0),
+            self.leftAnchor.constraint(equalTo: rootView.leftAnchor, constant: 0.0),
+            self.rightAnchor.constraint(equalTo: rootView.rightAnchor, constant: 0.0),
+            self.bottomAnchor.constraint(equalTo: rootView.bottomAnchor, constant: 0.0),
+            ])
         
         setupView()
     }

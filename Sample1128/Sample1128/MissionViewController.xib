@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MissionViewController" customModule="SegaPlato_Develop" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MissionViewController" customModule="Sample1128" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="Wop-6e-Mef" id="WrV-yc-vrg"/>
             </connections>
@@ -24,13 +24,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="g4n-rD-3Bn">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="897.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yev-n1-bgP">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mission_cover_image" translatesAutoresizingMaskIntoConstraints="NO" id="Du8-Ea-pMV">
-                                            <rect key="frame" x="97" y="147.5" width="220" height="119"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFt-wd-k0P">
                                             <rect key="frame" x="366" y="60" width="32" height="32"/>
@@ -48,15 +48,19 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="yev-n1-bgP" secondAttribute="height" multiplier="1:1" id="08O-Ud-MGe"/>
                                         <constraint firstItem="Du8-Ea-pMV" firstAttribute="centerX" secondItem="yev-n1-bgP" secondAttribute="centerX" id="GFb-RI-lAm"/>
+                                        <constraint firstItem="Du8-Ea-pMV" firstAttribute="leading" secondItem="yev-n1-bgP" secondAttribute="leading" id="KNg-Jg-hIL"/>
+                                        <constraint firstItem="Du8-Ea-pMV" firstAttribute="top" secondItem="yev-n1-bgP" secondAttribute="top" id="hEW-Ag-Rkl"/>
+                                        <constraint firstAttribute="trailing" secondItem="Du8-Ea-pMV" secondAttribute="trailing" id="paX-Ay-QTd"/>
                                         <constraint firstAttribute="trailing" secondItem="TFt-wd-k0P" secondAttribute="trailing" constant="16" id="qBK-TF-jdb"/>
                                         <constraint firstItem="Du8-Ea-pMV" firstAttribute="centerY" secondItem="yev-n1-bgP" secondAttribute="centerY" id="qld-EB-ax6"/>
+                                        <constraint firstAttribute="bottom" secondItem="Du8-Ea-pMV" secondAttribute="bottom" id="wIT-uJ-kDp"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qzz-Ws-vP8">
-                                    <rect key="frame" x="0.0" y="414" width="414" height="448"/>
+                                    <rect key="frame" x="0.0" y="414" width="414" height="483.5"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XTV-9W-76b">
-                                            <rect key="frame" x="24" y="24" width="366" height="424"/>
+                                            <rect key="frame" x="24" y="24" width="366" height="459.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ミッション" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9R-Kl-myT">
                                                     <rect key="frame" x="0.0" y="0.0" width="366" height="11.5"/>
@@ -96,11 +100,9 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="J7o-Ct-BAk"/>
                                                     </constraints>
                                                     <attributedString key="attributedText">
-                                                        <fragment>
-                                                            <string key="content">次回プレイで､
-100円分のクーポンがもらえる!!</string>
+                                                        <fragment content="もう1回プレイして、100円分のサービス券をGETしよう!!">
                                                             <attributes>
-                                                                <color key="NSColor" white="0.0" alpha="0.87" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <font key="NSFont" size="32" name="HiraginoSans-W7"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="6" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
@@ -129,8 +131,29 @@
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hiH-fy-loq" userLabel="Space">
+                                                    <rect key="frame" x="0.0" y="227.5" width="366" height="16"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="yzZ-QK-Vau"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5Y-gh-EIn">
+                                                    <rect key="frame" x="0.0" y="243.5" width="366" height="26"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="※「連携済みのICカードで決済 / 会員ログイン中の現金利用 / 回数券の購入」のいずれかで　サービス券が獲得できます">
+                                                            <attributes>
+                                                                <color key="NSColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <font key="NSFont" size="10" name="HiraginoSans-W6"/>
+                                                                <font key="NSOriginalFont" size="16" name="HiraginoSans-W6"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="6" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="366" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="boc-f7-21F" userLabel="Space">
-                                                    <rect key="frame" x="0.0" y="227.5" width="366" height="196.5"/>
+                                                    <rect key="frame" x="0.0" y="269.5" width="366" height="190"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="92" id="0g6-B0-bqg"/>
@@ -164,40 +187,46 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rax-CD-lSh">
                     <rect key="frame" x="16" y="780" width="382" height="66"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mission_ticket" translatesAutoresizingMaskIntoConstraints="NO" id="HRA-EA-tBV">
-                            <rect key="frame" x="16" y="21" width="55.5" height="24"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="24" id="4AX-oi-YsU"/>
-                                <constraint firstAttribute="width" constant="55.5" id="lgt-Xk-wIe"/>
-                            </constraints>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="クリア報酬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTl-T5-mC5">
-                            <rect key="frame" x="83.5" y="16" width="45" height="12"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="12" id="sdO-G9-Wgv"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="HiraginoSans-W7" family="Hiragino Sans" pointSize="9"/>
-                            <color key="textColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100円分のクーポン" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6Q-h0-5UQ">
-                            <rect key="frame" x="83.5" y="28" width="129.5" height="22"/>
-                            <constraints>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="PDB-zv-VrI"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="HiraginoSans-W7" family="Hiragino Sans" pointSize="14"/>
-                            <color key="textColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SsR-Y5-pcg">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="66"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jM2-1G-u0i">
+                            <rect key="frame" x="10" y="9" width="147" height="48"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
+                            <state key="normal" title="閉じる">
+                                <color key="titleColor" systemColor="systemBlueColor"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="24"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVI-Qz-Beh">
+                            <rect key="frame" x="175" y="9" width="147" height="48"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" name="GiGoBlue"/>
+                            <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
+                            <state key="normal" title="プレイ方法を確認">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="24"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="confirmHowToPlay" destination="-1" eventType="touchUpInside" id="hlR-RP-2OC"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="HRA-EA-tBV" firstAttribute="centerY" secondItem="Rax-CD-lSh" secondAttribute="centerY" id="I0f-Jp-GEk"/>
-                        <constraint firstItem="HRA-EA-tBV" firstAttribute="leading" secondItem="Rax-CD-lSh" secondAttribute="leading" constant="16" id="LE5-YA-UEx"/>
-                        <constraint firstAttribute="bottom" secondItem="k6Q-h0-5UQ" secondAttribute="bottom" constant="16" id="MoW-RF-qPp"/>
-                        <constraint firstItem="k6Q-h0-5UQ" firstAttribute="leading" secondItem="HRA-EA-tBV" secondAttribute="trailing" constant="12" id="jzC-ug-bHx"/>
-                        <constraint firstItem="lTl-T5-mC5" firstAttribute="leading" secondItem="HRA-EA-tBV" secondAttribute="trailing" constant="12" id="lF1-Ej-gai"/>
-                        <constraint firstItem="lTl-T5-mC5" firstAttribute="top" secondItem="Rax-CD-lSh" secondAttribute="top" constant="16" id="svX-wa-Hpb"/>
+                        <constraint firstAttribute="bottom" secondItem="SsR-Y5-pcg" secondAttribute="bottom" id="6Nw-22-7dC"/>
+                        <constraint firstItem="SsR-Y5-pcg" firstAttribute="top" secondItem="Rax-CD-lSh" secondAttribute="top" id="bmX-S1-Gwx"/>
                         <constraint firstAttribute="height" constant="66" id="swB-82-8dU"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -236,13 +265,18 @@
     </objects>
     <resources>
         <image name="circle_close_b" width="27" height="27"/>
-        <image name="mission_cover_image" width="220" height="119"/>
-        <image name="mission_ticket" width="56" height="24"/>
+        <image name="mission_cover_image" width="375" height="375"/>
+        <namedColor name="GiGoBlue">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="SubText">
             <color red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
