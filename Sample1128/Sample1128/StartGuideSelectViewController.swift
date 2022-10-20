@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-class MissionSelectViewController: UIViewController {
+class StartGuideSelectViewController: UIViewController {
 
     @IBOutlet weak var stackView: UIStackView!
     
@@ -21,10 +21,10 @@ class MissionSelectViewController: UIViewController {
     func temp() {
        
         [
-            MissionSelectView.Model.init(title: "title1", caption: "caption1", link: "http://yahoo.co.jp"),
-            MissionSelectView.Model.init(title: "title2", caption: "caption2", link: "http://google.co.jp")
+            StartGuideSelectView.Model.init(title: "title1", caption: "caption1", link: "http://yahoo.co.jp"),
+            StartGuideSelectView.Model.init(title: "title2", caption: "caption2", link: "http://google.co.jp")
         ].forEach {
-            stackView.addArrangedSubview(MissionSelectView(model: $0, parent: self))
+            stackView.addArrangedSubview(StartGuideSelectView(model: $0, parent: self))
         }
         
     }

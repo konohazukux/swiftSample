@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 import FloatingPanel
 
-class MissionViewController: UIViewController {
+class StartGuideViewController: UIViewController {
 
     @IBAction func close() {
         self.dismiss(animated: true)
@@ -17,7 +17,7 @@ class MissionViewController: UIViewController {
         var fpc: FloatingPanelController!
         fpc = FloatingPanelController()
         fpc.delegate = self // Optional
-        let contentVC = MissionSelectViewController()
+        let contentVC = StartGuideSelectViewController()
         fpc.set(contentViewController: contentVC)
         fpc.isRemovalInteractionEnabled = true
         fpc.surfaceView.layer.cornerRadius = 16.0
@@ -29,7 +29,7 @@ class MissionViewController: UIViewController {
     
 }
 
-extension MissionViewController: FloatingPanelControllerDelegate {
+extension StartGuideViewController: FloatingPanelControllerDelegate {
     func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout {
         return FloatingPanelBottomLayout()
     }
@@ -43,7 +43,7 @@ class FloatingPanelBottomLayout: FloatingPanelLayout {
     var anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring] {
         return [
             .half: FloatingPanelLayoutAnchor(
-                absoluteInset: MissionSelectView.VIEW_HEIGHT * 2,
+                absoluteInset: StartGuideSelectView.VIEW_HEIGHT * 2,
                 edge: .bottom,
                 referenceGuide: .safeArea
             )

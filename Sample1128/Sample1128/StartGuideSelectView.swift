@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MissionSelectView: UIView, UIViewType {
+class StartGuideSelectView: UIView, UIViewType {
   
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var caption: UILabel!
