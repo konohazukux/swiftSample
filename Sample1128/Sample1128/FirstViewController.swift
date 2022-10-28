@@ -20,7 +20,7 @@ class FirstViewController: UIViewController {
    
     func temp() {
        
-        let vc = MissionViewController()
+        let vc = StartGuideViewController()
 //        let vc = MissionSelectViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)

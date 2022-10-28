@@ -284,3 +284,24 @@ extension String {
         !isEmpty
     }
 }
+
+extension String {
+    func attributedString(
+        _ color: UIColor = UIColor.black,
+        font: UIFont = UIFont.systemFont(ofSize: 20),
+        align: NSTextAlignment = .center,
+        lineSpace: CGFloat = 10,
+        kern: CGFloat = 0
+    ) -> NSAttributedString {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.lineSpacing = lineSpace
+        paragraph.alignment = align
+        
+        return NSAttributedString(string: self, attributes: [
+            NSAttributedString.Key.paragraphStyle: paragraph,
+            NSAttributedString.Key.font: font,
+            NSAttributedString.Key.foregroundColor: color,
+            NSAttributedString.Key.kern: kern,
+        ])
+    }
+}

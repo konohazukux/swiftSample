@@ -8,6 +8,19 @@ import FloatingPanel
 
 class StartGuideViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel : UILabel!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+      
+        titleLabel.attributedText = "ちっちゃな頃から優等生".attributedString(
+            UIColor.red,
+            font: UIFont(name: "HiraginoSans-W6", size: 30)!,
+            align: NSTextAlignment.left,
+            lineSpace: 6,
+            kern: 3)
+    }
+    
     @IBAction func close() {
         self.dismiss(animated: true)
     }
