@@ -15,16 +15,28 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        temp()
+        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+            guard let self = self else { return }
+            self.temp()
+        }
+    }
+
+    
    
     func temp() {
-       
-        let vc = StartGuideViewController()
-//        let vc = MissionSelectViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true, completion: nil)
+
+        let someVC = SomeViewController()
+        let vc = ModalContainerViewController()
         
+        vc.set(someVC, height: 550.0)
+        vc.set(parent: self)
+        vc.show()
     }
    
 }
