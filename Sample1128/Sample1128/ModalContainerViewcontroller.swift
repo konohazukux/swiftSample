@@ -4,44 +4,43 @@
 
 import Foundation
 import UIKit
+import RxCocoa
+import RxSwift
 
-class ModalContainerViewController: UIViewController {
+class HalfModalContainerViewController: UIViewController {
   
-    @IBOutlet private weak var stackView: UIStackView!
+    @IBOutlet private var stackView: UIStackView!
     @IBOutlet private var topConstraint: NSLayoutConstraint?
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        self.view.backgroundColor = UIColor.init(red: 1, green: 0, blue: 0, alpha: 0.7)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    @IBOutlet private var controlView: UIControl!
+   
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        controlView.rx.controlEvent(.touchUpInside)
+            .asDriver()
+            .drive(onNext: { [weak self]  _ in
+                self?.hide()
+            })
+            .disposed(by: disposeBag)
+                
         // 下スワイプ
         let downSwipe = UISwipeGestureRecognizer(
             target: self,
-            action: #selector(ModalContainerViewController.didSwipe(_:))
+            action: #selector(HalfModalContainerViewController.didSwipe(_:))
         )
         downSwipe.direction = .down
         self.view.addGestureRecognizer(downSwipe)
     }
    
-    private weak var _vc: UIViewController?
-   
-    func set(parent: UIViewController) {
+    func addPanel(toParent parent: UIViewController) {
         modalPresentationStyle = .overCurrentContext
         parent.present(self, animated: false)
     }
     
-    func set(_ vc: UIViewController, height: CGFloat) {
-        self._vc = vc
+    func set(_ vc: UIViewController) {
         addChild(vc)
-        
         stackView.addArrangedSubview(vc.view)
         self.loadViewIfNeeded()
     }
@@ -72,23 +71,10 @@ class ModalContainerViewController: UIViewController {
         }
     }
     
-    //スワイプ時に実行されるメソッド
     @objc func didSwipe(_ sender: UISwipeGestureRecognizer) {
-        //スワイプ方向による実行処理をcase文で指定
         switch sender.direction {
-        case .up:
-            //上スワイプ時に実行したい処理
-            print("111 sdf\(#line) \(type(of: self))  \(#function) : \(self) ")
-        case .right:
-            //右スワイプ時に実行したい処理
-            print("111 sdf\(#line) \(type(of: self))  \(#function) : \(self) ")
         case .down:
-            //下スワイプ時に実行したい処理
-            print("111 sdf\(#line) \(type(of: self))  \(#function) : \(self) ")
             hide()
-        case .left:
-            //左スワイプ時に実行したい処理
-            print("111 sdf\(#line) \(type(of: self))  \(#function) : \(self) ")
         default:
             break
         }

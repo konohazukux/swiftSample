@@ -26,17 +26,15 @@ class FirstViewController: UIViewController {
             self.temp()
         }
     }
-
-    
    
     func temp() {
 
         let someVC = SomeViewController()
-        let vc = ModalContainerViewController()
+        let vc = HalfModalContainerViewController()
         
-        vc.set(someVC, height: 550.0)
         if let tab = tabBarController {
-            vc.set(parent: tab)
+            vc.addPanel(toParent: tab)
+            vc.set(someVC)
             vc.show()
         }
     }
