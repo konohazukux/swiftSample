@@ -35,8 +35,10 @@ class FirstViewController: UIViewController {
         let vc = ModalContainerViewController()
         
         vc.set(someVC, height: 550.0)
-        vc.set(parent: self)
-        vc.show()
+        if let tab = tabBarController {
+            vc.set(parent: tab)
+            vc.show()
+        }
     }
    
 }
