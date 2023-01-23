@@ -9,10 +9,6 @@ import RxCocoa
 
 class FirstViewController: UIViewController {
 
-    @IBOutlet var button: UIButton!
-
-    let disposeBag = DisposeBag()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,20 +19,14 @@ class FirstViewController: UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
             guard let self = self else { return }
-            self.temp()
+          
+            let vc = KabigonOnoPageViewController()
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: true)
+            
+            
         }
-    }
-   
-    func temp() {
-
-        let someVC = SomeViewController()
-        let vc = ModalContainerViewController()
         
-        if let tab = tabBarController {
-            vc.addPanel(toParent: tab)
-            vc.set(someVC)
-            vc.show()
-        }
     }
    
 }
