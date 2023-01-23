@@ -30,7 +30,7 @@ class FirstViewController: UIViewController {
     func temp() {
 
         let someVC = SomeViewController()
-        let vc = HalfModalContainerViewController()
+        let vc = ModalContainerViewController()
         
         if let tab = tabBarController {
             vc.addPanel(toParent: tab)

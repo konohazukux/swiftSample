@@ -7,7 +7,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class HalfModalContainerViewController: UIViewController {
+class ModalContainerViewController: UIViewController {
   
     @IBOutlet private var stackView: UIStackView!
     @IBOutlet private var topConstraint: NSLayoutConstraint?
@@ -28,7 +28,7 @@ class HalfModalContainerViewController: UIViewController {
         // 下スワイプ
         let downSwipe = UISwipeGestureRecognizer(
             target: self,
-            action: #selector(HalfModalContainerViewController.didSwipe(_:))
+            action: #selector(ModalContainerViewController.didSwipe(_:))
         )
         downSwipe.direction = .down
         self.view.addGestureRecognizer(downSwipe)
