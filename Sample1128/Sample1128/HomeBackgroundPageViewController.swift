@@ -7,7 +7,7 @@
 import Foundation
 import UIKit
 
-class KabigonOnoPageViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class HomeBackgroundPageViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
       var pageViewController: UIPageViewController!
       var viewControllersArray: Array<UIViewController> = []
@@ -19,16 +19,9 @@ class KabigonOnoPageViewController: UIViewController, UIPageViewControllerDataSo
            self.view.backgroundColor = .white
            
            for index in 0 ..< colors.count {
-               //let viewController = PageViewController()
                let viewController = UIViewController()
                viewController.view.backgroundColor = colors[index]
                viewController.view.tag = index
-//               let label = viewController.label
-//               label.text = "page:"+index.description
-//               label.font = UIFont.boldSystemFont(ofSize: 10)
-//               label.frame = self.view.frame
-//               label.textAlignment = .center
-//               viewController.view.addSubview(label)
                viewControllersArray.append(viewController)
            }
            pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
