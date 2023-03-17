@@ -1,3 +1,3 @@
-# Completed Project: Building Lists and Navigation
+# Completed Project: Handling User Input
 
-Explore the completed project for the [Building Lists and Navigation](https://developer.apple.com/tutorials/swiftui/building-lists-and-navigation) tutorial.
+Explore the completed project for the [Handling User Input](https://developer.apple.com/tutorials/swiftui/handling-user-input) tutorial.
