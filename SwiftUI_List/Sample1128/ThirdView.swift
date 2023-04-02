@@ -11,7 +11,6 @@ import SwiftUI
 // https://note.com/smtakahashi/n/n819591e5905c
 struct ThirdView: View {
     @State private var index = 0
-    
     var body: some View {
         VStack{
             TabView(selection: $index) {
