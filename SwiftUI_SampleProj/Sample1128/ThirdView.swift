@@ -64,8 +64,38 @@ struct CardView: View{
 struct Announce: View {
     var body: some View {
         VStack{
-            Text("j")
+            HStack {
+                Text("重要なお知らせ")
+                    .font(.system(size: 22))
+                    .fontWeight(.bold)
+                Spacer()
+            }
+            .padding(.leading, 16)
+            List {
+                ForEach(1 ..< 4) { index in
+                    AnnounceItem()
+                  }
+            }
+            .listStyle(PlainListStyle())
         }
+    }
+}
+
+struct AnnounceItem: View{
+    var body: some View{
+        VStack {
+            Text("2022/02/09")
+                .font(.system(size: 14))
+                .fontWeight(.bold)
+                .foregroundColor(.gray)
+                .lineLimit(1)
+            Text("For vaddyaa")
+                .font(.system(size: 14))
+                .fontWeight(.bold)
+                .lineLimit(2)
+                .truncationMode(.tail)
+        }
+        .frame(minHeight: 40, maxHeight: 60)
     }
 }
 
