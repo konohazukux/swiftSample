@@ -10,15 +10,22 @@ import SwiftUI
 
 //https://note.com/smtakahashi/n/n819591e5905c
 struct ThirdView: View {
+    let examples = ["1", "2", "3"]
+    let itemPadding: CGFloat = 20
+    
     var body: some View {
         GeometryReader { bodyView in
-                 Text("1")
-                     .foregroundColor(Color.white)
-                     .font(.system(size: 50, weight: .bold))
-                     .frame(width: bodyView.size.width * 0.8, height: 300)
-                     .background(Color.gray)
-                 
-             }
+            HStack(spacing: itemPadding){
+                ForEach(examples.indices, id: \.self) { index in
+                        Text(examples[index])
+                              .foregroundColor(Color.white)
+                              .font(.system(size: 50, weight: .bold))
+                              .frame(width: bodyView.size.width * 0.8, height: 300)
+                              .background(Color.gray)
+                              .padding(.leading, index == 0 ? bodyView.size.width * 0.1 : 0)
+                    }
+            }
+        }
     }
 }
 

@@ -32,6 +32,7 @@ class FirstViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let vc = ThirdViewController()
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
     }
 
