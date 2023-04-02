@@ -8,21 +8,18 @@
 
 import SwiftUI
 
+//https://note.com/smtakahashi/n/n819591e5905c
 struct ThirdView: View {
-    let fruits = ["りんご", "オレンジ", "バナナ"]
-
-//https://www.choge-blog.com/programming/swiftuilist%E3%83%93%E3%83%A5%E3%83%BC%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9/
-//https://capibara1969.com/2266/
-    
     var body: some View {
-        List {
-            ForEach(1 ..< 11) { index in
-                  Text("\(index)行目")
-              }
-            Spacer(minLength: 200)
-        }
+        GeometryReader { bodyView in
+                 Text("1")
+                     .foregroundColor(Color.white)
+                     .font(.system(size: 50, weight: .bold))
+                     .frame(width: bodyView.size.width * 0.8, height: 300)
+                     .background(Color.gray)
+                 
+             }
     }
-    
 }
 
 struct ThirdView_Previews: PreviewProvider {
