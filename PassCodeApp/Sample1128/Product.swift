@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 struct Product: Codable, Identifiable {
     var id: String? = nil
-    let name: String
-    let code: String
+    var name: String
+    var code: String
 }
 

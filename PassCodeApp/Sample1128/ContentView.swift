@@ -14,14 +14,22 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(viewModel.products) { product in
-                VStack(alignment: .leading) {
-                    Text(product.name)
-                        .font(.headline)
-                    Text(product.code)
-                        .font(.subheadline)
+                let bindingProduct = $viewModel.products[viewModel.products.firstIndex(where: { $0.id == product.id })!]
+                
+                NavigationLink(
+                    destination: ProductEditView(
+                        product: bindingProduct
+                    )) {
+                        VStack(alignment: .leading) {
+                        Text(product.name)
+                            .font(.headline)
+                        Text(product.code)
+                            .font(.subheadline)
+                    }
                 }
+                .navigationBarTitle("Products")
+
             }
-            .navigationBarTitle("Products")
         }
     }
 }
