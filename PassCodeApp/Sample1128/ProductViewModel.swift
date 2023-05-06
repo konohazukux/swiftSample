@@ -42,6 +42,7 @@ class ProductViewModel: ObservableObject {
                 }
             } receiveValue: { _ in
                 print("Product saved successfully")
+                self.getProducts()
             }
             .store(in: &cancellables)
     }
