@@ -9,19 +9,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var viewModel = UsersViewModel()
+    @StateObject private var viewModel = ProductViewModel()
 
     var body: some View {
         NavigationView {
-            List(viewModel.users) { user in
+            List(viewModel.products) { product in
                 VStack(alignment: .leading) {
-                    Text(user.name)
+                    Text(product.name)
                         .font(.headline)
-                    Text(user.username)
+                    Text(product.code)
                         .font(.subheadline)
                 }
             }
-            .navigationBarTitle("Users")
+            .navigationBarTitle("Products")
         }
     }
 }

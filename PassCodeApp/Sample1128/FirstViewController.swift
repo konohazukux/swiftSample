@@ -36,9 +36,6 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 1)
-       
-       storeDatabase()
-        retrieveData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
