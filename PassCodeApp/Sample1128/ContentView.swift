@@ -13,23 +13,23 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            List(viewModel.products) { product in
-                let bindingProduct = $viewModel.products[viewModel.products.firstIndex(where: { $0.id == product.id })!]
-                
-                NavigationLink(
-                    destination: ProductEditView(
-                        product: bindingProduct,
-                        viewModel: viewModel
-                    )) {
-                        VStack(alignment: .leading) {
-                        Text(product.name)
-                            .font(.headline)
-                        Text(product.code)
-                            .font(.subheadline)
+            VStack {
+                SearchBar(text: $viewModel.searchText)
+                List {
+                    ForEach(viewModel.products, id: \.id) { product in
+                        if let idx = viewModel.products.firstIndex(where: { $0.id == product.id }) {
+                            let bindingProduct = $viewModel.products[idx]
+                            NavigationLink(destination: ProductEditView(product: bindingProduct, viewModel: viewModel)) {
+                                VStack(alignment: .leading) {
+                                    Text(product.name)
+                                        .font(.headline)
+                                    Text(product.code)
+                                        .font(.subheadline)
+                                }
+                            }
+                        }
                     }
                 }
-                .navigationBarTitle("Products")
-
             }
         }
     }
