@@ -18,7 +18,8 @@ struct ContentView: View {
                 
                 NavigationLink(
                     destination: ProductEditView(
-                        product: bindingProduct
+                        product: bindingProduct,
+                        viewModel: viewModel
                     )) {
                         VStack(alignment: .leading) {
                         Text(product.name)

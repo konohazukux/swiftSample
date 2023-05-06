@@ -13,11 +13,6 @@ class ProductViewModel: ObservableObject {
         getProducts()
     }
 
-    func createOrUpdateProduct() {
-        let product = Product(name: "name3", code: "code3")
-        repository.createOrUpdateProduct(product)
-    }
-
     func getProducts() {
         repository.getProducts()
             .receive(on: DispatchQueue.main)
@@ -31,6 +26,22 @@ class ProductViewModel: ObservableObject {
             } receiveValue: { products in
                 self.products = products
                 print(products)
+            }
+            .store(in: &cancellables)
+    }
+    
+    func saveProduct(_ product: Product) {
+        repository.createOrUpdateProduct(product)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            } receiveValue: { _ in
+                print("Product saved successfully")
             }
             .store(in: &cancellables)
     }

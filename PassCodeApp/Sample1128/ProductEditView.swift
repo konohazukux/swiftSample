@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ProductEditView: View {
     @Binding var product: Product
+    @ObservedObject var viewModel: ProductViewModel
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         Form {
@@ -17,5 +19,9 @@ struct ProductEditView: View {
             TextField("Product Code", text: $product.code)
         }
         .navigationBarTitle("Edit Product", displayMode: .inline)
+        .navigationBarItems(trailing: Button("Save") {
+            viewModel.saveProduct(product)
+            presentationMode.wrappedValue.dismiss()
+        })
     }
 }
