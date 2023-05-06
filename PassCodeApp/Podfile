@@ -14,5 +14,4 @@ target 'Sample1128' do
 
 pod 'FirebaseFirestore'
 
-
 end
