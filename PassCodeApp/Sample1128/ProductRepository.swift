@@ -61,8 +61,8 @@ struct ProductRepository {
                 if let error = error {
                     promise(.failure(error))
                 } else if let querySnapshot = querySnapshot {
-                  let products =  querySnapshot.documents.map {
-                      Product(
+                    let products =  querySnapshot.documents.map {
+                        Product(
                             id: $0.documentID,
                             name: $0.data()["name"] as? String ?? "",
                             code: $0.data()["code"] as? String ?? ""
