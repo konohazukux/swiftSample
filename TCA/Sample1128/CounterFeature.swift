@@ -33,6 +33,7 @@ struct ConterFeature: ReducerProtocol {
 }
 
 struct CounterView: View {
+  let store: StoreOf<ConterFeature>
   var body: some View {
     EmptyView()
   }
