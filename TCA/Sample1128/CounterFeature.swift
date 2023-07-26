@@ -6,6 +6,7 @@
 //  Copyright © 2023 TAKESHI SHIMADA. All rights reserved.
 //
 
+import SwiftUI
 import ComposableArchitecture
 
 struct ConterFeature: ReducerProtocol {
@@ -29,4 +30,10 @@ struct ConterFeature: ReducerProtocol {
     }
   }
   
+}
+
+struct CounterView: View {
+  var body: some View {
+    EmptyView()
+  }
 }
