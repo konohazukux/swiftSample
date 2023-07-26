@@ -18,4 +18,12 @@ struct ConterFeature: ReducerProtocol {
     case incrementButtonTapped
   }
   
+  func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    switch action {
+    case .decrementButtonTapped:
+    case .incrementButtonTapped:
+      
+    }
+  }
+  
 }
