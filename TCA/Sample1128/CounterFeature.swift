@@ -10,6 +10,11 @@ import ComposableArchitecture
 
 struct ConterFeature: ReducerProtocol {
  
-  
+  struct State {
+    
+  }
+  enum Action {
+    
+  }
   
 }
