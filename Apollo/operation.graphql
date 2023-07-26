@@ -1,0 +1,6 @@
+query HeroName {
+  hero {
+    id
+    name
+  }
+}

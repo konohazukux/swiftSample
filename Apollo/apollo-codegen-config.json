@@ -1,0 +1,29 @@
+{
+  "schemaNamespace" : "Sample1128",
+  "input" : {
+    "operationSearchPaths" : [
+      "**/*.graphql"
+    ],
+    "schemaSearchPaths" : [
+      "**/schema.json"
+    ]
+  },
+  "output" : {
+    "testMocks" : {
+      "none" : {
+      }
+    },
+    "schemaTypes" : {
+      "path" : "./Sample1128",
+      "moduleType" : {
+        "embeddedInTarget" : {
+          "name" : "Sample1128"
+        }
+      }
+    },
+    "operations" : {
+      "inSchemaModule" : {
+      }
+    }
+  }
+}
