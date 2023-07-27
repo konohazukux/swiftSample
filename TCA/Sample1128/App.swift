@@ -11,13 +11,15 @@ import SwiftUI
 
 @main
 struct MyApp: App {
+  
+  static let store = Store(initialState: CounterFeature.State()) {
+    CounterFeature()
+  }
+  
   var body: some Scene {
     WindowGroup {
       CounterView(
-        store: Store(initialState: CounterFeature.State()) {
-            CounterFeature()
-        }
-      )
+        store: MyApp.store)
     }
   }
 }
