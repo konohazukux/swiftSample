@@ -6,13 +6,18 @@
 //  Copyright © 2023 TAKESHI SHIMADA. All rights reserved.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 @main
 struct MyApp: App {
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      CounterView(
+        store: Store(initialState: CounterFeature.State()) {
+            CounterFeature()
+        }
+      )
     }
   }
 }
