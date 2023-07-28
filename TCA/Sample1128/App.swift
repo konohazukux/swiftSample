@@ -11,7 +11,6 @@ import SwiftUI
 
 @main
 struct MyApp: App {
-  
   static let store = Store(initialState: CounterFeature.State()) {
     CounterFeature()
       ._printChanges()
