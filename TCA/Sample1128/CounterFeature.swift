@@ -19,6 +19,7 @@ struct CounterFeature: ReducerProtocol {
   enum Action {
     case decrementButtonTapped
     case incrementButtonTapped
+    case factResponse(String)
     case factButtonTapped
   }
   
@@ -35,7 +36,12 @@ struct CounterFeature: ReducerProtocol {
         let (data, _) = try await URLSession.shared
           .data(from: URL(string: "http://numbersapi.com/\(count)")!)
         let fact = String(decoding: data, as: UTF8.self)
+        await send(.factResponse(fact))
       }
+    case let .factResponse(fact):
+      state.fact = fact
+      state.isLoading = false
+      return .none
     case .incrementButtonTapped:
       state.count += 1
       state.fact = nil
