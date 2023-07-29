@@ -21,6 +21,8 @@ struct CounterFeature: ReducerProtocol {
     case incrementButtonTapped
     case factResponse(String)
     case factButtonTapped
+    case timerTick
+    case toggleTimerButtonTapped
   }
   
   func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
@@ -46,6 +48,17 @@ struct CounterFeature: ReducerProtocol {
       state.count += 1
       state.fact = nil
       return .none
+    case .timerTick:
+      state.count += 1
+      state.fact = nil
+      return .none
+    case .toggleTimerButtonTapped:
+      return .run { send in
+        while true {
+          try await Task.sleep(for: .seconds(1))
+          await send(.timerTick)
+        }
+      }
     }
   }
   
