@@ -31,7 +31,9 @@ struct CounterFeature: ReducerProtocol {
     case .factButtonTapped:
       state.fact = nil
       state.isLoading = true
-      return .none
+      return .run { send in
+        // ✅ Do async work in here, and send actions back into the system.
+      }
     case .incrementButtonTapped:
       state.count += 1
       state.fact = nil
