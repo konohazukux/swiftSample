@@ -26,6 +26,8 @@ struct CounterFeature: ReducerProtocol {
     case toggleTimerButtonTapped
   }
   
+  enum CancelID { case timer }
+  
   func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
     switch action {
     case .decrementButtonTapped:
@@ -54,11 +56,17 @@ struct CounterFeature: ReducerProtocol {
       state.fact = nil
       return .none
     case .toggleTimerButtonTapped:
-      return .run { send in
-        while true {
-          try await Task.sleep(for: .seconds(1))
-          await send(.timerTick)
+      state.isTimerRunning.toggle()
+      if state.isTimerRunning {
+        return .run { send in
+          while true {
+            try await Task.sleep(for: .seconds(1))
+            await send(.timerTick)
+          }
         }
+        .cancellable(id: CancelID.timer)
+      } else {
+        return .cancel(id: CancelID.timer)
       }
     }
   }
