@@ -15,6 +15,7 @@ struct CounterFeature: ReducerProtocol {
     var count = 0
     var fact: String?
     var isLoading = false
+    var isTimerRunning = false
   }
   enum Action {
     case decrementButtonTapped
@@ -93,6 +94,14 @@ struct CounterView: View {
             .background(Color.black.opacity(0.1))
             .cornerRadius(10)
         }
+        Button(viewStore.isTimerRunning ? "Stop timer" : "Start timer") {
+          viewStore.send(.toggleTimerButtonTapped)
+        }
+        .font(.largeTitle)
+        .padding()
+        .background(Color.black.opacity(0.1))
+        .cornerRadius(10)
+        
           Button("Fact") {
             viewStore.send(.factButtonTapped)
           }
