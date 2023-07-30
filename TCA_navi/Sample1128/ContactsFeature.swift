@@ -14,22 +14,18 @@ struct Contact: Equatable, Identifiable {
   var name: String
 }
 
-struct ContactsFeature: Reducer {
+struct ContactsFeature: ReducerProtocol {
   struct State: Equatable {
     var contacts: IdentifiedArrayOf<Contact> = []
   }
   enum Action: Equatable {
     case addButtonTapped
   }
-  var body: some ReducerOf<Self> {
-    Reduce { state, action in
-      switch action {
-        .addButtonTapped:
-        //TODO: handle action
-        return .none
-      }
+  func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+    switch action {
+    case .addButtonTapped:
+      // TODO: Handle action
+      return .none
     }
   }
-  
 }
-
