@@ -6,16 +6,30 @@
 //  Copyright © 2023 TAKESHI SHIMADA. All rights reserved.
 //
 
-import SwiftUI
+import Foundation
+import ComposableArchitecture
 
-struct ContactsFeature: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+struct Contact: Equatable, Identifiable {
+  let id: UUID
+  var name: String
 }
 
-struct ContactsFeature_Previews: PreviewProvider {
-    static var previews: some View {
-        ContactsFeature()
+struct ContactsFeature: Reducer {
+  struct State: Equatable {
+    var contacts: IdentifiedArrayOf<Contact> = []
+  }
+  enum Action: Equatable {
+    case addButtonTapped
+  }
+  var body: some ReducerOf<Self> {
+    Reduce { state, action in
+      switch action {
+        .addButtonTapped:
+        //TODO: handle action
+        return .none
+      }
     }
+  }
+  
 }
+
