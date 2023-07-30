@@ -10,7 +10,6 @@
 		6265A2109981780B1B122F35 /* Pods_Sample1128.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C7A0E826D8277750720403 /* Pods_Sample1128.framework */; };
 		82C9E77F238F919B00EA0B6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82C9E77E238F919B00EA0B6D /* Assets.xcassets */; };
 		82C9E78D238F919B00EA0B6D /* Sample1128Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E78C238F919B00EA0B6D /* Sample1128Tests.swift */; };
-		82CF42EA2A714D8200374E60 /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CF42E92A714D8200374E60 /* CounterFeature.swift */; };
 		82CF42ED2A714E8900374E60 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 82CF42EC2A714E8900374E60 /* ComposableArchitecture */; };
 		82CF42F12A7221C200374E60 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CF42F02A7221C200374E60 /* App.swift */; };
 /* End PBXBuildFile section */
@@ -34,7 +33,6 @@
 		82C9E788238F919B00EA0B6D /* Sample1128Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Sample1128Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C9E78C238F919B00EA0B6D /* Sample1128Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample1128Tests.swift; sourceTree = "<group>"; };
 		82C9E78E238F919B00EA0B6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		82CF42E92A714D8200374E60 /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
 		82CF42F02A7221C200374E60 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		BB4E332A33217BD640112B67 /* Pods-Sample1128.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample1128.release.xcconfig"; path = "Target Support Files/Pods-Sample1128/Pods-Sample1128.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				82CF42F02A7221C200374E60 /* App.swift */,
-				82CF42E92A714D8200374E60 /* CounterFeature.swift */,
 				82C9E77E238F919B00EA0B6D /* Assets.xcassets */,
 				82C9E783238F919B00EA0B6D /* Info.plist */,
 			);
@@ -265,7 +262,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82CF42EA2A714D8200374E60 /* CounterFeature.swift in Sources */,
 				82CF42F12A7221C200374E60 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
