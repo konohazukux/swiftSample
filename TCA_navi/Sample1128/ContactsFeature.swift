@@ -17,6 +17,7 @@ struct Contact: Equatable, Identifiable {
 
 struct ContactsFeature: ReducerProtocol {
   struct State: Equatable {
+    @PresentationState var addContact: AddContactFeature.State?
     var contacts: IdentifiedArrayOf<Contact> = []
   }
   enum Action: Equatable {
