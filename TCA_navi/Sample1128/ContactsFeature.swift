@@ -26,6 +26,9 @@ struct ContactsFeature: Reducer {
         return .none
       }
     }
+    .ifLet(\.$addContact, action: /Action.addContact) {
+      AddContactFeature()
+    }
   }
 }
 
