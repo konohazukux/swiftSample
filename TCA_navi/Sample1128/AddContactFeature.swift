@@ -57,7 +57,9 @@ struct AddContactPreviews: PreviewProvider {
               name: "Blob"
             )
           )
-        )
+        ) {
+          AddContactFeature()
+        }
       )
     }
   }
