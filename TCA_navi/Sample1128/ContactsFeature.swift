@@ -20,7 +20,9 @@ struct ContactsFeature: Reducer {
     Reduce { state, action in
       switch action {
       case .addButtonTapped:
-        // TODO: Handle action
+        state.addContact = AddContactFeature.State(
+          contact: Contact(id: UUID(), name: "")
+        )
         return .none
       case .addContact:
         return .none
