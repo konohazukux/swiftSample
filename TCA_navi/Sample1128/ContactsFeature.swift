@@ -22,7 +22,8 @@ struct ContactsFeature: Reducer {
       case .addButtonTapped:
         // TODO: Handle action
         return .none
-        
+      case .addContact:
+        return .none
       }
     }
   }
