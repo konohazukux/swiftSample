@@ -1,0 +1,50 @@
+
+
+## section 3 
+### step 2
+
+こちらの次の部分が追加となりました
+```
+      .sheet(
+        store: self.store.scope(
+          state: \.$addContact,
+          action: { .addContact($0) }
+        )
+```
+追加部分について解説してください
+
+
+もちろん、お伝えします。
+
+追加された部分:
+```swift
+.sheet(
+    store: self.store.scope(
+      state: \.$addContact,
+      action: { .addContact($0) }
+    )
+) { addContactStore in
+    NavigationStack {
+        AddContactView(store: addContactStore)
+    }
+}
+```
+
+このコードは、`ComposableArchitecture`の一部として、SwiftUIの`.sheet`修飾子を拡張したものを利用しています。具体的な内容は以下の通りです：
+
+1. **`.sheet` 修飾子**:
+    - SwiftUIの基本的な`.sheet`修飾子は、条件が`true`の場合にモーダルシートを表示するために使用されます。
+    - この場合、`ComposableArchitecture`が提供するカスタム版の`.sheet`を使っています。これは、特定のストアのサブスコープに基づいてシートを表示するためのものです。
+
+2. **`store.scope(...)`**:
+    - `.scope`メソッドは、ストアの一部の状態とアクションにフォーカスを絞るためのものです。
+    - `state: \.$addContact` は、`ContactsFeature.State`の中の`@PresentationState var addContact`を指します。これは、連絡先追加のフィーチャーの状態が存在する場合にシートが表示されることを意味しています。
+    - `action: { .addContact($0) }` は、サブスコープ内で発生するアクションを`ContactsFeature.Action.addContact`に変換することを示しています。
+
+3. **シートの内容**:
+    - `{ addContactStore in ... }` ブロックは、スコープが適用されたストア（この場合は`addContactStore`）を受け取り、そのストアを使って`AddContactView`を表示します。これは、連絡先を追加するためのビューであり、このビューはモーダルシートとして表示されます。
+    - このビュー内では、`AddContactFeature`のロジックが利用されることが期待されます。
+
+要するに、追加されたコードは、ユーザーが連絡先を追加するためのモーダルシートの表示ロジックを提供しています。このシートは、`addContact`状態が`nil`でない場合、つまり連絡先追加フィーチャーがアクティブな場合にのみ表示されます。
+
+
