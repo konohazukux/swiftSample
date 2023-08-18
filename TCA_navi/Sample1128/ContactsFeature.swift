@@ -27,6 +27,12 @@ struct ContactsFeature: Reducer {
       case .addContact(.presented(.cancelButtonTapped)):
         state.addContact = nil
         return .none
+      case .addContact(.presented(.saveButtonTapped)):
+        guard let contact = state.addContact?.contact
+        else { return .none }
+        state.contacts.append(contact)
+        state.addContact = nil
+        return .none
       case .addContact:
         return .none
       }
