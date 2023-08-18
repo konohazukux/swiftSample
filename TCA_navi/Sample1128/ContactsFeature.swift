@@ -22,11 +22,14 @@ struct ContactsFeature: ReducerProtocol {
   }
   enum Action: Equatable {
     case addButtonTapped
+    case addContact(PresentationAction<AddContactFeature.Action>)
   }
   func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
     switch action {
     case .addButtonTapped:
       // TODO: Handle action
+      return .none
+    case .addContact:
       return .none
     }
   }
