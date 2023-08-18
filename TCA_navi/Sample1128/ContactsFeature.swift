@@ -15,66 +15,21 @@ struct Contact: Equatable, Identifiable {
   var name: String
 }
 
-struct ContactsFeature: ReducerProtocol {
+struct ContactsFeature: Reducer {
   struct State: Equatable {
-    @PresentationState var addContact: AddContactFeature.State?
     var contacts: IdentifiedArrayOf<Contact> = []
   }
   enum Action: Equatable {
     case addButtonTapped
-    case addContact(PresentationAction<AddContactFeature.Action>)
   }
-  func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
-    switch action {
-    case .addButtonTapped:
-      // TODO: Handle action
-      return .none
-    case .addContact:
-      return .none
-    }
-  }
-}
-
-struct ContentView: View {
-  let store: StoreOf<ContactsFeature>
-
-  var body: some View {
-    NavigationStack {
-      WithViewStore(self.store, observe: \.contacts) { viewStore in
-        List {
-          ForEach(viewStore.state) { contact in
-            Text(contact.name)
-          }
-        }
-        .navigationTitle("Contacts")
-        .toolbar {
-          ToolbarItem {
-            Button {
-              viewStore.send(.addButtonTapped)
-            } label: {
-              Image(systemName: "plus")
-            }
-          }
-        }
+  var body: some ReducerOf<Self> {
+    Reduce { state, action in
+      switch action {
+      case .addButtonTapped:
+        // TODO: Handle action
+        return .none
       }
     }
   }
 }
 
-struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView(
-      store: Store(
-        initialState: ContactsFeature.State(
-          contacts: [
-            Contact(id: UUID(), name: "Blob"),
-            Contact(id: UUID(), name: "Blob Jr"),
-            Contact(id: UUID(), name: "Blob Sr"),
-          ]
-        )
-      ) {
-        ContactsFeature()
-      }
-    )
-  }
-}
