@@ -1,11 +1,3 @@
-//
-//  ContactsFeature.swift
-//  Sample1128
-//
-//  Created by TAKESHI SHIMADA on 2023/07/30.
-//  Copyright © 2023 TAKESHI SHIMADA. All rights reserved.
-//
-
 import Foundation
 import ComposableArchitecture
 import SwiftUI
@@ -33,3 +25,28 @@ struct ContactsFeature: Reducer {
   }
 }
 
+struct ContentView: View {
+  let store: StoreOf<ContactsFeature>
+
+  var body: some View {
+    NavigationStack {
+      WithViewStore(self.store, observe: \.contacts) { viewStore in
+        List {
+          ForEach(viewStore.state) { contact in
+            Text(contact.name)
+          }
+        }
+        .navigationTitle("Contacts")
+        .toolbar {
+          ToolbarItem {
+            Button {
+              viewStore.send(.addButtonTapped)
+            } label: {
+              Image(systemName: "plus")
+            }
+          }
+        }
+      }
+    }
+  }
+}
