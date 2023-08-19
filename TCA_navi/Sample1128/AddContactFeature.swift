@@ -18,11 +18,11 @@ struct AddContactFeature: Reducer {
   func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
     case .cancelButtonTapped:
-      return .none
+      return .send(.delegate(.cancel))
     case .delegate:
       return .none
     case .saveButtonTapped:
-      return .none
+      return .send(.delegate(.saveContact(state.contact)))
     case let .setName(name):
       state.contact.name = name
       return .none
