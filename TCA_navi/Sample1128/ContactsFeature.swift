@@ -14,12 +14,7 @@ struct ContactsFeature: Reducer {
   }
   enum Action: Equatable {
     case addButtonTapped
-    case delegate(Delegate)
     case addContact(PresentationAction<AddContactFeature.Action>)
-    enum Delegate: Equatable {
-      case cancel
-      case saveContact(Contact)
-    }
   }
   var body: some ReducerOf<Self> {
     Reduce { state, action in

@@ -7,12 +7,19 @@ struct AddContactFeature: Reducer {
   }
   enum Action: Equatable {
     case cancelButtonTapped
+    case delegate(Delegate)
     case saveButtonTapped
     case setName(String)
+    enum Delegate: Equatable {
+      case cancel
+      case saveContact(Contact)
+    }
   }
   func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
     case .cancelButtonTapped:
+      return .none
+    case .delegate:
       return .none
     case .saveButtonTapped:
       return .none
