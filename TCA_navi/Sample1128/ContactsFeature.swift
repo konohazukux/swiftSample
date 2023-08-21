@@ -73,6 +73,14 @@ struct ContactsFeature: Reducer {
   }
 }
 
+extension ContactsFeature {
+  struct Destination: Reducer {
+    enum State: Equatable {
+      
+    }
+  }
+}
+
 struct ContentView: View {
   let store: StoreOf<ContactsFeature>
 
