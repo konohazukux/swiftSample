@@ -48,6 +48,11 @@ struct ContactsFeature: Reducer {
         return .none
       case .addContact:
         return .none
+      case let .alert(.presented(.confirmDeletion(id: id))):
+        state.contacts.remove(id: id)
+        return .none
+      case .alert:
+        return .none
       case let .deleteButtonTapped(id: id):
         state.alert = AlertState {
           TextState("Are you sure?")
