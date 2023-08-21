@@ -79,6 +79,10 @@ extension ContactsFeature {
       case addContact(AddContactFeature.State)
       case alert(AlertState<ContactsFeature.Action.Alert>)
     }
+    enum Action: Equatable {
+      case addContact(AddContactFeature.State)
+      case alert(AlertState<ContactsFeature.Action.Alert>)
+    }
   }
 }
 
