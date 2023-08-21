@@ -9,9 +9,8 @@ struct Contact: Equatable, Identifiable {
 
 struct ContactsFeature: Reducer {
   struct State: Equatable {
-    @PresentationState var addContact: AddContactFeature.State?
-    @PresentationState var alert: AlertState<Action.Alert>?
     var contacts: IdentifiedArrayOf<Contact> = []
+    @PresentationState var destination: Destination.State?
   }
   enum Action: Equatable {
     case addButtonTapped
