@@ -14,9 +14,8 @@ struct ContactsFeature: Reducer {
   }
   enum Action: Equatable {
     case addButtonTapped
-    case addContact(PresentationAction<AddContactFeature.Action>)
-    case alert(PresentationAction<Alert>)
     case deleteButtonTapped(id: Contact.ID)
+    case destination(PresentationAction<Destination.Action>)
     enum Alert: Equatable {
       case confirmDeletion(id: Contact.ID)
     }
