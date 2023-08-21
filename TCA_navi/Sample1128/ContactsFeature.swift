@@ -16,9 +16,10 @@ struct ContactsFeature: Reducer {
   enum Action: Equatable {
     case addButtonTapped
     case addContact(PresentationAction<AddContactFeature.Action>)
+    case alert(PresentationAction<Alert>)
     case deleteButtonTapped(id: Contact.ID)
     enum Alert: Equatable {
-      
+      case confirmDeletion(id: Contact.ID)
     }
   }
   var body: some ReducerOf<Self> {
@@ -48,6 +49,15 @@ struct ContactsFeature: Reducer {
       case .addContact:
         return .none
       case let .deleteButtonTapped(id: id):
+        state.alert = AlertState {
+          TextState("Are you sure?")
+        } actions: {
+          ButtonState(
+            role: .destructive,
+            action: .confirmDeletion(id: id)) {
+            TextState("Delete")
+          }
+        }
         return .none
       }
     }
