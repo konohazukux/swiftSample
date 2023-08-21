@@ -10,11 +10,16 @@ struct Contact: Equatable, Identifiable {
 struct ContactsFeature: Reducer {
   struct State: Equatable {
     @PresentationState var addContact: AddContactFeature.State?
+    @PresentationState var alert: AlertState<Action.Alert>?
     var contacts: IdentifiedArrayOf<Contact> = []
   }
   enum Action: Equatable {
     case addButtonTapped
     case addContact(PresentationAction<AddContactFeature.Action>)
+    case deleteButtonTapped(id: Contact.ID)
+    enum Alert: Equatable {
+      
+    }
   }
   var body: some ReducerOf<Self> {
     Reduce { state, action in
@@ -41,6 +46,8 @@ struct ContactsFeature: Reducer {
         state.addContact = nil
         return .none
       case .addContact:
+        return .none
+      case let .deleteButtonTapped(id: id):
         return .none
       }
     }
