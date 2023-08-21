@@ -83,6 +83,9 @@ extension ContactsFeature {
       case addContact(AddContactFeature.State)
       case alert(AlertState<ContactsFeature.Action.Alert>)
     }
+    var body: some ReducerOf<Self> {
+      
+    }
   }
 }
 
