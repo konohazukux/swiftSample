@@ -80,13 +80,14 @@ extension ContactsFeature {
       case alert(AlertState<ContactsFeature.Action.Alert>)
     }
     enum Action: Equatable {
-      case addContact(AddContactFeature.State)
-      case alert(AlertState<ContactsFeature.Action.Alert>)
+      case addContact(AddContactFeature.Action)
+      case alert(ContactsFeature.Action.Alert)
     }
     var body: some ReducerOf<Self> {
       Scope(state: /State.addContact, action: /Action.addContact) {
         AddContactFeature()
       }
+    }
   }
 }
 
