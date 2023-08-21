@@ -30,28 +30,13 @@ struct ContactsFeature: Reducer {
           )
         )
         return .none
-//      case .addContact(.presented(.delegate(.cancel))):
-//        state.addContact = nil
-//        return .none
-      case let .addContact(.presented(.delegate(.saveContact(contact)))):
+      case let .destination(.presented(.addContact(.delegate(.saveContact(contact))))):
         state.contacts.append(contact)
-//        state.addContact = nil
         return .none
-//      case .addContact(.presented(.cancelButtonTapped)):
-//        state.addContact = nil
-//        return .none
-      case .addContact(.presented(.saveButtonTapped)):
-        guard let contact = state.addContact?.contact
-        else { return .none }
-        state.contacts.append(contact)
-        state.addContact = nil
-        return .none
-      case .addContact:
-        return .none
-      case let .alert(.presented(.confirmDeletion(id: id))):
+      case let .destination(.presented(.alert(.confirmDeletion(id: id)))):
         state.contacts.remove(id: id)
         return .none
-      case .alert:
+      case .destination:
         return .none
       case let .deleteButtonTapped(id: id):
         state.alert = AlertState {
