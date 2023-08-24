@@ -1,30 +1,38 @@
 import ComposableArchitecture
-   import SwiftUI
+import SwiftUI
 
 struct Todos: Reducer {
   struct State {
-    @BindingState var editMode: EditMode = .inactive
-    var count = 0
+    @BindingState var count: Int = 0
   }
 
-  enum Action {
+  enum Action: BindableAction {
     case incrementButtonTapped
+    case binding(BindingAction<State>)
   }
 
   func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
     case .incrementButtonTapped:
       return .none
+    case .binding:
+      return .none
     }
   }
 }
 
-extension Todos.State: Equatable {}
-
 struct AppView: View {
   let store: StoreOf<Todos>
+  
+  struct ViewState: Equatable {
+    @BindingViewState var count: Int
+    init(store: BindingViewStore<Todos.State>) {
+      self._count = store.$count
+    }
+  }
+  
   var body: some View {
-    WithViewStore(self.store, observe: { $0 }) { viewStore in
+    WithViewStore(self.store, observe: { ViewState.init(store: $0) }) { viewStore in
       Text("\(viewStore.count)")
         .font(.largeTitle)
         .padding()
