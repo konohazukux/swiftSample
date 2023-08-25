@@ -4,6 +4,7 @@ import SwiftUI
 struct Todos: Reducer {
   struct State {
     @BindingState var count: Int = 0
+    var todos: IdentifiedArrayOf<Todo.State> = []
   }
 
   enum Action: BindableAction {
