@@ -15,20 +15,28 @@ struct Todos: Reducer {
   }
 
   @Dependency(\.uuid) var uuid
-  
-  func reduce(into state: inout State, action: Action) -> Effect<Action> {
-    switch action {
-    case .incrementButtonTapped:
-      return .none
-    case .addTodoButtonTapped:
-      state.todos.insert(Todo.State(id: self.uuid()), at: 0)
-      return .none
-    case .todo:
-      return .none
-    case .binding:
-      return .none
+
+  var body: some Reducer<State, Action> {
+    BindingReducer()
+    Reduce { state, action in
+      switch action {
+      case .incrementButtonTapped:
+        return .none
+      case .addTodoButtonTapped:
+        state.todos.insert(Todo.State(id: self.uuid()), at: 0)
+        return .none
+      case .todo:
+        return .none
+      case .binding:
+        return .none
+      }
     }
+    // ここが無いと入力した文字が元に戻ってしまう
+//    .forEach(\.todos, action: /Action.todo(id:action:)) {
+//      Todo()
+//    }
   }
+
 }
 
 struct AppView: View {
