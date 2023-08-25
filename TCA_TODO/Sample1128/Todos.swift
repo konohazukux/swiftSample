@@ -33,11 +33,22 @@ struct AppView: View {
   
   var body: some View {
     WithViewStore(self.store, observe: { ViewState.init(store: $0) }) { viewStore in
-      Text("\(viewStore.count)")
-        .font(.largeTitle)
-        .padding()
-        .background(Color.black.opacity(0.1))
-        .cornerRadius(10)
+      NavigationStack {
+        VStack(alignment: .leading) {
+          Text("\(viewStore.count)")
+            .font(.largeTitle)
+            .padding()
+            .background(Color.black.opacity(0.1))
+            .cornerRadius(10)
+        }
+        .navigationTitle("Todos")
+        .navigationBarItems(
+          trailing:
+            Button("add") {
+            // add button tapped
+          }
+        )
+      }
     }
   }
 }
