@@ -32,9 +32,9 @@ struct Todos: Reducer {
       }
     }
     // ここが無いと入力した文字が元に戻ってしまう
-//    .forEach(\.todos, action: /Action.todo(id:action:)) {
-//      Todo()
-//    }
+    .forEach(\.todos, action: /Action.todo(id:action:)) {
+      Todo()
+    }
   }
 
 }
