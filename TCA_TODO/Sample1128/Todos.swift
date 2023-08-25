@@ -9,12 +9,18 @@ struct Todos: Reducer {
 
   enum Action: BindableAction {
     case incrementButtonTapped
+    case addTodoButtonTapped
     case binding(BindingAction<State>)
   }
 
+  @Dependency(\.uuid) var uuid
+  
   func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
     case .incrementButtonTapped:
+      return .none
+    case .addTodoButtonTapped:
+      state.todos.insert(Todo.State(id: self.uuid()), at: 0)
       return .none
     case .binding:
       return .none
@@ -46,7 +52,7 @@ struct AppView: View {
         .navigationBarItems(
           trailing:
             Button("add") {
-            // add button tapped
+              viewStore.send(.addTodoButtonTapped, animation: .default)
           }
         )
       }
