@@ -1,5 +1,5 @@
 import ComposableArchitecture
-import SwiftUI
+@preconcurrency import SwiftUI
 
 struct Todos: Reducer {
   struct State {
@@ -11,6 +11,7 @@ struct Todos: Reducer {
     case incrementButtonTapped
     case addTodoButtonTapped
     case binding(BindingAction<State>)
+    case todo(id: Todo.State.ID, action: Todo.Action)
   }
 
   @Dependency(\.uuid) var uuid
@@ -21,6 +22,8 @@ struct Todos: Reducer {
       return .none
     case .addTodoButtonTapped:
       state.todos.insert(Todo.State(id: self.uuid()), at: 0)
+      return .none
+    case .todo:
       return .none
     case .binding:
       return .none
@@ -42,11 +45,13 @@ struct AppView: View {
     WithViewStore(self.store, observe: { ViewState.init(store: $0) }) { viewStore in
       NavigationStack {
         VStack(alignment: .leading) {
-          Text("\(viewStore.count)")
-            .font(.largeTitle)
-            .padding()
-            .background(Color.black.opacity(0.1))
-            .cornerRadius(10)
+          List {
+            ForEachStore(
+              self.store.scope(state: \.todos, action: Todos.Action.todo(id:action:))
+            ){  //Store<Todo.State, Todo.Action>
+              TodoView(store: $0)
+            }
+          }
         }
         .navigationTitle("Todos")
         .navigationBarItems(
