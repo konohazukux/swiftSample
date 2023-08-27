@@ -4,6 +4,10 @@ import SwiftUI
 struct TodoListFeature: Reducer {
   struct State {
     var count = 0
+    var todos: [Todo] = []
+  }
+  struct Todo: Identifiable, Equatable {
+    var id: UUID
   }
   enum Action {
     case incrementButtonTapped
@@ -23,9 +27,9 @@ struct TodoListView: View {
   let store: StoreOf<TodoListFeature>
   var body: some View {
     WithViewStore(self.store, observe: { $0 }) { viewStore in
-      VStack {
-        Form {
-          Text("\(viewStore.count)")
+      List {
+        ForEach(viewStore.state.todos) { todo in
+          Text("aaa \(todo.id)")
         }
       }
     }
