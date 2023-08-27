@@ -2,12 +2,12 @@ import ComposableArchitecture
 import SwiftUI
 
 struct TodoListFeature: Reducer {
-  struct State {
-    var count = 0
-    var todos: [Todo] = []
-  }
   struct Todo: Identifiable, Equatable {
     var id: UUID
+    var title: String
+  }
+  struct State {
+    var todos: [Todo] = []
   }
   enum Action {
     case incrementButtonTapped
@@ -15,7 +15,6 @@ struct TodoListFeature: Reducer {
   func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
     case .incrementButtonTapped:
-      state.count += 1
       return .none
     }
   }
@@ -29,7 +28,7 @@ struct TodoListView: View {
     WithViewStore(self.store, observe: { $0 }) { viewStore in
       List {
         ForEach(viewStore.state.todos) { todo in
-          Text("aaa \(todo.id)")
+          Text("\(todo.title)")
         }
       }
     }
@@ -40,9 +39,17 @@ struct TodoListView_Previews: PreviewProvider {
   static var previews: some View {
     TodoListView(
       store: Store(
-        initialState: TodoListFeature.State(),
-        reducer: { TodoListFeature() }
+        initialState: TodoListFeature.State(todos: dummyTodos),
+        reducer: {
+          TodoListFeature()
+        }
       )
     )
   }
+  static let dummyTodos: [TodoListFeature.Todo] = [
+    .init(id: UUID(), title: "Todo 1"),
+    .init(id: UUID(), title: "Todo 2"),
+    .init(id: UUID(), title: "Todo 3"),
+    .init(id: UUID(), title: "Todo 4"),
+  ]
 }
