@@ -18,8 +18,14 @@ struct SampleFeature: Reducer {
 struct SampleView: View {
   let store: StoreOf<SampleFeature>
   var body: some View {
-    Form {
-      NavigationLink("Sample", destination: {})
+    NavigationStack{
+      Form {
+        NavigationLink("Sample", destination: {
+          CounterView(store: Store(initialState: CounterFeature.State()) {
+            CounterFeature()._printChanges()
+          })
+        })
+      }
     }
   }
 }
