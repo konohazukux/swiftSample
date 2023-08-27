@@ -18,6 +18,8 @@ struct SampleFeature: Reducer {
 struct SampleView: View {
   let store: StoreOf<SampleFeature>
   var body: some View {
-    EmptyView()
+    Form {
+      NavigationLink("Sample", destination: {})
+    }
   }
 }
