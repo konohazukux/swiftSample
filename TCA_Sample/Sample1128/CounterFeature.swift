@@ -21,28 +21,34 @@ struct CounterFeature: Reducer {
   }
 }
 
+extension CounterFeature.State: Equatable {}
+
 struct CounterView: View {
   let store: StoreOf<CounterFeature>
   var body: some View {
-    VStack {
-      Text("0")
-        .font(.largeTitle)
-        .padding()
-        .background(Color.black.opacity(0.1))
-        .cornerRadius(10)
-      HStack {
-        Button("-"){
+    WithViewStore(self.store, observe: { $0 }) { viewStore in
+      VStack {
+        Text("\(viewStore.count)")
+          .font(.largeTitle)
+          .padding()
+          .background(Color.black.opacity(0.1))
+          .cornerRadius(10)
+        HStack {
+          Button("-"){
+            viewStore.send(.decrementButtonTapped)
+          }
+          .font(.largeTitle)
+          .padding()
+          .background(Color.black.opacity(0.1))
+          .cornerRadius(10)
+          Button("+"){
+            viewStore.send(.incrementButtonTapped)
+          }
+          .font(.largeTitle)
+          .padding()
+          .background(Color.black.opacity(0.1))
+          .cornerRadius(10)
         }
-        .font(.largeTitle)
-        .padding()
-        .background(Color.black.opacity(0.1))
-        .cornerRadius(10)
-        Button("+"){
-        }
-        .font(.largeTitle)
-        .padding()
-        .background(Color.black.opacity(0.1))
-        .cornerRadius(10)
       }
     }
   }
