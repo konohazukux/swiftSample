@@ -7,14 +7,19 @@ struct TodoListFeature: Reducer {
     var title: String
   }
   struct State {
-    var todos: [Todo] = []
+    var todos: [Todo] = [
+      .init(id: UUID(), title: "title 1"),
+      .init(id: UUID(), title: "title 2")
+    ] // TODO
+    var selectedTodo: Todo?
   }
   enum Action {
-    case incrementButtonTapped
+    case todoSelected(Todo)
   }
   func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
-    case .incrementButtonTapped:
+    case .todoSelected(let todo):
+      state.selectedTodo = todo
       return .none
     }
   }
@@ -26,9 +31,19 @@ struct TodoListView: View {
   let store: StoreOf<TodoListFeature>
   var body: some View {
     WithViewStore(self.store, observe: { $0 }) { viewStore in
-      List {
-        ForEach(viewStore.state.todos) { todo in
-          Text("\(todo.title)")
+      NavigationStack {
+        List {
+          ForEach(viewStore.state.todos) { todo in
+            NavigationLink(
+              "\(todo.title)",
+              destination:
+                TodoDetailView(
+                  store: Store(
+                    initialState: TodoDetailFeature.State(todo: todo),
+                    reducer: { TodoDetailFeature() }
+                  )
+                ))
+          }
         }
       }
     }
