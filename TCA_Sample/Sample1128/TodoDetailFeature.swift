@@ -7,11 +7,15 @@ struct TodoDetailFeature: Reducer {
   }
   enum Action {
     case titleChanged(String)
+    case saveTodo
   }
   func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
     case .titleChanged(let newTitle):
       state.todo.title = newTitle
+      return .none
+    case .saveTodo:
+      //sdf
       return .none
     }
   }
@@ -30,6 +34,11 @@ struct TodoDetailView: View {
           send: TodoDetailFeature.Action.titleChanged
         ) )
       }
+      .navigationBarItems(
+        trailing: Button("save") {
+          viewStore.send(.saveTodo)
+        }
+      )
     }
   }
 }

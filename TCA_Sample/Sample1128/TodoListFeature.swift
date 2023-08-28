@@ -41,7 +41,7 @@ struct TodoListView: View {
                 TodoDetailView(
                   store: Store(
                     initialState: TodoDetailFeature.State(todo: todo),
-                    reducer: { TodoDetailFeature() }
+                    reducer: { TodoDetailFeature()._printChanges() }
                   )
                 ))
           }
