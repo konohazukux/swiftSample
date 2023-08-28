@@ -7,19 +7,20 @@ struct TodoListFeature: Reducer {
     var title: String
   }
   struct State {
-    var todos: [Todo] = [
-      .init(id: UUID(), title: "title 1"),
-      .init(id: UUID(), title: "title 2")
-    ] // TODO
+    var todos: [Todo] = []
     var selectedTodo: Todo?
   }
   enum Action {
     case todoSelected(Todo)
+    case addTodo
   }
   func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
     case .todoSelected(let todo):
       state.selectedTodo = todo
+      return .none
+    case .addTodo:
+      state.todos.append(.init(id: UUID(), title: "default title"))
       return .none
     }
   }
@@ -45,6 +46,12 @@ struct TodoListView: View {
                 ))
           }
         }
+        .navigationTitle("title")
+        .navigationBarItems(
+          trailing: Button("add") {
+            viewStore.send(.addTodo, animation: .default)
+          }
+        )
       }
     }
   }
