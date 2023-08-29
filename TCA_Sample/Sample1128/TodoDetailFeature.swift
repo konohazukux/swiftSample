@@ -8,22 +8,32 @@ struct TodoDetailFeature: Reducer {
   enum Action {
     case titleChanged(String)
     case saveTodo
+    case delegate(Delegate)
+    enum Delegate: Equatable {
+      case saveTodo(TodoListFeature.Todo)
+    }
   }
+
   func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
     case .titleChanged(let newTitle):
       state.todo.title = newTitle
       return .none
     case .saveTodo:
-      //sdf
+      return .run { [todo = state.todo] send in
+        await send(.delegate(.saveTodo(todo)))
+      }
+    case .delegate:
       return .none
     }
   }
 }
 
+
 extension TodoDetailFeature.State: Equatable {}
 
 struct TodoDetailView: View {
+  @Environment(\.presentationMode) var presentation
   let store: StoreOf<TodoDetailFeature>
   var body: some View {
     WithViewStore(self.store, observe: { $0 }) { viewStore in
@@ -37,6 +47,7 @@ struct TodoDetailView: View {
       .navigationBarItems(
         trailing: Button("save") {
           viewStore.send(.saveTodo)
+          presentation.wrappedValue.dismiss()
         }
       )
     }
