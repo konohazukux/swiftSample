@@ -9,15 +9,19 @@ struct ContactsFeature: Reducer {
   }
   enum Action: Equatable {
     case addButtonTapped
+    case addContact(PresentationAction<AddContactFeature.Action>)
   }
   var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
       case .addButtonTapped:
         return .none
-      default:
+      case .addContact:
         return .none
       }
+    }
+    .ifLet(\.$addContact, action: /Action.addContact){
+      AddContactFeature()
     }
   }
 }
