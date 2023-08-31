@@ -36,23 +36,34 @@ struct ContactsView: View {
               Text(contact.name)
             }
           }
+          .navigationTitle("Contacts")
+          .toolbar {
+            ToolbarItem {
+              Button {
+                viewStore.send(.addButtonTapped)
+              } label: {
+                Image(systemName: "plus")
+              }
+            }
+          }
+      
         }
     }
   }
 }
 
 struct ContactsView_Previews: PreviewProvider {
-  static let store = Store(
-    initialState: ContactsFeature.State(
-      contacts: [
-        Contact(id: UUID(), name: "Blob"),
-        Contact(id: UUID(), name: "Blob Jr"),
-        Contact(id: UUID(), name: "Blob Sr"),
-      ]
-    ),
-    reducer: ContactsFeature()
-  )
   static var previews: some View {
+    let store = Store(
+      initialState: ContactsFeature.State(
+        contacts: [
+          Contact(id: UUID(), name: "Blob"),
+          Contact(id: UUID(), name: "Blob Jr"),
+          Contact(id: UUID(), name: "Blob Sr"),
+        ]
+      ),
+      reducer: ContactsFeature()
+    )
     ContactsView(store: store)
   }
 }

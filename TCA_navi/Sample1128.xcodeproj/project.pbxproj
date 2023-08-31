@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		82C6CC572AA0638000002A72 /* ContactsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C6CC562AA0638000002A72 /* ContactsFeature.swift */; };
+		82C6CC592AA085EF00002A72 /* AddContactFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C6CC582AA085EF00002A72 /* AddContactFeature.swift */; };
 		82C9E77F238F919B00EA0B6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82C9E77E238F919B00EA0B6D /* Assets.xcassets */; };
 		82C9E78D238F919B00EA0B6D /* Sample1128Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E78C238F919B00EA0B6D /* Sample1128Tests.swift */; };
 		82CF42ED2A714E8900374E60 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 82CF42EC2A714E8900374E60 /* ComposableArchitecture */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		82C6CC562AA0638000002A72 /* ContactsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsFeature.swift; sourceTree = "<group>"; };
+		82C6CC582AA085EF00002A72 /* AddContactFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactFeature.swift; sourceTree = "<group>"; };
 		82C9E770238F919A00EA0B6D /* Sample1128.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample1128.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C9E77E238F919B00EA0B6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82C9E783238F919B00EA0B6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			children = (
 				82CF42F02A7221C200374E60 /* App.swift */,
 				82C6CC562AA0638000002A72 /* ContactsFeature.swift */,
+				82C6CC582AA085EF00002A72 /* AddContactFeature.swift */,
 				82C9E77E238F919B00EA0B6D /* Assets.xcassets */,
 				82C9E783238F919B00EA0B6D /* Info.plist */,
 			);
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82CF42F12A7221C200374E60 /* App.swift in Sources */,
+				82C6CC592AA085EF00002A72 /* AddContactFeature.swift in Sources */,
 				82C6CC572AA0638000002A72 /* ContactsFeature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
