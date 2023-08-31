@@ -29,7 +29,15 @@ struct Contact: Equatable, Identifiable {
 struct ContactsView: View {
   let store: StoreOf<ContactsFeature>
   var body: some View {
-    Text("Hello, world!")
+    NavigationStack {
+      WithViewStore(self.store, observe: \.contacts ) { viewStore in
+          List {
+            ForEach(viewStore.state) { contact in
+              Text(contact.name)
+            }
+          }
+        }
+    }
   }
 }
 
@@ -48,4 +56,30 @@ struct ContactsView_Previews: PreviewProvider {
     ContactsView(store: store)
   }
 }
+
+//struct ContactsView: View {
+//  let store: StoreOf<ContactsFeature>
+//
+//  var body: some View {
+//    NavigationStack {
+//      WithViewStore(self.store, observe: \.contacts) { viewStore in
+//        List {
+//          ForEach(viewStore.state) { contact in
+//            Text(contact.name)
+//          }
+//        }
+//        .navigationTitle("Contacts")
+//        .toolbar {
+//          ToolbarItem {
+//            Button {
+//              viewStore.send(.addButtonTapped)
+//            } label: {
+//              Image(systemName: "plus")
+//            }
+//          }
+//        }
+//      }
+//    }
+//  }
+//}
 
