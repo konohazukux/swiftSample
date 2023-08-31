@@ -4,6 +4,7 @@ import SwiftUI
 
 struct ContactsFeature: Reducer {
   struct State: Equatable {
+    @PresentationState var addContact: AddContactFeature.State?
     let contacts: [Contact]
   }
   enum Action: Equatable {
