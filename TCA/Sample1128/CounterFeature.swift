@@ -60,7 +60,7 @@ struct CounterFeature: ReducerProtocol {
       if state.isTimerRunning {
         return .run { send in
           while true {
-            try await Task.sleep(for: .seconds(1))
+            try await Task.sleep(nanoseconds: 1000)
             await send(.timerTick)
           }
         }
