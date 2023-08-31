@@ -33,7 +33,7 @@ struct TodoDetailFeature: Reducer {
 extension TodoDetailFeature.State: Equatable {}
 
 struct TodoDetailView: View {
-  @Environment(\.presentationMode) var presentation
+//  @Environment(\.presentationMode) var presentation
   let store: StoreOf<TodoDetailFeature>
   var body: some View {
     WithViewStore(self.store, observe: { $0 }) { viewStore in
@@ -43,11 +43,15 @@ struct TodoDetailView: View {
           get: { $0.todo.title },
           send: TodoDetailFeature.Action.titleChanged
         ) )
+        Button("Dismiss") {
+            // 2
+            dismiss()
+        }
       }
       .navigationBarItems(
         trailing: Button("save") {
           viewStore.send(.saveTodo)
-          presentation.wrappedValue.dismiss()
+          //presentation.wrappedValue.dismiss()
         }
       )
     }

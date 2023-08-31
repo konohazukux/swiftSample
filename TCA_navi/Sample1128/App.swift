@@ -11,36 +11,15 @@ import SwiftUI
 
 @main
 struct MyApp: App {
+  static let store = Store(initialState: CounterFeature.State()) {
+    CounterFeature()
+      ._printChanges()
+  }
+  
   var body: some Scene {
-    WindowGroup { }
-  }
-}
-
-struct Todos: Reducer {
-  struct State: Equatable {
-  }
-  enum Action {
-    case incrementButtonTapped
-  }
-  func reduce(into state: inout State, action: Action) -> Effect<Action> {
-    switch action {
-    case .incrementButtonTapped:
-      return .none
-    }
-  }
-}
-
-struct AppView: View {
-  let store: StoreOf<Todos>
-  struct ViewState: Equatable {
-  }
-  var body: some View {
-    WithViewStore(self.store, observe: { $0 }) { viewStore in
-      Text("aaaa")
-        .font(.largeTitle)
-        .padding()
-        .background(Color.black.opacity(0.1))
-        .cornerRadius(10)
+    WindowGroup {
+      CounterView(
+        store: MyApp.store)
     }
   }
 }
