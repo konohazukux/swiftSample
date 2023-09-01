@@ -5,7 +5,7 @@ import SwiftUI
 struct ContactsFeature: Reducer {
   struct State: Equatable {
     @PresentationState var addContact: AddContactFeature.State?
-    let contacts: [Contact]
+    var contacts: IdentifiedArrayOf<Contact> = []
   }
   enum Action: Equatable {
     case addButtonTapped
@@ -20,6 +20,12 @@ struct ContactsFeature: Reducer {
         )
         return .none
       case .addContact(.presented(.cancelButtonTapped)):
+        state.addContact = nil
+        return .none
+      case .addContact(.presented(.saveButtonTapped)):
+        guard let contact = state.addContact?.contact
+        else { return .none }
+        state.contacts.append(contact)
         state.addContact = nil
         return .none
       case .addContact:
