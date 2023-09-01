@@ -3,14 +3,14 @@ import SwiftUI
 
 struct TodoDetailFeature: Reducer {
   struct State {
-    var todo: TodoListFeature.Todo
+    var todo: Todo
   }
   enum Action {
     case titleChanged(String)
     case saveTodo
     case delegate(Delegate)
     enum Delegate: Equatable {
-      case saveTodo(TodoListFeature.Todo)
+      case saveTodo(Todo)
     }
   }
 
@@ -43,10 +43,6 @@ struct TodoDetailView: View {
           get: { $0.todo.title },
           send: TodoDetailFeature.Action.titleChanged
         ) )
-        Button("Dismiss") {
-            // 2
-            dismiss()
-        }
       }
       .navigationBarItems(
         trailing: Button("save") {
@@ -69,5 +65,5 @@ struct TodoDetailView_Previews: PreviewProvider {
       )
     )
   }
-  static let dummyTodo: TodoListFeature.Todo = .init(id: UUID(), title: "Todo 1")
+  static let dummyTodo: Todo = .init(id: UUID(), title: "Todo 1")
 }
