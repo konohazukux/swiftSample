@@ -15,6 +15,9 @@ struct ContactsFeature: Reducer {
     Reduce { state, action in
       switch action {
       case .addButtonTapped:
+        state.addContact = AddContactFeature.State(
+          contact: Contact(id: UUID(), name: "")
+        )
         return .none
       case .addContact:
         return .none
@@ -54,6 +57,16 @@ struct ContactsView: View {
       
         }
     }
+    .sheet(
+      store: self.store.scope(
+        state: \.$addContact,
+        action: { .addContact($0) }
+      )
+    ) { addContactStore in
+      NavigationStack {
+        AddContactView(store: addContactStore)
+      }
+    }
   }
 }
 
@@ -72,30 +85,4 @@ struct ContactsView_Previews: PreviewProvider {
     ContactsView(store: store)
   }
 }
-
-//struct ContactsView: View {
-//  let store: StoreOf<ContactsFeature>
-//
-//  var body: some View {
-//    NavigationStack {
-//      WithViewStore(self.store, observe: \.contacts) { viewStore in
-//        List {
-//          ForEach(viewStore.state) { contact in
-//            Text(contact.name)
-//          }
-//        }
-//        .navigationTitle("Contacts")
-//        .toolbar {
-//          ToolbarItem {
-//            Button {
-//              viewStore.send(.addButtonTapped)
-//            } label: {
-//              Image(systemName: "plus")
-//            }
-//          }
-//        }
-//      }
-//    }
-//  }
-//}
 
