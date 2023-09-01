@@ -14,6 +14,7 @@ struct TodoDetailFeature: Reducer {
     }
   }
 
+  @Dependency(\.dismiss) var dismiss
   func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
     case .titleChanged(let newTitle):
@@ -22,6 +23,7 @@ struct TodoDetailFeature: Reducer {
     case .saveTodo:
       return .run { [todo = state.todo] send in
         await send(.delegate(.saveTodo(todo)))
+        await self.dismiss()
       }
     case .delegate:
       return .none
@@ -33,7 +35,6 @@ struct TodoDetailFeature: Reducer {
 extension TodoDetailFeature.State: Equatable {}
 
 struct TodoDetailView: View {
-//  @Environment(\.presentationMode) var presentation
   let store: StoreOf<TodoDetailFeature>
   var body: some View {
     WithViewStore(self.store, observe: { $0 }) { viewStore in
@@ -47,7 +48,6 @@ struct TodoDetailView: View {
       .navigationBarItems(
         trailing: Button("save") {
           viewStore.send(.saveTodo)
-          //presentation.wrappedValue.dismiss()
         }
       )
     }

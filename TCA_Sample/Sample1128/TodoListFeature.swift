@@ -27,6 +27,9 @@ struct TodoListFeature: Reducer {
       case .addButtonTapped:
         state.todoDetail = TodoDetailFeature.State(todo: Todo(id: UUID(), title: ""))
         return .none
+      case let .addTodo(.presented(.delegate(.saveTodo(todo)))):
+        state.todos.append(todo)
+        return .none
       case .addTodo:
         return .none
       }
