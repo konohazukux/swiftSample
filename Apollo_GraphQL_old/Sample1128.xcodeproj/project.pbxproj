@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8294B7AD2AA6E64F0064AD4B /* StarWarsAPI in Frameworks */ = {isa = PBXBuildFile; fileRef = 821B2AA42AA6CA6800C3C6EC /* StarWarsAPI */; };
+		821200442AA71459001944D7 /* StarWarsAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 821200432AA71459001944D7 /* StarWarsAPI */; };
 		82B824B62AA7123500CF6759 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 82B824B52AA7123500CF6759 /* Apollo */; };
 		82B824B82AA7123A00CF6759 /* ApolloAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 82B824B72AA7123A00CF6759 /* ApolloAPI */; };
 		82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E773238F919A00EA0B6D /* AppDelegate.swift */; };
@@ -63,8 +63,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				82B824B82AA7123A00CF6759 /* ApolloAPI in Frameworks */,
-				8294B7AD2AA6E64F0064AD4B /* StarWarsAPI in Frameworks */,
 				82B824B62AA7123500CF6759 /* Apollo in Frameworks */,
+				821200442AA71459001944D7 /* StarWarsAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +156,7 @@
 			packageProductDependencies = (
 				82B824B52AA7123500CF6759 /* Apollo */,
 				82B824B72AA7123A00CF6759 /* ApolloAPI */,
+				821200432AA71459001944D7 /* StarWarsAPI */,
 			);
 			productName = Sample1128;
 			productReference = 82C9E770238F919A00EA0B6D /* Sample1128.app */;
@@ -533,6 +534,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		821200432AA71459001944D7 /* StarWarsAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = StarWarsAPI;
+		};
 		82B824B52AA7123500CF6759 /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8294B7AE2AA6E9AD0064AD4B /* XCRemoteSwiftPackageReference "apollo-ios" */;
