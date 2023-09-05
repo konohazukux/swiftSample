@@ -4,8 +4,6 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 class FirstViewController: UIViewController {
 
@@ -17,6 +15,10 @@ class FirstViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
+  
+  func getData() {
+    
+  }
    
 }
 
