@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8294B7AD2AA6E64F0064AD4B /* StarWarsAPI in Frameworks */ = {isa = PBXBuildFile; fileRef = 821B2AA42AA6CA6800C3C6EC /* StarWarsAPI */; };
+		82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E773238F919A00EA0B6D /* AppDelegate.swift */; };
+		82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E775238F919A00EA0B6D /* SceneDelegate.swift */; };
+		82C9E778238F919A00EA0B6D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E777238F919A00EA0B6D /* FirstViewController.swift */; };
+		82C9E77D238F919A00EA0B6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82C9E77B238F919A00EA0B6D /* Main.storyboard */; };
 		82C9E77F238F919B00EA0B6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82C9E77E238F919B00EA0B6D /* Assets.xcassets */; };
+		82C9E782238F919B00EA0B6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82C9E780238F919B00EA0B6D /* LaunchScreen.storyboard */; };
 		82C9E78D238F919B00EA0B6D /* Sample1128Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C9E78C238F919B00EA0B6D /* Sample1128Tests.swift */; };
-		82CF42EA2A714D8200374E60 /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CF42E92A714D8200374E60 /* CounterFeature.swift */; };
-		82CF42ED2A714E8900374E60 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 82CF42EC2A714E8900374E60 /* ComposableArchitecture */; };
-		82CF42F12A7221C200374E60 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CF42F02A7221C200374E60 /* App.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,15 +27,32 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8259F14C2790406F00EEC5E8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		821B2AA42AA6CA6800C3C6EC /* StarWarsAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StarWarsAPI; sourceTree = "<group>"; };
 		82C9E770238F919A00EA0B6D /* Sample1128.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample1128.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		82C9E773238F919A00EA0B6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		82C9E775238F919A00EA0B6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		82C9E777238F919A00EA0B6D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		82C9E77C238F919A00EA0B6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		82C9E77E238F919B00EA0B6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		82C9E781238F919B00EA0B6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82C9E783238F919B00EA0B6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82C9E788238F919B00EA0B6D /* Sample1128Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Sample1128Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C9E78C238F919B00EA0B6D /* Sample1128Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample1128Tests.swift; sourceTree = "<group>"; };
 		82C9E78E238F919B00EA0B6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		82CF42E92A714D8200374E60 /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
-		82CF42F02A7221C200374E60 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82CF42ED2A714E8900374E60 /* ComposableArchitecture in Frameworks */,
+				8294B7AD2AA6E64F0064AD4B /* StarWarsAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,9 +74,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		821B2AA32AA6CA6800C3C6EC /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				821B2AA42AA6CA6800C3C6EC /* StarWarsAPI */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		82C9E767238F919A00EA0B6D = {
 			isa = PBXGroup;
 			children = (
+				821B2AA32AA6CA6800C3C6EC /* Packages */,
 				82C9E772238F919A00EA0B6D /* Sample1128 */,
 				82C9E78B238F919B00EA0B6D /* Sample1128Tests */,
 				82C9E771238F919A00EA0B6D /* Products */,
@@ -75,9 +104,12 @@
 		82C9E772238F919A00EA0B6D /* Sample1128 */ = {
 			isa = PBXGroup;
 			children = (
-				82CF42F02A7221C200374E60 /* App.swift */,
-				82CF42E92A714D8200374E60 /* CounterFeature.swift */,
+				82C9E773238F919A00EA0B6D /* AppDelegate.swift */,
+				82C9E775238F919A00EA0B6D /* SceneDelegate.swift */,
+				82C9E777238F919A00EA0B6D /* FirstViewController.swift */,
+				82C9E77B238F919A00EA0B6D /* Main.storyboard */,
 				82C9E77E238F919B00EA0B6D /* Assets.xcassets */,
+				82C9E780238F919B00EA0B6D /* LaunchScreen.storyboard */,
 				82C9E783238F919B00EA0B6D /* Info.plist */,
 			);
 			path = Sample1128;
@@ -102,6 +134,7 @@
 				82C9E76C238F919A00EA0B6D /* Sources */,
 				82C9E76D238F919A00EA0B6D /* Frameworks */,
 				82C9E76E238F919A00EA0B6D /* Resources */,
+				8259F14C2790406F00EEC5E8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -109,7 +142,6 @@
 			);
 			name = Sample1128;
 			packageProductDependencies = (
-				82CF42EC2A714E8900374E60 /* ComposableArchitecture */,
 			);
 			productName = Sample1128;
 			productReference = 82C9E770238F919A00EA0B6D /* Sample1128.app */;
@@ -162,7 +194,7 @@
 			);
 			mainGroup = 82C9E767238F919A00EA0B6D;
 			packageReferences = (
-				82CF42EB2A714E8900374E60 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				8294B7AE2AA6E9AD0064AD4B /* XCRemoteSwiftPackageReference "apollo-ios" */,
 			);
 			productRefGroup = 82C9E771238F919A00EA0B6D /* Products */;
 			projectDirPath = "";
@@ -179,7 +211,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82C9E782238F919B00EA0B6D /* LaunchScreen.storyboard in Resources */,
 				82C9E77F238F919B00EA0B6D /* Assets.xcassets in Resources */,
+				82C9E77D238F919A00EA0B6D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,8 +231,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82CF42EA2A714D8200374E60 /* CounterFeature.swift in Sources */,
-				82CF42F12A7221C200374E60 /* App.swift in Sources */,
+				82C9E778238F919A00EA0B6D /* FirstViewController.swift in Sources */,
+				82C9E774238F919A00EA0B6D /* AppDelegate.swift in Sources */,
+				82C9E776238F919A00EA0B6D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +254,25 @@
 			targetProxy = 82C9E789238F919B00EA0B6D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		82C9E77B238F919A00EA0B6D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				82C9E77C238F919A00EA0B6D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		82C9E780238F919B00EA0B6D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				82C9E781238F919B00EA0B6D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		82C9E78F238F919B00EA0B6D /* Debug */ = {
@@ -271,7 +325,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -325,7 +379,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -341,8 +395,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CZ785DAQVX;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Sample1128/Framework",
+				);
 				INFOPLIST_FILE = Sample1128/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -360,8 +418,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CZ785DAQVX;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Sample1128/Framework",
+				);
 				INFOPLIST_FILE = Sample1128/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -448,23 +510,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		82CF42EB2A714E8900374E60 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		8294B7AE2AA6E9AD0064AD4B /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.0;
+				minimumVersion = 1.3.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		82CF42EC2A714E8900374E60 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 82CF42EB2A714E8900374E60 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 82C9E768238F919A00EA0B6D /* Project object */;
 }
