@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Apollo
 
 class FirstViewController: UIViewController {
 
