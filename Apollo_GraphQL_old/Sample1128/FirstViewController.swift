@@ -18,9 +18,8 @@ class FirstViewController: UIViewController {
   }
   
   func getData() {
-    let apollo = ApolloClient(url: URL(string: "https://swapi-graphql.netlify.app/.netlify/functions/index")!)
-    let query = Query()
-    apollo.fetch(query: query) { result in
+    let query = StarWarsAPI.Query()
+    Network.shared.apollo.fetch(query: query) { result in
       switch result {
       case .success(let graphQLResult):
         print("Success! Result: \(graphQLResult)")
@@ -32,3 +31,8 @@ class FirstViewController: UIViewController {
 }
 
 
+class Network {
+  static let shared = Network()
+  
+  private(set) lazy var apollo = ApolloClient(url: URL(string: "https://swapi-graphql.netlify.app/.netlify/functions/index")!)
+}
