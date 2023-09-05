@@ -163,6 +163,7 @@
 			mainGroup = 82C9E767238F919A00EA0B6D;
 			packageReferences = (
 				82CF42EB2A714E8900374E60 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				8294B7AF2AA6ECAF0064AD4B /* XCRemoteSwiftPackageReference "apollo-ios" */,
 			);
 			productRefGroup = 82C9E771238F919A00EA0B6D /* Products */;
 			projectDirPath = "";
@@ -448,6 +449,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8294B7AF2AA6ECAF0064AD4B /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		82CF42EB2A714E8900374E60 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
