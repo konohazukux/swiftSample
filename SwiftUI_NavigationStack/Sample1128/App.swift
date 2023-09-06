@@ -10,9 +10,10 @@ struct MyApp: App {
 }
 
 struct MyView: View {
+  @State var path = [String]()
   let fruits = ["Apple", "Grape", "strawberry"]
   var body: some View {
-    NavigationStack {
+    NavigationStack(path: $path) {
       List(fruits, id: \.self) { fruit in
         NavigationLink(fruit, value: fruit)
       }
