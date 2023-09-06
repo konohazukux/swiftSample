@@ -21,6 +21,10 @@ struct MyView: View {
         Text(fruit)
       }
       .navigationTitle("FruitesList")
+      
+      Button("Test") {
+        path.append("Apple")
+      }
     }
   }
 }
