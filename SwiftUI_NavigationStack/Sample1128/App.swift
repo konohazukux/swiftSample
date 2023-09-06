@@ -10,8 +10,17 @@ struct MyApp: App {
 }
 
 struct MyView: View {
+  let fruits = ["Apple", "Grape", "strawberry"]
   var body: some View {
-    Text("Hello, world!")
+    NavigationStack {
+      List(fruits, id: \.self) { fruit in
+        NavigationLink(fruit, value: fruit)
+      }
+      .navigationDestination(for: String.self) { fruit in
+        Text(fruit)
+      }
+      .navigationTitle("FruitesList")
+    }
   }
 }
 
