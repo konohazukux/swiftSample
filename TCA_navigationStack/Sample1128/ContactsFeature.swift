@@ -12,14 +12,20 @@ struct ContactsFeature: Reducer {
       case contactDetail
     }
   }
-  enum Action: Equatable {
+  enum Action: BindableAction, Equatable {
+    case binding(BindingAction<State>)
     case addButtonTapped
     case addContact(PresentationAction<AddContactFeature.Action>)
-    case contactDetail
+    case goToContactDetail
   }
   var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
+      case .binding(\.$path):
+        if state.path.isEmpty {
+          //sdf
+        }
+        return .none
       case .addButtonTapped:
         state.addContact = AddContactFeature.State(
           contact: Contact(id: UUID(), name: "")
@@ -30,8 +36,10 @@ struct ContactsFeature: Reducer {
         return .none
       case .addContact:
         return .none
-      case .contactDetail:
+      case .goToContactDetail:
         state.path.append(ContactsFeature.State.Route.contactDetail)
+        return .none
+      default:
         return .none
       }
     }
@@ -49,14 +57,22 @@ struct Contact: Equatable, Identifiable {
 struct ContactsView: View {
   let store: StoreOf<ContactsFeature>
   var body: some View {
-    NavigationStack {
-      WithViewStore(self.store, observe: \.contacts ) { viewStore in
-          List {
-            ForEach(viewStore.state) { contact in
+    WithViewStore(self.store) { viewStore in
+      NavigationStack(path: viewStore.binding(\.$path)) {
+        List {
+          ForEach(viewStore.state.contacts) { contact in
               Text(contact.name)
             }
           }
           .navigationTitle("Contacts")
+          .navigationDestination(
+            for: ContactsFeature.State.Route.self) { route in
+              switch route {
+              case .contactDetail:
+                Text("Hello World")
+              }
+              
+            }
           .toolbar {
             ToolbarItem {
               Button {
