@@ -7,10 +7,15 @@ struct ContactsFeature: Reducer {
     @PresentationState var addContact: AddContactFeature.State?
     @BindingState var path = NavigationPath()
     var contacts: IdentifiedArrayOf<Contact> = []
+    
+    enum Route: Equatable, Hashable {
+      case contactDetail
+    }
   }
   enum Action: Equatable {
     case addButtonTapped
     case addContact(PresentationAction<AddContactFeature.Action>)
+    case contactDetail
   }
   var body: some ReducerOf<Self> {
     Reduce { state, action in
@@ -24,6 +29,9 @@ struct ContactsFeature: Reducer {
         state.contacts.append(contact)
         return .none
       case .addContact:
+        return .none
+      case .contactDetail:
+        state.path.append(ContactsFeature.State.Route.contactDetail)
         return .none
       }
     }
