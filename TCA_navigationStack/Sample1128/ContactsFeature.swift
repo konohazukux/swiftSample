@@ -61,8 +61,12 @@ struct ContactsView: View {
       NavigationStack(path: viewStore.binding(\.$path)) {
         List {
           ForEach(viewStore.state.contacts) { contact in
+            Button {
+              viewStore.send(.goToContactDetail)
+            } label: {
               Text(contact.name)
             }
+          }
           }
           .navigationTitle("Contacts")
           .navigationDestination(
