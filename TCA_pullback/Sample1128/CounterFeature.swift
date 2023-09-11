@@ -9,26 +9,37 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct CounterFeature: ReducerProtocol {
- 
-  struct State {
+struct CounterState: Equatable {
     var count = 0
     var fact: String?
     var isLoading = false
     var isTimerRunning = false
-  }
-  enum Action {
-    case decrementButtonTapped
-    case incrementButtonTapped
-    case factResponse(String)
-    case factButtonTapped
-    case timerTick
-    case toggleTimerButtonTapped
+}
+
+enum CounterAction {
+  case decrementButtonTapped
+  case incrementButtonTapped
+  case factResponse(String)
+  case factButtonTapped
+  case timerTick
+  case toggleTimerButtonTapped
+}
+
+struct CounterEnvironment {}
+
+let CounterReducer = Reducer<CounterState, CounterAction, CounterEnvironment> {
+ state, action, environment in
+  switch action {
+  case .decrementButtonTapped:
+    state.count = -= 1
+    return .none
   }
   
+}
+
+struct CounterFeature: ReducerProtocol {
   enum CancelID { case timer }
-  
-  func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+  func reduce(into state: inout CounterState, action: CounterAction) -> EffectTask<Action> {
     switch action {
     case .decrementButtonTapped:
       state.count -= 1
