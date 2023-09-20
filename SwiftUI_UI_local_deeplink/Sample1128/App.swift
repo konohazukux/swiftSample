@@ -42,18 +42,18 @@ struct ContentView: View {
       })
     }
     .onOpenURL(perform: { url in
-      let comp = URLComponents(url: url, resolvingAgainstBaseURL: true)
-      
-      self.genre = nil
-      self.item = nil
-      
-      DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-        self.genre = comp?.queryItems?.first?.value
-      }
-      DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-        self.item = comp?.queryItems?.last?.value
-      }
-    })
+               let comp = URLComponents(url: url, resolvingAgainstBaseURL: true)
+               
+               self.genre = nil
+               self.item = nil
+               
+               DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                   self.genre = comp?.queryItems?.first?.value
+               }
+               DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                   self.item = comp?.queryItems?.last?.value
+               }
+           })
   }
 }
 
