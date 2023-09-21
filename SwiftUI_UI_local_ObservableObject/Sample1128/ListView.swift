@@ -12,11 +12,7 @@ struct ListView: View {
     VStack {
       List {
         ForEach(self.listModel.listItems){ item in
-          Text(item.text)
-            .foregroundColor(item.grayOut ? .gray:.black)
-            .onTapGesture {
-              item.grayOut.toggle()
-            }
+          ListItemView(listItem: item)
         }
       }
       Button(action: {
@@ -52,13 +48,13 @@ class ListItemModel: ObservableObject, Identifiable {
   }
 }
 
-//struct ListItemView: View {
-//  @ObservedObject var listItem: ListItemModel
-//  var body: some View {
-//    Text(self.listItem.text)
-//      .foregroundColor(self.listItem.grayOut ? .gray: .black)
-//      .onTapGesture {
-//        self.listItem.grayOut.toggle()
-//      }
-//  }
-//}
+struct ListItemView: View {
+  @ObservedObject var listItem: ListItemModel
+  var body: some View {
+    Text(self.listItem.text)
+      .foregroundColor(self.listItem.grayOut ? .gray: .black)
+      .onTapGesture {
+        self.listItem.grayOut.toggle()
+      }
+  }
+}
