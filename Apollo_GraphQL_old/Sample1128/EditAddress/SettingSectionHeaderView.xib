@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SettingSectionHeaderView" customModule="SegaPlato_Develop" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="377" height="48"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOf-7I-RLS">
+                    <rect key="frame" x="0.0" y="0.0" width="377" height="48"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vkG-w5-pb4">
+                            <rect key="frame" x="24" y="40" width="0.0" height="0.0"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                            <color key="textColor" name="105-110-116"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="247-247-247"/>
+                    <constraints>
+                        <constraint firstItem="vkG-w5-pb4" firstAttribute="leading" secondItem="wOf-7I-RLS" secondAttribute="leading" constant="24" id="40y-nW-2hH"/>
+                        <constraint firstAttribute="bottom" secondItem="vkG-w5-pb4" secondAttribute="bottom" constant="8" id="iR8-fP-G1t"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" name="221-221-221"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="wOf-7I-RLS" secondAttribute="bottom" id="2L7-Ke-lDV"/>
+                <constraint firstAttribute="trailing" secondItem="wOf-7I-RLS" secondAttribute="trailing" id="4en-by-KiG"/>
+                <constraint firstItem="wOf-7I-RLS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZOo-9t-Tub"/>
+                <constraint firstItem="wOf-7I-RLS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uDF-bP-gN9"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="titleLabel" destination="vkG-w5-pb4" id="qky-Cj-x8g"/>
+                <outlet property="view" destination="wOf-7I-RLS" id="TeH-Pe-HLg"/>
+            </connections>
+            <point key="canvasLocation" x="-183" y="276"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="105-110-116">
+            <color red="0.41176470588235292" green="0.43137254901960786" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="221-221-221">
+            <color red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="247-247-247">
+            <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

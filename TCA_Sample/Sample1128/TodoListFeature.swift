@@ -1,34 +1,70 @@
 import ComposableArchitecture
 import SwiftUI
 
+struct Todo: Identifiable, Equatable {
+  var id: UUID
+  var title: String
+}
+
 struct TodoListFeature: Reducer {
-  struct Todo: Identifiable, Equatable {
-    var id: UUID
-    var title: String
-  }
-  struct State {
+  struct State: Equatable {
+    @PresentationState var todoDetail: TodoDetailFeature.State?
     var todos: [Todo] = []
+    var selectedTodo: Todo?
   }
   enum Action {
-    case incrementButtonTapped
+    case todoSelected(Todo)
+    case addButtonTapped
+    case addTodo(PresentationAction<TodoDetailFeature.Action>)
   }
-  func reduce(into state: inout State, action: Action) -> Effect<Action> {
-    switch action {
-    case .incrementButtonTapped:
-      return .none
+  
+  var body: some ReducerOf<Self> {
+    Reduce { state, action in
+      switch action {
+      case .todoSelected(let todo):
+        state.selectedTodo = todo
+        return .none
+      case .addButtonTapped:
+        state.todoDetail = TodoDetailFeature.State(todo: Todo(id: UUID(), title: ""))
+        return .none
+      case let .addTodo(.presented(.delegate(.saveTodo(todo)))):
+        state.todos.append(todo)
+        return .none
+      case .addTodo:
+        return .none
+      }
+    }
+    .ifLet(\.$todoDetail, action: /Action.addTodo) {
+      TodoDetailFeature()
     }
   }
 }
-
-extension TodoListFeature.State: Equatable {}
 
 struct TodoListView: View {
   let store: StoreOf<TodoListFeature>
   var body: some View {
     WithViewStore(self.store, observe: { $0 }) { viewStore in
-      List {
-        ForEach(viewStore.state.todos) { todo in
-          Text("\(todo.title)")
+      NavigationStack {
+        List {
+          ForEach(viewStore.state.todos) { todo in
+            Text(todo.title)
+          }
+        }
+        .navigationTitle("title")
+        .navigationBarItems(
+          trailing: Button("add") {
+            viewStore.send(.addButtonTapped, animation: .default)
+          }
+        )
+      }
+      .sheet(
+        store: self.store.scope(
+          state: \.$todoDetail,
+          action: { .addTodo($0) }
+        )
+      ) { addTodo in
+        NavigationStack {
+          TodoDetailView(store: addTodo)
         }
       }
     }
@@ -46,7 +82,7 @@ struct TodoListView_Previews: PreviewProvider {
       )
     )
   }
-  static let dummyTodos: [TodoListFeature.Todo] = [
+  static let dummyTodos: [Todo] = [
     .init(id: UUID(), title: "Todo 1"),
     .init(id: UUID(), title: "Todo 2"),
     .init(id: UUID(), title: "Todo 3"),

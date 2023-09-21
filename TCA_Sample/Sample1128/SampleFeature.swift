@@ -25,6 +25,13 @@ struct SampleView: View {
             CounterFeature()._printChanges()
           })
         })
+        NavigationLink("TodoList", destination: {
+          TodoListView(
+            store: Store(
+              initialState: TodoListFeature.State()) {
+                TodoListFeature()._printChanges()
+              })
+        })
       }
     }
   }
