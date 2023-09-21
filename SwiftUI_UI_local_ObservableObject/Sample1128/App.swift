@@ -5,7 +5,8 @@ import Combine
 struct DeepLinkTestTestApp: App {
   var body: some Scene {
     WindowGroup {
-      ContentView().environmentObject(EnvironmentModel())
+      //ContentView().environmentObject(EnvironmentModel())
+      ListView()
     }
   }
 }
