@@ -5,30 +5,35 @@ import Combine
 struct AsyncTestApp: App {
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      ActorView()
     }
   }
 }
 
-struct ContentView: View {
-    @State var text = "Default"
+struct ActorView: View {
+        
+    var testModel = TestModel()
+    @State var text = "0"
+    
     var body: some View {
         VStack {
             Text(self.text)
-            Button("Wait"){
-                self.text = "Waiting"
-                Task{
-                    self.text = await waitFunc()
-                    print("waitFunc後に実行")
+                .padding()
+            Button("CountUp"){
+                Task {
+                    await testModel.countUp()
+                    self.text = await String(testModel.count)
                 }
-                print("waitFuncと並列実行")
             }
         }
     }
-    
-    func waitFunc() async -> String {
-        sleep(5)
-        return "Finish"
-    }
 }
 
+actor TestModel{
+    var count = 0
+    
+    func countUp(){
+        sleep(5) //追加
+        count += 1
+    }
+}
