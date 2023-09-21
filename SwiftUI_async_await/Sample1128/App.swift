@@ -2,48 +2,33 @@ import SwiftUI
 import Combine
 
 @main
-struct DeepLinkTestTestApp: App {
+struct AsyncTestApp: App {
   var body: some Scene {
     WindowGroup {
-      ContentView().environmentObject(EnvironmentModel())
+      ContentView()
     }
   }
 }
 
 struct ContentView: View {
- 
-  var obsModel = ObserveModel()
-  @EnvironmentObject var envModel: EnvironmentModel
-  
-  var body: some View {
-    VStack {
-      Text("obsCount: \(self.obsModel.count)")
-        .padding()
-      Button(action: {
-        self.obsModel.count += 1
-      }, label: {
-        Text("ObsCount up")
-      })
-     
-      Text("EnvCount: \(self.envModel.count)")
-        .padding()
-      Button(action: {
-        self.envModel.count += 1
-      }, label: {
-        Text("EnvCount up")
-      })
-      
+    @State var text = "Default"
+    var body: some View {
+        VStack {
+            Text(self.text)
+            Button("Wait"){
+                self.text = "Waiting"
+                Task{
+                    self.text = await waitFunc()
+                    print("waitFunc後に実行")
+                }
+                print("waitFuncと並列実行")
+            }
+        }
     }
-  }
-}
-
-class ObserveModel: ObservableObject {
-  @Published var count = 0
-//  var count = 0
-}
-
-class EnvironmentModel: ObservableObject {
-  @Published var count = 0
-//  var count = 0
+    
+    func waitFunc() async -> String {
+        sleep(5)
+        return "Finish"
+    }
 }
 
