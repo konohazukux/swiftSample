@@ -45,6 +45,7 @@ class ListItemModel: ObservableObject, Identifiable {
   let text: String
   init(_ text: String) {
     self.text = text
+    
   }
 }
 
