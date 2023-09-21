@@ -5,15 +5,13 @@ import Combine
 struct DeepLinkTestTestApp: App {
   var body: some Scene {
     WindowGroup {
-      //ContentView().environmentObject(EnvironmentModel())
-      ListView()
+      ContentView().environmentObject(EnvironmentModel())
     }
   }
 }
 
 struct ContentView: View {
  
-//  @ObservedObject var obsModel = ObserveModel()
   var obsModel = ObserveModel()
   @EnvironmentObject var envModel: EnvironmentModel
   
