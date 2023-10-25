@@ -29,7 +29,7 @@ struct ActorView: View {
     }
 }
 
-actor TestModel{
+actor TestModel {
     var count = 0
     
     func countUp(){
