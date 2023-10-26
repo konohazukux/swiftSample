@@ -24,7 +24,15 @@ struct CounterFeature: Reducer {
   }
   
   enum CancelID { case timer }
- 
+
+  static let reducer = Reducer<CounterFeature.State, CounterFeature.Action, Environment> { state, action, environment in
+    switch action {
+    default:
+      return .none
+    }
+  }
+  
+  
   var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
