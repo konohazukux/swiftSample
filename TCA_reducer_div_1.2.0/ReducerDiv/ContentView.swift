@@ -46,10 +46,12 @@ struct ContentView: View {
 struct TapView: View {
   let store: StoreOf<TapFeature>
   var body: some View {
-    HStack {
-      Text("Tapして下さい")
-      Button("Tap") {
-        //
+    WithViewStore(self.store, observe: { $0 }) { viewStore in
+      HStack {
+        Text("Tapして下さい")
+        Button("Tap") {
+          viewStore.send(.buttonTapped)
+        }
       }
     }
   }
