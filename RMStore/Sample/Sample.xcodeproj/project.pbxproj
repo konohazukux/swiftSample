@@ -14,6 +14,8 @@
 		826005C42AEF56C3008D4A35 /* SampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826005C32AEF56C3008D4A35 /* SampleUITests.swift */; };
 		826005C62AEF56C3008D4A35 /* SampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826005C52AEF56C3008D4A35 /* SampleUITestsLaunchTests.swift */; };
 		826005D62AEF5910008D4A35 /* MyLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 826005D52AEF5910008D4A35 /* MyLibrary */; };
+		826005D82AEF6590008D4A35 /* SampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826005D72AEF6590008D4A35 /* SampleViewModel.swift */; };
+		826005DB2AEF689E008D4A35 /* RMModels in Frameworks */ = {isa = PBXBuildFile; productRef = 826005DA2AEF689E008D4A35 /* RMModels */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		826005C32AEF56C3008D4A35 /* SampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleUITests.swift; sourceTree = "<group>"; };
 		826005C52AEF56C3008D4A35 /* SampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		826005D32AEF58FC008D4A35 /* MyLibrary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MyLibrary; path = ../MyLibrary; sourceTree = "<group>"; };
+		826005D72AEF6590008D4A35 /* SampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewModel.swift; sourceTree = "<group>"; };
+		826005D92AEF67ED008D4A35 /* RMModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RMModels; path = ../RMModels; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				826005D62AEF5910008D4A35 /* MyLibrary in Frameworks */,
+				826005DB2AEF689E008D4A35 /* RMModels in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +80,7 @@
 		8260059C2AEF56C2008D4A35 = {
 			isa = PBXGroup;
 			children = (
+				826005D92AEF67ED008D4A35 /* RMModels */,
 				826005D32AEF58FC008D4A35 /* MyLibrary */,
 				826005A72AEF56C2008D4A35 /* Sample */,
 				826005B82AEF56C3008D4A35 /* SampleTests */,
@@ -98,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				826005A82AEF56C2008D4A35 /* SampleApp.swift */,
+				826005D72AEF6590008D4A35 /* SampleViewModel.swift */,
 				826005AC2AEF56C3008D4A35 /* Assets.xcassets */,
 				826005AE2AEF56C3008D4A35 /* Preview Content */,
 			);
@@ -154,6 +161,7 @@
 			name = Sample;
 			packageProductDependencies = (
 				826005D52AEF5910008D4A35 /* MyLibrary */,
+				826005DA2AEF689E008D4A35 /* RMModels */,
 			);
 			productName = Sample;
 			productReference = 826005A52AEF56C2008D4A35 /* Sample.app */;
@@ -269,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				826005D82AEF6590008D4A35 /* SampleViewModel.swift in Sources */,
 				826005A92AEF56C2008D4A35 /* SampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,6 +613,10 @@
 		826005D52AEF5910008D4A35 /* MyLibrary */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MyLibrary;
+		};
+		826005DA2AEF689E008D4A35 /* RMModels */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RMModels;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

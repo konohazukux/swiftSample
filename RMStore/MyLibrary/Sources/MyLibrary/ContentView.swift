@@ -1,9 +1,6 @@
 //
 //  File.swift
 //  
-//
-//  Created by TAKESHI SHIMADA on 2023/10/30.
-//
 
 import SwiftUI
 
