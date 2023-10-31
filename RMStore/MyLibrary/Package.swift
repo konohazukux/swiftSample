@@ -13,7 +13,7 @@ let package = Package(
             targets: ["MyLibrary"]),
     ],
     dependencies: [
-      .package(path: "RMModels")
+        .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "1.2.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
