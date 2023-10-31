@@ -16,6 +16,7 @@
 		826006082AF08187008D4A35 /* RMSampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826006072AF08187008D4A35 /* RMSampleUITestsLaunchTests.swift */; };
 		826006152AF081AA008D4A35 /* RMStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826006142AF081AA008D4A35 /* RMStore.swift */; };
 		826006172AF081E3008D4A35 /* UserStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826006162AF081E3008D4A35 /* UserStoreModel.swift */; };
+		8260061A2AF0969B008D4A35 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826006192AF0969B008D4A35 /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		826006072AF08187008D4A35 /* RMSampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		826006142AF081AA008D4A35 /* RMStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMStore.swift; sourceTree = "<group>"; };
 		826006162AF081E3008D4A35 /* UserStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoreModel.swift; sourceTree = "<group>"; };
+		826006192AF0969B008D4A35 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			children = (
 				826005EA2AF08185008D4A35 /* RMSampleApp.swift */,
 				826005EC2AF08185008D4A35 /* ContentView.swift */,
+				826006192AF0969B008D4A35 /* ContentViewModel.swift */,
 				826006182AF08749008D4A35 /* RMStore */,
 				826005EE2AF08186008D4A35 /* Assets.xcassets */,
 				826005F02AF08186008D4A35 /* Preview Content */,
@@ -275,6 +278,7 @@
 				826006152AF081AA008D4A35 /* RMStore.swift in Sources */,
 				826005ED2AF08185008D4A35 /* ContentView.swift in Sources */,
 				826005EB2AF08185008D4A35 /* RMSampleApp.swift in Sources */,
+				8260061A2AF0969B008D4A35 /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
