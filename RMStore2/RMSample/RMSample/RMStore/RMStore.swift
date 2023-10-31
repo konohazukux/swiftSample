@@ -23,21 +23,29 @@ final class RMStore {
     do {
       let users = try loadFile(directory: dataPath, filename: userFilename)
       print("111 sdf\(#line) \(type(of: self))  \(#function) : \(users) ")
-      print("111 sdf\(#line) \(type(of: self))  \(#function) : \(users) ")
-      
+   
+      return users
     } catch {
       print("Error load data: \(error)")
     }
-    
-    
-    let user = UserStoreModel.init(id: 1, name: "user1")
-    return [user]
+//    let user = UserStoreModel.init(id: 1, name: "user1")
+    return []
   }
   
   func updateUser(user: UserStoreModel) {
     do {
+    
+      let users = try loadFile(directory: dataPath, filename: userFilename)
+      print("111 sdf\(#line) \(type(of: self))  \(#function) : \(users) ")
+      let newUsers = {
+        if users.contains(where: { $0.id == user.id }) {
+          return users.map { $0.id == user.id ? user : $0 }
+        } else {
+          return users + [user]
+        }
+      }()
       let encoder = JSONEncoder()
-      let jsonData = try encoder.encode([user])
+      let jsonData = try encoder.encode(newUsers)
      
       // save user data
       try saveFile(directory: dataPath, filename: userFilename, jsonData: jsonData)
