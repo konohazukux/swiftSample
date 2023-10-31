@@ -10,7 +10,9 @@ class ContentViewModel {
   func updateUser() {
     let user = UserStoreModel.init(id: 1, name: "name1")
     let store = RMStore()
-    store.updateUser(user: user)
+//    store.updateUser(user: user)
+    
+    let temp = store.readUsers()
   }
   
 }
