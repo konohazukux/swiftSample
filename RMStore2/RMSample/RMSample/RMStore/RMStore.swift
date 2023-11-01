@@ -28,7 +28,6 @@ final class RMStore {
     } catch {
       print("Error load data: \(error)")
     }
-    //    let user = UserStoreModel.init(id: 1, name: "user1")
     return []
   }
   
