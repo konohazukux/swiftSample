@@ -6,7 +6,7 @@
 import Foundation
 
 final class RMStore {
- 
+  
   private let userFilename = "user.json"
   private let dataPath = "rmdata"
   private let transactionPath = "rmdata"
@@ -19,37 +19,32 @@ final class RMStore {
     // APIから読み込み
     // ローカル data storeに書き込み -> データを返す (reactive)
     
-  
+    
     do {
       let users = try loadFile(directory: dataPath, filename: userFilename)
       print("111 sdf\(#line) \(type(of: self))  \(#function) : \(users) ")
-   
+      
       return users
     } catch {
       print("Error load data: \(error)")
     }
-//    let user = UserStoreModel.init(id: 1, name: "user1")
+    //    let user = UserStoreModel.init(id: 1, name: "user1")
     return []
   }
   
   func updateUser(user: UserStoreModel) {
     do {
-    
+      
       let users = try loadFile(directory: dataPath, filename: userFilename)
       print("111 sdf\(#line) \(type(of: self))  \(#function) : \(users) ")
-      let newUsers = {
-        if users.contains(where: { $0.id == user.id }) {
-          return users.map { $0.id == user.id ? user : $0 }
-        } else {
-          return users + [user]
-        }
-      }()
+      let newUsers = users.contains(where: { $0.id == user.id }) ?
+      users.map { $0.id == user.id ? user : $0 } : users + [user]
       let encoder = JSONEncoder()
       let jsonData = try encoder.encode(newUsers)
-     
+      
       // save user data
       try saveFile(directory: dataPath, filename: userFilename, jsonData: jsonData)
-     
+      
       // transaction data
       let (jsonData2, filename) = try buildTransactionData(jsonData: jsonData)
       try saveFile(directory: transactionPath, filename: filename, jsonData: jsonData2)
@@ -58,14 +53,21 @@ final class RMStore {
       print("Error encoding and saving user data: \(error)")
     }
   }
- 
+  
   func deleteUser(user: UserStoreModel) {
     // 1. ローカル data storeから削除
     // 2. 差分を保持
   }
- 
   
-  // MARK: - Private
+}
+
+
+
+
+
+
+extension RMStore {
+  
   private func getDocumentsDirectory() -> URL {
     // Fetch the document directory and return the URL
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
