@@ -66,9 +66,27 @@ struct CounterFeature: Reducer {
         return .cancel(id: CancelID.timer)
       }
     }
+   
+    
   }
   
 }
 
 extension CounterFeature.State: Equatable {}
+
+
+
+
+struct IncrementFeature: Reducer {
+    struct State: Equatable { }
+    enum Action: Equatable { }
+    var body: some ReducerOf<Self> {
+        Reduce { state, action in
+            switch action {
+            default:
+                return .none
+            }
+        }
+    }
+}
 
