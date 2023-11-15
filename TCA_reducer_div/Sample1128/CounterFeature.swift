@@ -2,14 +2,11 @@
 //  CounterFeature.swift
 //  Sample1128
 //
-//  Created by TAKESHI SHIMADA on 2023/07/26.
-//  Copyright © 2023 TAKESHI SHIMADA. All rights reserved.
-//
 
 import SwiftUI
 import ComposableArchitecture
 
-struct CounterFeature: ReducerProtocol {
+struct CounterFeature: Reducer {
  
   struct State {
     var count = 0
@@ -28,7 +25,7 @@ struct CounterFeature: ReducerProtocol {
   
   enum CancelID { case timer }
   
-  func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+  func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
     case .decrementButtonTapped:
       state.count -= 1
