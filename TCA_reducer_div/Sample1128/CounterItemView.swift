@@ -5,29 +5,35 @@
 //
 
 import Foundation
+import SwiftUI
 import ComposableArchitecture
 
 //sdf
 struct CounterItemView: View {
-  
   let store: StoreOf<CounterItemFeature>
   
-  
+//  typealias Body = <#type#>
+  var body: some View {
+    WithViewStore(self.store, observe: { $0 }) { viewStore in
+      Text("sample text")
+    }
+  }
   
 }
 struct CounterItemFeature: Reducer {
   struct State: Equatable {
     var count: Int
+    var hoge: Int
   }
  
   enum Action: Equatable {
-    case intrement
+    case increment
   }
   //sdf
   var body: some ReducerOf<Self> {
     Reduce{ state, action in
       switch (action) {
-      case .intrement:
+      case .increment:
         return .none
       }
     }
@@ -35,11 +41,19 @@ struct CounterItemFeature: Reducer {
   
 }
 
-
-
-
-
-
+struct CounterItemView_Previews: PreviewProvider {
+  static var previews: some View {
+    CounterItemView(
+      store: Store(
+        initialState: CounterItemFeature.State(
+          count: 0, hoge: 0
+        ),
+        reducer: {
+          CounterItemFeature()
+        })
+    )
+  }
+}
 
 
 
