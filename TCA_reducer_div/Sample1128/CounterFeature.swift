@@ -6,7 +6,8 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct CounterFeature: Reducer {
+@Reducer
+struct CounterFeature {
  
   struct State: Equatable {
     var count: Int = 0
@@ -15,6 +16,7 @@ struct CounterFeature: Reducer {
   
   @CasePathable
   enum Action: Equatable {
+    case incrementButtonTapped
     case hoge(IncrementFeature.Action)
   }
  
@@ -22,6 +24,10 @@ struct CounterFeature: Reducer {
    // reducer
     Reduce { state, action in
       switch action {
+      case .incrementButtonTapped:
+        return .run { send in
+          await send(.hoge(.increment))
+        }
       case .hoge(let action):
         switch(action) {
         case .delegate(let action):
@@ -45,13 +51,14 @@ struct CounterFeature: Reducer {
   }
 }
 
-struct IncrementFeature: Reducer {
+@Reducer
+struct IncrementFeature {
   struct State: Equatable {
     var count = 0
   }
   
   enum Action: Equatable {
-    case incrementButtonTapped
+    case increment
     case delegate(Delegate)
     
     enum Delegate: Equatable {
@@ -61,7 +68,7 @@ struct IncrementFeature: Reducer {
   var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
-      case .incrementButtonTapped:
+      case .increment:
         print("#tag112 \(Date().ISO8601Format()) \(#line) \(type(of: self))  \(#function) : \(self) ")
         state.count += 1
         let count = state.count
