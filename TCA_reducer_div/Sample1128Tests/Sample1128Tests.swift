@@ -33,6 +33,34 @@ class Sample1128Tests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+
+  
+  func testChild() async {
+    
+    
+    struct Child: Reducer {
+      struct State: Equatable {
+      }
+      enum Action: Equatable {
+        case delegate(Delegate)
+        
+        @CasePathable
+        enum Delegate {
+          case aaa
+          case bbb
+        }
+      }
+      
+      var body: some Reducer<State, Action> {
+        Reduce { state, action in
+          switch action {
+          case .delegate:
+            return .none
+          }
+        }
+        
+  }
+  
   
   func testEnumChild() async {
     struct Child: Reducer {
