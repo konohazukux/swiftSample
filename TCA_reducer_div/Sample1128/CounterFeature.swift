@@ -8,85 +8,57 @@ import ComposableArchitecture
 
 struct CounterFeature: Reducer {
  
-  struct State {
-    var count = 0
-    var fact: String?
-    var isLoading = false
-    var isTimerRunning = false
+  struct State: Equatable {
+    var hoge = IncrementFeature.State()
   }
-  enum Action {
-    case decrementButtonTapped
-    case incrementButtonTapped
-    case factResponse(String)
-    case factButtonTapped
-    case timerTick
-    case toggleTimerButtonTapped
+  
+  @CasePathable
+  enum Action: Equatable {
+    case temp
+    case hoge(IncrementFeature.Action)
   }
   
   enum CancelID { case timer }
-  
-  func reduce(into state: inout State, action: Action) -> Effect<Action> {
-    switch action {
-    case .decrementButtonTapped:
-      state.count -= 1
-      state.fact = nil
-      return .none
-    case .factButtonTapped:
-      state.fact = nil
-      state.isLoading = true
-      return .run { [count = state.count] send in
-        let (data, _) = try await URLSession.shared
-          .data(from: URL(string: "http://numbersapi.com/\(count)")!)
-        let fact = String(decoding: data, as: UTF8.self)
-        await send(.factResponse(fact))
-      }
-    case let .factResponse(fact):
-      state.fact = fact
-      state.isLoading = false
-      return .none
-    case .incrementButtonTapped:
-      state.count += 1
-      state.fact = nil
-      return .none
-    case .timerTick:
-      state.count += 1
-      state.fact = nil
-      return .none
-    case .toggleTimerButtonTapped:
-      state.isTimerRunning.toggle()
-      if state.isTimerRunning {
-        return .run { send in
-          while true {
-            try await Task.sleep(nanoseconds: 1000)
-            await send(.timerTick)
-          }
+ 
+  var body: some ReducerOf<Self> {
+    
+    Scope(state: \.hoge, action: \.hoge) {
+      IncrementFeature()
+    }
+    
+    Reduce { state, action in
+      switch action {
+      case .temp:
+        return .none
+      case .hoge(let action):
+        switch(action) {
+        case .incrementButtonTapped:
+          print("#tag115 \(Date().ISO8601Format()) \(#line) \(type(of: self))  \(#function) : \(self) ")
         }
-        .cancellable(id: CancelID.timer)
-      } else {
-        return .cancel(id: CancelID.timer)
+        return .none
       }
     }
-   
-    
   }
-  
 }
 
-extension CounterFeature.State: Equatable {}
-
-
-
-
 struct IncrementFeature: Reducer {
-    struct State: Equatable { }
-    enum Action: Equatable { }
-    var body: some ReducerOf<Self> {
-        Reduce { state, action in
-            switch action {
-            default:
-                return .none
-            }
-        }
+  struct State: Equatable {
+    var count = 0
+  }
+  
+  @CasePathable
+  enum Action: Equatable {
+    case incrementButtonTapped
+  }
+  var body: some ReducerOf<Self> {
+    Reduce { state, action in
+      switch action {
+      case .incrementButtonTapped:
+        print("#tag112 \(Date().ISO8601Format()) \(#line) \(type(of: self))  \(#function) : \(self) ")
+        state.count += 1
+        return .none
+      }
     }
+  }
 }
 
