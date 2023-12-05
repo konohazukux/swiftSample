@@ -14,6 +14,8 @@
 		82FB09FC2B1EA33B0092D247 /* TCA_Test_1205Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB09FB2B1EA33B0092D247 /* TCA_Test_1205Tests.swift */; };
 		82FB0A062B1EA33B0092D247 /* TCA_Test_1205UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB0A052B1EA33B0092D247 /* TCA_Test_1205UITests.swift */; };
 		82FB0A082B1EA33B0092D247 /* TCA_Test_1205UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB0A072B1EA33B0092D247 /* TCA_Test_1205UITestsLaunchTests.swift */; };
+		82FB0A162B1EA9940092D247 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 82FB0A152B1EA9940092D247 /* ComposableArchitecture */; };
+		82FB0A182B1EAA170092D247 /* TCA_TEST_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB0A172B1EAA170092D247 /* TCA_TEST_01.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,7 @@
 		82FB0A012B1EA33B0092D247 /* TCA_Test_1205UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCA_Test_1205UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB0A052B1EA33B0092D247 /* TCA_Test_1205UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_Test_1205UITests.swift; sourceTree = "<group>"; };
 		82FB0A072B1EA33B0092D247 /* TCA_Test_1205UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_Test_1205UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		82FB0A172B1EAA170092D247 /* TCA_TEST_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCA_TEST_01.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82FB0A162B1EA9940092D247 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				82FB09FB2B1EA33B0092D247 /* TCA_Test_1205Tests.swift */,
+				82FB0A172B1EAA170092D247 /* TCA_TEST_01.swift */,
 			);
 			path = TCA_Test_1205Tests;
 			sourceTree = "<group>";
@@ -145,6 +150,9 @@
 			dependencies = (
 			);
 			name = TCA_Test_1205;
+			packageProductDependencies = (
+				82FB0A152B1EA9940092D247 /* ComposableArchitecture */,
+			);
 			productName = TCA_Test_1205;
 			productReference = 82FB09E62B1EA33A0092D247 /* TCA_Test_1205.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +225,9 @@
 				Base,
 			);
 			mainGroup = 82FB09DD2B1EA3390092D247;
+			packageReferences = (
+				82FB0A142B1EA9940092D247 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 82FB09E72B1EA33A0092D247 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -269,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82FB09FC2B1EA33B0092D247 /* TCA_Test_1205Tests.swift in Sources */,
+				82FB0A182B1EAA170092D247 /* TCA_TEST_01.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,6 +629,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		82FB0A142B1EA9940092D247 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		82FB0A152B1EA9940092D247 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 82FB0A142B1EA9940092D247 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 82FB09DE2B1EA3390092D247 /* Project object */;
 }

@@ -2,9 +2,8 @@
 //  TCA_Test_1205Tests.swift
 //  TCA_Test_1205Tests
 //
-//  Created by takeshishimada on 2023/12/05.
-//
 
+import ComposableArchitecture
 import XCTest
 
 final class TCA_Test_1205Tests: XCTestCase {
