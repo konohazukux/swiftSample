@@ -12,14 +12,14 @@ struct CounterView: View {
   var body: some View {
     WithViewStore(self.store, observe: { $0 }) { viewStore in
       VStack {
-        Text("\(viewStore.hoge.count)")
+        Text("\(viewStore.count)")
           .font(.largeTitle)
           .padding()
           .background(Color.black.opacity(0.1))
           .cornerRadius(10)
         HStack {
           Button("+"){
-            viewStore.send(.hoge(.incrementButtonTapped))
+            viewStore.send(.incrementButtonTapped)
           }
             .font(.largeTitle)
             .padding()
