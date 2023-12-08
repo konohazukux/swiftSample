@@ -73,16 +73,25 @@ final class TCA_Test_1205Tests: XCTestCase {
     }
     
     struct Parent: Reducer {
-      struct State: Equatable { }
+      struct State: Equatable {
+        var children = StackState<Child.State>
+      }
       enum Action: Equatable {
         case children: StackAction<Child.State, Child.Action>
+        case pushChild
       }
       var body: some ReducerOf<Self> {
         Reduce { state, action in
           switch action {
           case .children:
             return .none
+          case .pushChild:
+            state.children.append(Child.State())
+            return .none
           }
+        }
+        .forEach(\.children, action: \Action.children) {
+          Child()
         }
       }
     }
