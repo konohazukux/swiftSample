@@ -51,7 +51,7 @@ final class TCA_Test_1205Tests: XCTestCase {
   func testPresent() {
     
     struct Child: Reducer {
-      struct State: Equatable { 
+      struct State: Equatable {
         count = 0
       }
       enum Action: Equatable {
@@ -94,11 +94,20 @@ final class TCA_Test_1205Tests: XCTestCase {
           Child()
         }
       }
+      
+      let store = TestStore(initialState: Parent.State()) {
+        Parent()
+      }
+      
+      await store.send(.pushChild) {
+        $0.children.append(Child.State())
+      }
+      
     }
-
+    
     
   }
   
-
-
+  
+  
 }
