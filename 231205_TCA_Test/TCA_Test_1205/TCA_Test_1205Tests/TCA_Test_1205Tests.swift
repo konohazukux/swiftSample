@@ -41,9 +41,52 @@ final class TCA_Test_1205Tests: XCTestCase {
       stack[id: 0, case: /Element.text]?.append("!")
     } issueMatcher: {
       $0.compactDescription == """
-          Can't modify unrelated case "int"
+          Can't modify unrelated case "int
+          "
           """
     }
+    
+  }
+ 
+  func testPresent() {
+    
+    struct Child: Reducer {
+      struct State: Equatable { 
+        count = 0
+      }
+      enum Action: Equatable {
+        case decrementButtonTapped
+        case incrementButtonTapped
+      }
+      var body: some ReducerOf<Self> {
+        Reduce { state, action in
+          switch action {
+          case .decrementButtonTapped:
+            state.count += 1
+            return .none
+          case .incrementButtonTapped:
+            state.count -= 1
+            return .none
+          }
+        }
+      }
+    }
+    
+    struct Parent: Reducer {
+      struct State: Equatable { }
+      enum Action: Equatable {
+        case children: StackAction<Child.State, Child.Action>
+      }
+      var body: some ReducerOf<Self> {
+        Reduce { state, action in
+          switch action {
+          case .children:
+            return .none
+          }
+        }
+      }
+    }
+
     
   }
   
