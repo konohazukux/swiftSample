@@ -48,11 +48,11 @@ final class TCA_Test_1205Tests: XCTestCase {
     
   }
  
-  func testPresent() {
+  func testPresent() async {
     
     struct Child: Reducer {
       struct State: Equatable {
-        count = 0
+        var count = 0
       }
       enum Action: Equatable {
         case decrementButtonTapped
@@ -74,10 +74,10 @@ final class TCA_Test_1205Tests: XCTestCase {
     
     struct Parent: Reducer {
       struct State: Equatable {
-        var children = StackState<Child.State>
+        var children = StackState<Child.State>()
       }
       enum Action: Equatable {
-        case children: StackAction<Child.State, Child.Action>
+        case children(StackAction<Child.State, Child.Action>)
         case pushChild
       }
       var body: some ReducerOf<Self> {
@@ -90,24 +90,20 @@ final class TCA_Test_1205Tests: XCTestCase {
             return .none
           }
         }
-        .forEach(\.children, action: \Action.children) {
+        .forEach(\.children, action: /Action.children) {
           Child()
         }
       }
+    }
       
-      let store = TestStore(initialState: Parent.State()) {
-        Parent()
-      }
-      
-      await store.send(.pushChild) {
-        $0.children.append(Child.State())
-      }
-      
+    let store = TestStore(initialState: Parent.State()) {
+      Parent()
     }
     
+    await store.send(.pushChild) {
+      $0.children.append(Child.State())
+    }
     
   }
-  
-  
   
 }
