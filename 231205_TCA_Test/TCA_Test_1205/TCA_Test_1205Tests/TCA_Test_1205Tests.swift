@@ -95,12 +95,15 @@ final class TCA_Test_1205Tests: XCTestCase {
         }
       }
     }
-      
+     
+    // テスト用のストア
     let store = TestStore(initialState: Parent.State()) {
       Parent()
     }
     
+    // 1.テストのために pushChildを sendする
     await store.send(.pushChild) {
+      // 2. 確認する。結果がどのようになるかここに記述して同じになるか
       $0.children.append(Child.State())
     }
     
