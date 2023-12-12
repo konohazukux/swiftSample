@@ -111,12 +111,16 @@ final class TCA_Test_1205Tests: XCTestCase {
    
     struct Child: Reducer {
       struct State: Equatable { }
-      enum Action: Equatable { }
+      enum Action: Equatable { 
+        case onAppear
+      }
       var body: some ReducerOf<Self> {
         Reduce { state, action in
           switch action {
-          default:
-            return .none
+          case .onAppear:
+            return .run { _ in
+              try await Task.never()
+            }
           }
         }
       }
@@ -124,25 +128,28 @@ final class TCA_Test_1205Tests: XCTestCase {
       
     struct Parent: Reducer {
       struct State: Equatable {
-        var children = StackState<Child.State>()
+        var childrenState = StackState<Child.State>()
       }
       enum Action: Equatable {
-        case child(Child.Action)
+        case childrenAction(StackAction<Child.State,Child.Action>)
         case pushChild
         case popChild
       }
       var body: some ReducerOf<Self> {
         Reduce { state, action in
           switch action {
-          case .child:
+          case .childrenAction:
             return .none
           case .pushChild:
-            state.children.append(Child.State())
+            state.childrenState.append(Child.State())
             return .none
           case .popChild:
-            state.children.removeLast()
+            state.childrenState.removeLast()
             return .none
           }
+        }
+        .forEach(\.childrenState, action: /Action.childrenAction) {
+          Child()
         }
       }
     }
@@ -152,10 +159,10 @@ final class TCA_Test_1205Tests: XCTestCase {
     }
     
     await test.send(.pushChild) { state in
-      state.children.append(Child.State())
+      state.childrenState.append(Child.State())
     }
     await test.send(.popChild) { state in
-      state.children.removeLast()
+      state.childrenState.removeLast()
     }
 
   }
