@@ -101,12 +101,63 @@ final class TCA_Test_1205Tests: XCTestCase {
       Parent()
     }
     
-    // 1.テストのために pushChildを sendする
     await store.send(.pushChild) {
-      // 2. 確認する。結果がどのようになるかここに記述して同じになるか
       $0.children.append(Child.State())
     }
     
+  }
+  
+  func testDismissFromParent() async {
+   
+    struct Child: Reducer {
+      struct State: Equatable { }
+      enum Action: Equatable { }
+      var body: some ReducerOf<Self> {
+        Reduce { state, action in
+          switch action {
+          default:
+            return .none
+          }
+        }
+      }
+    }
+      
+    struct Parent: Reducer {
+      struct State: Equatable {
+        var children = StackState<Child.State>()
+      }
+      enum Action: Equatable {
+        case child(Child.Action)
+        case pushChild
+        case popChild
+      }
+      var body: some ReducerOf<Self> {
+        Reduce { state, action in
+          switch action {
+          case .child:
+            return .none
+          case .pushChild:
+            state.children.append(Child.State())
+            return .none
+          case .popChild:
+            state.children.removeLast()
+            return .none
+          }
+        }
+      }
+    }
+    
+    let test = TestStore(initialState: Parent.State()) {
+      Parent()
+    }
+    
+    await test.send(.pushChild) { state in
+      state.children.append(Child.State())
+    }
+    await test.send(.popChild) { state in
+      state.children.removeLast()
+    }
+
   }
   
 }
