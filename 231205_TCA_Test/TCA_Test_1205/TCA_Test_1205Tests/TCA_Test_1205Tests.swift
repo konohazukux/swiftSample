@@ -161,6 +161,7 @@ final class TCA_Test_1205Tests: XCTestCase {
     await test.send(.pushChild) { state in
       state.childrenState.append(Child.State())
     }
+    await test.send(.childrenAction((.element(id: 0, action: .onAppear))))
     await test.send(.popChild) { state in
       state.childrenState.removeLast()
     }
