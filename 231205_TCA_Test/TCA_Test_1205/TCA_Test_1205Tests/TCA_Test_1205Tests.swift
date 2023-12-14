@@ -175,11 +175,14 @@ final class TCA_Test_1205Tests: XCTestCase {
       enum Action: Equatable {
         case closeButtonTapped
       }
+      @Dependency(\.dismiss) var dismiss
       var body: some ReducerOf<Self> {
         Reduce { state, action in
           switch action {
-          default:
-            return .none
+          case .closeButtonTapped:
+            return .run { _ in
+              await self.dismiss()
+            }
           }
         }
       }
@@ -196,10 +199,14 @@ final class TCA_Test_1205Tests: XCTestCase {
       var body: some ReducerOf<Self> {
         Reduce { state, action in
           switch action {
-          default:
+          case .pushChildAction:
+            state.childrenState.append(Child.State())
+            return .none
+          case .childrenAction:
             return .none
           }
         }
+        .forEach(\.childrenState, action: /Action.childrenAction) { Child() }
       }
     }
 
@@ -214,7 +221,6 @@ final class TCA_Test_1205Tests: XCTestCase {
     await store.receive(.childrenAction(.popFrom(id: 0))) {
       $0.childrenState.removeLast()
     }
-
     
   }
 }
