@@ -161,11 +161,45 @@ final class TCA_Test_1205Tests: XCTestCase {
     await test.send(.pushChild) { state in
       state.childrenState.append(Child.State())
     }
-    await test.send(.childrenAction((.element(id: 0, action: .onAppear))))
+    await test.send(.childrenAction((.element(id: 1, action: .onAppear))))
     await test.send(.popChild) { state in
       state.childrenState.removeLast()
     }
 
   }
+ 
   
+  func testDismissFromChild() {
+    
+    struct Child: Reducer {
+      struct State: Equatable { }
+      enum Action: Equatable { }
+      var body: some ReducerOf<Self> {
+        Reduce { state, action in
+          switch action {
+          default:
+            return .none
+          }
+        }
+      }
+    }
+    
+    struct Parent: Reducer {
+      struct State: Equatable {
+        var childrenState = StackState<Child.State>()
+      }
+      enum Action: Equatable {
+        case childrenAction(StackAction<Child.State, Child.Action>)
+      }
+      var body: some ReducerOf<Self> {
+        Reduce { state, action in
+          switch action {
+          default:
+            return .none
+          }
+        }
+      }
+    }
+  
+  }
 }
