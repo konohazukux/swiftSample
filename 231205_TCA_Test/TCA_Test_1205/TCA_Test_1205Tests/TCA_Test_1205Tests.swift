@@ -169,11 +169,12 @@ final class TCA_Test_1205Tests: XCTestCase {
   }
  
   
-  func testDismissFromChild() {
-    
+  func testDismissFromChild() async {
     struct Child: Reducer {
       struct State: Equatable { }
-      enum Action: Equatable { }
+      enum Action: Equatable {
+        case closeButtonTapped
+      }
       var body: some ReducerOf<Self> {
         Reduce { state, action in
           switch action {
@@ -190,6 +191,7 @@ final class TCA_Test_1205Tests: XCTestCase {
       }
       enum Action: Equatable {
         case childrenAction(StackAction<Child.State, Child.Action>)
+        case pushChildAction
       }
       var body: some ReducerOf<Self> {
         Reduce { state, action in
@@ -200,6 +202,19 @@ final class TCA_Test_1205Tests: XCTestCase {
         }
       }
     }
-  
+
+    let store = TestStore(initialState: Parent.State()) {
+      Parent()
+    }
+    
+    await store.send(.pushChildAction) {
+      $0.childrenState.append(Child.State())
+    }
+    await store.send(.childrenAction(.element(id: 0, action: .closeButtonTapped)))
+    await store.receive(.childrenAction(.popFrom(id: 0))) {
+      $0.childrenState.removeLast()
+    }
+
+    
   }
 }
