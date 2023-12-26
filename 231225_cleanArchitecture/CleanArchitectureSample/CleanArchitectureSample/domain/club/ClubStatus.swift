@@ -6,6 +6,6 @@
 import Foundation
 
 enum ClubStatus: Codable {
-    case approved, notApproved
+  case approved, notApproved
 }
 

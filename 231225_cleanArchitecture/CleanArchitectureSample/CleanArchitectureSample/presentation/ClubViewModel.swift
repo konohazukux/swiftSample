@@ -14,7 +14,7 @@ class ClubViewModel: ObservableObject {
   }
   
   func addClub(name: String) {
-    
+    let _ = self.clubUseCase.createClub(name: name)
   }
   
   func fetchClubs() {
