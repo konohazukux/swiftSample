@@ -218,9 +218,37 @@ final class TCA_Test_1205Tests: XCTestCase {
       $0.childrenState.append(Child.State())
     }
     await store.send(.childrenAction(.element(id: 0, action: .closeButtonTapped)))
-    await store.receive(.childrenAction(.popFrom(id: 0))) {
-      $0.childrenState.removeLast()
-    }
+    await store.receive(.childrenAction(.popFrom(id: 0))) { $0.childrenState.removeLast() }
     
   }
+  
+  func testDismissReceiveWrongAction() async {
+    struct ChildReducer: Reducer {
+      struct State: Equatable { }
+      enum Action: Equatable { }
+      var body: some ReducerOf<Self> {
+        Reduce { state, action in
+          switch action {
+          default:
+            return .none
+          }
+        }
+      }
+    }
+    
+    struct ParentReducer: Reducer {
+      struct State: Equatable { }
+      enum Action: Equatable { }
+      var body: some ReducerOf<Self> {
+        Reduce { state, action in
+          switch action {
+          default:
+            return .none
+          }
+        }
+      }
+    }
+
+  }
+  
 }
