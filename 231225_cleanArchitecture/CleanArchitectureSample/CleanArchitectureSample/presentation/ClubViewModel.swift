@@ -12,12 +12,17 @@ class ClubViewModel: ObservableObject {
   init(clubUseCase: ClubUseCase) {
     self.clubUseCase = clubUseCase
   }
-  
+ 
   func addClub(name: String) {
-    let _ = self.clubUseCase.createClub(name: name)
+    Task {
+      let clubs = await self.clubUseCase.createClub(name: name)
+      self.clubs = clubs
+    }
   }
   
   func fetchClubs() {
-    self.clubs = clubUseCase.findAllClubs()
+    Task {
+      self.clubs = await clubUseCase.findAllClubs()
+    }
   }
 }

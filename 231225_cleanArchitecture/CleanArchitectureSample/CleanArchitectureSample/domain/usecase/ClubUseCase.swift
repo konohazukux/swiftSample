@@ -13,44 +13,45 @@ class ClubUseCase {
   }
  
   // Create Club
-  func createClub(name: String) -> ClubId {
+  func createClub(name: String) async -> [Club] {
     let club = Club(name: name)
-      clubRepository.save(club)
-      return club.clubId
+    await clubRepository.save(club)
+    let clubs = await findAllClubs()
+    return clubs
   }
   
-  func findAllClubs() -> [Club] {
-      return clubRepository.findAll()
+  func findAllClubs() async -> [Club] {
+      return await clubRepository.findAll()
   }
   
   // Adds a student to a club
-  func addStudent(clubId: ClubId, studentId: StudentId) throws {
-    guard let club = clubRepository.findById(clubId) else {
+  func addStudent(clubId: ClubId, studentId: StudentId) async throws {
+    guard let club = await clubRepository.findById(clubId) else {
       throw UseCaseException("the club is not found")
     }
     
     try club.addStudent(studentId)
-    clubRepository.save(club)
+    await clubRepository.save(club)
   }
   
   // Approves a club if certain conditions are met
-  func approveClub(clubId: ClubId) throws {
-    guard let club = clubRepository.findById(clubId) else {
+  func approveClub(clubId: ClubId) async throws {
+    guard let club = await clubRepository.findById(clubId) else {
       throw UseCaseException("the club is not found")
     }
     
     try club.approve()
-    clubRepository.save(club)
+    await clubRepository.save(club)
   }
   
   // Removes a student from a club
-  func removeStudent(clubId: ClubId, studentId: StudentId) throws {
-    guard let club = clubRepository.findById(clubId) else {
+  func removeStudent(clubId: ClubId, studentId: StudentId) async throws {
+    guard let club = await clubRepository.findById(clubId) else {
       throw UseCaseException("the club is not found")
     }
     
     club.removeStudent(studentId)
-    clubRepository.save(club)
+    await clubRepository.save(club)
   }
 }
 

@@ -9,14 +9,14 @@ class ClubRepositoryImpl: ClubRepository {
   private let defaults = UserDefaults.standard
   private let clubKey = "clubs"
   
-  func findById(_ clubId: ClubId) -> Club? {
+  func findById(_ clubId: ClubId) async -> Club? {
     guard let clubData = defaults.data(forKey: clubKey) else { return nil }
     let clubs = try? JSONDecoder().decode([Club].self, from: clubData)
     return clubs?.first(where: { $0.clubId == clubId })
   }
   
-  func save(_ club: Club) {
-    var clubs = findAll()
+  func save(_ club: Club) async {
+    var clubs = await findAll()
     if let index = clubs.firstIndex(where: { $0.clubId == club.clubId }) {
       clubs[index] = club
     } else {
@@ -27,7 +27,7 @@ class ClubRepositoryImpl: ClubRepository {
     }
   }
   
-  func findAll() -> [Club] {
+  func findAll() async -> [Club] {
     guard let clubData = defaults.data(forKey: clubKey) else { return [] }
     return (try? JSONDecoder().decode([Club].self, from: clubData)) ?? []
   }
