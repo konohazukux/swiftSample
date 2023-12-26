@@ -122,9 +122,8 @@
 				821D64B62B396A0F00F29BC6 /* CleanArchitectureSampleApp.swift */,
 				82E9DFB22B3A82BD00838D3B /* presentation */,
 				82E9DF9B2B3A6BB200838D3B /* domain */,
-				82E9DF952B3A5B1D00838D3B /* infra */,
+				82E9DF952B3A5B1D00838D3B /* data */,
 				82E9DF922B3A5A7100838D3B /* shared */,
-				82E9DF862B3A578100838D3B /* usecase */,
 				821D64BA2B396A1100F29BC6 /* Assets.xcassets */,
 				821D64BC2B396A1100F29BC6 /* CleanArchitectureSample.entitlements */,
 				821D64BD2B396A1100F29BC6 /* Preview Content */,
@@ -174,25 +173,26 @@
 			path = shared;
 			sourceTree = "<group>";
 		};
-		82E9DF952B3A5B1D00838D3B /* infra */ = {
+		82E9DF952B3A5B1D00838D3B /* data */ = {
 			isa = PBXGroup;
 			children = (
-				82E9DF962B3A5B2800838D3B /* task */,
+				82E9DF962B3A5B2800838D3B /* club */,
 			);
-			path = infra;
+			path = data;
 			sourceTree = "<group>";
 		};
-		82E9DF962B3A5B2800838D3B /* task */ = {
+		82E9DF962B3A5B2800838D3B /* club */ = {
 			isa = PBXGroup;
 			children = (
 				82E9DFAE2B3A72F100838D3B /* ClubRepositoryImpl.swift */,
 			);
-			path = task;
+			path = club;
 			sourceTree = "<group>";
 		};
 		82E9DF9B2B3A6BB200838D3B /* domain */ = {
 			isa = PBXGroup;
 			children = (
+				82E9DF862B3A578100838D3B /* usecase */,
 				82E9DF9F2B3A6C1900838D3B /* student */,
 				82E9DF9C2B3A6BC400838D3B /* club */,
 			);

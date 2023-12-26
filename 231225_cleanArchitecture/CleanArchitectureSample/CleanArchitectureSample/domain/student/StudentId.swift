@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct StudentId: Hashable {
+struct StudentId: Hashable, Codable {
     let value: String
 
     init() {

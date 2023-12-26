@@ -6,10 +6,18 @@
 import Foundation
 
 class ClubViewModel: ObservableObject {
-    @Published var clubs: [Club] = []
-
-    // ここにビジネスロジックを実装
-    func fetchClubs() {
-        // クラブのデータを取得して、clubsに代入
-    }
+  @Published var clubs: [Club] = []
+  private let clubUseCase: ClubUseCase
+  
+  init(clubUseCase: ClubUseCase) {
+    self.clubUseCase = clubUseCase
+  }
+  
+  func addClub(name: String) {
+    
+  }
+  
+  func fetchClubs() {
+    self.clubs = clubUseCase.findAllClubs()
+  }
 }

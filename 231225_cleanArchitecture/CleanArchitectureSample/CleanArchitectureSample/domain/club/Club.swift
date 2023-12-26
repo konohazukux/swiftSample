@@ -4,7 +4,7 @@
 //
 import Foundation
 
-class Club: Identifiable {
+class Club: Identifiable, Codable {
     var clubId: ClubId
     var name: String
     var clubStatus: ClubStatus

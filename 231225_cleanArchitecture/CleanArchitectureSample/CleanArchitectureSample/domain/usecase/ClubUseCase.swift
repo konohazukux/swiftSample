@@ -19,6 +19,10 @@ class ClubUseCase {
       return club.clubId
   }
   
+  func findAllClubs() -> [Club] {
+      return clubRepository.findAll()
+  }
+  
   // Adds a student to a club
   func addStudent(clubId: ClubId, studentId: StudentId) throws {
     guard let club = clubRepository.findById(clubId) else {
@@ -51,5 +55,4 @@ class ClubUseCase {
 }
 
 
-// Assuming UserRepository, User, and UserId are defined elsewhere in your Swift code.
 
