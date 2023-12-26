@@ -9,7 +9,7 @@ import SwiftUI
 struct CleanArchitectureSampleApp: App {
     var body: some Scene {
         WindowGroup {
-          UserListView()
+          ClubsListView()
         }
     }
 }

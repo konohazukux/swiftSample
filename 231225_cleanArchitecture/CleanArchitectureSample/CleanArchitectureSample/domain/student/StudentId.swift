@@ -1,15 +1,18 @@
 //
-//  TaskId.swift
+//  StudentId.swift
 //  CleanArchitectureSample
 //
 
 import Foundation
 
-struct TaskId {
+struct StudentId: Hashable {
     let value: String
 
     init() {
         self.value = UUID().uuidString
     }
-}
 
+    func stringValue() -> String {
+        return value
+    }
+}
