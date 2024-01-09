@@ -6,7 +6,7 @@
 import SwiftUI
 
 struct ClubsListView: View {
-  @ObservedObject var viewModel = ClubViewModel(
+  @ObservedObject var viewModel = ClubViewPresenter(
     clubUseCase: ClubUseCase(
       clubRepository: ClubRepositoryImpl()
     )

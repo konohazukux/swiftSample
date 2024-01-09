@@ -5,7 +5,7 @@
 
 import Foundation
 
-class ClubViewModel: ObservableObject {
+class ClubViewPresenter: ObservableObject {
   @Published var clubs: [Club] = []
   private let clubUseCase: ClubUseCase
   

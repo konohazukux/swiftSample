@@ -25,7 +25,7 @@
 		82E9DFAF2B3A72F100838D3B /* ClubRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9DFAE2B3A72F100838D3B /* ClubRepositoryImpl.swift */; };
 		82E9DFB12B3A73FD00838D3B /* UseCaseException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9DFB02B3A73FD00838D3B /* UseCaseException.swift */; };
 		82E9DFB42B3A82DA00838D3B /* ClubListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9DFB32B3A82DA00838D3B /* ClubListView.swift */; };
-		82E9DFB62B3A840C00838D3B /* ClubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9DFB52B3A840C00838D3B /* ClubViewModel.swift */; };
+		82E9DFB62B3A840C00838D3B /* ClubViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9DFB52B3A840C00838D3B /* ClubViewPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +68,7 @@
 		82E9DFAE2B3A72F100838D3B /* ClubRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubRepositoryImpl.swift; sourceTree = "<group>"; };
 		82E9DFB02B3A73FD00838D3B /* UseCaseException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseException.swift; sourceTree = "<group>"; };
 		82E9DFB32B3A82DA00838D3B /* ClubListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListView.swift; sourceTree = "<group>"; };
-		82E9DFB52B3A840C00838D3B /* ClubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubViewModel.swift; sourceTree = "<group>"; };
+		82E9DFB52B3A840C00838D3B /* ClubViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,7 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				82E9DFB32B3A82DA00838D3B /* ClubListView.swift */,
-				82E9DFB52B3A840C00838D3B /* ClubViewModel.swift */,
+				82E9DFB52B3A840C00838D3B /* ClubViewPresenter.swift */,
 			);
 			path = presentation;
 			sourceTree = "<group>";
@@ -361,7 +361,7 @@
 			files = (
 				82E9DFB42B3A82DA00838D3B /* ClubListView.swift in Sources */,
 				82E9DFB12B3A73FD00838D3B /* UseCaseException.swift in Sources */,
-				82E9DFB62B3A840C00838D3B /* ClubViewModel.swift in Sources */,
+				82E9DFB62B3A840C00838D3B /* ClubViewPresenter.swift in Sources */,
 				82E9DF9E2B3A6BDA00838D3B /* Club.swift in Sources */,
 				82E9DF942B3A5A9500838D3B /* DomainException.swift in Sources */,
 				82E9DFA52B3A6C8300838D3B /* StudentRepository.swift in Sources */,
