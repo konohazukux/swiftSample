@@ -12,22 +12,20 @@ class ClubViewPresenter: ObservableObject {
   init(clubUseCase: ClubUseCase) {
     self.clubUseCase = clubUseCase
   }
- 
+  
+  @MainActor
   func addClub(name: String) {
     Task {
       let clubs = await self.clubUseCase.createClub(name: name)
-      DispatchQueue.main.async {
-        self.clubViewModels = clubs.map { ClubViewModel(club: $0) }
-      }
+      self.clubViewModels = clubs.map { ClubViewModel(club: $0) }
     }
   }
   
+  @MainActor
   func fetchClubs() {
     Task {
       let clubs = await clubUseCase.findAllClubs()
-      DispatchQueue.main.async {
-        self.clubViewModels = clubs.map { ClubViewModel(club: $0) }
-      }
+      self.clubViewModels = clubs.map { ClubViewModel(club: $0) }
     }
   }
 }
