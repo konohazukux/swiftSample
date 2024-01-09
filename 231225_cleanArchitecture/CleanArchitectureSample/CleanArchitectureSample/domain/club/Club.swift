@@ -8,6 +8,7 @@ class Club: Identifiable, Codable {
   var clubId: ClubId
   var name: String
   var clubStatus: ClubStatus
+  var createdAt: Date
   private var studentIds: [StudentId]
   
   private static let minimumApproveStudentNumber = 5
@@ -17,6 +18,7 @@ class Club: Identifiable, Codable {
     self.name = name
     self.clubStatus = .notApproved
     self.studentIds = []
+    self.createdAt = Date()
   }
   
   // Adds a student to the club
