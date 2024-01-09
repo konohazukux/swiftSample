@@ -16,7 +16,7 @@ struct ClubsListView: View {
   
   var body: some View {
     NavigationView {
-      List(viewModel.clubs) { club in
+      List(viewModel.clubViewModels) { club in
         ClubRow(club: club)
       }
       .navigationBarTitle("Clubs")
@@ -47,7 +47,7 @@ struct ClubsListView: View {
 }
 
 struct ClubRow: View {
-  var club: Club
+  var club: ClubViewModel
   
   var body: some View {
     Text(club.name)

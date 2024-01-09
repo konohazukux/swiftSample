@@ -6,7 +6,7 @@
 import Foundation
 
 class ClubViewPresenter: ObservableObject {
-  @Published var clubs: [Club] = []
+  @Published var clubViewModels: [ClubViewModel] = []
   private let clubUseCase: ClubUseCase
   
   init(clubUseCase: ClubUseCase) {
@@ -16,13 +16,13 @@ class ClubViewPresenter: ObservableObject {
   func addClub(name: String) {
     Task {
       let clubs = await self.clubUseCase.createClub(name: name)
-      self.clubs = clubs
+      self.clubViewModels = clubs.map { ClubViewModel(club: $0) }
     }
   }
   
   func fetchClubs() {
     Task {
-      self.clubs = await clubUseCase.findAllClubs()
+      self.clubViewModels = await clubUseCase.findAllClubs().map { ClubViewModel(club: $0) }
     }
   }
 }

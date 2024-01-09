@@ -5,7 +5,7 @@
 
 import Foundation
 
-struct ClubId: Codable, Equatable {
+struct ClubId: Codable, Equatable, Hashable {
   private let value: String
   
   init() {
