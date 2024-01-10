@@ -50,7 +50,11 @@ struct ClubRow: View {
   var club: ClubViewModel
   
   var body: some View {
-    Text(club.name)
+    HStack {
+      Text(club.name)
+      Spacer()
+      Text(club.dateStr)
+    }
   }
 }
 

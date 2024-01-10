@@ -18,7 +18,7 @@ struct ClubViewModel: Identifiable {
   
   private static let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd"
+    formatter.dateFormat = "yyyy年MM月dd日 HH:mm"
     return formatter
   }()
 }
