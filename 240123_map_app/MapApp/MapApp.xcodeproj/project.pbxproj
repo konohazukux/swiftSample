@@ -16,6 +16,7 @@
 		82F3960B2B5F4FFB00EB327D /* MapAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3960A2B5F4FFB00EB327D /* MapAppUITestsLaunchTests.swift */; };
 		82F396182B5F557F00EB327D /* Marketplace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F396172B5F557F00EB327D /* Marketplace.swift */; };
 		82F3961C2B5F57FA00EB327D /* MarketplaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3961B2B5F57FA00EB327D /* MarketplaceTests.swift */; };
+		82F3961E2B5F5E0700EB327D /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3961D2B5F5E0700EB327D /* Market.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		82F3960A2B5F4FFB00EB327D /* MapAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		82F396172B5F557F00EB327D /* Marketplace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marketplace.swift; sourceTree = "<group>"; };
 		82F3961B2B5F57FA00EB327D /* MarketplaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceTests.swift; sourceTree = "<group>"; };
+		82F3961D2B5F5E0700EB327D /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				82F396172B5F557F00EB327D /* Marketplace.swift */,
+				82F3961D2B5F5E0700EB327D /* Market.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				82F395EF2B5F4FF700EB327D /* ContentView.swift in Sources */,
 				82F396182B5F557F00EB327D /* Marketplace.swift in Sources */,
 				82F395ED2B5F4FF700EB327D /* MapAppApp.swift in Sources */,
+				82F3961E2B5F5E0700EB327D /* Market.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,7 +470,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.rm-app-tech-verifications.MapApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -504,7 +509,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.rm-app-tech-verifications.MapApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
