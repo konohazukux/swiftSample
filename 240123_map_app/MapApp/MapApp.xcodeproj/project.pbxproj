@@ -17,6 +17,7 @@
 		82F396182B5F557F00EB327D /* Marketplace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F396172B5F557F00EB327D /* Marketplace.swift */; };
 		82F3961C2B5F57FA00EB327D /* MarketplaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3961B2B5F57FA00EB327D /* MarketplaceTests.swift */; };
 		82F3961E2B5F5E0700EB327D /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3961D2B5F5E0700EB327D /* Market.swift */; };
+		82F396202B5F617200EB327D /* MarketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3961F2B5F617200EB327D /* MarketTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		82F396172B5F557F00EB327D /* Marketplace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marketplace.swift; sourceTree = "<group>"; };
 		82F3961B2B5F57FA00EB327D /* MarketplaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceTests.swift; sourceTree = "<group>"; };
 		82F3961D2B5F5E0700EB327D /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
+		82F3961F2B5F617200EB327D /* MarketTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				82F395FE2B5F4FFB00EB327D /* MapAppTests.swift */,
+				82F3961F2B5F617200EB327D /* MarketTests.swift */,
 				82F3961A2B5F57EF00EB327D /* Domain */,
 			);
 			path = MapAppTests;
@@ -297,6 +300,7 @@
 			files = (
 				82F395FF2B5F4FFB00EB327D /* MapAppTests.swift in Sources */,
 				82F3961C2B5F57FA00EB327D /* MarketplaceTests.swift in Sources */,
+				82F396202B5F617200EB327D /* MarketTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
