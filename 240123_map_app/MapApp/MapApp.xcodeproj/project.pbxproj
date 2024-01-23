@@ -15,6 +15,7 @@
 		82F396092B5F4FFB00EB327D /* MapAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F396082B5F4FFB00EB327D /* MapAppUITests.swift */; };
 		82F3960B2B5F4FFB00EB327D /* MapAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3960A2B5F4FFB00EB327D /* MapAppUITestsLaunchTests.swift */; };
 		82F396182B5F557F00EB327D /* Marketplace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F396172B5F557F00EB327D /* Marketplace.swift */; };
+		82F3961C2B5F57FA00EB327D /* MarketplaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3961B2B5F57FA00EB327D /* MarketplaceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		82F396082B5F4FFB00EB327D /* MapAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAppUITests.swift; sourceTree = "<group>"; };
 		82F3960A2B5F4FFB00EB327D /* MapAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		82F396172B5F557F00EB327D /* Marketplace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marketplace.swift; sourceTree = "<group>"; };
+		82F3961B2B5F57FA00EB327D /* MarketplaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +101,7 @@
 			children = (
 				82F395EC2B5F4FF700EB327D /* MapAppApp.swift */,
 				82F395EE2B5F4FF700EB327D /* ContentView.swift */,
-				82F396172B5F557F00EB327D /* Marketplace.swift */,
+				82F396192B5F571B00EB327D /* Domain */,
 				82F395F02B5F4FFB00EB327D /* Assets.xcassets */,
 				82F395F22B5F4FFB00EB327D /* MapApp.entitlements */,
 				82F395F32B5F4FFB00EB327D /* Preview Content */,
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				82F395FE2B5F4FFB00EB327D /* MapAppTests.swift */,
+				82F3961A2B5F57EF00EB327D /* Domain */,
 			);
 			path = MapAppTests;
 			sourceTree = "<group>";
@@ -130,6 +133,22 @@
 				82F3960A2B5F4FFB00EB327D /* MapAppUITestsLaunchTests.swift */,
 			);
 			path = MapAppUITests;
+			sourceTree = "<group>";
+		};
+		82F396192B5F571B00EB327D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				82F396172B5F557F00EB327D /* Marketplace.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		82F3961A2B5F57EF00EB327D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				82F3961B2B5F57FA00EB327D /* MarketplaceTests.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82F395FF2B5F4FFB00EB327D /* MapAppTests.swift in Sources */,
+				82F3961C2B5F57FA00EB327D /* MarketplaceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
