@@ -22,6 +22,7 @@
 		82F396242B60932E00EB327D /* ElementarySchoolDistrict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F396232B60932E00EB327D /* ElementarySchoolDistrict.swift */; };
 		82F396282B60973A00EB327D /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F396272B60973A00EB327D /* Util.swift */; };
 		82F3962A2B60987C00EB327D /* ClientRecipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F396292B60987C00EB327D /* ClientRecipient.swift */; };
+		82F3962C2B60A2D700EB327D /* ClientRecipientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3962B2B60A2D700EB327D /* ClientRecipientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		82F396232B60932E00EB327D /* ElementarySchoolDistrict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementarySchoolDistrict.swift; sourceTree = "<group>"; };
 		82F396272B60973A00EB327D /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		82F396292B60987C00EB327D /* ClientRecipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRecipient.swift; sourceTree = "<group>"; };
+		82F3962B2B60A2D700EB327D /* ClientRecipientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRecipientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			children = (
 				82F395FE2B5F4FFB00EB327D /* MapAppTests.swift */,
 				82F3961F2B5F617200EB327D /* MarketTests.swift */,
+				82F3962B2B60A2D700EB327D /* ClientRecipientTests.swift */,
 				82F3961A2B5F57EF00EB327D /* Domain */,
 			);
 			path = MapAppTests;
@@ -332,6 +335,7 @@
 			files = (
 				82F395FF2B5F4FFB00EB327D /* MapAppTests.swift in Sources */,
 				82F3961C2B5F57FA00EB327D /* MarketplaceTests.swift in Sources */,
+				82F3962C2B60A2D700EB327D /* ClientRecipientTests.swift in Sources */,
 				82F396202B5F617200EB327D /* MarketTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
