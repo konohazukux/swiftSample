@@ -14,6 +14,7 @@
 		82CD6BBB2B622F8F005AA771 /* MultiModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD6BBA2B622F8F005AA771 /* MultiModuleTests.swift */; };
 		82CD6BC52B622F8F005AA771 /* MultiModuleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD6BC42B622F8F005AA771 /* MultiModuleUITests.swift */; };
 		82CD6BC72B622F8F005AA771 /* MultiModuleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD6BC62B622F8F005AA771 /* MultiModuleUITestsLaunchTests.swift */; };
+		82CD6BD42B622FD7005AA771 /* ClubsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD6BD32B622FD7005AA771 /* ClubsListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		82CD6BC02B622F8F005AA771 /* MultiModuleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiModuleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82CD6BC42B622F8F005AA771 /* MultiModuleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiModuleUITests.swift; sourceTree = "<group>"; };
 		82CD6BC62B622F8F005AA771 /* MultiModuleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiModuleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		82CD6BD32B622FD7005AA771 /* ClubsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				82CD6BA82B622F8D005AA771 /* MultiModuleApp.swift */,
 				82CD6BAA2B622F8D005AA771 /* ContentView.swift */,
+				82CD6BD32B622FD7005AA771 /* ClubsListView.swift */,
 				82CD6BAC2B622F8E005AA771 /* Assets.xcassets */,
 				82CD6BAE2B622F8F005AA771 /* MultiModule.entitlements */,
 				82CD6BAF2B622F8F005AA771 /* Preview Content */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82CD6BD42B622FD7005AA771 /* ClubsListView.swift in Sources */,
 				82CD6BAB2B622F8D005AA771 /* ContentView.swift in Sources */,
 				82CD6BA92B622F8D005AA771 /* MultiModuleApp.swift in Sources */,
 			);
