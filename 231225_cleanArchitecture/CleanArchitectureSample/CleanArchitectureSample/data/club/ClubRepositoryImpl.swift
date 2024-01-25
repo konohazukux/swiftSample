@@ -9,7 +9,7 @@ class ClubRepositoryImpl: ClubRepository {
   
   let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd" // 日付の形式をここで設定
+    formatter.dateFormat = "yyyy-MM-dd HH:mm"
     return formatter
   }()
   
