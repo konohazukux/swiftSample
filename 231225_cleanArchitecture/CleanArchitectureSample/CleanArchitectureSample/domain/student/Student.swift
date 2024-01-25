@@ -15,4 +15,3 @@ class Student {
     }
 }
 
-// Assuming StudentId is a type defined elsewhere

@@ -6,29 +6,55 @@
 import Foundation
 
 class ClubRepositoryImpl: ClubRepository {
-  private let defaults = UserDefaults.standard
-  private let clubKey = "clubs"
+  
+  let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd" // 日付の形式をここで設定
+    return formatter
+  }()
   
   func findById(_ clubId: ClubId) async -> Club? {
-    guard let clubData = defaults.data(forKey: clubKey) else { return nil }
-    let clubs = try? JSONDecoder().decode([Club].self, from: clubData)
-    return clubs?.first(where: { $0.clubId == clubId })
+    let response = await RMStore.shared.findById(clubId: clubId)
+    let club = response.flatMap { convertToClub(from: $0) }
+    return club
   }
   
   func save(_ club: Club) async {
-    var clubs = await findAll()
-    if let index = clubs.firstIndex(where: { $0.clubId == club.clubId }) {
-      clubs[index] = club
-    } else {
-      clubs.append(club)
-    }
-    if let encoded = try? JSONEncoder().encode(clubs) {
-      defaults.set(encoded, forKey: clubKey)
-    }
+    let data = convertToClubResponse(club: club)
+    await RMStore.shared.save(data)
   }
   
   func findAll() async -> [Club] {
-    guard let clubData = defaults.data(forKey: clubKey) else { return [] }
-    return (try? JSONDecoder().decode([Club].self, from: clubData)) ?? []
+    let response = await RMStore.shared.findAll()
+    let clubs = response.compactMap { convertToClub(from: $0) }
+    return clubs
   }
+  
+  // Club オブジェクトを ClubResponse に変換する関数
+  private func convertToClubResponse(club: Club) -> ClubResponse {
+    return ClubResponse(
+      clubId: club.clubId,
+      name: club.name,
+      clubStatus: club.clubStatus,
+      createdAt: dateFormatter.string(from: club.createdAt),
+      studentIds: club.studentIds
+    )
+  }
+  
+  // ClubResponse オブジェクトを Club オブジェクトに変換する関数
+  func convertToClub(from response: ClubResponse) -> Club? {
+    guard let createdAt = dateFormatter.date(from: response.createdAt) else {
+      return nil
+    }
+
+    return Club(
+      clubId: response.clubId,
+      name: response.name,
+      clubStatus: response.clubStatus,
+      createdAt: createdAt,
+      studentIds: response.studentIds
+    )
+  }
+  
 }
+
