@@ -11,14 +11,7 @@
 		82F395EF2B5F4FF700EB327D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F395EE2B5F4FF700EB327D /* ContentView.swift */; };
 		82F395F12B5F4FFB00EB327D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82F395F02B5F4FFB00EB327D /* Assets.xcassets */; };
 		82F395F52B5F4FFB00EB327D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82F395F42B5F4FFB00EB327D /* Preview Assets.xcassets */; };
-		82F396182B5F557F00EB327D /* Marketplace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F396172B5F557F00EB327D /* Marketplace.swift */; };
-		82F3961E2B5F5E0700EB327D /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3961D2B5F5E0700EB327D /* Market.swift */; };
-		82F396222B5F645400EB327D /* AllotmentArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F396212B5F645400EB327D /* AllotmentArea.swift */; };
-		82F396242B60932E00EB327D /* ElementarySchoolDistrict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F396232B60932E00EB327D /* ElementarySchoolDistrict.swift */; };
-		82F396282B60973A00EB327D /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F396272B60973A00EB327D /* Util.swift */; };
-		82F3962A2B60987C00EB327D /* ClientRecipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F396292B60987C00EB327D /* ClientRecipient.swift */; };
-		82F3962E2B60A63100EB327D /* MarketplaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3962D2B60A63100EB327D /* MarketplaceService.swift */; };
-		82F396302B60A70900EB327D /* VisitPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3962F2B60A70900EB327D /* VisitPlan.swift */; };
+		82F9AF0B2B635028009D5744 /* ClubsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F9AF0A2B635028009D5744 /* ClubsListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,14 +40,7 @@
 		82F395F42B5F4FFB00EB327D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		82F395FA2B5F4FFB00EB327D /* MapAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82F396042B5F4FFB00EB327D /* MapAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		82F396172B5F557F00EB327D /* Marketplace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marketplace.swift; sourceTree = "<group>"; };
-		82F3961D2B5F5E0700EB327D /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
-		82F396212B5F645400EB327D /* AllotmentArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllotmentArea.swift; sourceTree = "<group>"; };
-		82F396232B60932E00EB327D /* ElementarySchoolDistrict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementarySchoolDistrict.swift; sourceTree = "<group>"; };
-		82F396272B60973A00EB327D /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		82F396292B60987C00EB327D /* ClientRecipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRecipient.swift; sourceTree = "<group>"; };
-		82F3962D2B60A63100EB327D /* MarketplaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceService.swift; sourceTree = "<group>"; };
-		82F3962F2B60A70900EB327D /* VisitPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitPlan.swift; sourceTree = "<group>"; };
+		82F9AF0A2B635028009D5744 /* ClubsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +91,7 @@
 			children = (
 				82F395EC2B5F4FF700EB327D /* MapAppApp.swift */,
 				82F395EE2B5F4FF700EB327D /* ContentView.swift */,
-				82F396272B60973A00EB327D /* Util.swift */,
-				82F396192B5F571B00EB327D /* Domain */,
+				82F9AF0A2B635028009D5744 /* ClubsListView.swift */,
 				82F395F02B5F4FFB00EB327D /* Assets.xcassets */,
 				82F395F22B5F4FFB00EB327D /* MapApp.entitlements */,
 				82F395F32B5F4FFB00EB327D /* Preview Content */,
@@ -120,36 +105,6 @@
 				82F395F42B5F4FFB00EB327D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		82F396192B5F571B00EB327D /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				82F396262B60936200EB327D /* Service */,
-				82F396252B60935100EB327D /* Entity */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		82F396252B60935100EB327D /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				82F396172B5F557F00EB327D /* Marketplace.swift */,
-				82F3961D2B5F5E0700EB327D /* Market.swift */,
-				82F396232B60932E00EB327D /* ElementarySchoolDistrict.swift */,
-				82F396212B5F645400EB327D /* AllotmentArea.swift */,
-				82F3962F2B60A70900EB327D /* VisitPlan.swift */,
-				82F396292B60987C00EB327D /* ClientRecipient.swift */,
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		82F396262B60936200EB327D /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				82F3962D2B60A63100EB327D /* MarketplaceService.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,16 +237,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82F396302B60A70900EB327D /* VisitPlan.swift in Sources */,
+				82F9AF0B2B635028009D5744 /* ClubsListView.swift in Sources */,
 				82F395EF2B5F4FF700EB327D /* ContentView.swift in Sources */,
-				82F396182B5F557F00EB327D /* Marketplace.swift in Sources */,
-				82F3962A2B60987C00EB327D /* ClientRecipient.swift in Sources */,
-				82F3962E2B60A63100EB327D /* MarketplaceService.swift in Sources */,
 				82F395ED2B5F4FF700EB327D /* MapAppApp.swift in Sources */,
-				82F396242B60932E00EB327D /* ElementarySchoolDistrict.swift in Sources */,
-				82F396282B60973A00EB327D /* Util.swift in Sources */,
-				82F3961E2B5F5E0700EB327D /* Market.swift in Sources */,
-				82F396222B5F645400EB327D /* AllotmentArea.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
