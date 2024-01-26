@@ -4,6 +4,7 @@
 //
 
 import SwiftUI
+import PackageA
 
 struct ContentView: View {
     var body: some View {
