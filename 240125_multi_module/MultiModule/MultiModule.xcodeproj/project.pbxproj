@@ -11,9 +11,6 @@
 		82CD6BAB2B622F8D005AA771 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD6BAA2B622F8D005AA771 /* ContentView.swift */; };
 		82CD6BAD2B622F8E005AA771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82CD6BAC2B622F8E005AA771 /* Assets.xcassets */; };
 		82CD6BB12B622F8F005AA771 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82CD6BB02B622F8F005AA771 /* Preview Assets.xcassets */; };
-		82CD6BBB2B622F8F005AA771 /* MultiModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD6BBA2B622F8F005AA771 /* MultiModuleTests.swift */; };
-		82CD6BC52B622F8F005AA771 /* MultiModuleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD6BC42B622F8F005AA771 /* MultiModuleUITests.swift */; };
-		82CD6BC72B622F8F005AA771 /* MultiModuleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CD6BC62B622F8F005AA771 /* MultiModuleUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,10 +38,7 @@
 		82CD6BAE2B622F8F005AA771 /* MultiModule.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiModule.entitlements; sourceTree = "<group>"; };
 		82CD6BB02B622F8F005AA771 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		82CD6BB62B622F8F005AA771 /* MultiModuleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiModuleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		82CD6BBA2B622F8F005AA771 /* MultiModuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiModuleTests.swift; sourceTree = "<group>"; };
 		82CD6BC02B622F8F005AA771 /* MultiModuleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiModuleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		82CD6BC42B622F8F005AA771 /* MultiModuleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiModuleUITests.swift; sourceTree = "<group>"; };
-		82CD6BC62B622F8F005AA771 /* MultiModuleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiModuleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				82CD6BA72B622F8D005AA771 /* MultiModule */,
-				82CD6BB92B622F8F005AA771 /* MultiModuleTests */,
-				82CD6BC32B622F8F005AA771 /* MultiModuleUITests */,
 				82CD6BA62B622F8D005AA771 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -110,23 +102,6 @@
 				82CD6BB02B622F8F005AA771 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		82CD6BB92B622F8F005AA771 /* MultiModuleTests */ = {
-			isa = PBXGroup;
-			children = (
-				82CD6BBA2B622F8F005AA771 /* MultiModuleTests.swift */,
-			);
-			path = MultiModuleTests;
-			sourceTree = "<group>";
-		};
-		82CD6BC32B622F8F005AA771 /* MultiModuleUITests */ = {
-			isa = PBXGroup;
-			children = (
-				82CD6BC42B622F8F005AA771 /* MultiModuleUITests.swift */,
-				82CD6BC62B622F8F005AA771 /* MultiModuleUITestsLaunchTests.swift */,
-			);
-			path = MultiModuleUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +243,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82CD6BBB2B622F8F005AA771 /* MultiModuleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +250,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82CD6BC72B622F8F005AA771 /* MultiModuleUITestsLaunchTests.swift in Sources */,
-				82CD6BC52B622F8F005AA771 /* MultiModuleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
