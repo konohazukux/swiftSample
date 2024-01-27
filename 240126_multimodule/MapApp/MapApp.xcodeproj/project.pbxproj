@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82D309942B63690D0029CC5A /* PackageA in Frameworks */ = {isa = PBXBuildFile; productRef = 82D309932B63690D0029CC5A /* PackageA */; };
 		82F395ED2B5F4FF700EB327D /* MapAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F395EC2B5F4FF700EB327D /* MapAppApp.swift */; };
 		82F395EF2B5F4FF700EB327D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F395EE2B5F4FF700EB327D /* ContentView.swift */; };
 		82F395F12B5F4FFB00EB327D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82F395F02B5F4FFB00EB327D /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82D309942B63690D0029CC5A /* PackageA in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,12 +69,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		82D309922B63690D0029CC5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		82F395E02B5F4FF700EB327D = {
 			isa = PBXGroup;
 			children = (
 				82D309912B6367020029CC5A /* PackageA */,
 				82F395EB2B5F4FF700EB327D /* MapApp */,
 				82F395EA2B5F4FF700EB327D /* Products */,
+				82D309922B63690D0029CC5A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +132,9 @@
 			dependencies = (
 			);
 			name = MapApp;
+			packageProductDependencies = (
+				82D309932B63690D0029CC5A /* PackageA */,
+			);
 			productName = MapApp;
 			productReference = 82F395E92B5F4FF700EB327D /* MapApp.app */;
 			productType = "com.apple.product-type.application";
@@ -593,6 +606,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		82D309932B63690D0029CC5A /* PackageA */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PackageA;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 82F395E12B5F4FF700EB327D /* Project object */;
 }
