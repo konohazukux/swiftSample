@@ -5,11 +5,15 @@
 
 import SwiftUI
 
-struct ClubsListView: View {
+public struct ClubsListView: View {
   // サンプルデータとしてのクラブ名リスト
   let clubs = ["Club A", "Club B", "Club C", "Club D"]
+  
+  public init() {
+      // 初期化処理
+  }
 
-  var body: some View {
+  public var body: some View {
     NavigationView {
       List(clubs, id: \.self) { club in
         Text(club)

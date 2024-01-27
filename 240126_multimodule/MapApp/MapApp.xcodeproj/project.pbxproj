@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82D309942B63690D0029CC5A /* PackageA in Frameworks */ = {isa = PBXBuildFile; productRef = 82D309932B63690D0029CC5A /* PackageA */; };
 		82F395ED2B5F4FF700EB327D /* MapAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F395EC2B5F4FF700EB327D /* MapAppApp.swift */; };
 		82F395EF2B5F4FF700EB327D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F395EE2B5F4FF700EB327D /* ContentView.swift */; };
 		82F395F12B5F4FFB00EB327D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82F395F02B5F4FFB00EB327D /* Assets.xcassets */; };
 		82F395F52B5F4FFB00EB327D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82F395F42B5F4FFB00EB327D /* Preview Assets.xcassets */; };
-		82F9AF0B2B635028009D5744 /* ClubsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F9AF0A2B635028009D5744 /* ClubsListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		82D309912B6367020029CC5A /* PackageA */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PackageA; sourceTree = "<group>"; };
 		82F395E92B5F4FF700EB327D /* MapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82F395EC2B5F4FF700EB327D /* MapAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAppApp.swift; sourceTree = "<group>"; };
 		82F395EE2B5F4FF700EB327D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,7 +41,6 @@
 		82F395F42B5F4FFB00EB327D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		82F395FA2B5F4FFB00EB327D /* MapAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82F396042B5F4FFB00EB327D /* MapAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		82F9AF0A2B635028009D5744 /* ClubsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82D309942B63690D0029CC5A /* PackageA in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,11 +69,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		82D309922B63690D0029CC5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		82F395E02B5F4FF700EB327D = {
 			isa = PBXGroup;
 			children = (
+				82D309912B6367020029CC5A /* PackageA */,
 				82F395EB2B5F4FF700EB327D /* MapApp */,
 				82F395EA2B5F4FF700EB327D /* Products */,
+				82D309922B63690D0029CC5A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,7 +101,6 @@
 			children = (
 				82F395EC2B5F4FF700EB327D /* MapAppApp.swift */,
 				82F395EE2B5F4FF700EB327D /* ContentView.swift */,
-				82F9AF0A2B635028009D5744 /* ClubsListView.swift */,
 				82F395F02B5F4FFB00EB327D /* Assets.xcassets */,
 				82F395F22B5F4FFB00EB327D /* MapApp.entitlements */,
 				82F395F32B5F4FFB00EB327D /* Preview Content */,
@@ -123,6 +132,9 @@
 			dependencies = (
 			);
 			name = MapApp;
+			packageProductDependencies = (
+				82D309932B63690D0029CC5A /* PackageA */,
+			);
 			productName = MapApp;
 			productReference = 82F395E92B5F4FF700EB327D /* MapApp.app */;
 			productType = "com.apple.product-type.application";
@@ -237,7 +249,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82F9AF0B2B635028009D5744 /* ClubsListView.swift in Sources */,
 				82F395EF2B5F4FF700EB327D /* ContentView.swift in Sources */,
 				82F395ED2B5F4FF700EB327D /* MapAppApp.swift in Sources */,
 			);
@@ -595,6 +606,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		82D309932B63690D0029CC5A /* PackageA */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PackageA;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 82F395E12B5F4FF700EB327D /* Project object */;
 }
