@@ -56,6 +56,7 @@
 		82217CD42B4CCF5400693450 /* ClubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubViewModel.swift; sourceTree = "<group>"; };
 		826E6B7D2B61E63A00547C5C /* RMStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMStore.swift; sourceTree = "<group>"; };
 		826E6B7F2B61E7C900547C5C /* ClubResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubResponse.swift; sourceTree = "<group>"; };
+		82A35E042B64B03F005AC0D7 /* PackageA */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PackageA; sourceTree = "<group>"; };
 		82E9DF932B3A5A9500838D3B /* DomainException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainException.swift; sourceTree = "<group>"; };
 		82E9DF992B3A6B7000838D3B /* ClubUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubUseCase.swift; sourceTree = "<group>"; };
 		82E9DF9D2B3A6BDA00838D3B /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
@@ -99,6 +100,7 @@
 		821D64AA2B396A0F00F29BC6 = {
 			isa = PBXGroup;
 			children = (
+				82A35E042B64B03F005AC0D7 /* PackageA */,
 				821D64B52B396A0F00F29BC6 /* CleanArchitectureSample */,
 				821D64B42B396A0F00F29BC6 /* Products */,
 			);
