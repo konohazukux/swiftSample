@@ -4,6 +4,7 @@
 //
 
 import SwiftUI
+import DomainModule
 
 struct ClubsListView: View {
   @ObservedObject var viewModel = ClubViewPresenter(

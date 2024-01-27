@@ -5,7 +5,7 @@
 
 import Foundation
 
-enum ClubStatus: Codable {
+public enum ClubStatus: Codable {
   case approved, notApproved
 }
 

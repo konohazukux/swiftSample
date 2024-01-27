@@ -5,16 +5,16 @@
 
 import Foundation
 
-class ClubUseCase {
+public class ClubUseCase {
   private let clubRepository: ClubRepository
   
   // クラブリポジトリの初期化
-  init(clubRepository: ClubRepository) {
+  public init(clubRepository: ClubRepository) {
     self.clubRepository = clubRepository
   }
  
   // クラブを作成する
-  func createClub(name: String) async -> [Club] {
+  public func createClub(name: String) async -> [Club] {
     let club = Club(name: name)
     await clubRepository.save(club)
     let clubs = await findAllClubs()
@@ -22,7 +22,7 @@ class ClubUseCase {
   }
   
   // すべてのクラブを取得する
-  func findAllClubs() async -> [Club] {
+  public func findAllClubs() async -> [Club] {
       return await clubRepository.findAll()
   }
   

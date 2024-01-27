@@ -5,18 +5,18 @@
 import Foundation
 
 // 識別可能で、Codableプロトコルに準拠するClubクラス
-class Club: Identifiable, Codable {
-  var clubId: ClubId
-  var name: String
-  var clubStatus: ClubStatus
-  var createdAt: Date
-  var studentIds: [StudentId]
+public class Club: Identifiable, Codable {
+  public var clubId: ClubId
+  public var name: String
+  public var clubStatus: ClubStatus
+  public var createdAt: Date
+  public var studentIds: [StudentId]
   
   // 承認に必要な最小生徒数
   private static let minimumApproveStudentNumber = 5
   
   // コンストラクタ
-  init(name: String) {
+  public init(name: String) {
     self.clubId = ClubId() // ClubIdにイニシャライザがあると仮定
     self.name = name
     self.clubStatus = .notApproved
@@ -25,7 +25,7 @@ class Club: Identifiable, Codable {
   }
   
   // 全てのプロパティを初期化するコンストラクタ
-  init(clubId: ClubId, name: String, clubStatus: ClubStatus, createdAt: Date, studentIds: [StudentId]) {
+  public init(clubId: ClubId, name: String, clubStatus: ClubStatus, createdAt: Date, studentIds: [StudentId]) {
     self.clubId = clubId
     self.name = name
     self.clubStatus = clubStatus

@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import DomainModule
 
 class RMStore {
   private let defaults = UserDefaults.standard

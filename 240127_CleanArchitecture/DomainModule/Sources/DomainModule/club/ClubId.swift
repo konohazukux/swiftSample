@@ -5,10 +5,10 @@
 
 import Foundation
 
-struct ClubId: Codable, Equatable, Hashable {
+public struct ClubId: Codable, Equatable, Hashable {
   private let value: String
   
-  init() {
+  public init() {
     self.value = UUID().uuidString
   }
   

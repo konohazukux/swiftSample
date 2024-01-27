@@ -14,16 +14,7 @@
 		82A35E0F2B64B990005AC0D7 /* ClubRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A35E0C2B64B990005AC0D7 /* ClubRepositoryImpl.swift */; };
 		82A35E102B64B990005AC0D7 /* ClubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A35E0D2B64B990005AC0D7 /* ClubResponse.swift */; };
 		82A35E112B64B990005AC0D7 /* RMStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A35E0E2B64B990005AC0D7 /* RMStore.swift */; };
-		82E9DF942B3A5A9500838D3B /* DomainException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9DF932B3A5A9500838D3B /* DomainException.swift */; };
-		82E9DF9A2B3A6B7000838D3B /* ClubUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9DF992B3A6B7000838D3B /* ClubUseCase.swift */; };
-		82E9DF9E2B3A6BDA00838D3B /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9DF9D2B3A6BDA00838D3B /* Club.swift */; };
-		82E9DFA12B3A6C2500838D3B /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9DFA02B3A6C2500838D3B /* Student.swift */; };
-		82E9DFA32B3A6C5700838D3B /* StudentId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9DFA22B3A6C5700838D3B /* StudentId.swift */; };
-		82E9DFA52B3A6C8300838D3B /* StudentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9DFA42B3A6C8300838D3B /* StudentRepository.swift */; };
-		82E9DFA92B3A6D0E00838D3B /* ClubId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9DFA82B3A6D0E00838D3B /* ClubId.swift */; };
-		82E9DFAB2B3A6D3100838D3B /* ClubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9DFAA2B3A6D3100838D3B /* ClubRepository.swift */; };
-		82E9DFAD2B3A6DC700838D3B /* ClubStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9DFAC2B3A6DC700838D3B /* ClubStatus.swift */; };
-		82E9DFB12B3A73FD00838D3B /* UseCaseException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9DFB02B3A73FD00838D3B /* UseCaseException.swift */; };
+		82A35E1D2B64E3E1005AC0D7 /* DomainModule in Frameworks */ = {isa = PBXBuildFile; productRef = 82A35E1C2B64E3E1005AC0D7 /* DomainModule */; };
 		82E9DFB42B3A82DA00838D3B /* ClubListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9DFB32B3A82DA00838D3B /* ClubListView.swift */; };
 		82E9DFB62B3A840C00838D3B /* ClubViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E9DFB52B3A840C00838D3B /* ClubViewPresenter.swift */; };
 /* End PBXBuildFile section */
@@ -57,16 +48,7 @@
 		82A35E0C2B64B990005AC0D7 /* ClubRepositoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubRepositoryImpl.swift; sourceTree = "<group>"; };
 		82A35E0D2B64B990005AC0D7 /* ClubResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubResponse.swift; sourceTree = "<group>"; };
 		82A35E0E2B64B990005AC0D7 /* RMStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMStore.swift; sourceTree = "<group>"; };
-		82E9DF932B3A5A9500838D3B /* DomainException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainException.swift; sourceTree = "<group>"; };
-		82E9DF992B3A6B7000838D3B /* ClubUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubUseCase.swift; sourceTree = "<group>"; };
-		82E9DF9D2B3A6BDA00838D3B /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
-		82E9DFA02B3A6C2500838D3B /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
-		82E9DFA22B3A6C5700838D3B /* StudentId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentId.swift; sourceTree = "<group>"; };
-		82E9DFA42B3A6C8300838D3B /* StudentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRepository.swift; sourceTree = "<group>"; };
-		82E9DFA82B3A6D0E00838D3B /* ClubId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubId.swift; sourceTree = "<group>"; };
-		82E9DFAA2B3A6D3100838D3B /* ClubRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubRepository.swift; sourceTree = "<group>"; };
-		82E9DFAC2B3A6DC700838D3B /* ClubStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubStatus.swift; sourceTree = "<group>"; };
-		82E9DFB02B3A73FD00838D3B /* UseCaseException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseException.swift; sourceTree = "<group>"; };
+		82A35E1A2B64E39D005AC0D7 /* DomainModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DomainModule; sourceTree = "<group>"; };
 		82E9DFB32B3A82DA00838D3B /* ClubListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubListView.swift; sourceTree = "<group>"; };
 		82E9DFB52B3A840C00838D3B /* ClubViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82A35E1D2B64E3E1005AC0D7 /* DomainModule in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,8 +82,10 @@
 		821D64AA2B396A0F00F29BC6 = {
 			isa = PBXGroup;
 			children = (
+				82A35E1A2B64E39D005AC0D7 /* DomainModule */,
 				821D64B52B396A0F00F29BC6 /* CleanArchitectureSample */,
 				821D64B42B396A0F00F29BC6 /* Products */,
+				82A35E1B2B64E3E1005AC0D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,7 +105,6 @@
 				821D64B62B396A0F00F29BC6 /* CleanArchitectureSampleApp.swift */,
 				82A35E0A2B64B990005AC0D7 /* data */,
 				82E9DFB22B3A82BD00838D3B /* presentation */,
-				82E9DF9B2B3A6BB200838D3B /* domain */,
 				82E9DF922B3A5A7100838D3B /* shared */,
 				821D64BA2B396A1100F29BC6 /* Assets.xcassets */,
 				821D64BC2B396A1100F29BC6 /* CleanArchitectureSample.entitlements */,
@@ -155,52 +139,18 @@
 			path = club;
 			sourceTree = "<group>";
 		};
-		82E9DF862B3A578100838D3B /* usecase */ = {
+		82A35E1B2B64E3E1005AC0D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				82E9DF992B3A6B7000838D3B /* ClubUseCase.swift */,
-				82E9DFB02B3A73FD00838D3B /* UseCaseException.swift */,
 			);
-			path = usecase;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		82E9DF922B3A5A7100838D3B /* shared */ = {
 			isa = PBXGroup;
 			children = (
-				82E9DF932B3A5A9500838D3B /* DomainException.swift */,
 			);
 			path = shared;
-			sourceTree = "<group>";
-		};
-		82E9DF9B2B3A6BB200838D3B /* domain */ = {
-			isa = PBXGroup;
-			children = (
-				82E9DF862B3A578100838D3B /* usecase */,
-				82E9DF9F2B3A6C1900838D3B /* student */,
-				82E9DF9C2B3A6BC400838D3B /* club */,
-			);
-			path = domain;
-			sourceTree = "<group>";
-		};
-		82E9DF9C2B3A6BC400838D3B /* club */ = {
-			isa = PBXGroup;
-			children = (
-				82E9DF9D2B3A6BDA00838D3B /* Club.swift */,
-				82E9DFA82B3A6D0E00838D3B /* ClubId.swift */,
-				82E9DFAA2B3A6D3100838D3B /* ClubRepository.swift */,
-				82E9DFAC2B3A6DC700838D3B /* ClubStatus.swift */,
-			);
-			path = club;
-			sourceTree = "<group>";
-		};
-		82E9DF9F2B3A6C1900838D3B /* student */ = {
-			isa = PBXGroup;
-			children = (
-				82E9DFA02B3A6C2500838D3B /* Student.swift */,
-				82E9DFA22B3A6C5700838D3B /* StudentId.swift */,
-				82E9DFA42B3A6C8300838D3B /* StudentRepository.swift */,
-			);
-			path = student;
 			sourceTree = "<group>";
 		};
 		82E9DFB22B3A82BD00838D3B /* presentation */ = {
@@ -229,6 +179,9 @@
 			dependencies = (
 			);
 			name = CleanArchitectureSample;
+			packageProductDependencies = (
+				82A35E1C2B64E3E1005AC0D7 /* DomainModule */,
+			);
 			productName = CleanArchitectureSample;
 			productReference = 821D64B32B396A0F00F29BC6 /* CleanArchitectureSample.app */;
 			productType = "com.apple.product-type.application";
@@ -346,19 +299,9 @@
 				82217CD52B4CCF5400693450 /* ClubViewModel.swift in Sources */,
 				82E9DFB42B3A82DA00838D3B /* ClubListView.swift in Sources */,
 				82A35E102B64B990005AC0D7 /* ClubResponse.swift in Sources */,
-				82E9DFB12B3A73FD00838D3B /* UseCaseException.swift in Sources */,
 				82E9DFB62B3A840C00838D3B /* ClubViewPresenter.swift in Sources */,
 				82A35E112B64B990005AC0D7 /* RMStore.swift in Sources */,
-				82E9DF9E2B3A6BDA00838D3B /* Club.swift in Sources */,
-				82E9DF942B3A5A9500838D3B /* DomainException.swift in Sources */,
-				82E9DFA52B3A6C8300838D3B /* StudentRepository.swift in Sources */,
-				82E9DF9A2B3A6B7000838D3B /* ClubUseCase.swift in Sources */,
 				821D64B72B396A0F00F29BC6 /* CleanArchitectureSampleApp.swift in Sources */,
-				82E9DFA12B3A6C2500838D3B /* Student.swift in Sources */,
-				82E9DFAB2B3A6D3100838D3B /* ClubRepository.swift in Sources */,
-				82E9DFA92B3A6D0E00838D3B /* ClubId.swift in Sources */,
-				82E9DFA32B3A6C5700838D3B /* StudentId.swift in Sources */,
-				82E9DFAD2B3A6DC700838D3B /* ClubStatus.swift in Sources */,
 				82A35E0F2B64B990005AC0D7 /* ClubRepositoryImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -715,6 +658,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		82A35E1C2B64E3E1005AC0D7 /* DomainModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DomainModule;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 821D64AB2B396A0F00F29BC6 /* Project object */;
 }

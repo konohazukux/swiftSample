@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import DomainModule
 
 struct ClubViewModel: Identifiable {
   let id: ClubId

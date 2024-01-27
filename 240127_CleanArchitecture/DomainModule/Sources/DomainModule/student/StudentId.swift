@@ -5,10 +5,10 @@
 
 import Foundation
 
-struct StudentId: Hashable, Codable {
+public struct StudentId: Hashable, Codable {
     let value: String
 
-    init() {
+    public init() {
         self.value = UUID().uuidString
     }
 

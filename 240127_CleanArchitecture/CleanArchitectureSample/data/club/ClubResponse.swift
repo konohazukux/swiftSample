@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import DomainModule
 
 struct ClubResponse: Codable {
   var clubId: ClubId

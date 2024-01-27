@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import DomainModule
 
 class ClubRepositoryImpl: ClubRepository {
   
