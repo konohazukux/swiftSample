@@ -57,7 +57,6 @@
 		82A35E0C2B64B990005AC0D7 /* ClubRepositoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubRepositoryImpl.swift; sourceTree = "<group>"; };
 		82A35E0D2B64B990005AC0D7 /* ClubResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubResponse.swift; sourceTree = "<group>"; };
 		82A35E0E2B64B990005AC0D7 /* RMStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMStore.swift; sourceTree = "<group>"; };
-		82A35E192B64C1DD005AC0D7 /* Domaindomaindomain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domaindomaindomain; sourceTree = "<group>"; };
 		82E9DF932B3A5A9500838D3B /* DomainException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainException.swift; sourceTree = "<group>"; };
 		82E9DF992B3A6B7000838D3B /* ClubUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubUseCase.swift; sourceTree = "<group>"; };
 		82E9DF9D2B3A6BDA00838D3B /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
@@ -100,7 +99,6 @@
 		821D64AA2B396A0F00F29BC6 = {
 			isa = PBXGroup;
 			children = (
-				82A35E192B64C1DD005AC0D7 /* Domaindomaindomain */,
 				821D64B52B396A0F00F29BC6 /* CleanArchitectureSample */,
 				821D64B42B396A0F00F29BC6 /* Products */,
 			);
