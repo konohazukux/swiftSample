@@ -6,7 +6,9 @@
 import Foundation
 import DomainModule
 
-class ClubRepositoryImpl: ClubRepository {
+public class ClubRepositoryImpl: ClubRepository {
+ 
+  public init() { }
   
   let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
@@ -14,18 +16,18 @@ class ClubRepositoryImpl: ClubRepository {
     return formatter
   }()
   
-  func findById(_ clubId: ClubId) async -> Club? {
+  public func findById(_ clubId: ClubId) async -> Club? {
     let response = await RMStore.shared.findById(clubId: clubId)
     let club = response.flatMap { convertToClub(from: $0) }
     return club
   }
   
-  func save(_ club: Club) async {
+  public func save(_ club: Club) async {
     let data = convertToClubResponse(club: club)
     await RMStore.shared.save(data)
   }
   
-  func findAll() async -> [Club] {
+  public func findAll() async -> [Club] {
     let response = await RMStore.shared.findAll()
     let clubs = response.compactMap { convertToClub(from: $0) }
     return clubs
