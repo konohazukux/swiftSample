@@ -7,7 +7,7 @@ import SwiftUI
 import DomainModule
 import DataModule
 
-struct ClubsListView: View {
+public struct ClubsListView: View {
   @ObservedObject var viewModel = ClubViewPresenter(
     clubUseCase: ClubUseCase(
       clubRepository: ClubRepositoryImpl()
@@ -16,7 +16,11 @@ struct ClubsListView: View {
   @State private var showingAlert = false
   @State private var name = ""
   
-  var body: some View {
+  public init() {
+    
+  }
+  
+  public var body: some View {
     NavigationView {
       List(viewModel.clubViewModels) { club in
         ClubRow(club: club)

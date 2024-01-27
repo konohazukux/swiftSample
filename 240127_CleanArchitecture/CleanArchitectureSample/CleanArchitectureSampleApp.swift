@@ -4,6 +4,7 @@
 //
 
 import SwiftUI
+import PresentationModule
 
 @main
 struct CleanArchitectureSampleApp: App {
