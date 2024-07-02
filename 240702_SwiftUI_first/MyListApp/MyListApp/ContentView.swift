@@ -23,6 +23,21 @@ struct ContentView: View {
                 item.toggleCompletion()
               }
           }
+          ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+              ForEach(0..<5) { index in
+                RoundedRectangle(cornerRadius: 10)
+                  .fill(Color.blue)
+                  .frame(width: 100, height: 100)
+                  .overlay(
+                    Text("Item \(index)")
+                      .foregroundColor(.white)
+                  )
+                  .padding(5)
+              }
+            }
+          }
+          .padding(.vertical, 10)
         }
       }
       .navigationTitle("To-Do List")
