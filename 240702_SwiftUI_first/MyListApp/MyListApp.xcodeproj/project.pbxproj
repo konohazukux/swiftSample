@@ -15,6 +15,7 @@
 		822188F22C33B28000C325FA /* MyListAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822188F12C33B28000C325FA /* MyListAppUITests.swift */; };
 		822188F42C33B28000C325FA /* MyListAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822188F32C33B28000C325FA /* MyListAppUITestsLaunchTests.swift */; };
 		822189012C33C7DE00C325FA /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822189002C33C7DD00C325FA /* ToDoItem.swift */; };
+		822189032C33D2B800C325FA /* ToDoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822189022C33D2B800C325FA /* ToDoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		822188F12C33B28000C325FA /* MyListAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListAppUITests.swift; sourceTree = "<group>"; };
 		822188F32C33B28000C325FA /* MyListAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		822189002C33C7DD00C325FA /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
+		822189022C33D2B800C325FA /* ToDoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				822188D62C33B27E00C325FA /* MyListAppApp.swift */,
 				822188D82C33B27E00C325FA /* ContentView.swift */,
 				822189002C33C7DD00C325FA /* ToDoItem.swift */,
+				822189022C33D2B800C325FA /* ToDoViewModel.swift */,
 				822188DA2C33B28000C325FA /* Assets.xcassets */,
 				822188DC2C33B28000C325FA /* Preview Content */,
 			);
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				822189032C33D2B800C325FA /* ToDoViewModel.swift in Sources */,
 				822188D92C33B27E00C325FA /* ContentView.swift in Sources */,
 				822188D72C33B27E00C325FA /* MyListAppApp.swift in Sources */,
 				822189012C33C7DE00C325FA /* ToDoItem.swift in Sources */,

@@ -8,15 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-  let toDoItems = [
-    ToDoItem(title: "Buy groceries", isCompleted: false),
-    ToDoItem(title: "Walk the dog", isCompleted: true),
-    ToDoItem(title: "Read a book", isCompleted: false)
-  ]
+  @StateObject private var viewModel = ToDoViewModel()
   
   var body: some View {
     NavigationView {
-      List(toDoItems) { item in
+      List(viewModel.toDoItems) { item in
         HStack {
           Text(item.title)
           Spacer()
