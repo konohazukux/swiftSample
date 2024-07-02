@@ -8,17 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+  let toDoItems = [
+    ToDoItem(title: "Buy groceries", isCompleted: false),
+    ToDoItem(title: "Walk the dog", isCompleted: true),
+    ToDoItem(title: "Read a book", isCompleted: false)
+  ]
+  
+  var body: some View {
+    NavigationView {
+      List(toDoItems) { item in
+        HStack {
+          Text(item.title)
+          Spacer()
+          if item.isCompleted {
+            Image(systemName: "checkmark.circle.fill")
+              .foregroundColor(.green)
+          } else {
+            Image(systemName: "circle")
+              .foregroundColor(.gray)
+          }
         }
-        .padding()
+      }
+      .navigationTitle("To-Do List")
     }
+  }
 }
 
 #Preview {
-    ContentView()
+  ContentView()
 }
