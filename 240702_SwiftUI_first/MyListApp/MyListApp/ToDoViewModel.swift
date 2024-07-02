@@ -13,4 +13,10 @@ class ToDoViewModel: ObservableObject {
     ToDoItem(title: "Walk the dog", isCompleted: true),
     ToDoItem(title: "Read a book", isCompleted: false)
   ]
+  
+  func toggleCompletion(of item: ToDoItem) {
+    if let index = toDoItems.firstIndex(where: { $0.id == item.id }) {
+      toDoItems[index].toggleCompletion()
+    }
+  }
 }

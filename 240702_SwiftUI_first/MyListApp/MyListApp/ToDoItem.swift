@@ -10,5 +10,10 @@ import Foundation
 struct ToDoItem: Identifiable {
   let id = UUID()
   let title: String
-  let isCompleted: Bool
+  var isCompleted: Bool
+  
+  mutating func toggleCompletion() {
+    isCompleted.toggle()
+  }
 }
+

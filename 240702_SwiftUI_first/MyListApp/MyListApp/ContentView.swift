@@ -12,16 +12,16 @@ struct ContentView: View {
   
   var body: some View {
     NavigationView {
-      List(viewModel.toDoItems) { item in
-        HStack {
-          Text(item.title)
-          Spacer()
-          if item.isCompleted {
-            Image(systemName: "checkmark.circle.fill")
-              .foregroundColor(.green)
-          } else {
-            Image(systemName: "circle")
-              .foregroundColor(.gray)
+      List {
+        ForEach($viewModel.toDoItems) { $item in
+          HStack {
+            Text(item.title)
+            Spacer()
+            Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+              .foregroundColor(item.isCompleted ? .green : .gray)
+              .onTapGesture {
+                item.toggleCompletion()
+              }
           }
         }
       }
@@ -29,6 +29,7 @@ struct ContentView: View {
     }
   }
 }
+
 
 #Preview {
   ContentView()
