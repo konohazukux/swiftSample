@@ -54,17 +54,3 @@ struct ProductCategoryView: View {
   }
 }
 
-struct ProductItemView: View {
-  let item: ProductItem
-  
-  var body: some View {
-    RoundedRectangle(cornerRadius: 10)
-      .fill(Color.blue)
-      .frame(width: 100, height: 100)
-      .overlay(
-        Text("\(item.title)")
-          .foregroundColor(.white)
-      )
-      .padding(5)
-  }
-}
