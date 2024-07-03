@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-  @StateObject private var viewModel = ProductItemViewModel()
+  @StateObject private var viewModel = ProductViewModel()
   
   var body: some View {
     NavigationView {
       ScrollView(.vertical, showsIndicators: false) {
         VStack {
-          ForEach($viewModel.productItems) {
-            ProductItemsView(productItem: $0)
+          ForEach($viewModel.productCategories) {
+            ProductCategoryView(productCategory: $0)
           }
         }
       }
@@ -30,33 +30,41 @@ struct ContentView: View {
   ContentView()
 }
 
-struct ProductItemsView: View {
-  @Binding var productItem: ProductItem
+struct ProductCategoryView: View {
+  @Binding var productCategory: ProductCategory
   
   var body: some View {
     VStack {
       HStack {
-        Text(productItem.title)
+        Text(productCategory.title)
         Spacer()
-        Image(systemName: productItem.isCompleted ? "checkmark.circle.fill" : "circle")
-          .foregroundColor(productItem.isCompleted ? .green : .gray)
+        Image(systemName: productCategory.isCompleted ? "checkmark.circle.fill" : "circle")
+          .foregroundColor(productCategory.isCompleted ? .green : .gray)
           .onTapGesture { }
       }
       ScrollView(.horizontal, showsIndicators: false) {
         HStack {
-          ForEach(0..<5) { index in
-            RoundedRectangle(cornerRadius: 10)
-              .fill(Color.blue)
-              .frame(width: 100, height: 100)
-              .overlay(
-                Text("Item \(index)")
-                  .foregroundColor(.white)
-              )
-              .padding(5)
+          ForEach(productCategory.items) { item in
+            ProductItemView(item: item)
           }
         }
       }
     }
     .padding(.horizontal, 10)
+  }
+}
+
+struct ProductItemView: View {
+  let item: ProductItem
+  
+  var body: some View {
+    RoundedRectangle(cornerRadius: 10)
+      .fill(Color.blue)
+      .frame(width: 100, height: 100)
+      .overlay(
+        Text("\(item.title)")
+          .foregroundColor(.white)
+      )
+      .padding(5)
   }
 }
