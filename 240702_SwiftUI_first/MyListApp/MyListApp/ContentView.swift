@@ -12,9 +12,11 @@ struct ContentView: View {
   
   var body: some View {
     NavigationView {
-      VStack {
-        ProductItemsView(productItem: $viewModel.productItems[0])
-        ProductItemsView(productItem: $viewModel.productItems[1])
+      ScrollView(.vertical, showsIndicators: false) {
+        VStack {
+          ProductItemsView(productItem: $viewModel.productItems[0])
+          ProductItemsView(productItem: $viewModel.productItems[1])
+        }
       }
       .listStyle(PlainListStyle()) // Remove default styling
       .navigationTitle("To-Do List")
