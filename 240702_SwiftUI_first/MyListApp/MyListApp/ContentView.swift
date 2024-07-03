@@ -13,10 +13,8 @@ struct ContentView: View {
   var body: some View {
     NavigationView {
       VStack {
-        
         ProductItemsView(viewModel: viewModel, itemIndex: 0)
         ProductItemsView(viewModel: viewModel, itemIndex: 1)
-
       }
       .listStyle(PlainListStyle()) // Remove default styling
       .navigationTitle("To-Do List")
