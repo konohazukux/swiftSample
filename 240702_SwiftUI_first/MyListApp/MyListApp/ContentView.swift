@@ -14,8 +14,8 @@ struct ContentView: View {
     NavigationView {
       VStack {
         
-        ProductItemsView()
-        ProductItemsView()
+        ProductItemsView(viewModel: viewModel, itemIndex: 0)
+        ProductItemsView(viewModel: viewModel, itemIndex: 1)
 
       }
       .listStyle(PlainListStyle()) // Remove default styling
@@ -30,14 +30,19 @@ struct ContentView: View {
 }
 
 struct ProductItemsView: View {
+  @ObservedObject var viewModel: ProductItemViewModel
+  var itemIndex: Int
+  
   var body: some View {
     VStack {
       HStack {
-        Text("タイトル") // ここをviweModelから渡したい
+        Text(viewModel.productItems[itemIndex].title)
         Spacer()
-        Image(systemName: "checkmark.circle.fill")
-          .foregroundColor(.green)
-          .onTapGesture { }
+        Image(systemName: viewModel.productItems[itemIndex].isCompleted ? "checkmark.circle.fill" : "circle")
+          .foregroundColor(viewModel.productItems[itemIndex].isCompleted ? .green : .gray)
+          .onTapGesture {
+            viewModel.toggleCompletion(of: viewModel.productItems[itemIndex])
+          }
       }
       ScrollView(.horizontal, showsIndicators: false) {
         HStack {
