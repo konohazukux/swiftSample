@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ToDoItem: Identifiable {
+struct ProductItem: Identifiable {
   let id = UUID()
   let title: String
   var isCompleted: Bool
