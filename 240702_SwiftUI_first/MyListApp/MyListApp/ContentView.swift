@@ -13,8 +13,8 @@ struct ContentView: View {
   var body: some View {
     NavigationView {
       VStack {
-        ProductItemsView(viewModel: viewModel, itemIndex: 0)
-        ProductItemsView(viewModel: viewModel, itemIndex: 1)
+        ProductItemsView(productItem: $viewModel.productItems[0])
+        ProductItemsView(productItem: $viewModel.productItems[1])
       }
       .listStyle(PlainListStyle()) // Remove default styling
       .navigationTitle("To-Do List")
@@ -28,19 +28,16 @@ struct ContentView: View {
 }
 
 struct ProductItemsView: View {
-  @ObservedObject var viewModel: ProductItemViewModel
-  var itemIndex: Int
+  @Binding var productItem: ProductItem
   
   var body: some View {
     VStack {
       HStack {
-        Text(viewModel.productItems[itemIndex].title)
+        Text(productItem.title)
         Spacer()
-        Image(systemName: viewModel.productItems[itemIndex].isCompleted ? "checkmark.circle.fill" : "circle")
-          .foregroundColor(viewModel.productItems[itemIndex].isCompleted ? .green : .gray)
-          .onTapGesture {
-            viewModel.toggleCompletion(of: viewModel.productItems[itemIndex])
-          }
+        Image(systemName: productItem.isCompleted ? "checkmark.circle.fill" : "circle")
+          .foregroundColor(productItem.isCompleted ? .green : .gray)
+          .onTapGesture { }
       }
       ScrollView(.horizontal, showsIndicators: false) {
         HStack {
