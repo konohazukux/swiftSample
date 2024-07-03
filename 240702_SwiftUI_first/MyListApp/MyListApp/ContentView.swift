@@ -14,8 +14,9 @@ struct ContentView: View {
     NavigationView {
       ScrollView(.vertical, showsIndicators: false) {
         VStack {
-          ProductItemsView(productItem: $viewModel.productItems[0])
-          ProductItemsView(productItem: $viewModel.productItems[1])
+          ForEach($viewModel.productItems) {
+            ProductItemsView(productItem: $0)
+          }
         }
       }
       .listStyle(PlainListStyle()) // Remove default styling
