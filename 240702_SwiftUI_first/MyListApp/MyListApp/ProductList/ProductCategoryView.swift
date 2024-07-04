@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductCategoryView: View {
   @Binding var productCategory: ProductCategory
+  @State private var selectedValue: String = "--" // Stateプロパティを追加
   
   var body: some View {
     VStack {
@@ -22,12 +23,13 @@ struct ProductCategoryView: View {
       ScrollView(.horizontal, showsIndicators: false) {
         HStack {
           ForEach(productCategory.items) { item in
-            NavigationLink(destination: ProductDetailView(title: item.title)) {
+            NavigationLink(destination: ProductDetailView(title: item.title, value1: $selectedValue)) {
               ProductItemView(item: item)
             }
           }
         }
       }
+      Text("Selected Value: \(selectedValue)") // 選択された値を表示
     }
     .padding(.horizontal, 10)
   }

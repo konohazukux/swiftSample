@@ -11,7 +11,7 @@ struct ProductDetailView: View {
   
   let title: String
  
-  @State private var value1: String = "--"
+  @Binding var value1: String
   
   var body: some View {
     VStack {
@@ -39,5 +39,5 @@ struct ProductDetailView: View {
 }
 
 #Preview {
-  ProductDetailView(title: "タイトル")
+  ProductDetailView(title: "タイトル", value1: .constant("--"))
 }
