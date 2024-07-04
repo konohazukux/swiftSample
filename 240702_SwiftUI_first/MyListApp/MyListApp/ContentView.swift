@@ -14,6 +14,11 @@ struct ContentView: View {
     NavigationView {
       ScrollView(.vertical, showsIndicators: false) {
         VStack {
+          Button(action: {
+            viewModel.loadData()
+          }, label: {
+            Text("reload")
+          })
           ForEach($viewModel.productCategories) {
             ProductCategoryView(productCategory: $0)
           }
