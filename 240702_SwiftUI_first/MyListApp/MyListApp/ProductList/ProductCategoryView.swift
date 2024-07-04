@@ -22,7 +22,9 @@ struct ProductCategoryView: View {
       ScrollView(.horizontal, showsIndicators: false) {
         HStack {
           ForEach(productCategory.items) { item in
-            ProductItemView(item: item)
+            NavigationLink(destination: ProductDetailView(title: item.title)) {
+              ProductItemView(item: item)
+            }
           }
         }
       }
