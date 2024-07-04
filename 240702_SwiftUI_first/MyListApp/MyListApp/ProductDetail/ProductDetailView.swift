@@ -11,7 +11,8 @@ struct ProductDetailView: View {
   
   let title: String
  
-  @Binding var value1: String
+  @Binding var value1: String // 1. Binding
+  var onValueChange: (String) -> Void
   
   var body: some View {
     VStack {
@@ -22,12 +23,14 @@ struct ProductDetailView: View {
       HStack {
         Button(action: {
           self.value1 = "OK"
+          self.onValueChange("OK2")
         }, label: {
           Text("OK")
         })
         .padding(.horizontal, 20)
         Button(action: {
           self.value1 = "NG"
+          self.onValueChange("NG2")
         }, label: {
           Text("NG")
         })
@@ -39,5 +42,5 @@ struct ProductDetailView: View {
 }
 
 #Preview {
-  ProductDetailView(title: "タイトル", value1: .constant("--"))
+  ProductDetailView(title: "タイトル", value1: .constant("--"), onValueChange: { _ in })
 }
