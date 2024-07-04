@@ -11,7 +11,7 @@ class ProductViewModel: ObservableObject {
   @Published var productCategories: [ProductCategory] = []
   
   func loadData() {
-    var _productCategories = [
+    let _productCategories = [
       ProductCategory(title: "いいねの多い人気アイテム", isCompleted: false, items: [ProductItem(title: "a1"), ProductItem(title: "a2")]),
       ProductCategory(title: "10,000円以下の注目アウター", isCompleted: true, items: []),
       ProductCategory(title: "Read a book", isCompleted: false, items: [])
