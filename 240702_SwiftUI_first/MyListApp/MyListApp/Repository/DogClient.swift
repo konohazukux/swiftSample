@@ -10,7 +10,7 @@ import Foundation
 struct DogClient {
   
   static func fetchRandomShibaImage() async throws -> URL {
-    let urlString = "https://dog.ceo/api/breed/Shiba/images/random"
+    let urlString = "https://dog.ceo/api/breed/shiba/images/random"
     guard let url = URL(string: urlString) else {
       throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
     }
