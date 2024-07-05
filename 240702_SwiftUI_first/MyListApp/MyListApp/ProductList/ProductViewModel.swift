@@ -20,11 +20,12 @@ class ProductViewModel: ObservableObject {
       ProductCategory(title: "Read a book", isCompleted: false, items: [])
     ]
     productCategories = _productCategories
-    
+   
     
     Task {
       do {
-        let imageUrl = try await DogClient.fetchRandomShibaImage()
+        let repository = DogRepository()
+        let imageUrl = try await repository.getURL()
         print("Shiba image URL: \(imageUrl)")
       } catch {
         print("Error fetching Shiba image: \(error)")

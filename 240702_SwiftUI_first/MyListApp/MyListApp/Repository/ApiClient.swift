@@ -7,10 +7,9 @@
 
 import Foundation
 
-struct DogClient {
+struct ApiClient {
   
-  static func fetchRandomShibaImage() async throws -> URL {
-    let urlString = "https://dog.ceo/api/breed/shiba/images/random"
+  static func fetchRandomShibaImage(urlString: String) async throws -> URL {
     guard let url = URL(string: urlString) else {
       throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
     }
@@ -26,4 +25,16 @@ struct DogClient {
     return imageUrl
   }
   
+}
+
+enum URLPath {
+  case dog(bread: String)
+  case cat
+  
+  var path: String {
+    switch self {
+    case .dog(let bread): return "https://dog.ceo/api/breed/\(bread)/images/random"
+    case .cat: return ""
+    }
+  }
 }
