@@ -9,14 +9,14 @@ import SwiftUI
 
 struct ProductDetailView: View {
   
-  let title: String
+  let item: ProductItem
  
   @Binding var value1: String // 1. Binding
   var onValueChange: (String) -> Void
   
   var body: some View {
     VStack {
-      Text("Hello, \(title)")
+      Text("Hello, \(item.title)")
         .padding(.bottom, 20)
       Text("\(value1)")
         .padding(.bottom, 20)
@@ -42,5 +42,9 @@ struct ProductDetailView: View {
 }
 
 #Preview {
-  ProductDetailView(title: "タイトル", value1: .constant("--"), onValueChange: { _ in })
+  ProductDetailView(
+    item: ProductItem(title: "タイトル"),
+    value1: .constant("--"),
+    onValueChange: { _ in }
+  )
 }

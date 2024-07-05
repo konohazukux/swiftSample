@@ -26,7 +26,7 @@ struct ProductCategoryView: View {
           ForEach(productCategory.items) { item in
             NavigationLink(
               destination: ProductDetailView(
-                title: item.title,
+                item: item,
                 value1: $selectedValue,
                 onValueChange: { newValue in
                   self.selectedValue2 = newValue
