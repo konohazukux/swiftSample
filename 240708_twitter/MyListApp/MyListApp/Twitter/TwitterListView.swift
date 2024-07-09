@@ -10,7 +10,13 @@ import SwiftUI
 
 struct TwitterListView: View {
   var body: some View {
-    Text("Hello, world!")
+    List {
+      TwitterCellContainerView()
+        .listRowInsets(EdgeInsets())
+      TwitterCellContainerView()
+        .listRowInsets(EdgeInsets())
+    }
+    .listStyle(.plain)
   }
 }
 

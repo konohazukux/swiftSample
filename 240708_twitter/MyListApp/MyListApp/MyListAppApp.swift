@@ -19,6 +19,10 @@ struct MyListAppApp: App {
 struct MainView: View {
   var body: some View {
     TabView {
+      TwitterListView()
+        .tabItem {
+         Label("X", systemImage: "x.square")
+        }
       SettingsView()
         .tabItem {
           Label("Settings", systemImage: "gear")
