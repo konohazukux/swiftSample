@@ -65,17 +65,19 @@ struct TwitterCellContainerView: View {
 
 extension TwitterCellContainerView {
   @ViewBuilder
-  private var ellipsisView1: some View {
-    Image(systemName: "ellipsis")
-      .foregroundStyle(.gray)
-      .padding(.trailing, 10)
-  }
   private var ellipsisView: some View {
-    Menu("Actions") {
-      Button("Duplicate", action: {})
+    Menu {
+      Button(action: {}){
+        Label("リストへ追加または削除", systemImage: "list.bullet")
+      }
+      Button(action: {}) {
+        Label("ポストを報告", systemImage: "flag")
+      }
+    } label: {
+      Image(systemName: "ellipsis")
+        .foregroundStyle(.gray)
+        .padding(.trailing, 10)
     }
-
-    
   }
 }
 
@@ -105,7 +107,6 @@ struct IconImage: View {
     }
   }
 }
-
 
 #Preview {
   TwitterCellContainerView()
