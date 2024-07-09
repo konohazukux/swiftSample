@@ -22,7 +22,7 @@ struct TwitterListView: View {
     .background(Color.black)
     .sheet(isPresented: $showModal) { // showModalがtrueの場合にモーダルを表示
       HalfModalView()
-        .presentationDetents([.height(150)])
+        .presentationDetents([.height(200)])
         .padding(10)
     }
   }
@@ -32,12 +32,11 @@ struct TwitterListView: View {
 struct HalfModalView: View {
   var body: some View {
     VStack {
-      extractedView(title: "リポスト")
-      extractedView(title: "引用")
-      Button("キャンセル") {
-        // キャンセルボタンのアクション
-      }
-      .foregroundColor(.red)
+      Spacer(minLength: 10)
+      selectedView(title: "リポスト")
+      selectedView(title: "引用")
+      Spacer(minLength: 20)
+      cancelButton
     }
     .background(Color(UIColor.systemBackground))
     .frame(maxWidth: .infinity)
@@ -45,7 +44,7 @@ struct HalfModalView: View {
   }
 
   @ViewBuilder
-  func extractedView(title: String) -> some View {
+  func selectedView(title: String) -> some View {
     Button(action: {}) {
       HStack{
         Label {
@@ -62,6 +61,21 @@ struct HalfModalView: View {
       .padding(.vertical, 10)
     }
     .frame(maxWidth: .infinity)
+  }
+  var cancelButton: some View {
+    Button("キャンセル") {
+      // キャンセルボタンのアクション
+    }
+    .frame(maxWidth: .infinity)
+    .padding()
+    .foregroundColor(.black)
+    .background(Color(UIColor.systemBackground))
+    .cornerRadius(25) // 角を丸くする
+    .overlay(
+      RoundedRectangle(cornerRadius: 25)
+        .stroke(Color.gray, lineWidth: 1) // 枠線を追加
+    )
+    .padding(.horizontal, 20) // 左右に余白を追加
   }
   
 }
