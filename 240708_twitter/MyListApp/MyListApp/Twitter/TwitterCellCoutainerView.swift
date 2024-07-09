@@ -34,9 +34,7 @@ struct TwitterCellContainerView: View {
               .foregroundStyle(.gray)
               .tracking(-0.5)
             Spacer()
-            Image(systemName: "ellipsis")
-              .foregroundStyle(.gray)
-              .padding(.trailing, 10)
+            ellipsisView
           }
           Text("Xcode 16だとこのワークアラウンドすらも通用しない。SwiftUI.Viewを使うモジュールはFirestoreに依存させないようにし、View用のモジュールをスキーマとしたら可能。言い換えるとPreviewでFirestoreをビルドしてしまうだけで失敗する。LLVMError(description:")
             .bold()
@@ -65,13 +63,29 @@ struct TwitterCellContainerView: View {
   }
 }
 
+extension TwitterCellContainerView {
+  @ViewBuilder
+  private var ellipsisView1: some View {
+    Image(systemName: "ellipsis")
+      .foregroundStyle(.gray)
+      .padding(.trailing, 10)
+  }
+  private var ellipsisView: some View {
+    Menu("Actions") {
+      Button("Duplicate", action: {})
+    }
+
+    
+  }
+}
+
 struct IconImage: View {
   let systemName: String
   let number: String?
   
   init(systemName: String, number: String? = nil) {
-      self.systemName = systemName
-      self.number = number
+    self.systemName = systemName
+    self.number = number
   }
   
   var body: some View {
