@@ -8,8 +8,13 @@
 import Foundation
 import SwiftUI
 
+class ModalState: ObservableObject {
+  @Published var showModal: Bool = false
+}
+
 struct TwitterListView: View {
-  @State private var showModal = true // ハーフモーダル表示の状態を管理
+//  @State private var showModal = true  ハーフモーダル表示の状態を管理
+  @EnvironmentObject var modalState: ModalState
 
   var body: some View {
     List {
@@ -20,7 +25,7 @@ struct TwitterListView: View {
     }
     .listStyle(.plain)
     .background(Color.black)
-    .sheet(isPresented: $showModal) { // showModalがtrueの場合にモーダルを表示
+    .sheet(isPresented: $modalState.showModal) { // showModalがtrueの場合にモーダルを表示
       HalfModalView()
         .presentationDetents([.height(200)])
         .padding(10)
@@ -30,6 +35,8 @@ struct TwitterListView: View {
 
 // ハーフモーダルとして表示するビュー
 struct HalfModalView: View {
+  @EnvironmentObject var modalState: ModalState
+  
   var body: some View {
     VStack {
       Spacer(minLength: 10)
@@ -45,7 +52,9 @@ struct HalfModalView: View {
 
   @ViewBuilder
   func selectedView(title: String) -> some View {
-    Button(action: {}) {
+    Button(action: {
+      modalState.showModal = false
+    }) {
       HStack{
         Label {
           Text(title)
@@ -64,7 +73,7 @@ struct HalfModalView: View {
   }
   var cancelButton: some View {
     Button("キャンセル") {
-      // キャンセルボタンのアクション
+      modalState.showModal = false
     }
     .frame(maxWidth: .infinity)
     .padding()

@@ -20,6 +20,7 @@ struct MainView: View {
   var body: some View {
     TabView {
       TwitterListView()
+        .environmentObject(ModalState())
         .tabItem {
          Label("X", systemImage: "x.square")
         }
