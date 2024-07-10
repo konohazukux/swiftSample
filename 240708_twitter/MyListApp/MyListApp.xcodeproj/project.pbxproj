@@ -24,6 +24,7 @@
 		82591A602C3795A600039B75 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82591A5F2C3795A600039B75 /* ApiClient.swift */; };
 		82591A672C37DB8600039B75 /* DogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82591A662C37DB8600039B75 /* DogRepository.swift */; };
 		829AE0422C3E5B8B00C454CD /* TwitterModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829AE0412C3E5B8B00C454CD /* TwitterModalView.swift */; };
+		829AE04A2C3EAD3C00C454CD /* TwitterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829AE0492C3EAD3C00C454CD /* TwitterData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		82591A652C37D7AC00039B75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		82591A662C37DB8600039B75 /* DogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogRepository.swift; sourceTree = "<group>"; };
 		829AE0412C3E5B8B00C454CD /* TwitterModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterModalView.swift; sourceTree = "<group>"; };
+		829AE0492C3EAD3C00C454CD /* TwitterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				8205C2542C3B7F340085EA9B /* TwitterListView.swift */,
 				8205C2562C3B7FEA0085EA9B /* TwitterCellCoutainerView.swift */,
 				829AE0412C3E5B8B00C454CD /* TwitterModalView.swift */,
+				829AE0492C3EAD3C00C454CD /* TwitterData.swift */,
 			);
 			path = Twitter;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				8205C2572C3B7FEA0085EA9B /* TwitterCellCoutainerView.swift in Sources */,
 				8205C2552C3B7F340085EA9B /* TwitterListView.swift in Sources */,
 				822189012C33C7DE00C325FA /* ProductCategory.swift in Sources */,
+				829AE04A2C3EAD3C00C454CD /* TwitterData.swift in Sources */,
 				82591A672C37DB8600039B75 /* DogRepository.swift in Sources */,
 				82591A5B2C3662CA00039B75 /* ProductDetailView.swift in Sources */,
 			);

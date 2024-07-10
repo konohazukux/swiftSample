@@ -11,13 +11,14 @@ import SwiftUI
 struct TwitterCellContainerView: View {
   @EnvironmentObject var modalState: ModalState
   @Binding var showModal: Bool
+  var twitterData: TwitterModel
   
   var body: some View {
     VStack {
       Spacer(minLength: 10)
       HStack {
         VStack {
-          Image("icon1")
+          Image(twitterData.iconName)
             .resizable()
             .frame(width: 44, height: 44)
             .aspectRatio(contentMode: .fit)
@@ -27,29 +28,32 @@ struct TwitterCellContainerView: View {
         }
         VStack(alignment: .leading) {
           HStack {
-            Text("y.imajo")
+            Text(twitterData.username)
               .foregroundStyle(.white)
               .bold()
             Image("badge1")
               .resizable()
               .frame(width: 20, height: 20)
-            Text("yimajo・13時間")
+            Text("\(twitterData.userHandle)・\(twitterData.timePosted)")
+              .font(.system(size: 12))
               .foregroundStyle(.gray)
               .tracking(-0.5)
             Spacer()
             ellipsisView
           }
-          Text("Xcode 16だとこのワークアラウンドすらも通用しない。SwiftUI.Viewを使うモジュールはFirestoreに依存させないようにし、View用のモジュールをスキーマとしたら可能。言い換えるとPreviewでFirestoreをビルドしてしまうだけで失敗する。LLVMError(description:")
+          Text(twitterData.message)
             .bold()
             .foregroundStyle(.white)
             .font(.system(size: 14))
             .padding(.trailing, 10)
-          Image("Image1")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
-            .padding(.trailing, 10)
-            .padding(.bottom, 10)
+          if let imageName = twitterData.imageName {
+            Image(imageName)
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .clipShape(RoundedRectangle(cornerRadius: 8))
+              .padding(.trailing, 10)
+              .padding(.bottom, 10)
+          }
           HStack {
             IconImage(systemName: "checkmark.message")
               .onTapGesture {
@@ -59,8 +63,8 @@ struct TwitterCellContainerView: View {
               .onTapGesture {
                 modalState.showRepost = true
               }
-            IconImage(systemName: "heart", number: "28")
-            IconImage(systemName: "bookmark", number: "271万")
+            IconImage(systemName: "heart", number: twitterData.likeCount)
+            IconImage(systemName: "bookmark", number: twitterData.bookmarkCount)
             IconImage(systemName: "bookmark")
           }
         }
@@ -118,7 +122,10 @@ struct IconImage: View {
 }
 
 #Preview {
-  TwitterCellContainerView(showModal: .constant(false))
+  TwitterCellContainerView(
+    showModal: .constant(false),
+    twitterData: TwitterModel()
+  )
     .environmentObject(ModalState())
 }
 

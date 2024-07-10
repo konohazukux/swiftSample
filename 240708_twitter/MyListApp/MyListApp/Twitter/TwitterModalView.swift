@@ -11,6 +11,7 @@ import SwiftUI
 struct TwitterModalView: View {
   @EnvironmentObject var modalState: ModalState
   @Binding var showModal: Bool
+  var twitterData: TwitterModel
   
   var body: some View {
     VStack {
@@ -29,7 +30,7 @@ struct TwitterModalView: View {
         })
         .padding()
       }
-      TwitterCellContainerView(showModal: $showModal)
+      TwitterCellContainerView(showModal: $showModal, twitterData: twitterData)
       Spacer()
         .frame(maxHeight: .infinity)
     }
@@ -38,7 +39,7 @@ struct TwitterModalView: View {
 }
 
 #Preview {
-  TwitterModalView(showModal: .constant(false))
+  TwitterModalView(showModal: .constant(false), twitterData: TwitterModel())
 }
 
 
