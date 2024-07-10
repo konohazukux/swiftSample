@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TwitterCellContainerView: View {
   @EnvironmentObject var modalState: ModalState
+  @Binding var showModal: Bool
   
   var body: some View {
     VStack {
@@ -52,7 +53,7 @@ struct TwitterCellContainerView: View {
           HStack {
             IconImage(systemName: "checkmark.message")
               .onTapGesture {
-                modalState.showModal = true
+                showModal = true
               }
             IconImage(systemName: "arrow.2.squarepath", number: "2")
               .onTapGesture {
@@ -117,7 +118,7 @@ struct IconImage: View {
 }
 
 #Preview {
-  TwitterCellContainerView()
+  TwitterCellContainerView(showModal: .constant(false))
     .environmentObject(ModalState())
 }
 

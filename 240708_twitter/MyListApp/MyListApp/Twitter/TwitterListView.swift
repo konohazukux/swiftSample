@@ -15,12 +15,13 @@ class ModalState: ObservableObject {
 
 struct TwitterListView: View {
   @EnvironmentObject var modalState: ModalState
+  @State private var showModal = false
 
   var body: some View {
     List {
-      TwitterCellContainerView()
+      TwitterCellContainerView(showModal: $showModal)
         .listRowInsets(EdgeInsets())
-      TwitterCellContainerView()
+      TwitterCellContainerView(showModal: $showModal)
         .listRowInsets(EdgeInsets())
     }
     .listStyle(.plain)
@@ -30,8 +31,8 @@ struct TwitterListView: View {
         .presentationDetents([.height(200)])
         .padding(10)
     }
-    .fullScreenCover(isPresented: $modalState.showModal) {
-      TwitterModalView()
+    .fullScreenCover(isPresented: $showModal) {
+      TwitterModalView(showModal: $showModal)
     }
   }
 }

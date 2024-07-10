@@ -10,24 +10,26 @@ import SwiftUI
 
 struct TwitterModalView: View {
   @EnvironmentObject var modalState: ModalState
+  @Binding var showModal: Bool
+  
   var body: some View {
     VStack {
       HStack {
         Button(action: {
-          modalState.showModal = false
+          showModal = false
         }, label: {
           Text("キャンセル")
         })
         .padding()
         Spacer()
         Button(action: {
-          modalState.showModal = false
+          showModal = false
         }, label: {
           Text("ポスト")
         })
         .padding()
       }
-      TwitterCellContainerView()
+      TwitterCellContainerView(showModal: $showModal)
       Spacer()
         .frame(maxHeight: .infinity)
     }
@@ -36,7 +38,7 @@ struct TwitterModalView: View {
 }
 
 #Preview {
-  TwitterModalView()
+  TwitterModalView(showModal: .constant(false))
 }
 
 
