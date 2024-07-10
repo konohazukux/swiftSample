@@ -9,11 +9,11 @@ import Foundation
 import SwiftUI
 
 class ModalState: ObservableObject {
+  @Published var showRepost: Bool = false
   @Published var showModal: Bool = false
 }
 
 struct TwitterListView: View {
-//  @State private var showModal = true  ハーフモーダル表示の状態を管理
   @EnvironmentObject var modalState: ModalState
 
   var body: some View {
@@ -25,10 +25,13 @@ struct TwitterListView: View {
     }
     .listStyle(.plain)
     .background(Color.black)
-    .sheet(isPresented: $modalState.showModal) { // showModalがtrueの場合にモーダルを表示
+    .sheet(isPresented: $modalState.showRepost) {
       HalfModalView()
         .presentationDetents([.height(200)])
         .padding(10)
+    }
+    .fullScreenCover(isPresented: $modalState.showModal) {
+      TwitterModalView()
     }
   }
 }
@@ -53,7 +56,7 @@ struct HalfModalView: View {
   @ViewBuilder
   func selectedView(title: String) -> some View {
     Button(action: {
-      modalState.showModal = false
+      modalState.showRepost = false
     }) {
       HStack{
         Label {
@@ -73,7 +76,7 @@ struct HalfModalView: View {
   }
   var cancelButton: some View {
     Button("キャンセル") {
-      modalState.showModal = false
+      modalState.showRepost = false
     }
     .frame(maxWidth: .infinity)
     .padding()

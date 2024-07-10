@@ -51,9 +51,12 @@ struct TwitterCellContainerView: View {
             .padding(.bottom, 10)
           HStack {
             IconImage(systemName: "checkmark.message")
-            IconImage(systemName: "arrow.2.squarepath", number: "2")
               .onTapGesture {
                 modalState.showModal = true
+              }
+            IconImage(systemName: "arrow.2.squarepath", number: "2")
+              .onTapGesture {
+                modalState.showRepost = true
               }
             IconImage(systemName: "heart", number: "28")
             IconImage(systemName: "bookmark", number: "271万")
